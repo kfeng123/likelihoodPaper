@@ -1,0 +1,56 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: model4-names.bst
+Illegal, another \bibstyle command---line 19 of file main.aux
+ : \bibstyle
+ :          {elsarticle-num}
+I'm skipping whatever remains of this command
+Database file #1: mybibfile.bib
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+`journal' is a missing field, not a string, for entry gelfand1993bayesian
+while executing---line 1676 of file model4-names.bst
+Warning--empty journal in gelfand1993bayesian
+You've used 8 entries,
+            3271 wiz_defined-function locations,
+            740 strings with 6554 characters,
+and the built_in function-call counts, 5641 in all, are:
+= -- 465
+> -- 96
+< -- 8
++ -- 40
+- -- 30
+* -- 547
+:= -- 780
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 48
+chr.to.int$ -- 8
+cite$ -- 9
+duplicate$ -- 516
+empty$ -- 532
+format.name$ -- 46
+if$ -- 1115
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 68
+newline$ -- 56
+num.names$ -- 32
+pop$ -- 148
+preamble$ -- 1
+purify$ -- 42
+quote$ -- 0
+skip$ -- 125
+stack$ -- 0
+substring$ -- 467
+swap$ -- 207
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 63
+warning$ -- 1
+while$ -- 33
+width$ -- 0
+write$ -- 123
+(There were 2 error messages)
