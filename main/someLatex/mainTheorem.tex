@@ -139,23 +139,27 @@ Now, to obtain $\eqref{eq:13}\xrightarrow{P_0^n}0$, we only need to prove
 \end{equation}
 By Lemma~\ref{lemmaContiguity}, we only need to prove $\eqref{eq:5}\xrightarrow{P_U^n}0$. To prove that, we only need to prove $\eqref{eq:5}\xrightarrow{L^1_{P_U^n}}0$, that is 
 \begin{equation}\label{eq:6}
-    \int \frac{\int_{C_n^C}p_h^n(x)T(h)\, dh}{\int_U p_h^n(x)\, dh}(1-\phi_n)\int_U p_h^n(x)dh \, d\mu  \to 0
+    \int \frac{\int_{C_n^C}p_h^n(x)(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}})\, dh}{\int_U p_h^n(x)\, dh}(1-\phi_n)\big(\int_U p_h^n(x)dh\big) \, d\mu  \to 0
 \end{equation}
 We note that
 \begin{equation}\label{eq:7}
-    \eqref{eq:6}=\int_{C_n^C} \Big(\int (1-\phi_n)p_h^n(x)d\mu\Big) T(h)\, dh 
+    \eqref{eq:6}=\int_{C_n^C} \Big(\int (1-\phi_n)p_h^n(x)d\mu\Big) (A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}})\, dh 
 \end{equation}
 By Lemma \ref{lemmaTest}, there automatically exist tests $\phi_n$  such that for sufficiently large $n$ and $\|h\|\geq M_n$,
 \begin{equation}
 \int (1-\phi_n)p^n_h(x)d\mu\leq e^{-c(\|h\|^2\wedge n)}
 \end{equation}
-%所以存在一个$c^*$，使得
-%\begin{equation}
-%\int (1-\phi_n)p^n_h(x)d\mu\leq e^{-c^*(\|h\|^2\wedge K^2n)}
-%\end{equation}
-Splitting the integral into the domains $M_n\leq \|h\|\leq \sqrt{n}$ and $\|h\|\geq \sqrt{n}$ for $D\leq 1$, we see that
+If $K< 1$, then $\|h\|^2\wedge n\geq \|h\|^2\wedge K^2n$. If $K\geq 1$, then
 \begin{equation}
-\eqref{eq:7}\leq \int_{\|h\|\geq M_n}e^{-c^*\|h\|^2}\, dh +\int  \to 0
+    \|h\|^2\wedge n=\frac{1}{K^2}(K^2\|h\|^2\wedge K^2n)\geq \frac{1}{K^2}(\|h\|^2\wedge K^2n)
+\end{equation}
+Let $c^*=c\min(1,1/K^2)$, then
+\begin{equation}
+\int (1-\phi_n)p^n_h(x)d\mu\leq e^{-c^*(\|h\|^2\wedge K^2n)}
+\end{equation}
+Splitting the integral into the domains $M_n\leq \|h\|\leq K\sqrt{n}$ and $\|h\|\geq K\sqrt{n}$, we see that
+\begin{equation}
+    \eqref{eq:7}\leq \int_{\|h\|\geq M_n}e^{-c^*\|h\|^2}\, dh + e^{-c^*K^2n}\int_{\|h\|>K\sqrt{n}} T(h)\, dh  \to 0
 \end{equation}
 Finally we have
 \begin{equation}
