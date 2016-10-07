@@ -1,7 +1,7 @@
 
 \begin{enumerate}[(i)]
     \item
-        设Bernstein-von Mises定理(见\cite{van2000asymptotic})的条件满足: $\Theta$是$\mathbb{R}^p$的开子集，试验($P_{\theta}:\theta\in\Theta$)在$\theta_0\in \Theta$处均方可微，具有非奇异信息阵$I_{\theta_0}$，假设对任意的$\epsilon>0$，存在一个相合检验序列:
+        \textbf{Assumtpion 1} The assumptions of Bernstein-von Mises Theorem (see \cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. 试验($P_{\theta}:\theta\in\Theta$)在$\theta_0\in \Theta$处均方可微，具有非奇异信息阵$I_{\theta_0}$，假设对任意的$\epsilon>0$，存在一个相合检验序列:
         \begin{equation}
             P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
         \end{equation}
@@ -52,7 +52,7 @@ The proof consists of two steps. In the first part of the proof, let $C$ be the 
     \left|\int_C \frac{p^n_h(X)}{p^n_0(X)}\pi_n (h;X) \, dh-\int_C e^{h^TI_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^TI_{\theta_0}h}dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\, dh\right|
  \xrightarrow{P^n_0}0
 \end{equation}
-By Lemma \ref{lemmaUniform}, for every fixed $M$,
+By Lemma~\ref{lemmaUniform}, for every fixed $M$,
 \begin{equation}
     \sup_{\|h\|\leq M}|\log \frac{p_h^n(X)}{p_0^n(X)}-h^TI_{\theta_0}\Delta_{n,\theta_0}+\frac{1}{2}h^TI_{\theta_0}h|\xrightarrow{P_0^n}0 
 \end{equation}
@@ -145,7 +145,7 @@ We note that
 \begin{equation}\label{eq:7}
     \eqref{eq:6}=\int_{C_n^C} \Big(\int (1-\phi_n)p_h^n(x)d\mu\Big) (A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}})\, dh 
 \end{equation}
-By Lemma \ref{lemmaTest}, there automatically exist tests $\phi_n$  such that for sufficiently large $n$ and $\|h\|\geq M_n$,
+By Lemma~\ref{lemmaTest}, there automatically exist tests $\phi_n$  such that for sufficiently large $n$ and $\|h\|\geq M_n$,
 \begin{equation}
 \int (1-\phi_n)p^n_h(x)d\mu\leq e^{-c(\|h\|^2\wedge n)}
 \end{equation}
@@ -173,7 +173,7 @@ Finally we have
         &=J_1+J_2+J_3
 \end{aligned}
 \end{equation}
-由证明的第一步，我们有$J_2\xrightarrow{P^n_0}0$, 所以我们知道$\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh $ 依概率有界。所以
+By the first step of the proof, we have $J_2\xrightarrow{P^n_0}0$. Hence $\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh $ is bounded in probability. Therefore
 \begin{equation}
 \begin{aligned}
     J_1&=\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh\left|\frac{\int \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh}{\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh}-1\right|\\

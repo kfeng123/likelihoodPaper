@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  7 OCT 2016 11:07
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.5.17)  7 OCT 2016 22:58
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1289,41 +1289,38 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 ] [2] [3] [4] [5] [6]
 File: ./figure/myQQPlot.pdf Graphic file (type QTm)
  <use  "./figure/myQQPlot.pdf" > [7] [8]
-File: ./figure/myPowerFigure.pdf Graphic file (type QTm)
-
-<use  "./figure/myPowerFigure.pdf" > [9] [10] (./someLatex/mainTheorem.tex
-[11] [12]
+(./someLatex/mainTheorem.tex [9]
 Underfull \hbox (badness 10000) in paragraph at lines 70--72
 
  []
 
-[13] [14]
+[10] [11]
 Overfull \hbox (4.94925pt too wide) detected at line 143
 [] []\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n
 /10 )[] [][] \OML/cmm/m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/
 n/10 )\OML/cmm/m/it/10 dh[] d^^V \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0
  []
 
-[15]) [16] (./main.bbl [17])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 524.
- [18]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 524.
+[12]) [13] (./main.bbl [14])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 464.
+ [15]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 464.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 524.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 524.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 464.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 464.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 524.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 464.
  ) 
 Here is how much of TeX's memory you used:
- 25096 strings out of 493638
- 461792 string characters out of 6146796
- 480189 words of memory out of 5000000
- 28275 multiletter control sequences out of 15000+600000
+ 25064 strings out of 493638
+ 460052 string characters out of 6146796
+ 480095 words of memory out of 5000000
+ 28244 multiletter control sequences out of 15000+600000
  11610 words of font info for 71 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 45i,17n,78p,10433b,572s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 45i,17n,78p,10433b,512s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (18 pages).
+Output written on main.pdf (15 pages).

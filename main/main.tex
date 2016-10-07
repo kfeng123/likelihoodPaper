@@ -104,31 +104,31 @@
 
 参考Bernstein-von Mises定理的证明，见\cite{van2000asymptotic}，本文在很一般的假设下证明积分似然比检验的Wilks现象及局部功效，尤其是我们的定理不要求似然函数有界，这使得我们的方法可以用于一些似然无界在的模型。并举例说明其广泛的适用性。
 
-\section{积分似然比检验}
+\section{Integrated likelihood ratio test}
 
-设$X_1,\cdots,X_n$ i.i.d. 服从$P_{\theta}:\theta\in\Theta$，设$X=(X_1,\cdots,X_n)$为随机样本,设全空间$\Theta$是$\mathbb{R}^{p_2}$的一个开子集,我们设原空间$\Theta_0$是$\Theta$的一个$p_1$维子空间，准确来说，我们定义
+Let $X_1,\cdots,X_n$ be a sample from $P_{\theta}, \theta\in\Theta$. Denote $X=(X_1,\cdots,X_n)$. The parameter space $\Theta$ is an open subset of $\mathbb{R}^{p_2}$. The null space $\Theta_0$ is a $p_1$-dimensional subspace of $\Theta$
 \begin{equation}
-    \Theta_0=\{\theta\in\Theta:\theta_{p_1+1}=\theta_{0,{p_1+1}},\cdots,\theta_{p_2}=\theta_{0,{p_2}}\} 
+    \Theta_0=\{\theta\in\Theta:\theta_{p_1+1}=\theta_{0,{p_1+1}},\cdots,\theta_{p_2}=\theta_{0,{p_2}}\},
 \end{equation}
-也就是说后$p_2-p_1$维$(\theta_{0,{p_1+1}},\cdots,\theta_{0,{p_2}})$固定，是我们想要检验的参数，前$p_1$维是讨厌参数。我们的问题是检验
+where the last $p_2-p_1$ parameters $\theta_{0,{p_1+1}},\cdots,\theta_{0,{p_2}}$ are fixed. We want to test the hypotheses
 \begin{equation}
-H_0:\theta\in \Theta_0\quad vs. \quad H_1:\theta\in \Theta
+H_0:\theta\in \Theta_0\quad vs. \quad H_1:\theta\in \Theta.
 \end{equation}
+The first $p_1$ parameters are nuisanse parameters.
 
-由于在$\Theta_0$中的$\theta$只有前$p_1$个参数变化，$\Theta_0$可以看成是$\mathbb{R}^{p_1}$空间的一个开子集，为了记号方便，我们定义$\Theta^*_0=\{(\theta_1,\cdots,\theta_{p_1})^T:\, (\theta_1,\cdots,\theta_{p_1},\theta_{0,p_1+1},\theta_{0,p_2})\in \Theta_0\}$，故我们可以用$p_1$维向量 $\theta^*\in
-\Theta_0^*$表示$\theta\in\Theta_0$并把$\Theta_0^*$看成原空间。我们下面会根据上下文使用原空间的记号。我们在全空间$\Theta$和原空间$\Theta_0^*$里分别设置可以依赖于数据的权函数$\pi(\theta;X)$和$\pi^*(\theta^*;X)$,则积分似然比统计量定义为：
+$\Theta_0$ can be regarded as a open subset of $\mathbb{R}^{p_1}$. To simplifies notations, we denote  $\Theta^*_0=\{(\theta_1,\cdots,\theta_{p_1})^T:\, (\theta_1,\cdots,\theta_{p_1},\theta_{0,p_1+1},\theta_{0,p_2})\in \Theta_0\}$. And we could use $p_1$-dimensional vector $\theta^*\in
+\Theta_0^*$ to represent $\theta\in\Theta_0$ and regard $\Theta_0^*$ as null space.  Let $\pi(\theta;X)$ and $\pi^*(\theta^*;X)$ be the weight functions in $\Theta$ and $\Theta_0^*$. The integrated likelihood ratio statisitc is defined as
 \begin{equation}\label{likelihoodRatio}
     \Lambda (X)=\frac{\int_{\Theta} p(X|\theta)\pi(\theta;X)\,d\theta}{\int_{\Theta^*_0} p(X|\theta^*)\pi^*(\theta^*;X)\,d\theta^*}
 \end{equation}
 
-说一说在极限试验的意义下的解释。
 
-\section{主要结果}
+\section{Main results}
 
-下面记$\rightsquigarrow$代表弱收敛,
-$dN(\mu,\Sigma)(h)$是一个均值为$\mu$,方差为$\Sigma$的正态密度在$h$处的取值。
+We will denote by $\rightsquigarrow$ the weak convergence. 
+$dN(\mu,\Sigma)(h)$ is the density function of a normal distribution with mean $\mu$ and variance $\Sigma$.
 
-设$\theta_0\in\Theta_0$是原假设中一个固定的参数，我们研究积分似然比统计量在$\theta_0$处(及其附近)的渐进性质。
+Assume $\theta_0\in\Theta_0$ is a fixed parameter in null space. We study the asymptotic behavior of integrated likelihood ratio statistic around $\theta_0$.
 设试验$P_\theta : \theta\in \Theta$在$\theta_0$处均方可微，即存在随机$\dot{\ell}_{\theta_0}$使得
 \begin{equation}
     \int \big[\sqrt{p_{\theta_0+h}}-\sqrt{p_{\theta_0}}-\frac{1}{2}h^T\dot{\ell}_{\theta_0}\sqrt{p_{\theta_0}}\big]^2\, d\mu=o(\|h\|^2),\quad h\to 0
@@ -138,9 +138,9 @@ $dN(\mu,\Sigma)(h)$是一个均值为$\mu$,方差为$\Sigma$的正态密度在$h
 设$I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$是$\theta_0$处均方可微意义下的信息阵,
 设“局部充分统计量”$\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$。相对应的,在原空间中$\dot{\ell}^*$，$I^*_{\theta_0}$，$\Delta_{n,\theta_0}^*$均可同样定义。我们很容易知道，$\dot{\ell}^*_{\theta_0}$是$\dot{\ell}_{\theta_0}$的前$p_1$维向量，$I^*_{\theta_0}$是$I_{\theta_0}$左上角的$p_1\times p_1$维矩阵,$\Delta_{n,\theta_0}^*=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^*_{\theta_0}(X_i)$
 
-设$h=\sqrt{n}(\theta-\theta_0)$，$h$把参数$\theta$在$\theta_0$附近以$\sqrt{n}$的比例重参数化。易知在原假设下$h=0$，而研究局部被择下，一般会让$h$趋于某个常数。
+Let $h=\sqrt{n}(\theta-\theta_0)$ which reparameterize   $\theta$ around $\theta_0$ by the scale of $\sqrt{n}$.  Obviously, $h=0$ under null. Under local alternatives, $h$ is assumed to converge to a constant.
 
-下面是我们定理需要的正规条件：
+Listed below are the regular conditions we need:
 
 \begin{enumerate}[(i)]
     \item
@@ -258,66 +258,6 @@ N(h,I_{\theta_0}^{-1})$的问题。在这种情形下，我们可以直接计算
 
 
 
-\section{高维正态均值检验}
-在一些问题中，我们可以直接使用积分似然比方法:直接验证条件$(i)$,$(ii)$,$(iii)$，然后直接利用wilks现象来求得积分似然比检验的临界值。但是我们在一般性定理在一些情形下不能适用，比如高维问题($p\to \infty$)。但此时积分似然比仍是一种寻找检验统计量的方法，并且我们发现用积分似然比方法得到的统计量仍然具有很多优点。
-
-设$X_1,\cdots,X_n\in \mathbb{R}^p$ i.i.d. 服从$N(\mu,\Sigma)$，方差未知，$p$随$n\to \infty$而趋于无穷。我们考虑均值检验问题$H_0:\mu=0$ vs $H_1:\mu\in \mathbb{R}^p$
-
-这个问题的似然比统计量是著名的Hotelling $T^2$统计量。但是当$p>n$时，由于样本协方差矩阵不可逆，Hotelling $T^2$统计量不存在。高维情形下的均值检验问题被很多学者研究过了，比如\cite{Bai1996Effect}，他们的提出统计量
-\begin{equation}
-    T_{B}=\frac{n\|\bar{X} \|^2-tr S}{
-        \sqrt{\frac{2(n-1)n}{(n-2)(n+1)}(tr S^2-\frac{(tr S)^2}{n-1})}
-    }
-\end{equation}
-其中$S=\frac{1}{n}(X_i-\bar{X})(X_i-\bar{X})^T$是样本协方差矩阵。他们在一些假设下证明了$T_B$在原假设下渐近服从$N(0,1)$分布。
-我们知道在这个问题上，由于它是多维的检验问题，所以不存在一个检验一致的优于别的检验。
-和经典Hotelling方法最显著的不同是他们去掉了协方差的信息,这使得他们的统计量不能根据数据自适应的分配功效的方向，而是把所有的方向相同的对待，而这对于数据的尺度不一，或者分量间有相关性的情形会产生严重的功效损失。一般来说，似然比统计量可以克服上述问题。但是当$p>n$时，似然比检验不存在，这是很可惜的。我们发现虽然似然比检验不存在，但是积分似然比检验存在。我们取后验密度为积分似然比的权函数。
-
-设$W^{-1}(\Psi,m)$是参数为$\Psi$，自由度为$m$的逆威沙特分布，$w^{-1}(B|\Psi,m)$是对应的密度在$B$处的取值。
-
-在$H_0$下，我们设置先验为$\Sigma\sim W^{-1}(\Sigma|I_{p\times p},m)$，其中$I_{p\times p}$是$p$维单位矩阵。计算之后，我们得到\eqref{likelihoodRatio}式分母为一个常数（不依赖于参数与数据）乘以
-\begin{equation}\label{highDe}
-    \frac{
-        |I_{p\times p}+\sum^n_{i=1} X_i X_i^T|^{\frac{1}{2}(n+m)}
-    }{
-        |I_{p\times p}+2\sum^n_{i=1} X_i X_i^T|^{\frac{1}{2}(2n+m)}
-    }
-\end{equation}
-
-在$H_1$下，我们对$\Sigma$设置相同的先验，对$\mu$设置条件正态分布：
-\begin{equation}
-    \pi(\mu,\Sigma)=dN(0,\Sigma/K)(\mu)\times w^{-1}(\Sigma|I_{p\times p},m)
-\end{equation}
-其中$K$是一常数，则计算得到\eqref{likelihoodRatio}式的分子为一个常数乘以
-\begin{equation}\label{highNu}
-    \frac{
-        |I_{p\times p}+\sum^n_{i=1} (X_i-\bar{X}) (X_i-\bar{X})^T+\frac{nK}{n+K}\bar{X}\bar{X}^T|^{\frac{1}{2}(n+m)}
-    }{
-        |I_{p\times p}+2\sum^n_{i=1} (X_i-\bar{X}) (X_i-\bar{X})^T+\frac{2nK}{2n+K}\bar{X}\bar{X}^T|^{\frac{1}{2}(2n+m)}
-    }
-\end{equation}
-则我们得到积分似然比统计量为$\frac{\eqref{highNu}}{\eqref{highDe}}$，如果去掉统计中所有的$I_{p\times p}$，则它与Hotelling统计量等价。我们发现积分似然比统计量即使当$p>n$时也存在。为了清楚，设$K=0$,并对统计量进行近似：
-\begin{equation}
-    \begin{aligned}
-        \eqref{highDe}&\approx   2^{-\frac{1}{2}(2n+m)}|I_{p\times p}+\sum^n_{i=1} X_i X_i^T|^{-\frac{n}{2}}
-    \\
-    \eqref{highNu}&\approx   2^{-\frac{1}{2}(2n+m)}|I_{p\times p}+\sum^n_{i=1} (X_i-\bar{X}) (X_i-\bar{X})^T|^{-\frac{n}{2}}
-    \end{aligned}
-\end{equation}
-如果这样近似，积分似然比统计量等价于
-\begin{equation}\label{equation:simpleHighDimension}
-    \bar{X}^T(\frac{1}{n}I_{p\times p}+S)^{-1}\bar{X}
-\end{equation}
-其中$S=\frac{1}{n}(X_i-\bar{X})(X_i-\bar{X})^T$是样本协方差矩阵。
-
-由于在高维情形下我们的定理\ref{theoremWilks}失效。所以我们用\cite{Zhao2016A}中提出的randomization procedure决定检验的临界值。
-
-\cite{Bai1996Effect}的统计量中没有对协方差矩阵进行估计，只估计很少的参数使得他们的统计量方差很小，从而功效较好。但是这样做也优缺点:首先，们在Hotelling检验中用单位阵代替了协方差阵的逆的估计，所以他们必须假定真实的协方差阵与单位阵差别不大，否则他们的定理失效。其次，似然比统计量把功效分配在了比较合理的方向，不估计协方差阵就只能自己事先分配一个功效的方向(他们的统计量里，这个方向是$I$)，而这在很多情况下会丧失大量信息，因而是不合理的。
-
-我们考虑如下的情形： $\mu=c(1,0.01,\cdots,0.01)^T$, $c$是一个实数。$\Sigma$是对角阵，$diag(\Sigma)=(0.01,1,1,\cdots,1)$。由于第一个分量方差很小，我们显然应该更在意第一个分量方向，只要第一个分量方向的均值稍微远离$0$一点，我们就应该拒绝，所以理想的功效函数对$c$应该很敏感。下面是在功效函数的模拟结果,$n=40$,
-$p=100$,对于白的检验，我们使用渐近正态性确定临界值，对于积分似然比统计量\eqref{equation:simpleHighDimension},我们用\cite{Zhao2016A}的方法重复抽样了$B=100$次得到检验$P$-值。我们模拟了$1000$次样本来计算模拟功效函数。我们的模拟结果显示积分似然比检验在这个功效方向上表现很好，而白、陈的统计量则表现没那么好。
-
-\includegraphics{myPowerFigure.pdf}
 
 
 
