@@ -1,46 +1,6 @@
 
-\begin{enumerate}[(i)]
-    \item
-        \textbf{Assumtpion 1} The assumptions of Bernstein-von Mises Theorem (see \cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. 试验($P_{\theta}:\theta\in\Theta$)在$\theta_0\in \Theta$处均方可微，具有非奇异信息阵$I_{\theta_0}$，假设对任意的$\epsilon>0$，存在一个相合检验序列:
-        \begin{equation}
-            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
-        \end{equation}
-        设$\pi_n(h;X)$是一个满足Bernstain-von Mises定理结论的权函数：
-        \begin{equation}
-            \|\pi_n(h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\|\overset{P_{\theta_0}^n}{\to}0
-        \end{equation}
-    \item
-        %$\pi_n(h;X)$的支撑在$\|h\|\leq K\sqrt{n}$上,$K$是一个固定常数。
-        
-        
-
-        For every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and a $A>0$ such that 
-
-\begin{equation}
-    \lim_{n\to \infty}P_{\theta_0}^n(\sup_{\|h\|\geq K\sqrt{n}}(\pi_n(h;X)-T(h))\leq 0)\geq 1-\epsilon
-\end{equation}
-
-        \begin{equation}
-            \lim_{n\to \infty} P_{\theta_0}^n(\sup_{\|h\|\leq K\sqrt{n}} \pi_n(h;X)\leq A)\geq 1-\epsilon
-        \end{equation}
 
 
-    \item
-        存在$\theta_0$的某个邻域$V$和某个函数$\dot{\ell}$满足$P_{\theta_0}\dot{\ell}^2<\infty$，对$\forall \theta_1,\theta_2\in V$,有
-        \begin{equation}
-            |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq \dot{\ell}(x)\|\theta_1-\theta_2\|.
-        \end{equation}
-\end{enumerate}
-
-
-\begin{theorem}\label{theoremMain}
-    Under the Assumptions $(i)$, $(ii)$ and $(iii)$. For bounded real numbers $\eta_n$, we have
-    \begin{equation}
-        \Big|\int_{\mathbb{R}^{p}}\frac{p_h(X)}{p_0(X)}\pi_n(h;X)\,dh-
-        2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^TI_{\theta_0}\Delta_{n,\theta_0}}
-        \Big|\xrightarrow{P_{\eta_n}^n}0
-    \end{equation}
-\end{theorem}
 
 
 \begin{proof}

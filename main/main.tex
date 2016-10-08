@@ -128,34 +128,49 @@ $\Theta_0$ can be regarded as a open subset of $\mathbb{R}^{p_1}$. To simplifies
 We will denote by $\rightsquigarrow$ the weak convergence. 
 $dN(\mu,\Sigma)(h)$ is the density function of a normal distribution with mean $\mu$ and variance $\Sigma$.
 
-Assume $\theta_0\in\Theta_0$ is a fixed parameter in null space. We study the asymptotic behavior of integrated likelihood ratio statistic around $\theta_0$.
-设试验$P_\theta : \theta\in \Theta$在$\theta_0$处均方可微，即存在随机$\dot{\ell}_{\theta_0}$使得
+Assume $\theta_0\in\Theta_0$ is a fixed parameter in null space. We study the asymptotic behavior of integrated likelihood ratio statistics around $\theta_0$.
+Let the experiment $P_\theta : \theta\in \Theta$ be differentiable in quadratic mean at $\theta_0$. That is, there exists a vector of measurable functions $\dot{\ell}_{\theta_0}$ such that
 \begin{equation}
-    \int \big[\sqrt{p_{\theta_0+h}}-\sqrt{p_{\theta_0}}-\frac{1}{2}h^T\dot{\ell}_{\theta_0}\sqrt{p_{\theta_0}}\big]^2\, d\mu=o(\|h\|^2),\quad h\to 0
+    \int \big[\sqrt{p_{\theta_0+h}}-\sqrt{p_{\theta_0}}-\frac{1}{2}h^T\dot{\ell}_{\theta_0}\sqrt{p_{\theta_0}}\big]^2\, d\mu=o(\|h\|^2),\quad h\to 0,
 \end{equation}
-其中$\mu$是$P_{\theta}$的控制测度。而$p_{\theta}(x)$是$P_{\theta}(x)$相对于$\mu$的密度函数。$\dot{\ell}_{\theta_0}$是均方可微意义下的得分函数。
+where $\mu$ is the controlling measure of$P_{\theta}$, $p_{\theta}(x)$ is the density of $P_{\theta}(x)$ relative to $\mu$ and $\dot{\ell}_{\theta_0}$ is called score function.
 
-设$I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$是$\theta_0$处均方可微意义下的信息阵,
-设“局部充分统计量”$\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$。相对应的,在原空间中$\dot{\ell}^*$，$I^*_{\theta_0}$，$\Delta_{n,\theta_0}^*$均可同样定义。我们很容易知道，$\dot{\ell}^*_{\theta_0}$是$\dot{\ell}_{\theta_0}$的前$p_1$维向量，$I^*_{\theta_0}$是$I_{\theta_0}$左上角的$p_1\times p_1$维矩阵,$\Delta_{n,\theta_0}^*=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^*_{\theta_0}(X_i)$
+Let $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ be the Fisher information matrix at $\theta_0$ and $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics. In null space, $\dot{\ell}^*$，$I^*_{\theta_0}$ and $\Delta_{n,\theta_0}^*$ are defined in the same way. It's easy to see that $\dot{\ell}^*_{\theta_0}$ is the first $p_1$
+coordinates of $\dot{\ell}_{\theta_0}$, $I^*_{\theta_0}$ is the  first $p_1\times p_1$ submatrix of $I_{\theta_0}$ and $\Delta_{n,\theta_0}^*=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^*_{\theta_0}(X_i)$.
 
-Let $h=\sqrt{n}(\theta-\theta_0)$ which reparameterize   $\theta$ around $\theta_0$ by the scale of $\sqrt{n}$.  Obviously, $h=0$ under null. Under local alternatives, $h$ is assumed to converge to a constant.
+Let $h=\sqrt{n}(\theta-\theta_0)$ which reparameterize   $\theta$ around $\theta_0$ by the scale of $\sqrt{n}$.  Obviously, $h=0$ under null. Under local alternatives, $h$ converges to a constant.
 
 Listed below are the regular conditions we need:
 
 \begin{enumerate}[(i)]
     \item
-        设Bernstein-von Mises定理(见\cite{van2000asymptotic})的条件满足: $\Theta$是$\mathbb{R}^p$的开子集，试验($P_{\theta}:\theta\in\Theta$)在$\theta_0\in \Theta$处均方可微，具有非奇异信息阵$I_{\theta_0}$，假设对任意的$\epsilon>0$，存在一个相合检验序列:
+        \textbf{Assumtpion 1} The assumptions of Bernstein-von Mises Theorem (see \cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. The experiment ($P_{\theta}:\theta\in\Theta$) is differentiable in quadratic mean at $\theta_0\in \Theta$ with nonsingular Fisher information matrix $I_{\theta_0}$. For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
         \begin{equation}
             P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
         \end{equation}
-        设$\pi_n(h;X)$是一个满足Bernstain-von Mises定理结论的权函数：
+        Let $\pi_n(h;X)$ be a weight function satifying 
         \begin{equation}
             \|\pi_n(h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\|\overset{P_{\theta_0}^n}{\to}0
         \end{equation}
     \item
-        $\pi_n(h;X)$的支撑在$\|h\|\leq K\sqrt{n}$上,$K$是一个固定常数。$\sup_h |\pi_n(h;X)|\leq A$对某个$A$依概率成立。
+        %$\pi_n(h;X)$的支撑在$\|h\|\leq K\sqrt{n}$上,$K$是一个固定常数。
+        
+        
+
+        \textbf{Assumption 2} For every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and a $A>0$ such that 
+
+\begin{equation}
+    \lim_{n\to \infty}P_{\theta_0}^n(\sup_{\|h\|\geq K\sqrt{n}}(\pi_n(h;X)-T(h))\leq 0)\geq 1-\epsilon
+\end{equation}
+
+        \begin{equation}
+            \lim_{n\to \infty} P_{\theta_0}^n(\sup_{\|h\|\leq K\sqrt{n}} \pi_n(h;X)\leq A)\geq 1-\epsilon
+        \end{equation}
+
+
     \item
-        存在$\theta_0$的某个邻域$V$和某个函数$\dot{\ell}$满足$P_{\theta_0}\dot{\ell}^2<\infty$，对$\forall \theta_1,\theta_2\in V$,有
+        \textbf{Assumption 3}
+        There's a neighborhood of $\theta_0$ $V$ and a measurable function $\dot{\ell}$ with $P_{\theta_0}\dot{\ell}^2<\infty$ such that, $\forall \theta_1,\theta_2\in V$,
         \begin{equation}
             |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq \dot{\ell}(x)\|\theta_1-\theta_2\|.
         \end{equation}
@@ -169,30 +184,29 @@ Listed below are the regular conditions we need:
 均方可微条件使得似然可以在$\theta_0$的邻域内展开,我们在证明一般性的定理时需要把似然函数在$\theta_0$的邻域内一致展开，所以我们需要条件$(iii)$。
 
 我们的第一个定理是
+
 \begin{theorem}\label{theoremMain}
-    如果条件$(i)$,$(ii)$,$(iii)$满足，设$\eta_n$是有界实数序列，那么我们有
-%    \begin{equation}
-%        \Big|\int_{\mathbb{R}^{p}}\frac{p_h(X)}{p_0(X)}\pi_n(h;X)\,dh-\int_{\mathbb{R}^{p}}e^{h^TI_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^TI_{\theta_0}h}dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\,dh\Big|\xrightarrow{P_{\eta_n}^n}0
-%    \end{equation}
+    Under the Assumptions $(i)$, $(ii)$ and $(iii)$. For bounded real numbers $\eta_n$, we have
     \begin{equation}
         \Big|\int_{\mathbb{R}^{p}}\frac{p_h(X)}{p_0(X)}\pi_n(h;X)\,dh-
         2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^TI_{\theta_0}\Delta_{n,\theta_0}}
         \Big|\xrightarrow{P_{\eta_n}^n}0
     \end{equation}
 \end{theorem}
-基于定理\ref{theoremMain},我们可以得到积分似然比统计量在原假设的渐进分布，也就是wilks现象。我们可以根据此渐进分布来决定检验的临界值
+
+
+Based on theorem \ref{theoremMain},the asymptotic distribution of integrated likelihood ratio statistics under null hypotheses can be obtained. It can be used to determine the critical value of the test
 \begin{theorem}\label{theoremWilks}
-    设定理\ref{theoremMain}的条件对原空间$\Theta_0$和全空间$\Theta$均成立，真实参数$\theta_0$是$\Theta$的一个内点，同时是$\Theta_0$的一个相对内点，那么我们有
+    Suppose the Assumptions of \ref{theoremMain} are met for both $\Theta_0$ and $\Theta$,  the true parameter $\theta_0$ is an interior point of $\Theta$ and a relative interior point of $\Theta_0$, then we have
 \begin{equation}
     2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2)
 \end{equation}
 
 \end{theorem}
 
-
-有了定理\ref{theoremMain}，我们可以利用Le Cam第三引理得到积分似然比统计量在局部被择下的渐近分布：
+We can obtain the asymptotic distribution of the integrated likelihood ratio test under local alternatives by Le Cam's third lemma.
 \begin{theorem}   \label{theoremPower}
-    设定理\ref{theoremMain}的条件对原空间$\Theta_0$和全空间$\Theta$均成立。$\theta_0$是$\Theta_0$的一个内点，同时是$\Theta_0$的一个相对内点。真实参数$\theta$满足$\eta_n=\sqrt{n}(\theta-\theta_0)\to \eta$。若
+Suppose  the Assumptions of \ref{theoremWilks} are met. The true parameter $\theta$ satisfies $\eta_n=\sqrt{n}(\theta-\theta_0)\to \eta$. If
 \begin{equation}
     I_{\theta_0}=\left(
         \begin{matrix}
@@ -200,14 +214,14 @@ Listed below are the regular conditions we need:
             \\
             I_{21}&I_{22}
         \end{matrix}
-    \right)
+    \right),
 \end{equation}
-$I_{22\cdot 1}=I_{22}-I_{21}I_{\theta_0}^{*-1}I_{12}$
-    那么我们有
+$I_{22\cdot 1}=I_{22}-I_{21}I_{\theta_0}^{*-1}I_{12}$,
+    then we have
 \begin{equation}
     2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2)
 \end{equation}
-其中
+where
 \begin{equation}
 \delta=\eta^T
     \left(
