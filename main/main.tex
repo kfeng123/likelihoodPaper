@@ -170,7 +170,7 @@ Listed below are the regular conditions we need:
 
     \item
         \textbf{Assumption 3}
-        There's a neighborhood of $\theta_0$ $V$ and a measurable function $\dot{\ell}$ with $P_{\theta_0}\dot{\ell}^2<\infty$ such that, $\forall \theta_1,\theta_2\in V$,
+        There's a open neighborhood of $\theta_0$ $V$ and a measurable function $\dot{\ell}$ with $P_{\theta_0}\dot{\ell}^2<\infty$ such that, $\forall \theta_1,\theta_2\in V$,
         \begin{equation}
             |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq \dot{\ell}(x)\|\theta_1-\theta_2\|.
         \end{equation}
@@ -276,81 +276,87 @@ N(h,I_{\theta_0}^{-1})$的问题。在这种情形下，我们可以直接计算
 
 
 \section{Appendix}
-对于两个测度序列$P_n$和$Q_n$, $P_n\triangleleft \triangleright Q_n$代表$P_n$和$Q_n$是mutrally contiguous的，即对任意的随即变量序列$T_n$,有$T_n\overset{P_n}{\rightsquigarrow}0\Leftrightarrow T_n\overset{Q_n}{\rightsquigarrow}0$
+For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathcal{A}_n)$, denote by $P_n\triangleleft \triangleright Q_n$ that $P_n$ and $Q_n$ are mutually contiguous. That is, for any statistics $T_n$: $\Omega_n\mapsto \mathbb{R}^k$, we have $T_n\overset{P_n}{\rightsquigarrow}0\Leftrightarrow T_n\overset{Q_n}{\rightsquigarrow}0$.
 \begin{lemma}\label{lemmaEx}
-    假设$\Theta$是一个$\mathbb{R}^p$的一个开子集并且试验($P_\theta: \theta \in\Theta$)在$\theta_0$处均方可微。那么$P_{\theta_0}\dot{\ell}_{\theta_0}=0$，并且Fisher信息阵$I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$存在。进一步，对于每个收敛序列$h_n\to h$，随着$n\to \infty$,有
+    Suppose that $\Theta$ is an open subset of $\mathbb{R}^p$ and that the model ($P_\theta: \theta \in\Theta$) is differentiable in quadratic mean at $\theta_0$. Then $P_{\theta_0}\dot{\ell}_{\theta_0}=0$ and the Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ exists. Furthermore, for every converging sequence $h_n\to h$，as $n\to \infty$,
     \begin{equation}
-        \log \frac{p^n_{h_n}(X)}{p^n_0(X)}=\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h^TI_{\theta_0}h+o_{P_{\theta_0}}(1)
+        \log \frac{p^n_{h_n}(X)}{p^n_0(X)}=\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h^TI_{\theta_0}h+o_{P_{\theta_0}}(1),
     \end{equation}
-    见\cite{van2000asymptotic}
+    where $p_h^n(X)=\prod_{i=1}^np_h(X_i)$ is the density of $P_h^n$ relative to $\mu_n=\mu\times \cdots \times \mu$.
+    (See \cite{van2000asymptotic} Theorem 7.2.)
 \end{lemma}
 
 
 
 \begin{lemma}\label{lemmaContiguity}
-    设引理\ref{lemmaEx}条件满足。假设$T_n$是一个统计量序列，$U$是一个以原点为中心的球。则
-    对任意的随机变量序列$T_n$, $T_n\overset{P^n_0}{\rightsquigarrow}0\Leftrightarrow T_n\overset{P^n_U}{\rightsquigarrow}0$,其中
+    Suppose the Assumptions of Lemma~\ref{lemmaEx} are met. $U$ is a ball of fixed radius around zero. Then for every random variable sequence $T_n(X)$, $T_n\overset{P^n_0}{\rightsquigarrow}0\Leftrightarrow T_n\overset{P^n_U}{\rightsquigarrow}0$, where
 \begin{equation}
-    p^n_U(x)=\frac{1}{V(U)}\int_{U}p_h^n(x)dh
+    p^n_U(x)=\frac{1}{V(U)}\int_{U}p_h^n(x)dh,
 \end{equation}
-$V(U)$是球$U$的体积。
+$V(U)$ is the volumn of $U$.
 \end{lemma}
 
 \begin{proof}
-    事实上，我们只需证明
+In fact, we only need to prove
 \begin{equation}
-\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{A_n}\frac{1}{V(U)}\int_U p_h^n(x) dh \, d\mu \to 0
+\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{A_n}\frac{1}{V(U)}\int_U p_h^n(x) dh \, d\mu \to 0,
 \end{equation}
-或者
+or
 \begin{equation}\label{eq:1}
-\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh \to 0
+\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh \to 0.
 \end{equation}
-在引理\ref{lemmaEx}的条件下，对于每个有界序列$h_n$，我们有$P_{h_n}^n\triangleleft \triangleright P_{0}^n$, 也就是
+Under the assumptions of \ref{lemmaEx}, for every bounded sequence $h_n$, $P_{h_n}^n\triangleleft \triangleright P_{0}^n$, that is
 \begin{equation}\label{eq:2}
-\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{A_n} p_{h_n}^n(x) d\mu  \to 0
+\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{A_n} p_{h_n}^n(x) d\mu  \to 0.
 \end{equation}
-我们又知道，存在$\overline{h}_n$ 使得
+On the other hand, there exists sequence $\overline{h}_n$ such that
 \begin{equation}
 \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh
-\leq V(U)\sup_{h}\int_{A_n} p_h^n(x) d\mu
-\leq V(U)(\int_{A_n}p^n_{\overline{h}_n}(x)d\mu +1/n)
+\leq V(U)\sup_{h\in U}\int_{A_n} p_h^n(x) d\mu
+\leq V(U)(\int_{A_n}p^n_{\overline{h}_n}(x)d\mu +1/n).
 \end{equation}
-类似的我们也有下界。综上
+ We have similar lower bound. Hence,
 \begin{equation}\label{eq:3}
  V(U)(\int_{A_n}p^n_{\underline{h}_n}(x)d\mu +1/n)
 \leq \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh
 \leq V(U)(\int_{A_n}p^n_{\overline{h}_n}(x)d\mu +1/n)
 \end{equation}
-由\eqref{eq:2} 和\eqref{eq:3}, \eqref{eq:1} 成立
+The \eqref{eq:1} follows from \eqref{eq:2} and \eqref{eq:3}.
 \end{proof}
 
 \begin{lemma}\label{lemmaTest}
-设试验($P_\theta :\theta\in \Theta$) 在$\theta_0$处均方可微，具有非奇异的Fisher信息阵$I_{\theta_0}$, 假设对每个$\epsilon>0$, 存在一个检验序列$\phi_n$ 使得
+    Suppose the assumptions of Lemma~\ref{lemmaEx} are met. Suppose that for every $\epsilon>0$ there exists a sequence of tests $\phi_n$ such that
 $$
-P_{\theta_0}^n \phi_n \to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon}P_{\theta}^n (1-\phi_n)\to 0
+P_{\theta_0}^n \phi_n \to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon}P_{\theta}^n (1-\phi_n)\to 0.
 $$
-那么，设$M_n\to \infty$,则存在一个检验序列 $\phi_n$ 和一个常数$c>0$ 使得对每个充分大的$n$ 和每个$\theta$使得$\|\theta-\theta_0\|\geq M_n /\sqrt{n}$，我们有
+Then there exists for every $M_n\to \infty$ a sequence of tests $\phi_n$ and a constant $c>0$ such that, for every sufficiently large $n$ and every $\|\theta-\theta_0\|\geq M_n /\sqrt{n}$,
 $$
-P_{\theta_0}^n\phi_n \to 0, \quad P_\theta^n (1-\phi_n)\leq e^{-cn(\|\theta-\theta_0\|^2\wedge 1)}
+P_{\theta_0}^n\phi_n \to 0, \quad P_\theta^n (1-\phi_n)\leq e^{-cn(\|\theta-\theta_0\|^2\wedge 1)}.
 $$
-见\cite{van2000asymptotic}
+    (See~\cite{van2000asymptotic} Lemma 10.3.)
 \end{lemma}
+
+
+
 \begin{lemma}\label{lemmaUniform}
-设试验($P_\theta :\theta\in \Theta$) 在$\theta_0$处均方可微，具有非奇异的Fisher信息阵$I_{\theta_0}$, 进一步，假设存在$\theta_0$的某个邻域$V$和某个函数$\dot{\ell}$满足$P_{\theta_0}\dot{\ell}^2<\infty$，对$\forall \theta_1,\theta_2\in V$,有
+
+    Suppose the assumptions of Lemma~\ref{lemmaEx} are met. Further more, suppose there is an open neighborhood $V$ of $\theta_0$ and a function $m(x)$ with $P_{\theta_0}m^2<\infty$ such that for all $\forall \theta_1,\theta_2\in V$:
     \begin{equation}
-        |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq \dot{\ell}(x)\|\theta_1-\theta_2\|.
+        |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq m(x)\|\theta_1-\theta_2\|.
     \end{equation}
-则对每个$M$，有
+Then for every $M>0$,
     \begin{equation}
         \sup_{\|h\|\leq M}\Big|
          \log \frac{p^n_{h_n}(X)}{p^n_0(X)}-\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)+\frac{1}{2}h^TI_{\theta_0}h
         \Big|\xrightarrow{P^n_0}0.
     \end{equation}
+
+    (See \cite{van2000asymptotic} Theorem 5.23 or \cite{Kleijn2012The} Theorem Lemma 2.1.)
 \end{lemma}
 
 \input{someLatex/mainTheorem.tex}
 
-\begin{proofOfTheorem}
+\begin{proof}[\textbf{Proof of Theorem 2}]
     如果原假设成立，即真实参数$\theta_0$是$\Theta$的一个内点，同时$\theta_0$是$\Theta_0$的一个相对内点，那么对积分似然比统计量\eqref{likelihoodRatio}的分子和分母，我们都可以应用定理\ref{theoremMain},并取定理中的$\eta_n=0$。而由中心极限定理，我们有
 \begin{equation}
     I_{\theta_0}\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow }\xi, 
@@ -397,9 +403,9 @@ $$
 \begin{equation}
     2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2)
 \end{equation}
-\end{proofOfTheorem}
+\end{proof}
 
-\begin{proofOfTheorem}
+\begin{proof}[\textbf{Proof of Theorem 3}]
     由于$h_n=\eta_n$收敛到$\eta$,由均方可微性，由引理\ref{lemmaEx}及中心极限定理有：
 \begin{equation}
     \begin{aligned}
@@ -467,7 +473,7 @@ $$
     \eta
     \end{aligned}
 \end{equation}
-\end{proofOfTheorem}
+\end{proof}
 
 
 
