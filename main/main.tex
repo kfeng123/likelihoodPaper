@@ -49,11 +49,12 @@
 \newtheorem{lemma}{Lemma}
 \newtheorem{example}{Example}
 \newtheorem{proofOfTheorem}{Proof of Theorem}
+\newtheorem{assumption}{\quad\quad Assumption}
 \begin{document}
 
 \begin{frontmatter}
 
-\title{积分似然比检验\tnoteref{mytitlenote}}
+\title{Integrated likelihood ratio test\tnoteref{mytitlenote}}
 \tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
 
 %% Group authors per affiliation:
@@ -110,7 +111,7 @@ Let $X_1,\cdots,X_n$ be a sample from $P_{\theta}, \theta\in\Theta$. Denote $X=(
 \begin{equation}
     \Theta_0=\{\theta\in\Theta:\theta_{p_1+1}=\theta_{0,{p_1+1}},\cdots,\theta_{p_2}=\theta_{0,{p_2}}\},
 \end{equation}
-where the last $p_2-p_1$ parameters $\theta_{0,{p_1+1}},\cdots,\theta_{0,{p_2}}$ are fixed. We want to test the hypotheses
+where the last $p_2-p_1$ parameters $\theta_{0,{p_1+1}},\cdots,\theta_{0,{p_2}}$ are fixed. We want to test the hypothesis
 \begin{equation}
 H_0:\theta\in \Theta_0\quad vs. \quad H_1:\theta\in \Theta.
 \end{equation}
@@ -142,40 +143,38 @@ Let $h=\sqrt{n}(\theta-\theta_0)$ which reparameterize   $\theta$ around $\theta
 
 Listed below are the regular conditions we need:
 
-\begin{enumerate}[(i)]
-    \item
-        \textbf{Assumtpion 1} The assumptions of Bernstein-von Mises Theorem (see \cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. The experiment ($P_{\theta}:\theta\in\Theta$) is differentiable in quadratic mean at $\theta_0\in \Theta$ with nonsingular Fisher information matrix $I_{\theta_0}$. For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+\begin{assumption}\label{Assumption1}
+    The assumptions of Bernstein-von Mises Theorem (see \cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. The experiment ($P_{\theta}:\theta\in\Theta$) is differentiable in quadratic mean at $\theta_0\in \Theta$ with nonsingular Fisher information matrix $I_{\theta_0}$. For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
         \begin{equation}
             P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
         \end{equation}
         Let $\pi_n(h;X)$ be a weight function satifying 
-        \begin{equation}
+        \begin{equation}\label{vonMisesResults}
             \|\pi_n(h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\|\overset{P_{\theta_0}^n}{\to}0
         \end{equation}
-    \item
-        %$\pi_n(h;X)$的支撑在$\|h\|\leq K\sqrt{n}$上,$K$是一个固定常数。
+\end{assumption}     
         
-        
+\begin{assumption}\label{Assumption2}
+        For every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and a $A>0$ such that 
 
-        \textbf{Assumption 2} For every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and a $A>0$ such that 
-
-\begin{equation}
+    \begin{equation}\label{Assump21}
     \lim_{n\to \infty}P_{\theta_0}^n(\sup_{\|h\|\geq K\sqrt{n}}(\pi_n(h;X)-T(h))\leq 0)\geq 1-\epsilon
 \end{equation}
 
-        \begin{equation}
+        \begin{equation}\label{Assump22}
             \lim_{n\to \infty} P_{\theta_0}^n(\sup_{\|h\|\leq K\sqrt{n}} \pi_n(h;X)\leq A)\geq 1-\epsilon
         \end{equation}
+\end{assumption}
 
-
-    \item
-        \textbf{Assumption 3}
+\begin{assumption}\label{Assumption3}
         There's a open neighborhood of $\theta_0$ $V$ and a measurable function $\dot{\ell}$ with $P_{\theta_0}\dot{\ell}^2<\infty$ such that, $\forall \theta_1,\theta_2\in V$,
         \begin{equation}
             |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq \dot{\ell}(x)\|\theta_1-\theta_2\|.
         \end{equation}
-\end{enumerate}
+\end{assumption}
 
+Assumption~\ref{Assumption1} makes sure that there exists at least one weight function satisfies~\ref{vonMisesResults}, that is, the posterior density.
+The condition~\ref{Assump21} prevents the bad behavior weight function's tail. The condition~\ref{Assump22} is satisfied in most usual case. 
 条件$(i)$是很弱的条件。条件(ii)中的支撑条件可以等价的表述为$\pi_n(h;X)$作为$\theta$的函数,其支撑有界。对于一个统计模型，我们通常认为似然函数在很远处的取值没有太大意义，所以不分配权是合理的。因为我们不该某个$\theta$附近分配过大的权，所以权函数有界的条件也是合理的。事实上，我们总可以把后验密度$\pi_n(h|X)$改造成满足条件$(ii)$的权函数$\pi_n(h;X)$，比如我们选取一个充分大的$M$，则容易证明
 \begin{equation}
     \pi_n(h;X)=\min(\pi_n(h|X),M) 1_{\|h\|\leq K\sqrt{n}}
@@ -195,7 +194,7 @@ Listed below are the regular conditions we need:
 \end{theorem}
 
 
-Based on theorem \ref{theoremMain},the asymptotic distribution of integrated likelihood ratio statistics under null hypotheses can be obtained. It can be used to determine the critical value of the test
+Based on theorem \ref{theoremMain},the asymptotic distribution of integrated likelihood ratio statistics under null hypothesis can be obtained. It can be used to determine the critical value of the test
 \begin{theorem}\label{theoremWilks}
     Suppose the Assumptions of \ref{theoremMain} are met for both $\Theta_0$ and $\Theta$,  the true parameter $\theta_0$ is an interior point of $\Theta$ and a relative interior point of $\Theta_0$, then we have
 \begin{equation}
@@ -357,18 +356,19 @@ Then for every $M>0$,
 \input{someLatex/mainTheorem.tex}
 
 \begin{proof}[\textbf{Proof of Theorem 2}]
-    如果原假设成立，即真实参数$\theta_0$是$\Theta$的一个内点，同时$\theta_0$是$\Theta_0$的一个相对内点，那么对积分似然比统计量\eqref{likelihoodRatio}的分子和分母，我们都可以应用定理\ref{theoremMain},并取定理中的$\eta_n=0$。而由中心极限定理，我们有
-\begin{equation}
+    If the null hypothesis is true, the true parameter $\theta_0$ is an interior point of $\Theta$ and $\theta_0$ is a relative interior point of $\Theta_0$. Then we can apply Theorem~\ref{theoremMain} to both the numerator and denominator of integrated likelihood ratio statistics with $\eta_n=0$. By CLT,
+    %如果原假设成立，即真实参数$\theta_0$是$\Theta$的一个内点，同时$\theta_0$是$\Theta_0$的一个相对内点，那么对积分似然比统计量\eqref{likelihoodRatio}的分子和分母，我们都可以应用定理\ref{theoremMain},并取定理中的$\eta_n=0$。而由中心极限定理，我们有
+
+    \begin{equation}
     I_{\theta_0}\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow }\xi, 
 \end{equation}
-其中$\xi\sim N(0,I_{\theta_0})$.
+where $\xi\sim N(0,I_{\theta_0})$.
 \begin{equation}
     I^*_{\theta_0}\Delta^*_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}^*_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow} \xi^*, 
 \end{equation}
-其中$\xi^*$是$\xi$的前$p_1$维向量。
+where $\xi^*$ is the first $p_1$ coordinates of $\xi$. Hence
 
 %，所以$2^{\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^TI_{\theta_0}\Delta_{n,\theta_0}}=O_{P_0^n}(1)$
-所以
 \begin{equation}\label{equationNull}
     \begin{aligned} 
         \Lambda(X)&=
@@ -383,13 +383,13 @@ Then for every $M>0$,
             2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\xi^TI^{-1}_{\theta_0}\xi\}
         }{
             2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\xi^{*T}I^{*-1}_{\theta_0}\xi^*\}
-        }
+        }.
     \end{aligned}
 \end{equation}
-而
+But
 \begin{equation}\label{equationXi}
     \xi^TI^{-1}_{\theta_0}\xi -\xi^{*T}I^{*-1}_{\theta_0}\xi^*
-    =(I_{\theta_0}^{-\frac{1}{2}}\xi)^T(
+    =(I_{\theta_0}^{-\frac{1}{2}}\xi)^T\Big(
         I_{p_{2}\times p_{2}}-
         I_{\theta_0}^{\frac{1}{2}}
         \left(\begin{matrix} 
@@ -397,16 +397,16 @@ Then for every $M>0$,
                 0&0
         \end{matrix}\right)
         I_{\theta_0}^{\frac{1}{2}}
-    )(I_{\theta_0}^{-\frac{1}{2}}\xi)
+    \Big)(I_{\theta_0}^{-\frac{1}{2}}\xi).
 \end{equation}
-易知$I_{\theta_0}^{-\frac{1}{2}}\xi$是$p_2$维标准正态分布，而中间乘的矩阵是个秩为$p_2-p_1$的投影矩阵，所以我们得到
+    $I_{\theta_0}^{-\frac{1}{2}}\xi$ is a $p_2$-dimensional standard normal distribution, The middle term is a projection matrix with rank $p_2-p_1$. Hence we have
 \begin{equation}
-    2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2)
+    2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2).
 \end{equation}
 \end{proof}
 
 \begin{proof}[\textbf{Proof of Theorem 3}]
-    由于$h_n=\eta_n$收敛到$\eta$,由均方可微性，由引理\ref{lemmaEx}及中心极限定理有：
+    We note that $h_n=\eta_n$ converges to $\eta$. By differentiability in quadratic mean, Lemma~\ref{lemmaEx} and CLT,
 \begin{equation}
     \begin{aligned}
     \left(
@@ -438,19 +438,19 @@ Then for every $M>0$,
             \eta^TI_{\theta_0}&\eta^TI_{\theta_0}\eta
         \end{matrix}
     \right)
-    )
+    ).
     \end{aligned}
 \end{equation}
-故根据Le Cam第三引理，我们有
+Hence by Le Cam's third lemma,
 \begin{equation}
-    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\eta_n}}{\rightsquigarrow}\xi\sim N(I_{\theta_0}\eta,I_{\theta_0})
+    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\eta_n}}{\rightsquigarrow}\xi\sim N(I_{\theta_0}\eta,I_{\theta_0}).
 \end{equation}
-由定理\ref{theoremMain}，在$P_{\eta_n}^n$下，我们依然有渐近等式\eqref{equationNull}
-所以有
+By Theorem~\ref{theoremMain}, under $P_{\eta_n}^n$, we have~\eqref{equationNull}.
+Hence
 \begin{equation}
-    2\log(\Lambda(X))\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2)
+    2\log(\Lambda(X))\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2),
 \end{equation}
-其中非中心参数$\delta$可以在\eqref{equationXi}中把$\xi$替换成$I_{\theta_0}\eta$得到:
+where noncentral parameter $\delta$ can be obtained by substituting $\xi$ by $I_{\theta_0}\eta$ in~\eqref{equationXi}:
 \begin{equation}
     \begin{aligned}
         \delta&=\eta^T(
@@ -470,7 +470,7 @@ Then for every $M>0$,
             0&I_{22\cdot 1}
         \end{matrix}
     \right)
-    \eta
+    \eta.
     \end{aligned}
 \end{equation}
 \end{proof}
