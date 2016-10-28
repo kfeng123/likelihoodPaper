@@ -1,4 +1,4 @@
-\begin{thebibliography}{7}
+\begin{thebibliography}{8}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -11,51 +11,56 @@
 \providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
 \providecommand{\bibinfo}[2]{#2}
 \ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
-%Type = Article
+%Type = Misc
 \bibitem[{Aitkin(1991)}]{Aitkin1991Posterior}
 \bibinfo{author}{Aitkin\xfnm[ M.]}.
-\newblock \bibinfo{title}{Posterior bayes factors}.
-\newblock \bibinfo{journal}{journal of the royal statistical society series
-  b-methodological}
-  \bibinfo{year}{1991};\bibinfo{volume}{53}(\bibinfo{number}{1}):\bibinfo{pages}{111--142}.
-%Type = Article
-\bibitem[{Alan E~Gelfand(1993)}]{gelfand1993bayesian}
-\bibinfo{author}{Alan E~Gelfand\xfnm[ D.K.D.]}.
-\newblock \bibinfo{title}{Bayesian model choice: Asymptotics and exact
-  calculations} \bibinfo{year}{1993};.
+\newblock \bibinfo{title}{Posterior bayes factors. journal of the royal
+  statistical society series b-methodological}.
+\newblock \bibinfo{year}{1991}.
+%Type = Book
+\bibitem[{Andrew~Gelman(2013)}]{bayesianDataAnalysis}
+\bibinfo{author}{Andrew~Gelman John B.~Carlin\xfnm[ H.S.S.D.B.D.A.V.D.B.R.]}.
+\newblock \bibinfo{title}{Bayesian Data Analysis}.
+\newblock \bibinfo{publisher}{Chapman and Hall/CRC}, \bibinfo{year}{2013}.
 %Type = Book
 \bibitem[{Bahadur(1971)}]{MR0315820}
-\bibinfo{author}{Bahadur\xfnm[ R.R.]}.
-\newblock \bibinfo{title}{Some limit theorems in statistics}.
-\newblock \bibinfo{publisher}{Society for Industrial and Applied Mathematics,
-  Philadelphia, Pa.}, \bibinfo{year}{1971}.
-\newblock \bibinfo{note}{Conference Board of the Mathematical Sciences Regional
-  Conference Series in Applied Mathematics, No. 4}.
+\bibinfo{author}{Bahadur\xfnm[ R.]}.
+\newblock \bibinfo{title}{Some Limit Theorems in Statistics}.
+\newblock volume~\bibinfo{volume}{4} of \textit{\bibinfo{series}{Conference
+  Board of the Mathematical Sciences Regional Conference Series in Applied
+  Mathematics}}.
+\newblock \bibinfo{address}{Philadelphia, Pa}: \bibinfo{publisher}{Society for
+  Industrial and Applied Mathematics}, \bibinfo{year}{1971}.
 %Type = Article
 \bibitem[{Cam(1990)}]{Cam1990Maximum}
-\bibinfo{author}{Cam\xfnm[ L.L.]}.
+\bibinfo{author}{Cam\xfnm[ L.]}.
 \newblock \bibinfo{title}{Maximum likelihood: An introduction}.
 \newblock \bibinfo{journal}{International Statistical Review}
   \bibinfo{year}{1990};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{153--171}.
-%Type = Book
-\bibitem[{E.~L.~Lehmann(2005)}]{Lehmann}
-\bibinfo{author}{E.~L.~Lehmann\xfnm[ J.P.R.]}.
-\newblock \bibinfo{title}{Testing Statistical Hypotheses}.
-\newblock \bibinfo{publisher}{Springer New York}, \bibinfo{year}{2005}.
-\newblock \DOIprefix\doi{10.1007/0-387-27605-X}.
+%Type = Misc
+\bibitem[{Gelfand D. K.~D(1993)}]{gelfand1993bayesian}
+\bibinfo{author}{Gelfand D. K.~D\xfnm[ A.E.]}.
+\newblock \bibinfo{title}{Bayesian model choice: Asymptotics and exact
+  calculations}.
+\newblock \bibinfo{year}{1993}.
 %Type = Article
 \bibitem[{Kleijn and Vaart(2012)}]{Kleijn2012The}
-\bibinfo{author}{Kleijn\xfnm[ B.J.K.]}, \bibinfo{author}{Vaart\xfnm[
-  A.W.V.D.]}.
+\bibinfo{author}{Kleijn\xfnm[ B.]}, \bibinfo{author}{Vaart\xfnm[ A.]}.
 \newblock \bibinfo{title}{The bernstein-von-mises theorem under
   misspecification}.
-\newblock \bibinfo{journal}{Electronic Journal of Statistics}
+\newblock \bibinfo{journal}{Electron J Stat}
   \bibinfo{year}{2012};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{354--381}.
 %Type = Book
+\bibitem[{Lehmann J. P.~R(2005)}]{Lehmann}
+\bibinfo{author}{Lehmann J. P.~R\xfnm[ E.]}.
+\newblock \bibinfo{title}{Testing Statistical Hypotheses}.
+\newblock \bibinfo{address}{New York}: \bibinfo{publisher}{Springer},
+  \bibinfo{year}{2005}.
+%Type = Book
 \bibitem[{der Vaart(2000)}]{van2000asymptotic}
-\bibinfo{author}{der Vaart\xfnm[ A.V.]}.
-\newblock \bibinfo{title}{Asymptotic statistics}.
-\newblock \bibinfo{publisher}{Cambridge university press},
-  \bibinfo{year}{2000}.
+\bibinfo{author}{der Vaart\xfnm[ A.]}.
+\newblock \bibinfo{title}{Asymptotic Statistics}.
+\newblock \bibinfo{address}{???}: \bibinfo{publisher}{Cambridge university
+  press}, \bibinfo{year}{2000}.
 
 \end{thebibliography}

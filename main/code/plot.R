@@ -1,6 +1,6 @@
 library(ggplot2)
 library(grid)
-myResult=read.csv("myResult.csv")
+myResult=read.csv("myNormalResult.csv")
 jjj=list()
 for(k in 1:9){
     hh=myResult[,k]
@@ -62,7 +62,7 @@ myQQPlot=ggplot(data=ama)+geom_point(mapping=aes(x=x,y=y),colour="darkblue")+
           axis.ticks.length=unit(0.1,"cm"),
           axis.ticks=element_line(colour="black",size=2,linetype="dotted",lineend="round"))
 #?plotmath
-pdf("../figure/myQQPlot.pdf",width=4.5,height=4)
+pdf("../figure/myQQPlotNormal.pdf",width=4.5,height=4)
 #grid.newpage()
 print(myQQPlot)
 dev.off()

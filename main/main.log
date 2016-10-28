@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  9 OCT 2016 17:39
+This is XeTeX, Version 3.14159265-2.6-0.99992 (TeX Live 2015/Debian) (preloaded format=xelatex 2016.6.24)  28 OCT 2016 17:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1226,14 +1226,23 @@ LaTeX Font Info:    Overwriting math alphabet `\mathtt' in version `bold'
 . 
 . Redefining command \Pifont with sig. 'm' on line 53.
 .................................................
+LaTeX Font Info:    Try loading font information for U+msa on input line 87.
 
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
+File: umsa.fd 2013/01/14 v3.01 AMS symbols A
+)
+LaTeX Font Info:    Try loading font information for U+msb on input line 87.
+
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
+File: umsb.fd 2013/01/14 v3.01 AMS symbols B
+)
 *************************************************
 * fontspec warning: "script-not-exist"
 * 
 * Font 'FandolFang-Regular' does not contain script 'CJK'.
 *************************************************
 \g__fontspec_family_FandolFang-Regular_int=\count175
-LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 81.
+LaTeX Font Info:    Try loading font information for EU1+lmtt on input line 87.
 
 (/usr/share/texlive/texmf-dist/tex/latex/euenc/eu1lmtt.fd
 File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
@@ -1248,34 +1257,7 @@ File: eu1lmtt.fd 2009/10/30 v1.6 Font defs for Latin Modern
 . - 'normal' (m/n) with NFSS spec.: <->"[FandolFang-Regular.otf]/OT:"
 . - 'small caps'  (m/sc) with NFSS spec.: 
 .................................................
-LaTeX Font Info:    Try loading font information for U+msa on input line 81.
 
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
-File: umsa.fd 2013/01/14 v3.01 AMS symbols A
-)
-LaTeX Font Info:    Try loading font information for U+msb on input line 81.
-
-(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
-File: umsb.fd 2013/01/14 v3.01 AMS symbols B
-)
-*************************************************
-* fontspec warning: "script-not-exist"
-* 
-* Font 'FandolHei-Regular' does not contain script 'CJK'.
-*************************************************
-\g__fontspec_family_FandolHei-Regular_int=\count176
-.................................................
-. fontspec info: "defining-font"
-. 
-. Font family 'FandolHei-Regular(0)' created for font 'FandolHei-Regular' with
-. options [Script={CJK},Extension={.otf},BoldFont={FandolHei-Bold}].
-. 
-. This font family consists of the following NFSS series/shapes:
-. - 'normal' (m/n) with NFSS spec.: <->"[FandolHei-Regular.otf]/OT:"
-. - 'small caps'  (m/sc) with NFSS spec.: - 'bold' (bx/n) with NFSS spec.:
-. <->"[FandolHei-Bold.otf]/OT:"
-. - 'bold small caps'  (bx/sc) with NFSS spec.: 
-.................................................
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/se-ascii-print.def
 File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 
@@ -1283,41 +1265,49 @@ File: se-ascii-print.def 2011/12/02 v1.10 stringenc: Printable ASCII characters
 [1
 
 
-] [2] [3] [4] [5] [6]
+] [2] [3] [4] [5] (./someLatex/normalMixture.tex [6]
 File: ./figure/myQQPlot.pdf Graphic file (type QTm)
- <use  "./figure/myQQPlot.pdf" > [7] [8] [9]
+
+<use  "./figure/myQQPlot.pdf" >
+Overfull \hbox (36.92455pt too wide) detected at line 54
+[] []
+ []
+
+[7]
+Overfull \hbox (25.1546pt too wide) detected at line 64
+[] []
+ []
+
+File: ./figure/myQQPlotNormal.pdf Graphic file (type QTm)
+<use  "./figure/myQQPlotNormal.pdf" >) [8] [9] [10]
 (./someLatex/mainTheorem.tex
-Underfull \hbox (badness 10000) in paragraph at lines 30--32
+Underfull \hbox (badness 10000) in paragraph at lines 31--33
 
  []
 
-[10] [11]
-Overfull \hbox (4.94925pt too wide) detected at line 103
+[11] [12]
+Overfull \hbox (4.94925pt too wide) detected at line 102
 [] []\OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n
 /10 )[] [][] \OML/cmm/m/it/10 p[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 x\OT1/cmr/m/
 n/10 )\OML/cmm/m/it/10 dh[] d^^V \OMS/cmsy/m/n/10 ! \OT1/cmr/m/n/10 0
  []
 
-[12]) [13] [14] (./main.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 484.
- [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 484.
+[13]) [14] [15] (./main.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 459.
+ [16]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 459.
  (./main.aux)
-Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 484.
-Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 484.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 484.
+Package atveryend Info: Empty hook `AtVeryEndDocument' on input line 459.
+Package atveryend Info: Empty hook `AtEndAfterFileList' on input line 459.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 459.
  ) 
 Here is how much of TeX's memory you used:
- 25038 strings out of 493638
- 457939 string characters out of 6146796
- 481259 words of memory out of 5000000
- 28217 multiletter control sequences out of 15000+600000
- 11610 words of font info for 71 fonts, out of 8000000 for 9000
+ 25006 strings out of 493638
+ 456385 string characters out of 6146796
+ 478303 words of memory out of 5000000
+ 28190 multiletter control sequences out of 15000+600000
+ 11578 words of font info for 67 fonts, out of 8000000 for 9000
  1328 hyphenation exceptions out of 8191
- 45i,17n,78p,10433b,491s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 55i,17n,74p,10433b,487s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on main.pdf (15 pages).
+Output written on main.pdf (16 pages).

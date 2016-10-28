@@ -7,50 +7,75 @@ Illegal, another \bibstyle command---line 19 of file main.aux
  :          {elsarticle-num}
 I'm skipping whatever remains of this command
 Database file #1: mybibfile.bib
+Warning--entry type for "Aitkin1991Posterior" isn't style-file defined
+--line 1 of file mybibfile.bib
+Warning--entry type for "gelfand1993bayesian" isn't style-file defined
+--line 12 of file mybibfile.bib
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1586 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1586 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1586 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1586 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1586 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1586 of file model4-names.bst
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-`journal' is a missing field, not a string, for entry gelfand1993bayesian
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
 while executing---line 1676 of file model4-names.bst
-Warning--empty journal in gelfand1993bayesian
-You've used 7 entries,
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1676 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1676 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1676 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1676 of file model4-names.bst
+Too many commas in name 1 of "Andrew Gelman, John B. Carlin, Hal S. Stern, David B. Dunson, Aki Vehtari, Donald B. Rubin" for entry bayesianDataAnalysis
+while executing---line 1676 of file model4-names.bst
+You've used 8 entries,
             3271 wiz_defined-function locations,
-            734 strings with 6404 characters,
-and the built_in function-call counts, 4875 in all, are:
-= -- 400
-> -- 78
-< -- 7
-+ -- 33
-- -- 24
-* -- 469
-:= -- 675
-add.period$ -- 22
-call.type$ -- 7
-change.case$ -- 41
-chr.to.int$ -- 7
+            740 strings with 6508 characters,
+and the built_in function-call counts, 4440 in all, are:
+= -- 337
+> -- 88
+< -- 9
++ -- 37
+- -- 27
+* -- 409
+:= -- 643
+add.period$ -- 25
+call.type$ -- 8
+change.case$ -- 45
+chr.to.int$ -- 8
 cite$ -- 8
-duplicate$ -- 444
-empty$ -- 465
-format.name$ -- 35
-if$ -- 965
+duplicate$ -- 391
+empty$ -- 410
+format.name$ -- 39
+if$ -- 852
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 60
-newline$ -- 51
-num.names$ -- 28
-pop$ -- 126
+missing$ -- 63
+newline$ -- 56
+num.names$ -- 32
+pop$ -- 145
 preamble$ -- 1
-purify$ -- 36
+purify$ -- 41
 quote$ -- 0
-skip$ -- 110
+skip$ -- 117
 stack$ -- 0
-substring$ -- 404
-swap$ -- 183
-text.length$ -- 0
+substring$ -- 240
+swap$ -- 196
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 54
-warning$ -- 1
-while$ -- 29
+type$ -- 60
+warning$ -- 0
+while$ -- 30
 width$ -- 0
-write$ -- 110
-(There were 2 error messages)
+write$ -- 120
+(There were 13 error messages)

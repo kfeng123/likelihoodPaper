@@ -74,51 +74,64 @@
 \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \begin{abstract}
-    本文针对一般的检验问题，提出了积分似然比检验方法，得到了其在原假设下的分布和局部功效函数，并在较弱的条件下给出了严格证明。我们的定理可以适用于似然函数有界的情形，由于此时似然比检验不存在，所以理论上积分似然比检验可以解决一些似然比检验无法解决的问题。而实际上，混合正态模型正好是这样的例子，积分似然比检验水平控制的很好，而对应的，似然比统计量甚至不存在。在我们的定理无法应用的情形，比如高维情形，积分似然比方法仍然是一种寻找检验的优良方法。我们考虑了高维均值检验问题，此时似然比检验不存在，而积分似然比方法依然存在，所以可以作为似然比检验在高维情形下的一种替代品，它具有类似似然比检验的优良性质，模拟结果显示在一些情形下，它优于已有的检验方法。
+
+    Likelihood ratio test (LRT) is the most widely used test procedure. However, it has some weaknesses. Likelihood is unbounded for some important models. Even when the likelihood is bounded, the maximum may be not easy to obtain if it is not convex in parameters. We propose a new test procedure called integrated likelihood ratio test (ILRT) which can overcome the above difficulties. Posterior Bayes factor is a special case of ILRT\@. We proof the Wilks phenomenon of ILRT and give the asymptotic
+    local power.
 \end{abstract}
 
 \begin{keyword}
-\texttt{elsarticle.cls}\sep \LaTeX\sep Elsevier \sep template
-\MSC[2010] 00-01\sep  99-00
+%\texttt{elsarticle.cls} \sep \LaTeX \sep Elsevier \sep template
+%\MSC[2010] 00-01\sep  99-00
 \end{keyword}
 
 \end{frontmatter}
 
-\linenumbers
+%\linenumbers
 
-\section{介绍}
+\section{Introduction}
 
- \cite{Aitkin1991Posterior}针对检验问题$H_0:\theta\in \Theta_0$ vs $H_1:\theta\in \Theta_1$提出了后验贝叶斯因子，形式是
+Suppose we are interested in  testing the hypotheses $H_0:\theta\in \Theta_0$ vs $H_1:\theta\in \Theta_1$. The well known LRT is defined as
 \begin{equation}
-    \frac{\int_{\Theta} p(X|\theta)\pi(\theta|X)\, d\theta}{\int_{\Theta_0}p(X|\theta)\pi^*(\theta|X)\, d\theta}
+    \frac{\sup_{\Theta} p_{\theta}(X)}{\sup_{\Theta_0} p_\theta(X)},
 \end{equation}
-其中$X=X_1,\cdots,X_n$是观测数据, $p(x|\theta)$是样本密度, $\pi^*(\theta|x)$是原假设下的后验密度,$\pi(\theta|x)$是被择假设下的后验密度。
-\cite{gelfand1993bayesian}利用了拉普拉斯近似求得了它在原假设的分布。他们的方法并没有显式的给出定理成立需要的条件,而且证明依赖于拉普拉斯近似，这就假设了极大似然估计的存在。而当极大似然估计存在时，似然比检验也存在。所以他们的结论并没有显示出后验贝叶斯因子比似然比检验更为广泛的适用性。
+where $X$ is the data, $p_\theta(X)$ is the density function of $X$ with respect to some dominating measure $\mu$.
+LRT is the most widely used statistical method which enjoys many optimal properties. For example, by Neyman-Pearson lemma, it's the most powerful test (MPT) in simple null and simple alternative case.
+(See~\cite{Lehmann}) In multi-dimensional parameter case, MPT does not exist. However, the LRT is asymptotic optimal in Bahadur efficiency sense. (See~\cite{MR0315820}) However, even in some widely used models, likelihood may be unbounded, see~\cite{Cam1990Maximum} for some examples.In this case,
+LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maximum. 
+To overcome these difficulties, we propose the following ILRT 
 
-基于后验贝叶斯因子，我们考虑更一般的积分似然比检验统计量：
 \begin{equation}
-    \Lambda (X)=\frac{\int_{\Theta} p(X|\theta)\pi(\theta;X)\,d\theta}{\int_{\Theta_0} p(X|\theta)\pi^*(\theta;X)\,d\theta}
+    \Lambda (X)=\frac{\int_{\Theta} p_\theta(X)\pi(\theta;X)\,d\theta}{\int_{\Theta_0} p_\theta(X)\pi^*(\theta;X)\,d\theta},
 \end{equation}
-其中$\pi(\theta;X)$和$\pi^*(\theta;X)$是基于数据的权函数，但不必等于后验密度。
+where $\pi(\theta;X)$ and $\pi^*(\theta;X)$ are weight functions which may rely on data but does not need to equal to posterior density.
 
-似然比检验是被最广泛使用的统计方法，它具有很多最优性质，比如由NP引理，它在简单原假设和简单被择假设下是最有效检验，见\cite{Lehmann}。在多维情形，一般是没有最有效检验的，但是似然比检验是在Bahadur efficiency的意义下是渐进最优的，见\cite{MR0315820}。而我们知道在许多模型中，即使是一些被广泛使用的模型，似然也经常是是无界的，见\cite{Cam1990Maximum}。这种情形下，似然比检验不存在。但此时积分似然比检验是可能存在的，比如后面我们举的例子。
 
-参考Bernstein-von Mises定理的证明，见\cite{van2000asymptotic}，本文在很一般的假设下证明积分似然比检验的Wilks现象及局部功效，尤其是我们的定理不要求似然函数有界，这使得我们的方法可以用于一些似然无界在的模型。并举例说明其广泛的适用性。
+\cite{Aitkin1991Posterior} proposed posterior Bayes factor
+\begin{equation}
+    \frac{\int_{\Theta} p_\theta(X)\pi(\theta|X)\, d\theta}{\int_{\Theta_0}p_\theta(X)\pi^*(\theta|X)\, d\theta},
+\end{equation}
+where $p(x|\theta)$ is the sample density, $\pi^*(\theta|x)$ and $\pi(\theta|x)$ are the posterior densities under null hypotheses and alternative hypothesis.
+\cite{gelfand1993bayesian} derived it's null distribution. They didn't explicitly give the conditions needed. In fact, their proof relies on Laplace approximation, which assumes the existence of maximum likelihood estimator (MLE). 
+Note that if MLE exists, LRT also exists. Hence the scope of their method doesn't exceed that of classical LRT\@.
+
+
+
+Based on the proof of Bernstein-von Mises theorem (See~\cite{van2000asymptotic} and~\cite{Kleijn2012The}), we give the proof of the Wilks phenomenon and local power of ILRT under fairly weak assumptions.
 
 \section{Integrated likelihood ratio test}
 
-Let $X_1,\cdots,X_n$ be a sample from $P_{\theta}, \theta\in\Theta$. Denote $X=(X_1,\cdots,X_n)$. The parameter space $\Theta$ is an open subset of $\mathbb{R}^{p_2}$. The null space $\Theta_0$ is a $p_1$-dimensional subspace of $\Theta$
+Let $X_1,\ldots,X_n$ be a sample from distribution $P_{\theta}, \theta\in\Theta$. Denote $X=(X_1,\ldots,X_n)$. The parameter space $\Theta$ is an open subset of $\mathbb{R}^{p_2}$. The null space $\Theta_0$ is a $p_1$-dimensional subspace of $\Theta$
 \begin{equation}
-    \Theta_0=\{\theta\in\Theta:\theta_{p_1+1}=\theta_{0,{p_1+1}},\cdots,\theta_{p_2}=\theta_{0,{p_2}}\},
+    \Theta_0=\{\theta\in\Theta:\theta_{p_1+1}=\theta_{0,{p_1+1}},\ldots,\theta_{p_2}=\theta_{0,{p_2}}\},
 \end{equation}
-where the last $p_2-p_1$ parameters $\theta_{0,{p_1+1}},\cdots,\theta_{0,{p_2}}$ are fixed. We want to test the hypothesis
+where the last $p_2-p_1$ parameters $\theta_{0,{p_1+1}},\ldots,\theta_{0,{p_2}}$ are fixed. We want to test the hypothesis
 \begin{equation}
 H_0:\theta\in \Theta_0\quad vs. \quad H_1:\theta\in \Theta.
 \end{equation}
-The first $p_1$ parameters are nuisanse parameters.
+The first $p_1$ parameters are nuisance parameters.
 
-$\Theta_0$ can be regarded as a open subset of $\mathbb{R}^{p_1}$. To simplifies notations, we denote  $\Theta^*_0=\{(\theta_1,\cdots,\theta_{p_1})^T:\, (\theta_1,\cdots,\theta_{p_1},\theta_{0,p_1+1},\theta_{0,p_2})\in \Theta_0\}$. And we could use $p_1$-dimensional vector $\theta^*\in
-\Theta_0^*$ to represent $\theta\in\Theta_0$ and regard $\Theta_0^*$ as null space.  Let $\pi(\theta;X)$ and $\pi^*(\theta^*;X)$ be the weight functions in $\Theta$ and $\Theta_0^*$. The integrated likelihood ratio statisitc is defined as
+$\Theta_0$ can be regarded as a open subset of $\mathbb{R}^{p_1}$. To simplifies notations, we denote  $\Theta^*_0=\{{(\theta_1,\ldots,\theta_{p_1})}^T:\, (\theta_1,\ldots,\theta_{p_1},\theta_{0,p_1+1},\theta_{0,p_2})\in \Theta_0\}$. And we could use $p_1$-dimensional vector $\theta^*\in
+\Theta_0^*$ to represent $\theta\in\Theta_0$ and regard $\Theta_0^*$ as null space.  Let $\pi(\theta;X)$ and $\pi^*(\theta^*;X)$ be the weight functions in $\Theta$ and $\Theta_0^*$. The integrated likelihood ratio statistic is defined as
 \begin{equation}\label{likelihoodRatio}
     \Lambda (X)=\frac{\int_{\Theta} p(X|\theta)\pi(\theta;X)\,d\theta}{\int_{\Theta^*_0} p(X|\theta^*)\pi^*(\theta^*;X)\,d\theta^*}
 \end{equation}
@@ -132,23 +145,23 @@ $dN(\mu,\Sigma)(h)$ is the density function of a normal distribution with mean $
 Assume $\theta_0\in\Theta_0$ is a fixed parameter in null space. We study the asymptotic behavior of integrated likelihood ratio statistics around $\theta_0$.
 Let the experiment $P_\theta : \theta\in \Theta$ be differentiable in quadratic mean at $\theta_0$. That is, there exists a vector of measurable functions $\dot{\ell}_{\theta_0}$ such that
 \begin{equation}
-    \int \big[\sqrt{p_{\theta_0+h}}-\sqrt{p_{\theta_0}}-\frac{1}{2}h^T\dot{\ell}_{\theta_0}\sqrt{p_{\theta_0}}\big]^2\, d\mu=o(\|h\|^2),\quad h\to 0,
+    \int {\big[\sqrt{p_{\theta_0+h}}-\sqrt{p_{\theta_0}}-\frac{1}{2}h^T\dot{\ell}_{\theta_0}\sqrt{p_{\theta_0}}\big]}^2\, d\mu=o(\|h\|^2),\quad h\to 0,
 \end{equation}
-where $\mu$ is the controlling measure of$P_{\theta}$, $p_{\theta}(x)$ is the density of $P_{\theta}(x)$ relative to $\mu$ and $\dot{\ell}_{\theta_0}$ is called score function.
+where $\mu$ is the controlling measure of $P_{\theta}$, $p_{\theta}(x)$ is the density of $P_{\theta}(x)$ relative to $\mu$ and $\dot{\ell}_{\theta_0}$ is called score function.
 
 Let $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ be the Fisher information matrix at $\theta_0$ and $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics. In null space, $\dot{\ell}^*$，$I^*_{\theta_0}$ and $\Delta_{n,\theta_0}^*$ are defined in the same way. It's easy to see that $\dot{\ell}^*_{\theta_0}$ is the first $p_1$
 coordinates of $\dot{\ell}_{\theta_0}$, $I^*_{\theta_0}$ is the  first $p_1\times p_1$ submatrix of $I_{\theta_0}$ and $\Delta_{n,\theta_0}^*=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^*_{\theta_0}(X_i)$.
 
-Let $h=\sqrt{n}(\theta-\theta_0)$ which reparameterize   $\theta$ around $\theta_0$ by the scale of $\sqrt{n}$.  Obviously, $h=0$ under null. Under local alternatives, $h$ converges to a constant.
+Let $h=\sqrt{n}(\theta-\theta_0)$ which reparameterizes $\theta$ around $\theta_0$ by the scale of $\sqrt{n}$.  Obviously, $h=0$ under null. Under local alternatives, $h$ converges to a constant.
 
 Listed below are the regular conditions we need:
 
 \begin{assumption}\label{Assumption1}
-    The assumptions of Bernstein-von Mises Theorem (see \cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. The experiment ($P_{\theta}:\theta\in\Theta$) is differentiable in quadratic mean at $\theta_0\in \Theta$ with nonsingular Fisher information matrix $I_{\theta_0}$. For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+    The assumptions of Bernstein-von Mises Theorem (see~\cite{van2000asymptotic} Chapter 10) are met:  $\Theta$ is a subset of $\mathbb{R}^p$. The experiment ($P_{\theta}:\theta\in\Theta$) is differentiable in quadratic mean at $\theta_0\in \Theta$ with nonsingular Fisher information matrix $I_{\theta_0}$. For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
         \begin{equation}
             P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
         \end{equation}
-        Let $\pi_n(h;X)$ be a weight function satifying 
+        Let $\pi_n(h;X)$ be a weight function satisfying 
         \begin{equation}\label{vonMisesResults}
             \|\pi_n(h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\|\overset{P_{\theta_0}^n}{\to}0
         \end{equation}
@@ -174,29 +187,29 @@ Listed below are the regular conditions we need:
 \end{assumption}
 
 Assumption~\ref{Assumption1} makes sure that there exists at least one weight function satisfies~\ref{vonMisesResults}, that is, the posterior density.
-The condition~\ref{Assump21} prevents the bad behavior weight function's tail. The condition~\ref{Assump22} is satisfied in most usual case. 
-条件$(i)$是很弱的条件。条件(ii)中的支撑条件可以等价的表述为$\pi_n(h;X)$作为$\theta$的函数,其支撑有界。对于一个统计模型，我们通常认为似然函数在很远处的取值没有太大意义，所以不分配权是合理的。因为我们不该某个$\theta$附近分配过大的权，所以权函数有界的条件也是合理的。事实上，我们总可以把后验密度$\pi_n(h|X)$改造成满足条件$(ii)$的权函数$\pi_n(h;X)$，比如我们选取一个充分大的$M$，则容易证明
+The condition~\ref{Assump21} assume there is a function controlling the tail of weight function. For a statistical model, the likelihood value makes no sense when $\theta$ is far away from $\theta_0$, or $\sqrt{n}h$ is large. To avoid the bad behavior of the likelihood function when $\sqrt{n}h$ is large, many theoretical works impose assumptions to likelihood. Thanks to the flexibility of weight function, we can impose~\ref{Assump21} to weight function instead. The condition~\ref{Assump22} is
+satisfied in most usual case. No matter model is, condition~\ref{Assump21} and~\ref{Assump22} will be
+satisfied, e.g., when 
 \begin{equation}
     \pi_n(h;X)=\min(\pi_n(h|X),M) 1_{\|h\|\leq K\sqrt{n}}
 \end{equation}
-同时满足条件$(i)$，$(ii)$。而且我们有理由相信这样得到的权函数比后验密度收敛的更快一点。
-均方可微条件使得似然可以在$\theta_0$的邻域内展开,我们在证明一般性的定理时需要把似然函数在$\theta_0$的邻域内一致展开，所以我们需要条件$(iii)$。
+where $M$ and $M$ are user-specified constant and $\pi_n(h|X)$ is the posterior density.
+Assumption~\ref{Assumption3} is standard in likelihood theory.
 
-我们的第一个定理是
-
+Our first theorem is
 \begin{theorem}\label{theoremMain}
     Under the Assumptions $(i)$, $(ii)$ and $(iii)$. For bounded real numbers $\eta_n$, we have
     \begin{equation}
         \Big|\int_{\mathbb{R}^{p}}\frac{p_h(X)}{p_0(X)}\pi_n(h;X)\,dh-
-        2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^TI_{\theta_0}\Delta_{n,\theta_0}}
+        2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}}
         \Big|\xrightarrow{P_{\eta_n}^n}0
     \end{equation}
 \end{theorem}
 
 
-Based on theorem \ref{theoremMain},the asymptotic distribution of integrated likelihood ratio statistics under null hypothesis can be obtained. It can be used to determine the critical value of the test
+Based on Theorem~\ref{theoremMain},the asymptotic distribution of integrated likelihood ratio statistics under null hypothesis can be obtained. It can be used to determine the critical value of the test
 \begin{theorem}\label{theoremWilks}
-    Suppose the Assumptions of \ref{theoremMain} are met for both $\Theta_0$ and $\Theta$,  the true parameter $\theta_0$ is an interior point of $\Theta$ and a relative interior point of $\Theta_0$, then we have
+    Suppose the Assumptions of~\ref{theoremMain} are met for both $\Theta_0$ and $\Theta$,  the true parameter $\theta_0$ is an interior point of $\Theta$ and a relative interior point of $\Theta_0$, then we have
 \begin{equation}
     2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2)
 \end{equation}
@@ -204,8 +217,8 @@ Based on theorem \ref{theoremMain},the asymptotic distribution of integrated lik
 \end{theorem}
 
 We can obtain the asymptotic distribution of the integrated likelihood ratio test under local alternatives by Le Cam's third lemma.
-\begin{theorem}   \label{theoremPower}
-Suppose  the Assumptions of \ref{theoremWilks} are met. The true parameter $\theta$ satisfies $\eta_n=\sqrt{n}(\theta-\theta_0)\to \eta$. If
+\begin{theorem}\label{theoremPower}
+Suppose  the Assumptions of~\ref{theoremWilks} are met. The true parameter $\theta$ satisfies $\eta_n=\sqrt{n}(\theta-\theta_0)\to \eta$. If
 \begin{equation}
     I_{\theta_0}=\left(
         \begin{matrix}
@@ -233,43 +246,9 @@ where
 \end{equation}
 \end{theorem}
 
-我们的结果和似然比检验结果很类似。这样的结果可以从试验的收敛的观点来解释。从渐进的角度来讲，我们在$n$个样本空间中的统计问题近似于只观测到一个量$\Delta_{n,\theta_0}$。而在$h_n\to h$时，$\Delta_{n,\theta_0}\rightsquigarrow N(h,I_{\theta_0}^{-1})$。所以问题可以近似为只有一个观测$X\sim
-N(h,I_{\theta_0}^{-1})$的问题。在这种情形下，我们可以直接计算似然比统计量，正是我们定理的结论。这样我们定理的结论就没什么奇怪的了。
+The results can be explained by the limit experiment point of view. As $h_n\to h$, the `locally sufficient' statistic $\Delta_{n,\theta_0}\rightsquigarrow N(h,I^{-1}_{\theta_0})$. In the limit experiment, we have one observation $X\sim N(h,I_{\theta_0}^{-1})$. In this case, the integrated likelihood ratio test statistics can be calculated easily whose distribution is exactly the same as~\ref{theoremPower}.
 
-\section{混合正态分布}
-\cite{Cam1990Maximum}给出了一些似然无界的例子。混合正态分布是其中给出的第一个例子。这一节通过这个例子来说明积分似然比方法的优越性。
-
-设$X_1,\cdots,X_n$ i.i.d.　服从混合正态分布
-\begin{equation}
-    \frac{1-\alpha}{\sqrt{2\pi}}\exp\left\{-\frac{1}{2}(x-\mu)^2\right\}+
-    \frac{\alpha}{\sigma\sqrt{2\pi}}\exp\left\{-\frac{1}{2}\frac{(x-\mu)^2}{\sigma^2}\right\}
-\end{equation}
-其中$\alpha$是已知的固定参数。参数空间设为
-\begin{equation}
-    \Theta=\{\theta=(\mu,\sigma^2)^T:\mu\in(\-\infty,\infty),\sigma^2\in (0,M)\}
-\end{equation}
-\cite{Cam1990Maximum}指出，在这个模型下，似然函数是无界的。事实上，令$\mu=X_1$，然后令$\sigma^2\to 0$，则似然函数趋于无穷。
-
-现在我们在这个模型下考虑检验问题$H_0:\mu=0,\sigma=2$ vs $H_1:\theta\in
-\Theta$。似然比检验显然已经失效了，但此时积分似然比统计量仍然可以使用。事实上,我们可以验证(虽然很繁琐)条件$(i)$,$(ii)$,$(iii)$均成立，所以定理\ref{theoremWilks}和\ref{theoremPower}均成立。当然要想使用积分似然比统计量，我们需要寻找权函数，在这个例子中我们考虑用后验密度。这里我们可以看出，假设我们先验设置成无信息先验，那么后验密度与似然函数成正比，所以是无界的。无界的权函数不仅会使得我们的定理条件$(ii)$无法满足，更重要的是，在积分似然比统计量中，它会给似然函数在没意义的地方设置过多的权重,而我们实际上期望权函数集中在真实参数附近，所以无界的权函数使得统计量的性质变得很复杂并且收敛速度变慢。一种解决这个问题的方法是按照前面提到的，选取一个合适的充分大的$M^*$,定义新的权函数为
-\begin{equation}
-    \min(\pi_n(h;X),M^*)
-\end{equation}
-则新的有界的权函数依然满足条件$(i)$，甚至表现的更好。而条件$(ii)$也满足了。
-
-在我们这个例子中，我们并不需要这样解决权函数无界的问题。因为我们只要设置合适的先验分布，后验密度就会有界，这样我们仍然可以使用后验密度作为权函数。我们发现当$\mu=X_1$, $\sigma^2\to 0$时，似然趋于无穷的速度正比例于$\frac{1}{\sigma}$。所以我们设置合适的先验对冲掉这个量。容易看出，$\chi^2(3)$的密度函数正好可以做到这一点。
-
-故我们设先验是
-\begin{equation}
-    dN(0,1)(\mu)\times d\chi^2(3)(\sigma^2)
-\end{equation}
-其中$d\chi^2(3)(\sigma^2)$代表自由度为$3$的$\chi^2$分布的密度函数在$\sigma^2$处的取值。由于参数空间的限制，$\sigma^2$只在$(0,M)$上取值,所以这个先验并不是个概率密度，但这并不妨碍我们求得后验密度并计算积分似然比统计量。
-
-我们下面通过数值模拟验证Wilks现象。我们取样本量$n=50,100,200$和超参数$\alpha=0.1,0.5,0.9$。每种情况重复抽取$1000$次样本，得到$1000$个积分似然比统计量。理想情况应该是它们的样本与$\chi^2(2)$的分布很接近。我们画出样本分布相对于$\chi^2(2)$分布的QQ图，模拟显示样本分布与$\chi^2(2)$分布很接近，见下图：
-
-\includegraphics{myQQPlot.pdf}
-
-
+\input{someLatex/normalMixture.tex}
 
 
 
@@ -279,10 +258,10 @@ For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathca
 \begin{lemma}\label{lemmaEx}
     Suppose that $\Theta$ is an open subset of $\mathbb{R}^p$ and that the model ($P_\theta: \theta \in\Theta$) is differentiable in quadratic mean at $\theta_0$. Then $P_{\theta_0}\dot{\ell}_{\theta_0}=0$ and the Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ exists. Furthermore, for every converging sequence $h_n\to h$，as $n\to \infty$,
     \begin{equation}
-        \log \frac{p^n_{h_n}(X)}{p^n_0(X)}=\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h^TI_{\theta_0}h+o_{P_{\theta_0}}(1),
+        \log \frac{p^n_{h_n}(X)}{p^n_0(X)}=\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h^T I_{\theta_0}h+o_{P_{\theta_0}}(1),
     \end{equation}
-    where $p_h^n(X)=\prod_{i=1}^np_h(X_i)$ is the density of $P_h^n$ relative to $\mu_n=\mu\times \cdots \times \mu$.
-    (See \cite{van2000asymptotic} Theorem 7.2.)
+    where $p_h^n(X)=\prod_{i=1}^n p_h(X_i)$ is the density of $P_h^n$ relative to $\mu_n=\mu\times \cdots \times \mu$.
+    (See~\cite{van2000asymptotic} Theorem 7.2.)
 \end{lemma}
 
 
@@ -292,7 +271,7 @@ For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathca
 \begin{equation}
     p^n_U(x)=\frac{1}{V(U)}\int_{U}p_h^n(x)dh,
 \end{equation}
-$V(U)$ is the volumn of $U$.
+$V(U)$ is the volume of $U$.
 \end{lemma}
 
 \begin{proof}
@@ -304,7 +283,7 @@ or
 \begin{equation}\label{eq:1}
 \int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh \to 0.
 \end{equation}
-Under the assumptions of \ref{lemmaEx}, for every bounded sequence $h_n$, $P_{h_n}^n\triangleleft \triangleright P_{0}^n$, that is
+Under the assumptions of~\ref{lemmaEx}, for every bounded sequence $h_n$, $P_{h_n}^n\triangleleft \triangleright P_{0}^n$, that is
 \begin{equation}\label{eq:2}
 \int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{A_n} p_{h_n}^n(x) d\mu  \to 0.
 \end{equation}
@@ -320,7 +299,7 @@ On the other hand, there exists sequence $\overline{h}_n$ such that
 \leq \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh
 \leq V(U)(\int_{A_n}p^n_{\overline{h}_n}(x)d\mu +1/n)
 \end{equation}
-The \eqref{eq:1} follows from \eqref{eq:2} and \eqref{eq:3}.
+The~\eqref{eq:1} follows from~\eqref{eq:2} and~\eqref{eq:3}.
 \end{proof}
 
 \begin{lemma}\label{lemmaTest}
@@ -346,18 +325,17 @@ $$
 Then for every $M>0$,
     \begin{equation}
         \sup_{\|h\|\leq M}\Big|
-         \log \frac{p^n_{h_n}(X)}{p^n_0(X)}-\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)+\frac{1}{2}h^TI_{\theta_0}h
+         \log \frac{p^n_{h_n}(X)}{p^n_0(X)}-\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)+\frac{1}{2}h^T I_{\theta_0}h
         \Big|\xrightarrow{P^n_0}0.
     \end{equation}
 
-    (See \cite{van2000asymptotic} Theorem 5.23 or \cite{Kleijn2012The} Theorem Lemma 2.1.)
+    (See~\cite{van2000asymptotic} Theorem 5.23 or~\cite{Kleijn2012The} Theorem Lemma 2.1.)
 \end{lemma}
 
 \input{someLatex/mainTheorem.tex}
 
 \begin{proof}[\textbf{Proof of Theorem 2}]
     If the null hypothesis is true, the true parameter $\theta_0$ is an interior point of $\Theta$ and $\theta_0$ is a relative interior point of $\Theta_0$. Then we can apply Theorem~\ref{theoremMain} to both the numerator and denominator of integrated likelihood ratio statistics with $\eta_n=0$. By CLT,
-    %如果原假设成立，即真实参数$\theta_0$是$\Theta$的一个内点，同时$\theta_0$是$\Theta_0$的一个相对内点，那么对积分似然比统计量\eqref{likelihoodRatio}的分子和分母，我们都可以应用定理\ref{theoremMain},并取定理中的$\eta_n=0$。而由中心极限定理，我们有
 
     \begin{equation}
     I_{\theta_0}\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow }\xi, 
@@ -368,28 +346,24 @@ where $\xi\sim N(0,I_{\theta_0})$.
 \end{equation}
 where $\xi^*$ is the first $p_1$ coordinates of $\xi$. Hence
 
-%，所以$2^{\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^TI_{\theta_0}\Delta_{n,\theta_0}}=O_{P_0^n}(1)$
+
 \begin{equation}\label{equationNull}
     \begin{aligned} 
         \Lambda(X)&=
-        \frac{
-            2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^TI_{\theta_0}\Delta_{n,\theta_0}\}+o_{P_0^n}(1)
-        }{
-            2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^{*T}I^*_{\theta_0}\Delta^*_{n,\theta_0}\}+o_{P_0^n}(1)
+        \frac{2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\}+o_{P_0^n}(1)
+        }{2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^{*T}I^*_{\theta_0}\Delta^*_{n,\theta_0}\}+o_{P_0^n}(1)
         }
         \\
         &\overset{P_{0}^n}{\rightsquigarrow }
-        \frac{
-            2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\xi^TI^{-1}_{\theta_0}\xi\}
-        }{
-            2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\xi^{*T}I^{*-1}_{\theta_0}\xi^*\}
+        \frac{2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\xi^T I^{-1}_{\theta_0}\xi\}
+        }{2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\xi^{*T}I^{*-1}_{\theta_0}\xi^*\}
         }.
     \end{aligned}
 \end{equation}
 But
 \begin{equation}\label{equationXi}
-    \xi^TI^{-1}_{\theta_0}\xi -\xi^{*T}I^{*-1}_{\theta_0}\xi^*
-    =(I_{\theta_0}^{-\frac{1}{2}}\xi)^T\Big(
+    \xi^T I^{-1}_{\theta_0}\xi -\xi^{*T}I^{*-1}_{\theta_0}\xi^*
+    ={(I_{\theta_0}^{-\frac{1}{2}}\xi)}^T\Big(
         I_{p_{2}\times p_{2}}-
         I_{\theta_0}^{\frac{1}{2}}
         \left(\begin{matrix} 
@@ -420,7 +394,7 @@ But
         \begin{matrix}
         \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
         \\
-        \frac{1}{\sqrt{n}}\sum^n_{i=1}\eta^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}\eta^TI_{\theta_0}\eta
+        \frac{1}{\sqrt{n}}\sum^n_{i=1}\eta^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}\eta^T I_{\theta_0}\eta
         \end{matrix}
     \right)
     +o_{P_0^n}(1)\\
@@ -429,13 +403,13 @@ But
     \left(
     \begin{matrix}
         0\\
-        -\frac{1}{2}\eta^TI_{\theta_0}\eta
+        -\frac{1}{2}\eta^T I_{\theta_0}\eta
     \end{matrix}
     \right),
     \left(
         \begin{matrix}
             I_{\theta_0}&I_{\theta_0}\eta\\
-            \eta^TI_{\theta_0}&\eta^TI_{\theta_0}\eta
+            \eta^T I_{\theta_0}&\eta^T I_{\theta_0}\eta
         \end{matrix}
     \right)
     ).
@@ -480,5 +454,6 @@ where noncentral parameter $\delta$ can be obtained by substituting $\xi$ by $I_
 \section*{References}
 
 \bibliography{mybibfile}
+
 
 \end{document}
