@@ -1,0 +1,141 @@
+
+
+
+
+
+\begin{proof}[\textbf{Proof of Theorem 1}]
+    By contiguity，we only need to proof the convergence in $P_0^n$.
+
+The proof consists of two steps. In the first part of the proof, let $C$ be the ball of fixed radius $M$ around zero. We proof
+
+\begin{equation}\label{eq:14}
+    \left|\int_C \frac{p^n_h(X)}{p^n_0(X)}\pi_n (h;X) \, dh-\int_C e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\, dh\right|
+ \xrightarrow{P^n_0}0
+\end{equation}
+By Lemma~\ref{lemmaUniform}, for every fixed $M$,
+\begin{equation}
+    \sup_{\|h\|\leq M}|\log \frac{p_h^n(X)}{p_0^n(X)}-h^T I_{\theta_0}\Delta_{n,\theta_0}+\frac{1}{2}h^T I_{\theta_0}h|\xrightarrow{P_0^n}0 
+\end{equation}
+Hence we have
+\begin{equation}\label{eq:8}
+    \int_C \frac{p_h^n(X)}{p_0^n(X)}\pi_n (h;X) \, dh=e^{o_{p^n_0}(1)}\int_C e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}\pi_n (h;X) \, dh
+\end{equation}
+So we only need to consider $\int_C e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}\pi_n (h;X) \, dh$.
+    Notice that $C$ is a bounded region，hence $\Delta_{n,\theta_0}$ converges to a normal distribution. Therefore, $\sup_{h\in C}e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}$ is bounded in probability. So for every $\delta>0$， there exists $M$ such that, with probability $1-\delta$,
+\begin{equation}
+\begin{aligned}
+    \int_C e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}|\pi_n (h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)|\, dh
+\\
+\leq M\int_C |\pi_n(h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)|\, dh\xrightarrow{P^n_0}0
+\end{aligned}
+\end{equation}
+Combining with~\eqref{eq:8}, we can conclude that~\eqref{eq:14} holds. \\
+
+This is true for every ball $C$ of fixed radius $M$ and hence also for some $M_n\to \infty$.
+
+In the second part, we proof
+\begin{equation}\label{eq:4}
+    \frac{\int_{c_n^c}p_h^n(X)\pi_n(h;X)\, dh}{\int p_h^n(X)\pi_n(h;X)\, dh}\xrightarrow{P_0^n}0,
+\end{equation}
+where $C_n$ is a ball with radius $M_n$, for any $M_n\to \infty$.
+    
+    Let $\phi_n$ be the test satisfies condition $(i)$, we have
+
+\begin{equation}
+    \frac{\int_{C_n^C}p_h^n(x)\pi(h|x)\, dh}{\int p_h^n(x)\pi(h|x)\, dh}= \frac{\int_{C_n^C}p_h^n(x)\pi(h|x)\, dh}{\int p_h^n(x)\pi(h|x)\, dh}\phi_n+ \frac{\int_{C_n^C}p_h^n(x)\pi(h|x)\, dh}{\int p_h^n(x)\pi(h|x)\, dh}(1-\phi_n)
+\end{equation}
+Since $\eqref{eq:4}\leq 1$, 
+\begin{equation}
+    \frac{\int_{C_n^C}p_h^n(X)\pi_n(h;X)\, dh}{\int p_h^n(X)\pi_n(h;X)\, dh}\phi_n\leq \phi_n\xrightarrow{P_0^n}0
+\end{equation}
+It's enough to proof
+\begin{equation}\label{eq:10}
+    \frac{\int_{C_n^C}p_h^n(X)\pi_n(h;X)\, dh}{\int p_h^n(X)\pi_n(h;X)\, dh}(1-\phi_n)\xrightarrow{P_0^n}0
+\end{equation}
+Fix a ball $U$ around zero. Then
+\begin{equation}\label{eq:11}
+\eqref{eq:10}\leq \frac{\int_{C_n^C}p_h^n(X)\pi_n(h;X)\, dh}{\int_U p_h^n(X)\pi_n(h;X)\, dh}(1-\phi_n)
+\end{equation}
+
+    By the Assumption (ii) and the fact that $\Delta_{n,\theta_0}$ is uniformly tight, we can assume $\sup_h (\pi_n(h;X)-T(h))\leq 0$ and $|\Delta_{n,\theta_0}|\leq M$ for some $M$ without loss of generality since the probability they don't hold will be eventually smaller than any prespecified constant. 
+
+    %由条件$(ii)$，给定$\delta$，当$n$充分大时，以概率$1-\delta$有$\pi_n(h;X)<A$($\forall h\in U$)。 给定$\delta_1$, 则$M_{\delta_1}$ 使得当$n$充分大时，以概率$1-\delta_1$有$|\Delta_{n,\theta_0}|<M_{\delta_1}$。
+    There exists an $m>0$ such that
+\begin{equation}
+    \inf_{h\in U} dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\geq m.
+\end{equation}
+Let $D_n(X)$ be the set $\{h: |\pi_{n}(h;X)-n(\Delta_{n,\theta_{0}},I_{\theta_{0}}^{-1})|\geq\frac{m}{2}\}$. We have
+%再注意到$\pi_n(h;X)$的支撑在$\{h:\|h\|\leq K\}$上。所以我们以概率$1-\delta-\delta_1$有
+\begin{equation}\label{eq:13}
+    \begin{aligned}~\eqref{eq:11}\leq&\frac{\int_{C_n^C}p_h^n(X)\pi_n(h;X)\, dh}{\int_{U/D_n(X)} p_h^n(X)\pi_n(h;X)\, dh}(1-\phi_n)\\
+        \leq&\frac{\int_{C_n^C}p_h^n(X)\pi_n(h;X)\, dh}{\frac{m}{2}\int_{U/D_n(X)} p_h^n(X)\, dh}(1-\phi_n)\\
+    \end{aligned}
+\end{equation}
+Next we proof
+\begin{equation}\label{eq:12}
+    \frac{\int_{U/D_n(X)} p_h^n(X)\, dh}{\int_U p_h^n(X)\, dh}\xrightarrow{P_0^n}1.
+\end{equation}
+By Assumption $(i)$, Bernstein-von Mises Theorem holds. That is
+\begin{equation}\label{eq:9}
+ \int |\pi_{n}(h;X)-n(\Delta_{n,\theta_{0}},I_{\theta_{0}}^{-1})|\, dh\xrightarrow{P_0^n}0   
+\end{equation}
+\eqref{eq:9} implies $\int 1_{D_n(x)}\, dh\xrightarrow{P_0^n}0$. Similar to the proof in step 1, we have
+
+\begin{equation}
+\begin{aligned}~\eqref{eq:12}&=\frac{\int_{U/D_n(X)} \frac{p_h^n(X)}{p_0^n(X)}\, dh}{\int_U \frac{p_h^n(X)}{p_0^n(X)}\, dh}\\
+                 &=\frac{e^{o_{P^n_0}(1)}\int_{U/D_n(X)} e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h} \, dh}{e^{o^n_{P_0}(1)}\int_U e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h} \, dh}\\
+                 &\xrightarrow{P_0^n} 1
+\end{aligned}
+\end{equation}
+since $h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h$ is bounded.
+
+
+Now, to obtain $\eqref{eq:13}\xrightarrow{P_0^n}0$, we only need to prove
+\begin{equation}\label{eq:5}
+    \begin{aligned}
+        \frac{\int_{C_n^C}p_h^n(X)(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}})\, dh}{\int_U p_h^n(X)\, dh}(1-\phi_n)\xrightarrow{P_0^n} 0
+    \end{aligned}
+\end{equation}
+By Lemma~\ref{lemmaContiguity}, we only need to prove $\eqref{eq:5}\xrightarrow{P_U^n}0$. To prove that, we only need to prove $\eqref{eq:5}\xrightarrow{L^1_{P_U^n}}0$, that is 
+\begin{equation}\label{eq:6}
+    \int \frac{\int_{C_n^C}p_h^n(x)(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}})\, dh}{\int_U p_h^n(x)\, dh}(1-\phi_n)\big(\int_U p_h^n(x)dh\big) \, d\mu  \to 0
+\end{equation}
+We note that
+\begin{equation}\label{eq:7}~\eqref{eq:6}=\int_{C_n^C} \Big(\int (1-\phi_n)p_h^n(x)d\mu\Big) (A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}})\, dh 
+\end{equation}
+By Lemma~\ref{lemmaTest}, there automatically exist tests $\phi_n$  such that for sufficiently large $n$ and $\|h\|\geq M_n$,
+\begin{equation}
+\int (1-\phi_n)p^n_h(x)d\mu\leq e^{-c(\|h\|^2\wedge n)}
+\end{equation}
+If $K< 1$, then $\|h\|^2\wedge n\geq \|h\|^2\wedge K^2n$. If $K\geq 1$, then
+\begin{equation}
+    \|h\|^2\wedge n=\frac{1}{K^2}(K^2\|h\|^2\wedge K^2n)\geq \frac{1}{K^2}(\|h\|^2\wedge K^2n)
+\end{equation}
+Let $c^*=c\min(1,1/K^2)$, then
+\begin{equation}
+\int (1-\phi_n)p^n_h(x)d\mu\leq e^{-c^*(\|h\|^2\wedge K^2n)}
+\end{equation}
+Splitting the integral into the domains $M_n\leq \|h\|\leq K\sqrt{n}$ and $\|h\|\geq K\sqrt{n}$, we see that
+\begin{equation}~\eqref{eq:7}\leq \int_{\|h\|\geq M_n}e^{-c^*\|h\|^2}\, dh + e^{-c^*K^2n}\int_{\|h\|>K\sqrt{n}} T(h)\, dh  \to 0
+\end{equation}
+Finally we have
+\begin{equation}
+    \begin{aligned}
+        &\left|\int \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh-2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}}
+ \right|\\
+        &=\left|\int \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh-\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh\right|\\
+        &+\left|\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh -\int_{C_n} e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\, dh\right|\\
+        &+\left| \int_{C_n} e^{h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h}n(\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh-2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}}
+ \right|\\
+        &=J_1+J_2+J_3
+\end{aligned}
+\end{equation}
+By the first step of the proof, we have $J_2\xrightarrow{P^n_0}0$. Hence $\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh $ is bounded in probability. Therefore
+\begin{equation}
+\begin{aligned}
+    J_1&=\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh\left|\frac{\int \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh}{\int_{C_n} \frac{p_h(X)}{p_0(X)}\pi_n (h;X) \, dh}-1\right|\\
+       &=O_{P_0^n}(1)o_{P_0^n}(1)
+\end{aligned}
+\end{equation}
+And $J_3$ convenges to $0$ for trivial reasion.
+\end{proof}

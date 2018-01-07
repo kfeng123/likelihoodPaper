@@ -1,0 +1,752 @@
+\documentclass[3p]{elsarticle}
+
+\usepackage{lineno,hyperref}
+\modulolinenumbers[5]
+
+\journal{Journal of \LaTeX\ Templates}
+
+%%%%%%%%%%%%%%%%%%%%%%%
+%% Elsevier bibliography styles
+%%%%%%%%%%%%%%%%%%%%%%%
+%% To change the style, put a % in front of the second line of the current style and
+%% remove the % from the second line of the style you would like to use.
+%%%%%%%%%%%%%%%%%%%%%%%
+
+%% Numbered
+%\bibliographystyle{model1-num-names}
+
+%% Numbered without titles
+%\bibliographystyle{model1a-num-names}
+
+%% Harvard
+%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
+
+%% Vancouver numbered
+%\usepackage{numcompress}\bibliographystyle{model3-num-names}
+
+%% Vancouver name/year
+\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
+
+%% APA style
+%\bibliographystyle{model5-names}\biboptions{authoryear}
+
+%% AMA style
+%\usepackage{numcompress}\bibliographystyle{model6-num-names}
+
+%% `Elsevier LaTeX' style
+\bibliographystyle{elsarticle-num}
+%%%%%%%%%%%%%%%%%%%%%%%
+
+\graphicspath{{./figure/}}
+
+
+
+
+\usepackage{lineno,hyperref}
+
+\usepackage{galois} % composition function \comp
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[page,title]{appendix}
+%\renewcommand\appendixname{haha}
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage{datetime}
+\newdate{date}{9}{1}{2017}
+
+%%%%%%%%%% page setup %%%%%%%%%%
+\textheight 8.5 in
+\textwidth 6.5 in
+\topmargin -0.5 in
+\oddsidemargin -0.1 in
+%%%%%%%%%%%%%%  Notations %%%%%%%%%%
+\DeclareMathOperator{\mytr}{tr}
+\DeclareMathOperator{\mydiag}{diag}
+\DeclareMathOperator{\myrank}{Rank}
+\DeclareMathOperator{\myP}{P}
+\DeclareMathOperator{\myE}{E}
+\DeclareMathOperator{\myVar}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\newcommand{\Ba}{\mathbf{a}}    \newcommand{\Bb}{\mathbf{b}}    \newcommand{\Bc}{\mathbf{c}}    \newcommand{\Bd}{\mathbf{d}}    \newcommand{\Be}{\mathbf{e}}    \newcommand{\Bf}{\mathbf{f}}    \newcommand{\Bg}{\mathbf{g}}    \newcommand{\Bh}{\mathbf{h}}    \newcommand{\Bi}{\mathbf{i}}    \newcommand{\Bj}{\mathbf{j}}    \newcommand{\Bk}{\mathbf{k}}    \newcommand{\Bl}{\mathbf{l}}
+\newcommand{\Bm}{\mathbf{m}}    \newcommand{\Bn}{\mathbf{n}}    \newcommand{\Bo}{\mathbf{o}}    \newcommand{\Bp}{\mathbf{p}}    \newcommand{\Bq}{\mathbf{q}}    \newcommand{\Br}{\mathbf{r}}    \newcommand{\Bs}{\mathbf{s}}    \newcommand{\Bt}{\mathbf{t}}    \newcommand{\Bu}{\mathbf{u}}    \newcommand{\Bv}{\mathbf{v}}    \newcommand{\Bw}{\mathbf{w}}    \newcommand{\Bx}{\mathbf{x}}
+\newcommand{\By}{\mathbf{y}}    \newcommand{\Bz}{\mathbf{z}}    
+\newcommand{\BA}{\mathbf{A}}    \newcommand{\BB}{\mathbf{B}}    \newcommand{\BC}{\mathbf{C}}    \newcommand{\BD}{\mathbf{D}}    \newcommand{\BE}{\mathbf{E}}    \newcommand{\BF}{\mathbf{F}}    \newcommand{\BG}{\mathbf{G}}    \newcommand{\BH}{\mathbf{H}}    \newcommand{\BI}{\mathbf{I}}    \newcommand{\BJ}{\mathbf{J}}    \newcommand{\BK}{\mathbf{K}}    \newcommand{\BL}{\mathbf{L}}
+\newcommand{\BM}{\mathbf{M}}    \newcommand{\BN}{\mathbf{N}}    \newcommand{\BO}{\mathbf{O}}    \newcommand{\BP}{\mathbf{P}}    \newcommand{\BQ}{\mathbf{Q}}    \newcommand{\BR}{\mathbf{R}}    \newcommand{\BS}{\mathbf{S}}    \newcommand{\BT}{\mathbf{T}}    \newcommand{\BU}{\mathbf{U}}    \newcommand{\BV}{\mathbf{V}}    \newcommand{\BW}{\mathbf{W}}    \newcommand{\BX}{\mathbf{X}}
+\newcommand{\BY}{\mathbf{Y}}    \newcommand{\BZ}{\mathbf{Z}}    
+
+\newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
+
+\def\balpha{\bfsym \alpha}
+\def\bbeta{\bfsym \beta}
+\def\bgamma{\bfsym \gamma}             \def\bGamma{\bfsym \Gamma}
+\def\bdelta{\bfsym {\delta}}           \def\bDelta {\bfsym {\Delta}}
+\def\bfeta{\bfsym {\eta}}              \def\bfEta {\bfsym {\Eta}}
+\def\bmu{\bfsym {\mu}}                 \def\bMu {\bfsym {\Mu}}
+\def\bnu{\bfsym {\nu}}
+\def\btheta{\bfsym {\theta}}           \def\bTheta {\bfsym {\Theta}}
+\def\beps{\bfsym \varepsilon}          \def\bepsilon{\bfsym \varepsilon}
+\def\bsigma{\bfsym \sigma}             \def\bSigma{\bfsym \Sigma}
+\def\blambda {\bfsym {\lambda}}        \def\bLambda {\bfsym {\Lambda}}
+\def\bomega {\bfsym {\omega}}          \def\bOmega {\bfsym {\Omega}}
+\def\brho   {\bfsym {\rho}}
+\def\btau{\bfsym {\tau}}
+\def\bxi{\bfsym {\xi}}
+\def\bzeta{\bfsym {\zeta}}
+% May add more in future.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\quad\quad Theorem}
+\newtheorem{proposition}{\quad\quad Proposition}
+\newtheorem{corollary}{\quad\quad Corollary}
+\newtheorem{lemma}{\quad\quad Lemma}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{\quad\quad Assumption}
+\newtheorem{condition}{\quad\quad Condition}
+
+\theoremstyle{definition}
+\newtheorem{remark}{\quad\quad Remark}
+\theoremstyle{remark}
+
+\begin{document}
+
+\begin{frontmatter}
+
+\title{Integrated likelihood ratio test\tnoteref{mytitlenote}}
+\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
+
+%% Group authors per affiliation:
+\author{author \fnref{myfootnote}}
+\address{Radarweg 29, Amsterdam}
+\fntext[myfootnote]{Since 1880.}
+
+%% or include affiliations in footnotes:
+\author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
+\ead[url]{www.elsevier.com}
+
+\author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
+\cortext[mycorrespondingauthor]{Corresponding author}
+\ead{support@elsevier.com}
+
+\address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
+\address[mysecondaryaddress]{360 Park Avenue South, New York}
+
+\begin{abstract}
+
+    Likelihood ratio test (LRT) is the most widely used test procedure. However, it has some weaknesses. Likelihood is unbounded for some important models. Even when the likelihood is bounded, the maximum may be not easy to obtain if it is not convex in parameters. We propose a new test procedure called integrated likelihood ratio test (ILRT) which can overcome the above difficulties. Posterior Bayes factor is a special case of ILRT\@. We proof the Wilks phenomenon of ILRT and give the asymptotic local power.
+\end{abstract}
+
+\begin{keyword}
+%\texttt{elsarticle.cls} \sep \LaTeX \sep Elsevier \sep template
+%\MSC[2010] 00-01\sep  99-00
+\end{keyword}
+
+\end{frontmatter}
+
+%\linenumbers
+
+\section{Introduction}
+Suppose that we have $n$ observations $\BX^{(n)}=(X_1,\ldots,X_n)$ which are independent identically distributed (i.i.d.) random variables with values in some space space $(\mathcal{X};\mathscr{A})$.
+Assume that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p_\theta(X|\theta)$ with respect to $\mu$. The parameter $\theta$ takes its values in some set $\Theta$.
+
+Suppose we are interested in  testing the hypotheses $H_0:\theta\in \Theta_0$ vs $H_1:\theta\in \Theta$ for a subset $\Theta_0$ of $\Theta$. The well known likelihood ratio test (LRT) is defined as
+\begin{equation}
+    \frac{\sup_{\Theta} p_n(\BX^{(n)}|{\theta})}{\sup_{\Theta_0} p_n(\BX^{(n)}|\theta)},
+\end{equation}
+where $p_n(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ is the density of $\BX^{(n)}$ with respect to $\mu^n$, the $n$-fold product measure of $\mu$.
+LRT is the most widely used statistical method which enjoys many optimal properties. For example, by Neyman-Pearson lemma, it's the most powerful test (MPT) in simple null and simple alternative case \citep{Lehmann}.
+In multi-dimensional parameter case, MPT does not exist.
+Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
+However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
+In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
+
+
+In Bayesian framework, Bayes factor is the most popular methodology.
+However, the frequency property of Bayes factor is not satisfied.
+\cite{Aitkin1991Posterior} proposed posterior Bayes factor
+\begin{equation}
+    \frac{\int_{\Theta} p_\theta(X)\pi(\theta|X)\, d\theta}{\int_{\Theta_0}p_\theta(X)\pi^*(\theta|X)\, d\theta},
+\end{equation}
+where $\pi^*(\theta|x)$ and $\pi(\theta|x)$ are the posterior densities under null hypotheses and alternative hypothesis.
+\cite{gelfand1993bayesian} derived it's null distribution.
+However, they didn't explicitly give the conditions needed. In fact, their proof relies on Laplace approximation, which assumes the existence of maximum likelihood estimator (MLE). 
+Note that the existence of MLE implies the existence of LRT. Hence the scope of their method doesn't exceed that of classical LRT\@.
+
+
+
+Based on the proof of Bernstein-von Mises theorem (See~\cite{van2000asymptotic} and~\cite{Kleijn2012The}), we give the proof of the Wilks phenomenon and local power of ILRT under fairly weak assumptions.
+
+\section{Integrated likelihood ratio test}
+
+ The posterior Bayes factor can be generalized to the integrated likelihood ratio test (ILRT) statistic, as follow  
+\begin{equation}
+    \Lambda (X)=\frac{\int_{\Theta} \big[p(\BX^{(n)}|\theta)\big]^{\alpha}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\Theta_0} \big[p(\BX^{(n)}|\theta)\big]^{\alpha}\pi^*(\theta;\BX^{(n)})\,d\theta},
+\end{equation}
+where $\alpha>0$ is a hyperparameter, $\pi(\theta;X)$ and $\pi^*(\theta;X)$ are weight functions which may be data dependent but does not need to be the posterior density of $\theta$.
+
+The parameter space $\Theta$ is an open subset of $\mathbb{R}^{p_2}$. The null space $\Theta_0$ is a $p_1$-dimensional subspace of $\Theta$
+\begin{equation}
+    \Theta_0=\{\theta\in\Theta:\theta_{p_1+1}=\theta_{0,{p_1+1}},\ldots,\theta_{p_2}=\theta_{0,{p_2}}\},
+\end{equation}
+where the last $p_2-p_1$ parameters $\theta_{0,{p_1+1}},\ldots,\theta_{0,{p_2}}$ are fixed. We want to test the hypothesis
+\begin{equation}
+H_0:\theta\in \Theta_0\quad vs. \quad H_1:\theta\in \Theta.
+\end{equation}
+The first $p_1$ parameters are nuisance parameters.
+
+$\Theta_0$ can be regarded as a open subset of $\mathbb{R}^{p_1}$. To simplify notations, we denote  $\tilde{\Theta}_0=\{{(\theta_1,\ldots,\theta_{p_1})}^T:\, (\theta_1,\ldots,\theta_{p_1},\theta_{0,p_1+1},\theta_{0,p_2})\in \Theta_0\}$.
+We use $p_1$-dimensional vector $\tilde{\theta}\in
+\tilde{\Theta}_0$ to represent $\theta\in\Theta_0$ and regard $\tilde{\Theta}_0$ as the null space.
+Let $\pi(\theta;\BX)$ and $\tilde{\pi}(\tilde{\theta};\BX)$ be the weight functions in $\Theta$ and $\tilde{\Theta}_0$.
+The integrated likelihood ratio statistic is defined as
+\begin{equation}\label{likelihoodRatio}
+    \Lambda (\BX^{(n)})=\frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} p_n(\BX^{(n)}|\tilde{\theta})\tilde{\pi}(\tilde{\theta};\BX^{(n)})\,d\tilde{\theta}}.
+\end{equation}
+
+\section{New Main Results}
+\textbf{Notations.}
+Let $\phi(x|\mu,\Sigma)$ be the density function of a normal distribution with mean $\mu$ and variance $\Sigma$ evaluated at $x$.
+We denote by $\rightsquigarrow$ the weak convergence. 
+
+
+{\color{red}
+\begin{itemize}
+    \item
+One step test. Like one step estimator.
+\item
+    The key is the proof of results somewhat like the consistency of the posterior distribution. The argument by the existence of certain test can not be applied.
+\end{itemize}
+}
+
+Let $\BX^{(n)}$ denote the data.
+Let $\Theta$ be an open subset of $\mathbb{R}^p$ parameterising statistical models $\{P_{\theta}^{(n)}:\theta\in \Theta\}$. 
+Denote by $P_0$ the true distribution of $\BX$.
+We do not assume that $P_0\in  \{P_{\theta}^{(n)}:\theta\in \Theta\}$.
+Let $p_{n}(x|\theta)$ be the density of  $P_{\theta}^{(n)}$ with respect to a reference measure $\mu_n$.
+Like~\cite{Kleijn2012The}, we consider models satisfying a stochastic local asymptotic normality (LAN) condition around a given inner point $\theta^* \in \Theta$ and relative to a given norming rate $\delta_n$: there exist random vectors $\Delta_{n,\theta^*}$ and nonsingular matrices $\BV_{\theta^*}$ such that  {\color{red}the sequence $\Delta_{n,\theta^*}$ is bounded in probability}, and for every compact set $K\subset \mathbb{R}^p$,
+$$
+\sup_{h\in K}
+\Big|
+\log\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_{n}(\BX^{(n)}|\theta^*)}
+-h^T \BV_{\theta^*}\Delta_{n,\theta^*}+\frac{1}{2} h^T \BV_{\theta^*} h
+\Big|
+=\epsilon_{1,n}(K),
+$$
+where $\epsilon_{1,n}(K)$ tends to $0$ for fixed $K$.
+
+
+
+
+
+Let $h=(\theta-\theta^*)/\delta_n$ which reparameterizes $\theta$ around $\theta^*$ by the scale of $h$.
+Obviously, $h=0$ under null.
+Under the local alternatives, $h$ converges to a constant.
+
+Let $\pi(\theta)$ be the prior density of $\theta$ with respect to the Lebesgue measure of $\mathbb{R}^p$.
+Then the prior density of $h$ is
+$$
+\pi^*(h)=\pi(\theta^*+\delta_n h)\delta_n.
+$$
+The posterior density of $h$ is
+$$
+\pi^*(h|\BX^{(n)})=\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)}{\int p_n (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(g) \, dg}.
+$$
+
+There are many works give Bernstein-von Mises type theorems, which assert that the posterior distribution of $h$ converges to a normal distribution with mean $\Delta_{n,\theta^*}$ and variance $\BV_{\theta^*}^{-1}$.
+However, most existing work consider the convergence under the total variation distance, that is
+$$
+\int_{\mathbb{R}^p}\big|\pi^*(h|\BX^{(n)})-\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\big| \, dh \xrightarrow{P} 0.
+$$
+Or Hellinger distance.
+
+We would like to consider the Chi-squared distance:
+$$
+\int_{\mathbb{R}^p}\Big(\frac{\pi^*(h|\BX^{(n)})}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})}-1\Big)^2 {\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh 
+=
+\int_{\mathbb{R}^p}\Big(\pi^*(h|\BX^{(n)})-\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh.
+$$
+Note that
+\begin{equation}\label{eq:Bernstein1}
+\begin{aligned}
+    &\int_{\mathbb{R}^p}\Big(\pi^*(h|\BX^{(n)})-\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+    =&
+    \int_{\mathbb{R}^p}
+    \Big(
+    \frac{p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)}{\int p_n (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(g) \, dg}
+    -\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+\end{aligned}
+\end{equation}
+Here we note that 
+$$
+p_n(\BX^{(n)}|\theta^*+\delta_n h)
+\approx p_{n}(\BX^{(n)}|\theta^*)
+\exp\Big[
+h^T \BV_{\theta^*}\Delta_{n,\theta^*}-\frac{1}{2} h^T \BV_{\theta^*} h
+\Big]\triangleq p^*_n(\BX^{(n)}|\theta^*+\delta_n h).
+$$
+Hence
+$$
+\begin{aligned}
+\int_{\mathbb{R}^p} p_n (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(g) \, dg
+    \approx&
+\int_{\mathbb{R}^p} p_n^* (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(0) \, dg\\
+    =&
+\pi^*(0)
+p_{n}(\BX^{(n)}|\theta^*)
+(2\pi)^{p/2} |\BV_{\theta^*}|^{-1/2}
+\exp\Big[
+    \frac{1}{2}\Delta_{n,\theta^*}^T \BV_{\theta^*} \Delta_{n,\theta^*}
+    \Big].
+\end{aligned}
+$$
+Thus, from~\eqref{eq:Bernstein1} we have
+$$
+\begin{aligned}
+    &\int_{\mathbb{R}^p}\Big(\pi^*(h|\BX^{(n)})-\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+    \leq&
+    2\int_{\mathbb{R}^p}
+    \Big(
+    \frac{p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)}{\int p_n (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(g) \, dg}
+    -
+    \frac{p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)}{\int p_n^* (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(0) \, dg}
+    \Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+    &+
+    2\int_{\mathbb{R}^p}
+    \Big(
+    \frac{p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)}{\int \tilde{p}_n (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(0) \, dg}
+    -\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+    =&
+    2\Big(
+    \frac{1}{\int p_n (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(g) \, dg}
+    -
+    \frac{1}{\int p_n^* (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(0) \, dg}
+    \Big)^2
+    \int_{\mathbb{R}^p}
+p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)^2
+    \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+    &+
+    2\int_{\mathbb{R}^p}
+    \Big(
+    \frac{p_n(\BX^{(n)}|\theta^*+\delta_n h) \pi^*(h)}{\int p_n^* (\BX^{(n)}|\theta^*+\delta_n g) \pi^*(0) \, dg}
+    -\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\Big)^2 \frac{1}{\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})} \, dh\\
+\end{aligned}
+$$
+
+\subsection{Posterior Bayes factor}
+Posterior Bayes factor, proposed by~\cite{Aitkin1991Posterior}, is an alternative of the Bayes factor. Posterior Bayes factor is defined as
+$$
+B_{10}=\frac{\int_{\Theta}p_n(\BX^{(n)}|\theta)\pi(\theta|\BX^{(n)})\, d\theta}{\int_{\tilde{\Theta}_0} p_n(\BX^{(n)}|\tilde{\theta})\tilde{\pi}(\tilde{\theta}|\BX^{(n)})\,d\tilde{\theta}}
+.
+$$
+By some algebra, we have
+$$
+B_{10}
+=
+\frac{\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^2\pi(\theta)\, d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\tilde{\theta})\big]^2\tilde{\pi}(\tilde{\theta})\,d\tilde{\theta}}
+\frac{\int_{\tilde{\Theta}_0} p_n(\BX^{(n)}|\tilde{\theta})\tilde{\pi}(\tilde{\theta})\,d\tilde{\theta}}{\int_{\Theta}p_n(\BX^{(n)}|\theta)\pi(\theta)\, d\theta}
+.
+$$
+We would like to derive the asymptotic behavior of
+$$
+\int_{\mathbb{R}^p}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh.
+$$
+For $M>0$, define $K(M)=\{h: \|h\|\leq M\}$. We have
+$$
+\begin{aligned}
+    &\int_{\mathbb{R}^p}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+=
+    \int_{K(M)}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+    +
+    \int_{K(M)^C}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+    .
+\end{aligned}
+$$
+We expect that the second term is a smaller term of the first term.
+Define
+$$
+\epsilon_{2}(M)=
+\frac{
+    \int_{K(M)^C}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+}{
+    \int_{K(M)}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+}.
+$$
+Hence
+$$
+\begin{aligned}
+    &\int_{\mathbb{R}^p}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+=
+    (1+\epsilon_2(M))\int_{K(M)}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+    .
+\end{aligned}
+$$
+But
+$$
+\begin{aligned}
+    &
+e^{-k\epsilon_{1,n}(K)}
+    \min_{h\in K} \frac{\pi^*(h)}{\pi^*(0)}
+    \pi^*(0)
+    \int_{K(M)}\big[\frac{p_n^*(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k  \, dh
+    \\
+    &
+\leq
+\int_{K(M)}\big[\frac{p_n(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \pi^*(h) \, dh
+    \\
+    &
+\leq
+e^{k\epsilon_{1,n}(K)}
+    \max_{h\in K} \frac{\pi^*(h)}{\pi^*(0)}
+    \pi^*(0)
+    \int_{K(M)}\big[\frac{p_n^*(\BX^{(n)}|\theta^*+\delta_n h)}{p_n(\BX^{(n)}|\theta^*)}\big]^k \, dh
+\end{aligned}
+$$
+
+
+So the key is to bound $\epsilon_2(M)$.
+
+\section{Main results}
+
+
+We study the asymptotic behavior of the ILRT statistic around $\theta_0$.
+
+Let $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ be the Fisher information matrix at $\theta_0$ and $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics. In null space, $\dot{\ell}^*$，$I^*_{\theta_0}$ and $\Delta_{n,\theta_0}^*$ are defined in the same way. It's easy to see that $\dot{\ell}^*_{\theta_0}$ is the first $p_1$
+coordinates of $\dot{\ell}_{\theta_0}$, $I^*_{\theta_0}$ is the  first $p_1\times p_1$ submatrix of $I_{\theta_0}$ and $\Delta_{n,\theta_0}^*=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^*_{\theta_0}(X_i)$.
+
+
+Listed below are the regular conditions we need:
+
+\begin{assumption}\label{Assumption1}
+Suppose that $\theta_0$ is an inner point of $\Theta$ and is a relative innver point of $\Theta_0$.
+Suppose the function $\theta \mapsto \log p(X|\theta)$ is differentialbe at $\theta_0$  $P_0$-a.s.\ with derivative $\dot{\ell}_{\theta_0}(X)$, and there's an open neighborhood $V$ of $\theta_0$ and a measurable function $\dot{m}$ with $P_{\theta_0}\dot{m}^2<\infty$ such that for every $\theta_1,\theta_2\in V$,
+        \begin{equation*}
+            |\log p(X|\theta_1)-\log p(X|\theta_2)|\leq \dot{m}(x)\|\theta_1-\theta_2\|.
+        \end{equation*}
+    Assume $I_{\theta_0}$ is positive-definite and
+    \begin{equation*}
+        P_0 \log p(X|\theta)- P_0 \log (X|\theta_0)
+        =-\frac{1}{2}(\theta-\theta_0)^T I_{\theta_0} (\theta-\theta_0)+o(\|\theta-\theta_0\|^2),\quad (\theta\to \theta_0).
+    \end{equation*}
+\end{assumption}     
+Assumption~\ref{Assumption1} is a stand assumption for likelihood. See vaart (1998) and vaart (2012).
+\begin{theorem}
+    Under Assumption~\ref{Assumption1},
+    we have $\|\dot{\ell}_{\theta_0}(X)\|\leq m(X)$ $P_0$-a.s., $P_0 \dot{\ell}_{\theta_0}(X)=0$ and
+    \begin{equation*}
+        \sup_{\|h\|\leq M}\Big|
+         \log \frac{p_n(\BX^{(1)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(1)}|\theta_0)}-\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)+\frac{1}{2}h^T I_{\theta_0}h
+        \Big|\xrightarrow{P^n_0}0.
+    \end{equation*}
+
+    (See~\cite{van2000asymptotic} Theorem 5.23 or~\cite{Kleijn2012The} Lemma 2.1.)
+\end{theorem}
+If there exists certain test, Bernstein von Mise theorem will be valid.
+\begin{assumption}\label{Assumption2}
+    For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+        \begin{equation}
+            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
+        \end{equation}
+\end{assumption}
+Under assumptions~\ref{Assumption1} and~\ref{Assumption2}
+        
+\begin{assumption}\label{Assumption3}
+        Let $\pi_n(h;X)$ be a weight function satisfying 
+        \begin{equation}\label{vonMisesResults}
+            \|\pi_n(h;X)-dN(\Delta_{n,\theta_0},I_{\theta_0}^{-1})(h)\|\overset{P_{\theta_0}^n}{\to}0
+        \end{equation}
+Furthermore, assume that for every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and an $A>0$ such that 
+
+    \begin{equation}\label{Assump31}
+    \lim_{n\to \infty}P_{\theta_0}^n(\sup_{\|h\|\geq K\sqrt{n}}(\pi_n(h;X)-T(h))\leq 0)\geq 1-\epsilon
+\end{equation}
+
+        \begin{equation}\label{Assump32}
+            \lim_{n\to \infty} P_{\theta_0}^n(\sup_{\|h\|\leq K\sqrt{n}} \pi_n(h;X)\leq A)\geq 1-\epsilon
+        \end{equation}
+\end{assumption}
+
+
+Assumption~\ref{Assumption1} makes sure that there exists at least one weight function satisfies~\ref{vonMisesResults}, that is, the posterior density.
+The condition~\ref{Assump21} assume there is a function controlling the tail of weight function. For a statistical model, the likelihood value makes no sense when $\theta$ is far away from $\theta_0$, or $\sqrt{n}h$ is large. To avoid the bad behavior of the likelihood function when $\sqrt{n}h$ is large, many theoretical works impose assumptions to likelihood. Thanks to the flexibility of weight function, we can impose~\ref{Assump21} to weight function instead. The condition~\ref{Assump22} is
+satisfied in most usual case. No matter model is, condition~\ref{Assump21} and~\ref{Assump22} will be
+satisfied, e.g., when 
+\begin{equation}
+    \pi_n(h;X)=\min(\pi_n(h|X),M) 1_{\|h\|\leq K\sqrt{n}}
+\end{equation}
+where $M$ and $M$ are user-specified constant and $\pi_n(h|X)$ is the posterior density.
+Assumption~\ref{Assumption3} is standard in likelihood theory.
+
+Our first theorem is
+\begin{theorem}\label{theoremMain}
+    Suppose that. Then for bounded real numbers $\eta_n$, we have
+    \begin{equation}
+        \Big|\int_{\mathbb{R}^{p}}\frac{p_h(X)}{p_0(X)}\pi_n(h;X)\,dh-
+        2^{-\frac{p}{2}}e^{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}}
+        \Big|\xrightarrow{P_{\eta_n}^n}0
+    \end{equation}
+\end{theorem}
+
+
+Based on Theorem~\ref{theoremMain},the asymptotic distribution of integrated likelihood ratio statistics under null hypothesis can be obtained. It can be used to determine the critical value of the test
+\begin{theorem}\label{theoremWilks}
+    Suppose the assumptions of~\ref{theoremMain} are met for both $\Theta_0$ and $\Theta$,  the true parameter $\theta_0$ is an interior point of $\Theta$ and a relative interior point of $\Theta_0$, then we have
+\begin{equation}
+    2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2)
+\end{equation}
+
+\end{theorem}
+
+We can obtain the asymptotic distribution of the integrated likelihood ratio test under local alternatives by Le Cam's third lemma.
+\begin{theorem}\label{theoremPower}
+Suppose  the Assumptions of~\ref{theoremWilks} are met. The true parameter $\theta$ satisfies $\eta_n=\sqrt{n}(\theta-\theta_0)\to \eta$. If
+\begin{equation}
+    I_{\theta_0}=\left(
+        \begin{matrix}
+            I^*_{\theta_0}&I_{12}
+            \\
+            I_{21}&I_{22}
+        \end{matrix}
+    \right),
+\end{equation}
+$I_{22\cdot 1}=I_{22}-I_{21}I_{\theta_0}^{*-1}I_{12}$,
+    then we have
+\begin{equation}
+    2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2)
+\end{equation}
+where
+\begin{equation}
+\delta=\eta^T
+    \left(
+        \begin{matrix}
+            0&0\\
+            0&I_{22\cdot 1}
+        \end{matrix}
+    \right)
+    \eta
+\end{equation}
+\end{theorem}
+
+The results can be explained by the limit experiment point of view. As $h_n\to h$, the `locally sufficient' statistic $\Delta_{n,\theta_0}\rightsquigarrow N(h,I^{-1}_{\theta_0})$. In the limit experiment, we have one observation $X\sim N(h,I_{\theta_0}^{-1})$. In this case, the integrated likelihood ratio test statistics can be calculated easily whose distribution is exactly the same as~\ref{theoremPower}.
+
+\input{someLatex/normalMixture.tex}
+
+
+
+
+\section{Appendix}
+For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathcal{A}_n)$, denote by $P_n\triangleleft \triangleright Q_n$ that $P_n$ and $Q_n$ are mutually contiguous. That is, for any statistics $T_n$: $\Omega_n\mapsto \mathbb{R}^k$, we have $T_n\overset{P_n}{\rightsquigarrow}0\Leftrightarrow T_n\overset{Q_n}{\rightsquigarrow}0$.
+\begin{lemma}\label{lemmaEx}
+    Suppose that $\Theta$ is an open subset of $\mathbb{R}^p$ and that the model ($P_\theta: \theta \in\Theta$) is differentiable in quadratic mean at $\theta_0$. Then $P_{\theta_0}\dot{\ell}_{\theta_0}=0$ and the Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ exists. Furthermore, for every converging sequence $h_n\to h$，as $n\to \infty$,
+    \begin{equation}
+        \log \frac{p^n_{h_n}(X)}{p^n_0(X)}=\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h^T I_{\theta_0}h+o_{P_{\theta_0}}(1),
+    \end{equation}
+    where $p_h^n(X)=\prod_{i=1}^n p_h(X_i)$ is the density of $P_h^n$ relative to $\mu_n=\mu\times \cdots \times \mu$.
+    (See~\cite{van2000asymptotic} Theorem 7.2.)
+\end{lemma}
+
+
+
+\begin{lemma}\label{lemmaContiguity}
+    Suppose the assumptions of Lemma~\ref{lemmaEx} are satisfied. Let $U$ be a ball of fixed radius around zero. 
+    Then for every random variable sequence $T_n(\BX^{(n)})$, $T_n(\BX^{(n)})\xrightarrow{P^n_0}0\Leftrightarrow T_n (\BX^{(n)})\xrightarrow{P^n_U}0$, where
+\begin{equation*}
+    P^n_U(A)=\int_{A}\frac{1}{V(U)}\int_{U}p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\, dh \, d\mu,
+\end{equation*}
+$V(U)$ is the volume of $U$.
+\end{lemma}
+
+\begin{proof}
+    It suffices to prove
+\begin{equation*}
+    \int_{A_n}p_n(\BX^{(n)}|\theta_0)\, d\mu \to 0 \Leftrightarrow \int_{A_n}\frac{1}{V(U)}\int_U p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\, dh \, d\mu \to 0,
+\end{equation*}
+or
+\begin{equation}\label{eq:1}
+    \int_{A_n}p_n(\BX^{(n)}|\theta_0)\, d\mu \to 0 \Leftrightarrow \int_{A_n}\frac{1}{V(U)}\int_U p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\, dh \, d\mu \to 0,
+\end{equation}
+Under the assumptions of~\ref{lemmaEx}, for every bounded sequence $h_n$, $P_{h_n}^n\triangleleft \triangleright P_{0}^n$, that is
+\begin{equation}\label{eq:2}
+\int_{A_n}p_0^n(x)\, d\mu \to 0 \Leftrightarrow \int_{A_n} p_{h_n}^n(x) d\mu  \to 0.
+\end{equation}
+On the other hand, there exists sequence $\overline{h}_n$ such that
+\begin{equation}
+\int_{U}\int_{A_n} p_h^n(x) d\mu \, dh
+\leq V(U)\sup_{h\in U}\int_{A_n} p_h^n(x) d\mu
+\leq V(U)(\int_{A_n}p^n_{\overline{h}_n}(x)d\mu +1/n).
+\end{equation}
+ We have similar lower bound. Hence,
+\begin{equation}\label{eq:3}
+ V(U)(\int_{A_n}p^n_{\underline{h}_n}(x)d\mu +1/n)
+\leq \int_{U}\int_{A_n} p_h^n(x) d\mu \, dh
+\leq V(U)(\int_{A_n}p^n_{\overline{h}_n}(x)d\mu +1/n)
+\end{equation}
+The~\eqref{eq:1} follows from~\eqref{eq:2} and~\eqref{eq:3}.
+\end{proof}
+
+\begin{lemma}\label{lemmaTest}
+    Suppose the assumptions of Lemma~\ref{lemmaEx} are met. Suppose that for every $\epsilon>0$ there exists a sequence of tests $\phi_n$ such that
+$$
+P_{\theta_0}^n \phi_n \to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon}P_{\theta}^n (1-\phi_n)\to 0.
+$$
+Then there exists for every $M_n\to \infty$ a sequence of tests $\phi_n$ and a constant $c>0$ such that, for every sufficiently large $n$ and every $\|\theta-\theta_0\|\geq M_n /\sqrt{n}$,
+$$
+P_{\theta_0}^n\phi_n \to 0, \quad P_\theta^n (1-\phi_n)\leq e^{-cn(\|\theta-\theta_0\|^2\wedge 1)}.
+$$
+    (See~\cite{van2000asymptotic} Lemma 10.3.)
+\end{lemma}
+
+
+
+\begin{lemma}\label{lemmaUniform}
+
+    Suppose the assumptions of Lemma~\ref{lemmaEx} are met. Further more, suppose there is an open neighborhood $V$ of $\theta_0$ and a function $m(x)$ with $P_{\theta_0}m^2<\infty$ such that for all $\forall \theta_1,\theta_2\in V$:
+    \begin{equation}
+        |\log p_{\theta_1}(x)-\log p_{\theta_2}(x)|\leq m(x)\|\theta_1-\theta_2\|.
+    \end{equation}
+Then for every $M>0$,
+    \begin{equation}
+        \sup_{\|h\|\leq M}\Big|
+         \log \frac{p^n_{h_n}(X)}{p^n_0(X)}-\frac{1}{\sqrt{n}}\sum^n_{i=1}h^T\dot{\ell}_{\theta_0}(X_i)+\frac{1}{2}h^T I_{\theta_0}h
+        \Big|\xrightarrow{P^n_0}0.
+    \end{equation}
+
+    (See~\cite{van2000asymptotic} Theorem 5.23 or~\cite{Kleijn2012The} Theorem Lemma 2.1.)
+\end{lemma}
+
+\input{someLatex/mainTheorem.tex}
+
+\begin{proof}[\textbf{Proof of Theorem 2}]
+    If the null hypothesis is true, the true parameter $\theta_0$ is an interior point of $\Theta$ and $\theta_0$ is a relative interior point of $\Theta_0$. Then we can apply Theorem~\ref{theoremMain} to both the numerator and denominator of integrated likelihood ratio statistics with $\eta_n=0$. By CLT,
+
+    \begin{equation}
+    I_{\theta_0}\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow }\xi, 
+\end{equation}
+where $\xi\sim N(0,I_{\theta_0})$.
+\begin{equation}
+    I^*_{\theta_0}\Delta^*_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}^*_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow} \xi^*, 
+\end{equation}
+where $\xi^*$ is the first $p_1$ coordinates of $\xi$. Hence
+
+
+\begin{equation}\label{equationNull}
+    \begin{aligned} 
+        \Lambda(X)&=
+        \frac{2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\}+o_{P_0^n}(1)
+        }{2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^{*T}I^*_{\theta_0}\Delta^*_{n,\theta_0}\}+o_{P_0^n}(1)
+        }
+        \\
+        &\overset{P_{0}^n}{\rightsquigarrow }
+        \frac{2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\xi^T I^{-1}_{\theta_0}\xi\}
+        }{2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\xi^{*T}I^{*-1}_{\theta_0}\xi^*\}
+        }.
+    \end{aligned}
+\end{equation}
+But
+\begin{equation}\label{equationXi}
+    \xi^T I^{-1}_{\theta_0}\xi -\xi^{*T}I^{*-1}_{\theta_0}\xi^*
+    ={(I_{\theta_0}^{-\frac{1}{2}}\xi)}^T\Big(
+        I_{p_{2}\times p_{2}}-
+        I_{\theta_0}^{\frac{1}{2}}
+        \left(\begin{matrix} 
+                I^{*-1}_{\theta_0}&0\\
+                0&0
+        \end{matrix}\right)
+        I_{\theta_0}^{\frac{1}{2}}
+    \Big)(I_{\theta_0}^{-\frac{1}{2}}\xi).
+\end{equation}
+    $I_{\theta_0}^{-\frac{1}{2}}\xi$ is a $p_2$-dimensional standard normal distribution, The middle term is a projection matrix with rank $p_2-p_1$. Hence we have
+\begin{equation}
+    2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2).
+\end{equation}
+\end{proof}
+
+\begin{proof}[\textbf{Proof of Theorem 3}]
+    We note that $h_n=\eta_n$ converges to $\eta$. By differentiability in quadratic mean, Lemma~\ref{lemmaEx} and CLT,
+\begin{equation}
+    \begin{aligned}
+    \left(
+    \begin{matrix}
+        \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
+        \\
+        \log \frac{p_{\eta_n}(X)}{p_0(X)}
+    \end{matrix}
+    \right)
+    &=\left(
+        \begin{matrix}
+        \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
+        \\
+        \frac{1}{\sqrt{n}}\sum^n_{i=1}\eta^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}\eta^T I_{\theta_0}\eta
+        \end{matrix}
+    \right)
+    +o_{P_0^n}(1)\\
+    &\overset{P_0^n}{\rightsquigarrow}
+    N(
+    \left(
+    \begin{matrix}
+        0\\
+        -\frac{1}{2}\eta^T I_{\theta_0}\eta
+    \end{matrix}
+    \right),
+    \left(
+        \begin{matrix}
+            I_{\theta_0}&I_{\theta_0}\eta\\
+            \eta^T I_{\theta_0}&\eta^T I_{\theta_0}\eta
+        \end{matrix}
+    \right)
+    ).
+    \end{aligned}
+\end{equation}
+Hence by Le Cam's third lemma,
+\begin{equation}
+    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\eta_n}}{\rightsquigarrow}\xi\sim N(I_{\theta_0}\eta,I_{\theta_0}).
+\end{equation}
+By Theorem~\ref{theoremMain}, under $P_{\eta_n}^n$, we have~\eqref{equationNull}.
+Hence
+\begin{equation}
+    2\log(\Lambda(X))\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2),
+\end{equation}
+where noncentral parameter $\delta$ can be obtained by substituting $\xi$ by $I_{\theta_0}\eta$ in~\eqref{equationXi}:
+\begin{equation}
+    \begin{aligned}
+        \delta&=\eta^T(
+        I_{\theta_0}-
+        I_{\theta_0}
+        \left(\begin{matrix} 
+                I^{*-1}_{\theta_0}&0\\
+                0&0
+        \end{matrix}\right)
+        I_{\theta_0}
+    )\eta
+    \\
+    &=\eta^T
+    \left(
+        \begin{matrix}
+            0&0\\
+            0&I_{22\cdot 1}
+        \end{matrix}
+    \right)
+    \eta.
+    \end{aligned}
+\end{equation}
+\end{proof}
+
+
+
+\section*{References}
+
+\bibliography{mybibfile}
+
+
+\end{document}
