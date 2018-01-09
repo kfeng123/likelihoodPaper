@@ -1,7 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
 \BOOKMARK [1][-]{section.2}{Integrated likelihood ratio test}{}% 2
-\BOOKMARK [1][-]{section.3}{New Main Results}{}% 3
-\BOOKMARK [2][-]{subsection.3.1}{Posterior Bayes factor}{section.3}% 4
-\BOOKMARK [1][-]{section.4}{Main results}{}% 5
-\BOOKMARK [1][-]{section.5}{Normal mixture}{}% 6
-\BOOKMARK [1][-]{section.6}{Appendix}{}% 7
+\BOOKMARK [1][-]{section.3}{Main results}{}% 3
+\BOOKMARK [1][-]{section.4}{New Main Results}{}% 4
+\BOOKMARK [2][-]{subsection.4.1}{Examples}{section.4}% 5
+\BOOKMARK [2][-]{subsection.4.2}{fractional posterior Bayes factor}{section.4}% 6
+\BOOKMARK [2][-]{subsection.4.3}{The work of kar10563}{section.4}% 7
+\BOOKMARK [2][-]{subsection.4.4}{The choice of the weight function}{section.4}% 8
+\BOOKMARK [1][-]{section.5}{Appendix}{}% 9
