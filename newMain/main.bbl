@@ -1,4 +1,4 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{12}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -17,6 +17,16 @@
 \newblock \bibinfo{title}{Posterior bayes factors. journal of the royal
   statistical society series b-methodological}.
 \newblock \bibinfo{year}{1991}.
+%Type = Article
+\bibitem[{Aitkin et~al.(1996)Aitkin, Finch, Mendell and Thode}]{Aitkin1996}
+\bibinfo{author}{Aitkin\xfnm[ M.]}, \bibinfo{author}{Finch\xfnm[ S.]},
+  \bibinfo{author}{Mendell\xfnm[ N.]}, \bibinfo{author}{Thode\xfnm[ H.]}.
+\newblock \bibinfo{title}{A new test for the presence of a normal mixture
+  distribution based on the posterior bayes factor}.
+\newblock \bibinfo{journal}{Statistics and Computing}
+  \bibinfo{year}{1996};\bibinfo{volume}{6}(\bibinfo{number}{2}):\bibinfo{pages}{121--125}.
+\newblock \URLprefix \url{https://doi.org/10.1007/BF00162522}.
+  \DOIprefix\doi{10.1007/BF00162522}.
 %Type = Book
 \bibitem[{Bahadur(1971)}]{MR0315820}
 \bibinfo{author}{Bahadur\xfnm[ R.]}.
@@ -38,14 +48,15 @@
 \newblock \bibinfo{title}{Bayesian model choice: Asymptotics and exact
   calculations}.
 \newblock \bibinfo{year}{1993}.
-%Type = Book
-\bibitem[{Gelman et~al.(2013)Gelman, Carlin, Stern, Dunson, Vehtari and
-  Rubin}]{bayesianDataAnalysis}
-\bibinfo{author}{Gelman\xfnm[ A.]}, \bibinfo{author}{Carlin\xfnm[ J.B.]},
-  \bibinfo{author}{Stern\xfnm[ H.S.]}, \bibinfo{author}{Dunson\xfnm[ D.B.]},
-  \bibinfo{author}{Vehtari\xfnm[ A.]}, \bibinfo{author}{Rubin\xfnm[ D.B.]}.
-\newblock \bibinfo{title}{Bayesian Data Analysis}.
-\newblock \bibinfo{publisher}{Chapman and Hall/CRC}, \bibinfo{year}{2013}.
+%Type = Article
+\bibitem[{Ghosal et~al.(2000)Ghosal, Ghosh and van~der Vaart}]{ghosal2000}
+\bibinfo{author}{Ghosal\xfnm[ S.]}, \bibinfo{author}{Ghosh\xfnm[ J.K.]},
+  \bibinfo{author}{van~der Vaart\xfnm[ A.W.]}.
+\newblock \bibinfo{title}{Convergence rates of posterior distributions}.
+\newblock \bibinfo{journal}{Ann Statist}
+  \bibinfo{year}{2000};\bibinfo{volume}{28}(\bibinfo{number}{2}):\bibinfo{pages}{500--531}.
+\newblock \URLprefix \url{https://doi.org/10.1214/aos/1016218228}.
+  \DOIprefix\doi{10.1214/aos/1016218228}.
 %Type = Article
 \bibitem[{Kleijn and Vaart(2012)}]{Kleijn2012The}
 \bibinfo{author}{Kleijn\xfnm[ B.]}, \bibinfo{author}{Vaart\xfnm[ A.]}.
@@ -53,17 +64,37 @@
   misspecification}.
 \newblock \bibinfo{journal}{Electron J Stat}
   \bibinfo{year}{2012};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{354--381}.
+%Type = Article
+\bibitem[{Laurent and Massart(2000)}]{Laurent2000Adaptive}
+\bibinfo{author}{Laurent\xfnm[ B.]}, \bibinfo{author}{Massart\xfnm[ P.]}.
+\newblock \bibinfo{title}{Adaptive estimation of a quadratic functional by
+  model selection}.
+\newblock \bibinfo{journal}{Annals of Statistics}
+  \bibinfo{year}{2000};\bibinfo{volume}{28}(\bibinfo{number}{5}):\bibinfo{pages}{1302--1338}.
 %Type = Book
 \bibitem[{Lehmann J. P.~R(2005)}]{Lehmann}
 \bibinfo{author}{Lehmann J. P.~R\xfnm[ E.]}.
 \newblock \bibinfo{title}{Testing Statistical Hypotheses}.
 \newblock \bibinfo{address}{New York}: \bibinfo{publisher}{Springer},
   \bibinfo{year}{2005}.
+%Type = Article
+\bibitem[{O'Hagan(1995)}]{Fractional1995}
+\bibinfo{author}{O'Hagan\xfnm[ A.]}.
+\newblock \bibinfo{title}{Fractional bayes factors for model comparison}
+  \bibinfo{year}{1995};\bibinfo{volume}{57}:\bibinfo{pages}{99--138}.
 %Type = Book
 \bibitem[{der Vaart(2000)}]{van2000asymptotic}
 \bibinfo{author}{der Vaart\xfnm[ A.]}.
 \newblock \bibinfo{title}{Asymptotic Statistics}.
 \newblock \bibinfo{address}{???}: \bibinfo{publisher}{Cambridge university
   press}, \bibinfo{year}{2000}.
+%Type = Article
+\bibitem[{Walker and Hjort(2001)}]{kar10563}
+\bibinfo{author}{Walker\xfnm[ S.G.]}, \bibinfo{author}{Hjort\xfnm[ N.L.]}.
+\newblock \bibinfo{title}{On bayesian consistency}.
+\newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
+  (Statistical Methodology)}
+  \bibinfo{year}{2001};\bibinfo{volume}{63}(\bibinfo{number}{4}):\bibinfo{pages}{811--821}.
+\newblock \URLprefix \url{http://kar.kent.ac.uk/10563/}.
 
 \end{thebibliography}
