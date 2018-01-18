@@ -209,17 +209,17 @@ Let $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$.
     \Lambda_{P}(\BX^{(n)})=\frac{\int_{\Theta} p(\BX^{(n)}|\theta)\pi(\theta|\BX^{(n)})\, d\theta}{\int_{\tilde{\Theta}_0}p(\BX^{(n)}|\nu,\xi_0)\pi(\nu|\BX^{(n)})\, d\nu},
 \end{equation*}
 where $\pi^*(\theta|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under null hypotheses and alternative hypothesis.
-For $t>0$, define $z_t(\BX^{(n)})=\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta$,
- $z_t^*(\BX^{(n)})=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu$.
+For $t>0$, define $L_t(\BX^{(n)})=\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta$,
+ $L_t^*(\BX^{(n)})=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu$.
 Then PBF can be written as
 $$
     \Lambda_{P}(\BX^{(n)})=
-    \frac{z_{2}(\BX^{(n)})}{z_{1}(\BX^{(n)})}\cdot \frac{z_{1}^*(\BX^{(n)})}{z_{2}^*(\BX^{(n)})}.
+    \frac{L_{2}(\BX^{(n)})}{L_{1}(\BX^{(n)})}\cdot \frac{L_{1}^*(\BX^{(n)})}{L_{2}^*(\BX^{(n)})}.
 $$
 
 \begin{equation*}
     \Lambda_{F}(\BX^{(n)})=
-    \frac{z_{1}(\BX^{(n)})}{z_{1/2}(\BX^{(n)})}\cdot \frac{z_{1/2}^*(\BX^{(n)})}{z_{1}^*(\BX^{(n)})}.
+    \frac{L_{1}(\BX^{(n)})}{L_{1/2}(\BX^{(n)})}\cdot \frac{L_{1/2}^*(\BX^{(n)})}{L_{1}^*(\BX^{(n)})}.
 \end{equation*}
 
 
@@ -236,7 +236,7 @@ $$
 $$
 then
 $$
-\Lambda(\BX^{(n)})= \frac{z_{a+b}(\BX^{(n)})}{z_{b}(\BX^{(n)})}\cdot \frac{z_{b}^*(\BX^{(n)})}{z_{a+b}^*(\BX^{(n)})}.
+\Lambda(\BX^{(n)})= \frac{L_{a+b}(\BX^{(n)})}{L_{b}(\BX^{(n)})}\cdot \frac{L_{b}^*(\BX^{(n)})}{L_{a+b}^*(\BX^{(n)})}.
 $$
 The case $a=b=1/2$ corresponds to the fractional Bayes factor (FBF) \citep{Fractional1995}.
 The case $a=b=1$ corresponds to the posterior Bayes factor (PBF).
@@ -254,7 +254,7 @@ The integrated likelihood ratio statistic is defined as
 In this section, we consider the general FBF
 \begin{equation*}
     \Lambda_{a,b}(\BX^{(n)})=
-    \frac{z_{a}(\BX^{(n)})}{z_{b}(\BX^{(n)})}\cdot \frac{z_{b}^*(\BX^{(n)})}{z_{a}^*(\BX^{(n)})},
+    \frac{L_{a}(\BX^{(n)})}{L_{b}(\BX^{(n)})}\cdot \frac{L_{b}^*(\BX^{(n)})}{L_{a}^*(\BX^{(n)})},
 \end{equation*}
 where $0<b<a$.
 Note that $\Lambda_{2,1}(\BX^{(n)})$ is PBF, $\Lambda_{1,1/2}(\BX^{(n)})$ is the conventional FBF.
@@ -308,14 +308,20 @@ Assumption~\ref{Assumption1} is a stand assumption for likelihood. See vaart (19
 
     (See~\cite{van2000asymptotic} Theorem 5.23 or~\cite{Kleijn2012The} Lemma 2.1.)
 \end{proposition}
-    For $t>0$, We call $z_t(\BX^{(n)})$ consistent if for every $M_n\to \infty$,
+    For $t>0$, We call $L_t(\BX^{(n)})$ consistent if for every $M_n\to \infty$,
     $$
     \frac{\int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta}{\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta}\xrightarrow{P_{\theta_0}^n} 0.
     $$
+Define
+$$
+L_t (A)=\int_{A} \Big[ {p_n(\BX^{(n)}|\theta)} \Big]^{t} \pi(\theta) \, d \theta.
+$$
+
+
     for $t=1$, this condition is equivalent to the consistency of Posterior distribution.
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $z_a(\BX^{(n)})$, $z_b(\BX^{(n)})$, $z_a^*(\BX^{(n)})$ and $z_b^*(\BX^{(n)})$ are consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$, then
+        Suppose that Assumption~\ref{Assumption1} holds, $L_a(\BX^{(n)})$, $L_b(\BX^{(n)})$, $L_a^*(\BX^{(n)})$ and $L_b^*(\BX^{(n)})$ are consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$, then
         for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
         $$
         \log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-\frac{p-p_1}{2}\log \frac{a}{b}+\frac{a-b}{2}\chi^2_{p-p_1}(\delta),
@@ -393,10 +399,10 @@ $$
             +o_{P^n_{\theta_0}}(1).
         \end{aligned}
         $$
-If $z_t(\BX^{(n)})$ is consistent, then
+If $L_t(\BX^{(n)})$ is consistent, then
 $$
         \begin{aligned}
-            &\log z_t(\BX^{(n)})=\log \int_{\Theta}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
+            &\log L_t(\BX^{(n)})=\log \int_{\Theta}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
             =
             &
                 \frac{p}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p}{2}\log t-\frac{1}{2}\log |I_{\theta_0}|
@@ -408,10 +414,10 @@ $$
             +o_{P^n_{\theta_0}}(1).
         \end{aligned}
         $$
-Similarly, if $z_t^*(\BX^{(n)})$ is consistent,
+Similarly, if $L_t^*(\BX^{(n)})$ is consistent,
 $$
 \begin{aligned}
-    &\log z_t^* (\BX^{(n)})=\log \int_{\tilde{\Theta}_0}\big[ p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu\\
+    &\log L_t^* (\BX^{(n)})=\log \int_{\tilde{\Theta}_0}\big[ p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu\\
     =&
                 \frac{p_1}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p_1}{2}\log t-\frac{1}{2}\log |I_{\theta_0}^*|
                 +\log \pi(\nu_0)
@@ -427,11 +433,11 @@ These expansions, combined with the mutually contiguity of $P_{\theta_0}^n$ and 
         \begin{aligned}
         \log \Lambda_{a,b}(\BX^{(n)})
             =&
-            \log z_a(\BX^{(n)})-
-            \log z_b(\BX^{(n)})
+            \log L_a(\BX^{(n)})-
+            \log L_b(\BX^{(n)})
             -
-            \log z^*_a(\BX^{(n)})+
-            \log z^*_b(\BX^{(n)})\\
+            \log L^*_a(\BX^{(n)})+
+            \log L^*_b(\BX^{(n)})\\
             =&
             -\frac{p-p_1}{2}\log \frac{a}{b}
             +
@@ -523,38 +529,207 @@ Hence
 
     \end{proof}
 
-The key assumption of \ref{Thm:maintheorem} is the consistency of $z_a(\BX^{(n)})$, $z_b(\BX^{(n)})$, $z_a^*(\BX^{(n)})$ and $z_{b}^*(\BX^{(n)})$.
+The key assumption of \ref{Thm:maintheorem} is the consistency of $L_a(\BX^{(n)})$, $L_b(\BX^{(n)})$, $L_a^*(\BX^{(n)})$ and $L_{b}^*(\BX^{(n)})$.
 
-Next we consider the consistency of $Z_t(\BX^{(n)})$.
+Next we consider the consistency of $L_t(\BX^{(n)})$.
 
 \begin{proposition}
-    Under Assumption~\ref{Assumption1}, for $0<b<a$, if $Z_a$ is consistent, then $Z_{b}$ is consistent.
+    Under Assumption~\ref{Assumption1}, for $0<b<a$, if $L_a$ is consistent, then $L_{b}$ is consistent.
 \end{proposition}
 
 
 
 We would like to investigate the asymptotic behavior of FBF in exponential family.
 Exponential family possesses many good properties.
+It can be seen that the full-rank exponential family fullfill Assumption~\ref{Assumption1}.
 \begin{proposition}
-    In exponential family, for every $a>0$, blabla.
+    Suppose $p(X|\theta)=\exp\big[\theta^T T(X)-A(\theta)\big]$, $\Theta$ is an open subset of $\mathbb{R}^p$, $\theta_0$ is an interior point of $\Theta$, 
+    $$I_{\theta_0}=\frac{\partial^2}{\partial \theta \partial \theta^T} A(\theta_0)>0.$$
+    Then $L_{t}$ is consistent for $t>0$.
 \end{proposition}
+\begin{proof}
+    By some algebra, we have
+    $$
+    \Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n T(X_i)-\sqrt{n}\frac{\partial}{\partial \theta} A(\theta_0)
+    $$
+    and
+    $$
+    \log\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}
+    =h^T I_{\theta_0} \Delta_{n,\theta_0}-\frac{1}{2} h^T I_{\theta_0} h-
+    g_n(h),
+    $$
+    where
+    $$
+    g_n(h)=n\Big(A(\theta_0+n^{-1/2}h)-A(\theta_0)-n^{-1/2}h \frac{\partial}{\partial \theta}A(\theta_0)-\frac{1}{2n}h^T I_{\theta_0}h\Big).
+    $$
+    Without loss of generality, we assume $M_n\to \infty$ and $M_n^3/\sqrt{n}\to 0$.
+    Then by Taylor's theorem and the continuity of the third derivative of $A(\theta)$, 
+    $$
+        \max_{\{h:\|h\|\leq M_n\}}|g_n(h)|=O\Big(\frac{M_n^3}{\sqrt{n}}\Big)\to 0.
+    $$
+    Then
+$$
+    \begin{aligned}
+        &\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
+        \geq
+        \int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
+        \\
+        &=
+        (1+o_{P_0^n}(1))n^{-p/2}\pi(\theta_0)\big[p_n(\BX^{(n)}|\theta_0)\big]^t\int_{\{h:h\leq M_n\}} \exp\big[ t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh
+        \\
+        &=
+        (1+o_{P_0^n}(1))n^{-p/2}\pi(\theta_0) \big[p_n(\BX^{(n)}|\theta_0)\big]^t\int_{\mathbb{R}^p} \exp\big[t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh
+        \\
+        &=
+        (1+o_{P_0^n}(1))n^{-p/2}\pi(\theta_0)\big[p_n(\BX^{(n)}|\theta_0)\big]^t
+        \exp\big[-\frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
+        (2\pi)^{p/2} t^{-p/2}  |I_{\theta_0}|^{-1/2}.
+    \end{aligned}
+$$
+
+    We have
+    $$
+    \begin{aligned}
+        &\max_{\{\theta:\|\theta-\theta_0\|=M_n/\sqrt{n}\}}
+    \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
+    =
+    \max_{\{h:\|h\|=M_n\}}
+    \log\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}
+        \\
+        &\leq
+         \|I_{\theta_0}\Delta_{n,\theta_0}\| M_n -\frac{\lambda_{\min}(I_{\theta_0})}{2} M_n^2+
+        \max_{\{h:\|h\|=M_n\}}|g_n(h)|,
+    \end{aligned}
+    $$
+    where $\lambda_{\min}(I_{\theta_0})>0$ is the minimum eigenvalue of $I_{\theta_0}$.
+    Also note that $I_{\theta_0}\Delta_{n,\theta_0}$ is bounded in probability. Hence with probability tending to $1$,
+    $$
+    \begin{aligned}
+        &\max_{\{\theta:\|\theta-\theta_0\|=M_n/\sqrt{n}\}}
+    \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
+        \leq 
+        -\frac{\lambda_{\min}(I_{\theta_0})}{4}M_n^2.
+    \end{aligned} 
+    $$
+    By the concavity of $\log p_n(\BX^{(n)}|\theta)$, for $\|\theta-\theta_0\|\geq M_n/\sqrt{n}$,
+    $$
+     \frac{M_n/\sqrt{n}}{\|\theta-\theta_0\|}
+     \Big(
+     \log p_n(\BX^{(n)}|\theta)-\log p_n(\BX^{(n)}|\theta_0)
+     \Big)
+     \leq
+     \log p_n \Big(\BX^{(n)}\Big|\theta_0+\frac{M_n/\sqrt{n}}{\|\theta-\theta_0\|}(\theta-\theta_0)\Big)-\log p_n(\BX^{(n)}|\theta_0).
+    $$
+    Thus,
+    $$
+    \begin{aligned}
+     \log \frac{p_n(\BX^{(n)}|\theta)}{ p_n(\BX^{(n)}|\theta_0)}
+        &\leq
+        \frac{\sqrt{n}\|\theta-\theta_0\|}{M_n}
+     \log \frac{p_n\Big(\BX^{(n)}\Big|\theta_0+\frac{M_n/\sqrt{n}}{\|\theta-\theta_0\|}(\theta-\theta_0)\Big)}{ p_n(\BX^{(n)}|\theta_0)}
+        \\
+        &\leq
+        \frac{\sqrt{n}\|\theta-\theta_0\|}{M_n}
+        \Big(-\frac{\lambda_{\min}(I_{\theta_0})}{4}M_n^2\Big)
+        \\
+        &=
+        -\frac{\lambda_{\min}(I_{\theta_0})}{4}\sqrt{n}\|\theta-\theta_0\|
+        M_n.
+    \end{aligned}
+    $$
+    For $\epsilon>0$ such that $\sup_{\|\theta-\theta_0\|< \epsilon}\pi(\theta)\leq +\infty $, we have
+$$
+    \begin{aligned}
+        &\int_{\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
+        \\
+        \leq&
+        \big[p_n(\BX^{(n)}|\theta_0)\big]^t 
+        \int_{\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}} 
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\sqrt{n}\|\theta-\theta_0\|M_n\Big]
+        \pi(\theta)\, d\theta
+        \\
+        =&
+        \big[p_n(\BX^{(n)}|\theta_0)\big]^t 
+        \Big(
+        \int_{\{\theta:M_n/\sqrt{n}\leq \|\theta-\theta_0\|\leq \epsilon \}} 
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\sqrt{n}\|\theta-\theta_0\|M_n\Big]
+        \pi(\theta)\, d\theta
+        \\
+        &+
+        \int_{\{\theta:\|\theta-\theta_0\|> \epsilon\}} 
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\sqrt{n}\|\theta-\theta_0\|M_n\Big]
+        \pi(\theta)\, d\theta
+        \Big)
+        \\
+        \leq& 
+        \big[p_n(\BX^{(n)}|\theta_0)\big]^t 
+        \Big(
+        \big(\sup_{\|\theta-\theta_0\|<\epsilon}\pi(\theta)\big)
+        \int_{\{\theta: \|\theta-\theta_0\|\geq M_n/\sqrt{n}\}} 
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\sqrt{n}\|\theta-\theta_0\|M_n\Big]
+        \, d\theta
+        \\
+        &+
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\epsilon\sqrt{n}M_n\Big]
+        \Big)
+        \\
+        =& 
+        \big[p_n(\BX^{(n)}|\theta_0)\big]^t 
+        \Big(
+        \big(\sup_{\|\theta-\theta_0\|<\epsilon}\pi(\theta)\big)
+        n^{-p/2}
+        \int_{\{h: \|h\|\geq M_n\}} 
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\|h\| M_n\Big]
+        \, dh
+        \\
+        &+
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\epsilon\sqrt{n}M_n\Big]
+        \Big).
+    \end{aligned}
+$$
+
+Thus,
+$$
+    \begin{aligned}
+        &\frac{
+            \int_{\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
+        }
+        {
+            \int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
+        }
+        \\
+        =&
+        O_{P_{\theta_0}^n}(1)
+        \Big(
+        \int_{\{h: \|h\|\geq M_n\}} 
+        \exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\|h\| M_n\Big]
+        \, dh
+        +
+        n^{p/2}\exp\Big[-\frac{t\lambda_{\min}(I_{\theta_0})}{4}\epsilon\sqrt{n}M_n\Big]
+        \Big)
+        \\
+        =&o_{P^n_{\theta_0}}(1).
+    \end{aligned}
+$$
+
+\end{proof}
 
 
-However, in general case PBF is not good.
+ In general case, however, PBF is not good.
 In the general setting, it seems that FBF can be applied to wider problem.
-Consider the example
+Consider the following example.
 
 \begin{example}
-Suppose $X_1,\ldots,X_n$ are i.i.d. from the distribution
+Suppose $X_1,\ldots,X_n$ are i.i.d. from the density
 $$
-    p(x|\theta)=|x-\theta|^{-1/2}\exp\big[-(x-\theta)^2\big]
+    p(x|\theta)=C |x-\theta|^{-1/2}\exp\big[-(x-\theta)^2\big]
 ,
 $$
-    where $\theta\in\Theta=\mathbb{R}$.
+    where $C$ is the normalizing constant. The parameter space $\Theta$ is equal to $\mathbb{R}$.
     We would like to test the hypotheses $H_0:\theta=0$ vs $H_1:\theta\neq 0$.
     The likelihood is
     $$
-    p_n(\BX^{(n)}|\theta)=\Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-1/2}
+    p_n(\BX^{(n)}|\theta)=C^n \Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-1/2}
     \exp \big[-\sum_{i=1}^n (X_i-\theta)^2 \big].
     $$
     Under the alternative hypothesis, the likelihood tends to infinity if $\theta$ tends to $X_i$, $i=1,\ldots, n$.
@@ -564,7 +739,7 @@ $$
 Then
 $$
     \begin{aligned}
-        z_t(\BX^{(n)})=&
+        L_t(\BX^{(n)})=&
     \int_{-\infty}^{+\infty}
 \Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-t/2}
     \exp \big[-t\sum_{i=1}^n (X_i-\theta)^2 \big]
@@ -573,16 +748,282 @@ $$
     d \theta.
     \end{aligned}
 $$
-    The likelihood will almost surely have no ties and consequently $z_t(\BX^{(n)})=+\infty$ if and only if $t\geq 2$.
+    The likelihood will almost surely have no ties and consequently $L_t(\BX^{(n)})=+\infty$ if and only if $t\geq 2$.
     While FBF is well defined, PBF is not defined.
 \end{example}
 
 This example motivates us that FBF is better than PBF.
 In general, the Assumption 4 can be removed for FBF.
 Now we consider the general case.
+
+There are many works give Bernstein-von Mises type theorems, which assert that the posterior distribution of $h=\sqrt{n}(\theta-\theta_0)$ converges to $N(\Delta_{n,\theta_0},I_{\theta_0}^{-1})$, the normal distribution with mean $\Delta_{n,\theta_0}$ and variance $I_{\theta_0}^{-1}$.
+However, most existing work consider the convergence under the total variation distance, that is
+$$
+\int_{\mathbb{R}^p}\big|\pi(h|\BX^{(n)})-\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\big| \, dh \xrightarrow{P_{\theta}^n} 0.
+$$
+Or Hellinger distance. Blabla.
+
+
 \begin{proposition}
     If $a<1$, then blabla
 \end{proposition}
+
+For two parameters $\theta_1$ and $\theta_2$, the R\'{e}nyi divergence of order $\alpha$ ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
+$$
+D_{\alpha}(\theta_1||\theta_2)=-\frac{1}{1-\alpha}\log \rho_{\alpha}(\theta_1,\theta_2),
+$$
+where
+$
+\rho_{\alpha}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(X|\theta_1)^{\alpha} p(X|\theta_2)^{1-\alpha} \, d \mu
+$ is the so-called Hellinger integral.
+
+
+
+{\color{red}
+\begin{assumption}\label{Assumption4}
+    There exist positive constancts $\delta$, $\epsilon$ and $C$ such that,
+     $D_{\alpha}(\theta,\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
+\end{assumption}
+}
+\begin{theorem}
+    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $a\in(0,1)$ and any $M_n\to \infty$,
+    $$
+         \frac{L_{a} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{a}}
+    \xrightarrow{P_{0}^n}  0
+    .
+    $$
+\end{theorem}
+\begin{proof}
+    Without loss of generality, we assume ${M_n}/{\sqrt{n}}\to 0$.
+    Note that
+       \begin{equation}\label{eq:numden}
+       \frac{L_{a} ( 
+       \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}
+           {L_{a}(\Theta)}
+=
+    \frac{
+        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\big\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{a} \pi(\theta) \, d \theta
+    }{
+        \int_{\Theta} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{a} \pi(\theta) \, d \theta
+    }.
+       \end{equation}
+    Consider the expactation of the numerator of~\ref{eq:numden}.
+    It follows from Fubini's theorem that
+    $$
+    \begin{aligned}
+        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{a} \pi(\theta) \, d \theta
+        \\
+        =&
+        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \left\{\int_{\mathcal{X}^n}\big[ {p_n} (\BX^{(n)}|\theta)\big]^a \big[ p_n (\BX^{(n)}|\theta_0) \big]^{1-a} \, d\mu^n \right\} \pi(\theta) \, d \theta\\
+        =&
+        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ \rho_{a}(\theta,\theta_0) \big]^n \pi(\theta) \, d \theta\\
+        = &
+        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[-(1-a)nD_a(\theta||\theta_0) \big] \pi(\theta) \, d \theta.
+    \end{aligned}
+    $$
+    Decompose the integral region into two parts $\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}$ and $\{\theta: \|\theta-\theta_0\|>\delta\}$, 
+    $$
+    \begin{aligned}
+        &\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } 
+        \exp \big[ -(1-a) {n} D_a(\theta,\theta_0) \big] \pi(\theta) \, d \theta
+        \\
+        =&\int_{\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}}
+        \exp\big[ -(1-a) {n} D_a(\theta,\theta_0) \big] \pi(\theta) \, d \theta+
+        \int_{\{\theta: \|\theta-\theta_0\|>\delta\}} \exp\big[ -(1-a) {n} D_a(\theta,\theta_0) \big] \pi(\theta) \, d \theta
+        \\
+        \leq &
+        \max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)
+        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}}
+        \exp\big[ -(1-a)C {n} \|\theta-\theta_0\|^2 \big]
+        \, d \theta
+        +
+        \exp\big[ -(1-a)\epsilon n\big].
+    \end{aligned}
+    $$
+    Note that
+    {\color{red}
+    $$
+    \begin{aligned}
+        &\int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}}
+        \exp\big[-(1-a)C {n} \|\theta-\theta_0\|^2\big] \, d \theta
+\\
+        =&
+        (\sqrt{n} C_2)^{-p}\int_{\big\{t: \|t\|\geq C_2 M_n \big\}} \exp\big[-\frac{t^2}{2} \big] \, d \theta
+        =
+        \Big(\frac{\sqrt{2\pi}}{\sqrt{n} C_2}\Big)^{p} P\{\chi^2_p\geq C_2^2 M_n^2\},
+    \end{aligned}
+    $$
+}
+    where $\chi^2_p$ is a chi-squared random variable with $p$ degrees of freedom.
+    By~\cite{Laurent2000Adaptive} Lemma 1, for $M_n>\sqrt{2p}/C_2$,
+    $$
+    P\{\chi^2_p\geq C_2^2 M_n^2\}\leq \exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big].
+    $$
+    Thus, for large $n$,
+    \begin{equation}\label{eq:num}
+    \begin{aligned}
+        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{1/2} \pi(\theta) \, d \theta
+        \\
+        \leq&
+        \Big[\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\Big]
+\Big(\frac{\sqrt{2\pi}}{\sqrt{n} C_2}\Big)^{p}
+\exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big]
+        +
+        \exp\big[-\frac{n}{2}\epsilon^2\big]
+        .
+    \end{aligned}
+    \end{equation}
+    Now we consider the denominator of~\eqref{eq:numden}.
+    $$
+    \begin{aligned}
+        & \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta
+        \geq
+        \int_{\{\theta:\|\theta-\theta_0\|\leq n^{-1/2}\}}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta
+        \\
+        \geq &
+        \Big(
+        \min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
+\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)
+        \Big)
+        \int_{\{\theta:\|\theta-\theta_0\|\leq n^{-1/2}\}}1\, d\theta\\
+        \geq&
+        \Big(
+        \exp
+\Big[
+        t\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
+        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
+        \Big]
+        \Big)
+        \Big(\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
+        \pi(\theta)
+        \Big)
+        n^{-p/2}\frac{2\pi^{p/2}}{\Gamma(p/2)}.
+    \end{aligned}
+    $$
+    By Proposition~\ref{Thm:localExpansion},
+    $$
+   \begin{aligned} 
+        \min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
+        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
+        \geq
+        -\|I_{\theta_0}\Delta_{n,\theta_0}\|-\frac{1}{2}\|I_{\theta_0}\|+
+        o_{P^n_0}(1).
+   \end{aligned}
+    $$
+    Since 
+    $I_{\theta_0}\Delta_{n,\theta_0}$
+    is bounded in probability, 
+    $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
+        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
+    $$ is lower bounded in probability.
+    Note that 
+    $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} \pi(\theta)\to \pi(\theta_0)>0.$$
+    Thus, for every $\epsilon'>0$, there is a constant $c>0$ and an event $B_{\epsilon'}$ with $P_0^n B_{\epsilon'}>1-\epsilon'$ on which
+    $$
+         \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta\geq c n^{-p/2}.
+    $$
+
+
+
+
+
+
+     %Lemma~\ref{lemma:denominator} implies that for every $\epsilon'>0$, there is a set $B_{\epsilon'}$ with $P_0^nB_{\epsilon'}>1-1/(4C^2 n \epsilon')$ on which
+     %\begin{equation}\label{eq:dentemp}
+     %\int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{1/2} \pi(\theta)\, d\theta
+     %\geq \Pi(A_{\epsilon'}) \exp \big(-(1+C)\epsilon' n\big).
+     %\end{equation}
+     %We take
+     %$$\epsilon'=\frac{\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2}{2(1+C)n}.$$
+     %It can be seen that $\epsilon'\to 0$. Hence for sufficiently large $n$, we have
+     %$$
+     %\begin{aligned}
+     %\Pi(A_{\epsilon'})
+         %=&\Pi\big(\{\theta: D_{KL}(\theta_0,\theta)\leq \epsilon',\, V(\theta_0||\theta)\leq \epsilon'\}\big)
+         %\\
+         %\geq&
+         %\Pi\Big(\big\{\theta:\|\theta-\theta_0\|^2\leq \frac{\epsilon'}{C_1}\big\}\Big)
+         %\\
+         %=&
+         %\int_{\big\{\theta:\|\theta-\theta_0\|^2\leq \frac{\epsilon'}{C_1}\big\}}\pi(\theta)\, d\theta
+         %\\
+         %\geq&
+         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)\int_{\big\{\theta:\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}\big\}}\, d\theta
+         %\\
+         %=&
+         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)
+         %\big(\frac{\epsilon'}{C_1}\big)^{p/2}
+         %\frac{2\pi^{p/2}}{\Gamma(p/2)}
+         %%%\\
+         %=&
+         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)
+         %{\epsilon'}^{p/2}
+         %\frac{2\pi^{p/2}}{(2(1+C)C_1)^{p/2}\Gamma(p/2)}\cdot \frac{\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^p}{n^{p/2}}
+         %\\
+         %\asymp&
+         %\frac{M_n^p}{n^{p/2}}.
+     %\end{aligned}
+     %$$
+     %Then it follows from \eqref{eq:dentemp} that on the set $B_{\epsilon'}$,
+     %\begin{equation}\label{eq:den}
+     %\int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{1/2} \pi(\theta)\, d\theta
+     %\gtrsim
+         %\frac{M_n^p}{n^{p/2}}
+         %\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big].
+     %\end{equation}
+
+     Thus
+     $$
+     \begin{aligned}
+         &
+         P_0^n \left\{ \frac{L_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{1/2}(\Theta)}
+         \right\}
+         \leq
+         P_0^n \left\{ \mathbf{1}_{B_{\epsilon'}} \frac{L_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{1/2}(\Theta)}\right\}+
+         P_0^n B_{\epsilon'}^C\\
+          \leq&
+         c^{-1}\Big[\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\Big]
+\Big(\frac{\sqrt{2\pi}}{ C_2}\Big)^{p}
+\exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big]
+        +
+         c^{-1}n^{p/2}\exp\big[-\frac{n}{2}\epsilon^2\big]
+         +\epsilon'
+         \to \epsilon'.
+     \end{aligned}
+     $$
+    Since $\epsilon $ is arbitrary, the theorem follows.
+     %Since 
+     %$$
+%P_0^n B_{\epsilon'}^C=1-P_0^n B_{\epsilon'}
+     %<\frac{1}{4C^2 n \epsilon'}=\frac{1+C}{2C^2\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2}\to 0,
+     %$$
+      %we only need to upper bound the first term.
+      %Combine~\eqref{eq:numden},~\eqref{eq:num} and~\eqref{eq:den}, for sufficiently large $n$ we have
+      %$$
+      %\begin{aligned}
+          %&P_0^n \left\{ \mathbf{1}_{B_{\epsilon'}} \frac{L_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{1/2}(\Theta)}\right\}
+          %\\
+          %\lesssim&
+              %\frac{1}{M_n^p }
+%\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big]
+          %+\frac{n^{p/2}}{M_n^p}\exp\Big[-\frac{n}{2}\epsilon^2+\frac{1}{2}(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p})^2\Big]
+          %\\
+          %\leq&
+              %\frac{1}{M_n^p }
+%\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big]
+          %+\frac{n^{p/2}}{M_n^p}\exp\big[-\frac{n}{4}\epsilon^2\big]\to 0.
+      %\end{aligned}
+      %$$
+\end{proof}
+
+
+
+
+
+
+
+
 \begin{proposition}
     If $a=1$, then blabla
 \end{proposition}
@@ -1005,274 +1446,9 @@ where noncentral parameter $\delta$ can be obtained by substituting $\xi$ by $I_
 \end{equation}
 \end{proof}
 
-\section{New Main Results}
 
 
 
-
-
-
-
-There are many works give Bernstein-von Mises type theorems, which assert that the posterior distribution of $h=\sqrt{n}(\theta-\theta_0)$ converges to $N(\Delta_{n,\theta_0},I_{\theta_0}^{-1})$, the normal distribution with mean $\Delta_{n,\theta_0}$ and variance $I_{\theta_0}^{-1}$.
-However, most existing work consider the convergence under the total variation distance, that is
-$$
-\int_{\mathbb{R}^p}\big|\pi(h|\BX^{(n)})-\phi(h|\Delta_{n,\theta^*},\BV_{\theta^*}^{-1})\big| \, dh \xrightarrow{P_{\theta}^n} 0.
-$$
-Or Hellinger distance. Blabla.
-
-
-
-
-
-
-
-
-For two parameters $\theta_1$ and $\theta_2$, let $H(\theta_1,\theta_2)$ denote the Hellinger distance between $P_{\theta_1}$ and $P_{\theta_2}$:
-$$H(\theta_1,\theta_2)=\Big(\int_{\mathcal{X}}\big(\sqrt{p(X|\theta_1)}-\sqrt{p(X|\theta_2)}\big)^2 \, d \mu\Big)^{1/2}.$$
-Define
-$
-\rho(\theta_1,\theta_2)=\int_{\mathcal{X}} \sqrt{p(X|\theta_1) p(X|\theta_2)} \, d \mu
-$,
-then
-$H(\theta_1,\theta_2)=\sqrt{2-2\rho(\theta_1,\theta_2) }$.
-
-
-
-Define
-$$
-Z_t (A)=\int_{A} \Big[ {p_n(\BX^{(n)}|\theta)} \Big]^{t} \pi(\theta) \, d \theta.
-$$
-
-
-\begin{assumption}\label{Assumption4}
-    There exist positive constancts $\delta$, $\epsilon$ and $C$ such that,
-     $H(\theta,\theta_0)  \geq  C \|\theta-\theta_0\|$ for $\|\theta-\theta_0\|\leq \delta$ and $H(\theta,\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
-\end{assumption}
-\begin{theorem}
-    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1},\ref{Assumption2} and ~\ref{Assumption4},  for any $M_n\to \infty$,
-    $$
-         P_0^n \left\{ \frac{Z_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{Z_{1/2}(\Theta)}
-         \right\}
-    \to  0
-    .
-    $$
-\end{theorem}
-\begin{proof}
-    Without loss of generality, we assume $\frac{M_n}{\sqrt{n}}\to 0$, otherwise we replace $M_n$ by a smaller one.
-    Note that
-       \begin{equation}\label{eq:numden}
-       \frac{Z_{1/2} ( 
-       \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{Z_{1/2}(\Theta)}
-=
-    \frac{
-        \int_{\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{1/2} \pi(\theta) \, d \theta
-    }{
-        \int_{\Theta} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{1/2} \pi(\theta) \, d \theta
-    }.
-       \end{equation}
-    Consider the expactation of the numerator of~\ref{eq:numden}. It follows from Fubini's theorem that
-    $$
-    \begin{aligned}
-        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{1/2} \pi(\theta) \, d \theta
-        \\
-        =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \left\{\int_{\mathcal{X}^n}\Big[ {p_n} (\BX^{(n)}|\theta)  p_n (\BX^{(n)}|\theta_0) \Big]^{1/2} \, d\mu^n \right\} \pi(\theta) \, d \theta\\
-        =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ \rho(\theta,\theta_0) \big]^n \pi(\theta) \, d \theta\\
-        =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ 1-\frac{1}{2}H(\theta,\theta_0)^2 \big]^n \pi(\theta) \, d \theta\\
-        \leq &
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[ -\frac{n}{2}H(\theta,\theta_0)^2 \big] \pi(\theta) \, d \theta.
-    \end{aligned}
-    $$
-    Decomposing the integral region into two parts $\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}$ and $\{\theta: \|\theta-\theta_0\|>\delta\}$ yields
-    $$
-    \begin{aligned}
-        &\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[ -\frac{n}{2}H(\theta,\theta_0)^2 \big] \pi(\theta) \, d \theta
-        \\
-        =&\int_{\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}} \exp \big[ -\frac{n}{2}H(\theta,\theta_0)^2 \big] \pi(\theta) \, d \theta+
-        \int_{\{\theta: \|\theta-\theta_0\|>\delta\}} \exp \big[ -\frac{n}{2}H(\theta,\theta_0)^2 \big] \pi(\theta) \, d \theta
-        \\
-        \leq &
-        \max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)
-        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}} \exp\big[-\frac{n}{2} C_2^2\|\theta-\theta_0\|^2\big] \, d \theta
-        +
-        \exp\big[-\frac{n}{2}\epsilon^2\big].
-    \end{aligned}
-    $$
-    Note that
-    $$
-    \begin{aligned}
-        &\int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}} \exp\big[-\frac{n}{2} C_2^2\|\theta-\theta_0\|^2\big] \, d \theta
-\\
-        =&
-        (\sqrt{n} C_2)^{-p}\int_{\big\{t: \|t\|\geq C_2 M_n \big\}} \exp\big[-\frac{t^2}{2} \big] \, d \theta
-        =
-        \Big(\frac{\sqrt{2\pi}}{\sqrt{n} C_2}\Big)^{p} P\{\chi^2_p\geq C_2^2 M_n^2\},
-    \end{aligned}
-    $$
-    where $\chi^2_p$ is a chi-squared random variable with $p$ degrees of freedom.
-    By~\cite{Laurent2000Adaptive} Lemma 1, for $M_n>\sqrt{2p}/C_2$,
-    $$
-    P\{\chi^2_p\geq C_2^2 M_n^2\}\leq \exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big].
-    $$
-    Thus, for large $n$,
-    \begin{equation}\label{eq:num}
-    \begin{aligned}
-        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{1/2} \pi(\theta) \, d \theta
-        \\
-        \leq&
-        \Big[\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\Big]
-\Big(\frac{\sqrt{2\pi}}{\sqrt{n} C_2}\Big)^{p}
-\exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big]
-        +
-        \exp\big[-\frac{n}{2}\epsilon^2\big]
-        .
-    \end{aligned}
-    \end{equation}
-    Now we consider the denominator of~\eqref{eq:numden}.
-    $$
-    \begin{aligned}
-        & \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta
-        \geq
-        \int_{\{\theta:\|\theta-\theta_0\|\leq n^{-1/2}\}}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta
-        \\
-        \geq &
-        \Big(
-        \min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
-\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)
-        \Big)
-        \int_{\{\theta:\|\theta-\theta_0\|\leq n^{-1/2}\}}1\, d\theta\\
-        \geq&
-        \Big(
-        \exp
-\Big[
-        t\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
-        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
-        \Big]
-        \Big)
-        \Big(\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
-        \pi(\theta)
-        \Big)
-        n^{-p/2}\frac{2\pi^{p/2}}{\Gamma(p/2)}.
-    \end{aligned}
-    $$
-    By Proposition~\ref{Thm:localExpansion},
-    $$
-   \begin{aligned} 
-        \min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
-        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
-        \geq
-        -\|I_{\theta_0}\Delta_{n,\theta_0}\|-\frac{1}{2}\|I_{\theta_0}\|+
-        o_{P^n_0}(1).
-   \end{aligned}
-    $$
-    Since 
-    $I_{\theta_0}\Delta_{n,\theta_0}$
-    is bounded in probability, 
-    $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
-        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
-    $$ is lower bounded in probability.
-    Note that 
-    $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} \pi(\theta)\to \pi(\theta_0)>0.$$
-    Thus, for every $\epsilon'>0$, there is a constant $c>0$ and an event $B_{\epsilon'}$ with $P_0^n B_{\epsilon'}>1-\epsilon'$ on which
-    $$
-         \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta\geq c n^{-p/2}.
-    $$
-
-
-
-
-
-
-     %Lemma~\ref{lemma:denominator} implies that for every $\epsilon'>0$, there is a set $B_{\epsilon'}$ with $P_0^nB_{\epsilon'}>1-1/(4C^2 n \epsilon')$ on which
-     %\begin{equation}\label{eq:dentemp}
-     %\int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{1/2} \pi(\theta)\, d\theta
-     %\geq \Pi(A_{\epsilon'}) \exp \big(-(1+C)\epsilon' n\big).
-     %\end{equation}
-     %We take
-     %$$\epsilon'=\frac{\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2}{2(1+C)n}.$$
-     %It can be seen that $\epsilon'\to 0$. Hence for sufficiently large $n$, we have
-     %$$
-     %\begin{aligned}
-     %\Pi(A_{\epsilon'})
-         %=&\Pi\big(\{\theta: D_{KL}(\theta_0,\theta)\leq \epsilon',\, V(\theta_0||\theta)\leq \epsilon'\}\big)
-         %\\
-         %\geq&
-         %\Pi\Big(\big\{\theta:\|\theta-\theta_0\|^2\leq \frac{\epsilon'}{C_1}\big\}\Big)
-         %\\
-         %=&
-         %\int_{\big\{\theta:\|\theta-\theta_0\|^2\leq \frac{\epsilon'}{C_1}\big\}}\pi(\theta)\, d\theta
-         %\\
-         %\geq&
-         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)\int_{\big\{\theta:\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}\big\}}\, d\theta
-         %\\
-         %=&
-         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)
-         %\big(\frac{\epsilon'}{C_1}\big)^{p/2}
-         %\frac{2\pi^{p/2}}{\Gamma(p/2)}
-         %%%\\
-         %=&
-         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)
-         %{\epsilon'}^{p/2}
-         %\frac{2\pi^{p/2}}{(2(1+C)C_1)^{p/2}\Gamma(p/2)}\cdot \frac{\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^p}{n^{p/2}}
-         %\\
-         %\asymp&
-         %\frac{M_n^p}{n^{p/2}}.
-     %\end{aligned}
-     %$$
-     %Then it follows from \eqref{eq:dentemp} that on the set $B_{\epsilon'}$,
-     %\begin{equation}\label{eq:den}
-     %\int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{1/2} \pi(\theta)\, d\theta
-     %\gtrsim
-         %\frac{M_n^p}{n^{p/2}}
-         %\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big].
-     %\end{equation}
-
-     Thus
-     $$
-     \begin{aligned}
-         &
-         P_0^n \left\{ \frac{Z_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{Z_{1/2}(\Theta)}
-         \right\}
-         \leq
-         P_0^n \left\{ \mathbf{1}_{B_{\epsilon'}} \frac{Z_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{Z_{1/2}(\Theta)}\right\}+
-         P_0^n B_{\epsilon'}^C\\
-          \leq&
-         c^{-1}\Big[\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\Big]
-\Big(\frac{\sqrt{2\pi}}{ C_2}\Big)^{p}
-\exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big]
-        +
-         c^{-1}n^{p/2}\exp\big[-\frac{n}{2}\epsilon^2\big]
-         +\epsilon'
-         \to \epsilon'.
-     \end{aligned}
-     $$
-    Since $\epsilon $ is arbitrary, the theorem follows.
-     %Since 
-     %$$
-%P_0^n B_{\epsilon'}^C=1-P_0^n B_{\epsilon'}
-     %<\frac{1}{4C^2 n \epsilon'}=\frac{1+C}{2C^2\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2}\to 0,
-     %$$
-      %we only need to upper bound the first term.
-      %Combine~\eqref{eq:numden},~\eqref{eq:num} and~\eqref{eq:den}, for sufficiently large $n$ we have
-      %$$
-      %\begin{aligned}
-          %&P_0^n \left\{ \mathbf{1}_{B_{\epsilon'}} \frac{Z_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{Z_{1/2}(\Theta)}\right\}
-          %\\
-          %\lesssim&
-              %\frac{1}{M_n^p }
-%\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big]
-          %+\frac{n^{p/2}}{M_n^p}\exp\Big[-\frac{n}{2}\epsilon^2+\frac{1}{2}(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p})^2\Big]
-          %\\
-          %\leq&
-              %\frac{1}{M_n^p }
-%\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big]
-          %+\frac{n^{p/2}}{M_n^p}\exp\big[-\frac{n}{4}\epsilon^2\big]\to 0.
-      %\end{aligned}
-      %$$
-\end{proof}
 
 
 
