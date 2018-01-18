@@ -763,12 +763,29 @@ $$
 $$
 Or Hellinger distance. Blabla.
 
+The consistency of $L_1$ is equivalent to the consistency of posteriror distribution. 
+There have been substantial work on the consistency of posterior distribution.
+See xxx.
+The consistency of posterior distribution needs further assumptions in addition to Assumption~\ref{Assumption1}.
+A popular assumption which is adopted by Vaart et. al. is the existence of a consistent test.
+\begin{assumption}\label{Assumption2}
+    For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+        \begin{equation}
+            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
+        \end{equation}
+\end{assumption}
 
+The following proposition is adapted from Vaart.
 \begin{proposition}
-    If $a<1$, then blabla
+    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
 \end{proposition}
 
-For two parameters $\theta_1$ and $\theta_2$, the R\'{e}nyi divergence of order $\alpha$ ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
+The consistency of $L_t$ ($t<1$) is different from the consistency of posterior distribution.
+XXX considered the consistency of $L_{1/2}$. However, they didn't track the convergence rate.
+We shall prove the consisency of $L_{t}$ for $0<t<1$.
+
+To show our results, some notations are needed. For two parameters $\theta_1$ and $\theta_2$, the R\'{e}nyi divergence of order $\alpha$ ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
 $$
 D_{\alpha}(\theta_1||\theta_2)=-\frac{1}{1-\alpha}\log \rho_{\alpha}(\theta_1,\theta_2),
 $$
@@ -778,102 +795,72 @@ $
 $ is the so-called Hellinger integral.
 
 
-
-{\color{red}
+We impose the following assumption on the family $\{P_{\theta}:\theta\in\Theta\}$.
 \begin{assumption}\label{Assumption4}
     There exist positive constancts $\delta$, $\epsilon$ and $C$ such that,
-     $D_{\alpha}(\theta,\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
+     $D_{t}(\theta||\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{t}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
 \end{assumption}
-}
+Assumption~\ref{Assumption4} is reasonable.
+For example, if $\Theta=\mathbb{R}^p$ and $X_i\sim N_p(\mu, I_p)$, then $D_t(\theta||\theta_0)=$
+blablabal
+
 \begin{theorem}
     Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $a\in(0,1)$ and any $M_n\to \infty$,
-    $$
-         \frac{L_{a} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{a}}
-    \xrightarrow{P_{0}^n}  0
-    .
-    $$
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t$ is consistent.
 \end{theorem}
 \begin{proof}
-    Without loss of generality, we assume ${M_n}/{\sqrt{n}}\to 0$.
     Note that
        \begin{equation}\label{eq:numden}
-       \frac{L_{a} ( 
-       \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}
-           {L_{a}(\Theta)}
+       \frac{L_{t} (\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}
+           {L_{t}}
 =
     \frac{
-        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\big\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{a} \pi(\theta) \, d \theta
+        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\big\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{t} \pi(\theta) \, d \theta
     }{
-        \int_{\Theta} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{a} \pi(\theta) \, d \theta
+        \int_{\Theta} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{t} \pi(\theta) \, d \theta
     }.
        \end{equation}
+    Without loss of generality, we assume ${M_n}/{\sqrt{n}}\to 0$.
+
     Consider the expactation of the numerator of~\ref{eq:numden}.
     It follows from Fubini's theorem that
     $$
     \begin{aligned}
-        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{a} \pi(\theta) \, d \theta
+        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{t} \pi(\theta) \, d \theta
         \\
         =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \left\{\int_{\mathcal{X}^n}\big[ {p_n} (\BX^{(n)}|\theta)\big]^a \big[ p_n (\BX^{(n)}|\theta_0) \big]^{1-a} \, d\mu^n \right\} \pi(\theta) \, d \theta\\
+        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \left\{\int_{\mathcal{X}^n}\big[ {p_n} (\BX^{(n)}|\theta)\big]^t \big[ p_n (\BX^{(n)}|\theta_0) \big]^{1-t} \, d\mu^n \right\} \pi(\theta) \, d \theta\\
         =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ \rho_{a}(\theta,\theta_0) \big]^n \pi(\theta) \, d \theta\\
+        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ \rho_{t}(\theta,\theta_0) \big]^n \pi(\theta) \, d \theta\\
         = &
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[-(1-a)nD_a(\theta||\theta_0) \big] \pi(\theta) \, d \theta.
+        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[-(1-t) n D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta.
     \end{aligned}
     $$
     Decompose the integral region into two parts $\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}$ and $\{\theta: \|\theta-\theta_0\|>\delta\}$, 
     $$
     \begin{aligned}
         &\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } 
-        \exp \big[ -(1-a) {n} D_a(\theta,\theta_0) \big] \pi(\theta) \, d \theta
+        \exp \big[ -(1-t) {n} D_a(\theta||\theta_0) \big] \pi(\theta) \, d \theta
         \\
         =&\int_{\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}}
-        \exp\big[ -(1-a) {n} D_a(\theta,\theta_0) \big] \pi(\theta) \, d \theta+
-        \int_{\{\theta: \|\theta-\theta_0\|>\delta\}} \exp\big[ -(1-a) {n} D_a(\theta,\theta_0) \big] \pi(\theta) \, d \theta
+        \exp\big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta+
+        \int_{\{\theta: \|\theta-\theta_0\|>\delta\}} \exp\big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta
         \\
         \leq &
         \max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)
         \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}}
-        \exp\big[ -(1-a)C {n} \|\theta-\theta_0\|^2 \big]
+        \exp\big[ -(1-t)C {n} \|\theta-\theta_0\|^2 \big]
         \, d \theta
         +
-        \exp\big[ -(1-a)\epsilon n\big].
-    \end{aligned}
-    $$
-    Note that
-    {\color{red}
-    $$
-    \begin{aligned}
-        &\int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}}
-        \exp\big[-(1-a)C {n} \|\theta-\theta_0\|^2\big] \, d \theta
-\\
-        =&
-        (\sqrt{n} C_2)^{-p}\int_{\big\{t: \|t\|\geq C_2 M_n \big\}} \exp\big[-\frac{t^2}{2} \big] \, d \theta
-        =
-        \Big(\frac{\sqrt{2\pi}}{\sqrt{n} C_2}\Big)^{p} P\{\chi^2_p\geq C_2^2 M_n^2\},
-    \end{aligned}
-    $$
-}
-    where $\chi^2_p$ is a chi-squared random variable with $p$ degrees of freedom.
-    By~\cite{Laurent2000Adaptive} Lemma 1, for $M_n>\sqrt{2p}/C_2$,
-    $$
-    P\{\chi^2_p\geq C_2^2 M_n^2\}\leq \exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big].
-    $$
-    Thus, for large $n$,
-    \begin{equation}\label{eq:num}
-    \begin{aligned}
-        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{1/2} \pi(\theta) \, d \theta
+        \exp\big[ -(1-t)\epsilon n\big]
         \\
-        \leq&
-        \Big[\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\Big]
-\Big(\frac{\sqrt{2\pi}}{\sqrt{n} C_2}\Big)^{p}
-\exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big]
+        =&
+        \big(\max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)\big)
+        n^{-p/2}\int_{\big\{h: \|h\|\geq M_n \big\}} \exp\big[-(1-t)C \|h\|^2 \big] \, d \theta
         +
-        \exp\big[-\frac{n}{2}\epsilon^2\big]
-        .
+        \exp\big[ -(1-t)\epsilon n\big].
     \end{aligned}
-    \end{equation}
+    $$
     Now we consider the denominator of~\eqref{eq:numden}.
     $$
     \begin{aligned}
@@ -919,7 +906,7 @@ $ is the so-called Hellinger integral.
     $$ is lower bounded in probability.
     Note that 
     $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} \pi(\theta)\to \pi(\theta_0)>0.$$
-    Thus, for every $\epsilon'>0$, there is a constant $c>0$ and an event $B_{\epsilon'}$ with $P_0^n B_{\epsilon'}>1-\epsilon'$ on which
+    Then for every $\epsilon'>0$, there is a constant $c>0$ such that with probability at least $1-\epsilon'$,
     $$
          \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta\geq c n^{-p/2}.
     $$
@@ -973,23 +960,18 @@ $ is the so-called Hellinger integral.
          %\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big].
      %\end{equation}
 
-     Thus
+     Combining the upper bound and the lower bound yields that with probability at least $1-\epsilon'$,
      $$
      \begin{aligned}
          &
-         P_0^n \left\{ \frac{L_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{1/2}(\Theta)}
-         \right\}
-         \leq
-         P_0^n \left\{ \mathbf{1}_{B_{\epsilon'}} \frac{L_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{1/2}(\Theta)}\right\}+
-         P_0^n B_{\epsilon'}^C\\
+       \frac{L_{t} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{t}}
+          \\
           \leq&
-         c^{-1}\Big[\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\Big]
-\Big(\frac{\sqrt{2\pi}}{ C_2}\Big)^{p}
-\exp\Big[-\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2\Big]
+         c^{-1}\big(\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\big)
+         \int_{\big\{h:\|h\|\geq M_n\big\}}\exp\big[-(1-t)C \|h\|^2\big]\, d\theta
         +
-         c^{-1}n^{p/2}\exp\big[-\frac{n}{2}\epsilon^2\big]
-         +\epsilon'
-         \to \epsilon'.
+         c^{-1}n^{p/2} \exp\big[-(1-t)\epsilon n\big]
+         \to 0.
      \end{aligned}
      $$
     Since $\epsilon $ is arbitrary, the theorem follows.
@@ -1042,12 +1024,6 @@ $L^1$ approximation of posterior by normal.
 
 We study the asymptotic behavior of the ILRT statistic around $\theta_0$.
 If there exists certain test, Bernstein von Mise theorem will be valid.
-\begin{assumption}\label{Assumption2}
-    For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
-        \begin{equation}
-            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
-        \end{equation}
-\end{assumption}
 \begin{theorem}\label{Thm:someTest}
     Under Assumptions~\ref{Assumption1} and~\ref{Assumption2},
     there exists for every $M_n\to \infty$ a sequence of tests $\phi_n$ and a constant $\delta>0$ such that, for every sufficiently large $n$ and every $\|\theta-\theta_0\|\geq M_n/\sqrt{n}$,
@@ -1062,7 +1038,7 @@ $$
             \|\pi_n(h|\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0.
 $$
 See~\cite{Kleijn2012The}, Theorem 2.1.
-However, we may use more general weight function.
+However, we would like to consider more general weight functions.
         
 \begin{assumption}\label{Assumption3}
     Let $\pi_n(h;\BX^{(n)})$ be a weight function satisfying 
@@ -1081,7 +1057,7 @@ Furthermore, assume that for every $\epsilon>0$, there's a Lebesgue integrable f
 \end{assumption}
 
 
-The condition~\ref{Assump31} assume there is a function controlling the tail of weight function. For a statistical model, the likelihood value makes no sense when $\theta$ is far away from $\theta_0$, or $\sqrt{n}h$ is large.
+The condition~\ref{Assump31} assumes there is a function controlling the tail of weight function. For a statistical model, the likelihood value makes no sense when $\theta$ is far away from $\theta_0$, or $\sqrt{n}h$ is large.
 To avoid the bad behavior of the likelihood function when $\sqrt{n}h$ is large, many theoretical works impose assumptions to likelihood.
 Thanks to the flexibility of weight function, we can impose~\ref{Assump31} to weight function instead.
 The condition~\ref{Assump32} is satisfied in most usual case.
