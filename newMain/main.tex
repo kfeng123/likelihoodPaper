@@ -145,12 +145,23 @@
 
 \begin{abstract}
 
-    Likelihood ratio test (LRT) is the most widely used test procedure. However, it has some weaknesses. Likelihood is unbounded for some important models. Even when the likelihood is bounded, the maximum may be not easy to obtain if it is not convex in parameters. We propose a new test procedure called integrated likelihood ratio test (ILRT) which can overcome the above difficulties. Posterior Bayes factor is a special case of ILRT\@. We proof the Wilks phenomenon of ILRT and give the asymptotic local power.
+    Likelihood ratio test is the most widely used test procedure.
+    However, it has some weaknesses.
+    Likelihood is unbounded for some important models.
+    Even when the likelihood is bounded, the maximum may be not easy to obtain if it is not convex in parameters.
+    Based on existing work on Bayes hypothesis testing,
+    we propose a new test procedure called integrated likelihood ratio test which shares the same asymptotic properties as that of likelihood ratio test.
+    The proposed methodology is very flexible which takes posterior Bayes factor and fractional Bayes factor as special cases.
+    It can also be used in the model where the posterior distribution is difficult to compute.
 \end{abstract}
 
 \begin{keyword}
 %\texttt{elsarticle.cls} \sep \LaTeX \sep Elsevier \sep template
 %\MSC[2010] 00-01\sep  99-00
+    Bayes consistency \sep
+   Bayes factor \sep
+ hypothesis testing 
+    
 \end{keyword}
 
 \end{frontmatter}
@@ -180,26 +191,25 @@
 
 Suppose that we have $n$ observations $X_1,\ldots,X_n$ which are independent identically distributed (i.i.d.) random variables with values in some space space $(\mathcal{X};\mathscr{A})$.
 Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
-Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
-Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
 The parameter $\theta$ takes its values in $\Theta$, a subset of $\mathbb{R}^{p}$.
 Suppose $\theta=(\nu^T,\xi^T)^T$, where $\nu$ is a $p_0$ dimensional subvector, and $\xi$ is a $p-p_0$ dimensional subvector.
-The null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
+ We would like to test the nested hypotheses
+\begin{equation*}
+    H_0:\theta\in\Theta_0\quad \text{v.s.}\quad \theta\in\Theta,
+\end{equation*}
+where the null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
 \begin{equation*}
     \Theta_0=\{(\nu^T,\xi^T)^T:(\nu^T,\xi^T)^T\in\Theta, \, \xi=\xi_0\}.
 \end{equation*}
- We would like to test the nested hypotheses
-\begin{equation*}
-    H_0:\theta\in\Theta_0\quad \text{v.s.}\quad \theta\in\Theta.
-\end{equation*}
 If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the true parameter which generates the data.
 
-The well known likelihood ratio test (LRT) is defined as
+Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
+Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
+The well known likelihood ratio test (LRT) for the problem is defined as
 \begin{equation}
-    \frac{\sup_{\Theta} p_n(\BX^{(n)}|{\theta})}{\sup_{\Theta_0} p_n(\BX^{(n)}|\theta)},
+    \frac{\sup_{\Theta} p_n(\BX^{(n)}|{\theta})}{\sup_{\Theta_0} p_n(\BX^{(n)}|\theta)}.
 \end{equation}
-where $p_n(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ is the density of $\BX^{(n)}$ with respect to $\mu^n$, the $n$-fold product measure of $\mu$.
-LRT is the most widely used statistical method which enjoys many optimal properties. For example, by Neyman-Pearson lemma, it's the most powerful test (MPT) in simple null and simple alternative case \citep{Lehmann}.
+LRT is the most widely used statistical method which enjoys many optimal properties. For example, by Neyman-Pearson lemma, it's the most powerful test in simple null and simple alternative case \citep{Lehmann}.
 In multi-dimensional parameter case, MPT does not exist.
 Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
 However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
@@ -207,9 +217,9 @@ In this case, LRT does not exist. Another weakness of LRT occurs when the likeli
 
 
 
-In Bayesian framework, Bayes factor is the most popular methodology.
+In Bayesian framework, Bayes factor is the most popular testing methodology.
 Bayesians put prior $\pi(\nu)$ and $\pi(\theta)$ on parameters under the null and alternative hypotheses, respectively.
-The conventional Bayes testing method is Bayes factor, defined as
+The conventional Bayes factor is defined as
 \begin{equation*}
   \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta)\, d\theta}
     {\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu)\, d\nu},
@@ -234,36 +244,41 @@ where for $t>0$,
  L_t^*=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
  $$
 
- The PBF and FBF can be generalized to the integrated likelihood ratio test (ILRT) statistic, as follow  
+ In this paper, we generalize the PBF and FBF and propose the integrated likelihood ratio test (ILRT) statistic, as follow  
 \begin{equation}
-    \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a-b}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a-b}\pi(\nu;\BX^{(n)})\,d\nu},
+    \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
 \end{equation}
-where $0<b<a$ are  hyperparameters,
- $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ be the weight functions in $\Theta$ and $\tilde{\Theta}_0$.
-$\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density of $\theta$.
-If
-$$
+where $a>0$ are  hyperparameters,
+ $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are the weight functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
+Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density.
+If we take the weight function as
+\begin{equation}\label{firstWeight}
 \pi(\theta;\BX^{(n)})=\frac{\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)}{\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)\, d\theta},
-$$
-then the ILRT equals 
+\end{equation}
+then the ILRT statistic equals 
 $$
     \Lambda_{a,b}(\BX^{(n)})=
-    \frac{L_{a}}{L_{b}}\cdot \frac{L_{b}^*}{L_{a}^*}\quad \text{for}\quad 0<b<a.
+    \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^*}{L_{a+b}^*}.
 $$
-We shall call $\Lambda_{a,b}(\BX^{(n)})$ the generalized FPF throughout the paper.
-The FPF and PBF are both the special cases of the generalized FPF.
+We shall call $\Lambda_{a,b}(\BX^{(n)})$ the generalized FBF throughout the paper.
+The FBF and PBF are both the special cases of the generalized FBF.
 In fact, the FBF is equal to $\Lambda_{1,b}(\BX^{(n)})$, the PBF is equal to $\Lambda_{2,1}(\BX^{(n)})$.
-Hence the ILRT is very flexible.
+
+The ILRT methodology is very flexible.
+For some models, the quantity $L_t$ is hard to compute.
+In this case,~\eqref{firstWeight} may be complicated.
+Consequently, one may choose to use some simple form weight function, for example, the distribution obtained from variational inference.
+
 
 The paper is organized as follow.
-In Section 2, we investegate the asymptotic properties of the generalzied FPF.
+In Section 2, we investegate the asymptotic properties of the generalzied FBF.
 Section 3 consider the ILRT with general weight function.
 Section 4 concludes the paper.
 All technical proves are in Apppendix.
 
 
-\section{Generalized FPF}
-In this section, we study the asymptotic behavior of the generalized FPF.
+\section{Generalized FBF}
+In this section, we study the asymptotic behavior of the generalized FBF.
 
 Let $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics.
 The corresponding quantities in the null space are 
@@ -309,16 +324,16 @@ The $\sqrt{n}$-consistency of $L_t^*$ is defined similarly.
 
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $L_a$, $L_b$, $L_a^*$ and $L_b^*$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$, then
+        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}$, $L_b$, $L_{a+b}^*$ and $L_b^*$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$, then
         for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
         $$
-        2\log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log \frac{a}{b}+{(a-b)}\chi^2_{p-p_0}(\delta),
+        2\log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta),
         $$
         where $\chi^2_{p-p_0}(\delta)$ is a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\delta=\eta^T\big( I_{\theta_0}-I_{\theta_0} J(J^T I_{\theta_0} J)^{-1}J^T I_{\theta_0}\big)\eta$ and $J=(I_{p_0},0_{p_0\times(p-p_0)})^T$,
 ``$\rightsquigarrow$'' means weak convergence.
     \end{theorem}
 Theorem~\ref{Thm:maintheorem} gives the asymptotic distribution of $2\log \Lambda_{a,b}(\BX^{(n)})$ under the null hypothesis and the local alternative hypothesis.
-To obtain a test with asymptotic level $\alpha$, the critical value of $2\log \Lambda_{a,b}(\BX^{(n)})$ can be defined to be $-(p-p_0)\log (a/b)+ (a-b)\chi^2_{p-p_0,1-\alpha}$, where $\chi^2_{p-p_0,1-\alpha}$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
+To obtain a test with asymptotic level $\alpha$, the critical value of $2\log \Lambda_{a,b}(\BX^{(n)})$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{p-p_0,1-\alpha}$, where $\chi^2_{p-p_0,1-\alpha}$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
 The resulting test has local asymptotic power
 \begin{equation}\label{eq:likelihoodPower}
 \Pr \big( \chi^2_{p-p_0}(\delta)> \chi^2_{p-p_0,1-\alpha} \big).
@@ -439,6 +454,7 @@ $$
     The likelihood will almost surely have no ties and consequently $L_t(\BX^{(n)})=+\infty$ if and only if $t\geq 2$.
 \end{example}
 
+Based on our theoretical result and this example, we suggest to use FBF with $a+b\leq 1$.
 
 
 \section{General weight function}
