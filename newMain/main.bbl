@@ -1,4 +1,4 @@
-\begin{thebibliography}{12}
+\begin{thebibliography}{15}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -17,16 +17,6 @@
 \newblock \bibinfo{title}{Posterior bayes factors. journal of the royal
   statistical society series b-methodological}.
 \newblock \bibinfo{year}{1991}.
-%Type = Article
-\bibitem[{Aitkin et~al.(1996)Aitkin, Finch, Mendell and Thode}]{Aitkin1996}
-\bibinfo{author}{Aitkin\xfnm[ M.]}, \bibinfo{author}{Finch\xfnm[ S.]},
-  \bibinfo{author}{Mendell\xfnm[ N.]}, \bibinfo{author}{Thode\xfnm[ H.]}.
-\newblock \bibinfo{title}{A new test for the presence of a normal mixture
-  distribution based on the posterior bayes factor}.
-\newblock \bibinfo{journal}{Statistics and Computing}
-  \bibinfo{year}{1996};\bibinfo{volume}{6}(\bibinfo{number}{2}):\bibinfo{pages}{121--125}.
-\newblock \URLprefix \url{https://doi.org/10.1007/BF00162522}.
-  \DOIprefix\doi{10.1007/BF00162522}.
 %Type = Book
 \bibitem[{Bahadur(1971)}]{MR0315820}
 \bibinfo{author}{Bahadur\xfnm[ R.]}.
@@ -37,17 +27,27 @@
 \newblock \bibinfo{address}{Philadelphia, Pa}: \bibinfo{publisher}{Society for
   Industrial and Applied Mathematics}, \bibinfo{year}{1971}.
 %Type = Article
+\bibitem[{Blei et~al.(2017)Blei, Kucukelbir and McAuliffe}]{blei2017}
+\bibinfo{author}{Blei\xfnm[ D.M.]}, \bibinfo{author}{Kucukelbir\xfnm[ A.]},
+  \bibinfo{author}{McAuliffe\xfnm[ J.D.]}.
+\newblock \bibinfo{title}{Variational inference: A review for statisticians}.
+\newblock \bibinfo{journal}{arxiv} \bibinfo{year}{2017};.
+%Type = Article
+\bibitem[{{Bobkov} et~al.(2016){Bobkov}, {Chistyakov} and
+  {G{\"o}tze}}]{2016arXiv160801805B}
+\bibinfo{author}{{Bobkov}\xfnm[ S.G.]}, \bibinfo{author}{{Chistyakov}\xfnm[
+  G.P.]}, \bibinfo{author}{{G{\"o}tze}\xfnm[ F.]}.
+\newblock \bibinfo{title}{{R$\backslash$'enyi divergence and the central limit
+  theorem}}.
+\newblock \bibinfo{journal}{ArXiv e-prints}
+  \bibinfo{year}{2016};\href{http://arxiv.org/abs/1608.01805}{\tt
+  arXiv:1608.01805}.
+%Type = Article
 \bibitem[{Cam(1990)}]{Cam1990Maximum}
 \bibinfo{author}{Cam\xfnm[ L.]}.
 \newblock \bibinfo{title}{Maximum likelihood: An introduction}.
 \newblock \bibinfo{journal}{International Statistical Review}
   \bibinfo{year}{1990};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{153--171}.
-%Type = Misc
-\bibitem[{Gelfand D. K.~D(1993)}]{gelfand1993bayesian}
-\bibinfo{author}{Gelfand D. K.~D\xfnm[ A.E.]}.
-\newblock \bibinfo{title}{Bayesian model choice: Asymptotics and exact
-  calculations}.
-\newblock \bibinfo{year}{1993}.
 %Type = Article
 \bibitem[{Ghosal et~al.(2000)Ghosal, Ghosh and van~der Vaart}]{ghosal2000}
 \bibinfo{author}{Ghosal\xfnm[ S.]}, \bibinfo{author}{Ghosh\xfnm[ J.K.]},
@@ -64,30 +64,58 @@
   misspecification}.
 \newblock \bibinfo{journal}{Electron J Stat}
   \bibinfo{year}{2012};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{354--381}.
-%Type = Article
-\bibitem[{Laurent and Massart(2000)}]{Laurent2000Adaptive}
-\bibinfo{author}{Laurent\xfnm[ B.]}, \bibinfo{author}{Massart\xfnm[ P.]}.
-\newblock \bibinfo{title}{Adaptive estimation of a quadratic functional by
-  model selection}.
-\newblock \bibinfo{journal}{Annals of Statistics}
-  \bibinfo{year}{2000};\bibinfo{volume}{28}(\bibinfo{number}{5}):\bibinfo{pages}{1302--1338}.
 %Type = Book
 \bibitem[{Lehmann J. P.~R(2005)}]{Lehmann}
 \bibinfo{author}{Lehmann J. P.~R\xfnm[ E.]}.
 \newblock \bibinfo{title}{Testing Statistical Hypotheses}.
 \newblock \bibinfo{address}{New York}: \bibinfo{publisher}{Springer},
   \bibinfo{year}{2005}.
+%Type = Incollection
+\bibitem[{Li and Turner(2016)}]{NIPS2016_6208}
+\bibinfo{author}{Li\xfnm[ Y.]}, \bibinfo{author}{Turner\xfnm[ R.E.]}.
+\newblock \bibinfo{title}{R\'{e}nyi divergence variational inference}.
+\newblock In: \bibinfo{editor}{Lee\xfnm[ D.D.]},
+  \bibinfo{editor}{Sugiyama\xfnm[ M.]}, \bibinfo{editor}{Luxburg\xfnm[ U.V.]},
+  \bibinfo{editor}{Guyon\xfnm[ I.]}, \bibinfo{editor}{Garnett\xfnm[ R.]},
+  editors. \bibinfo{booktitle}{Advances in Neural Information Processing
+  Systems 29}. \bibinfo{publisher}{Curran Associates, Inc.};
+  \bibinfo{year}{2016}. p. \bibinfo{pages}{1073--1081}.
+\newblock \URLprefix
+  \url{http://papers.nips.cc/paper/6208-renyi-divergence-variational-inference.pdf}.
 %Type = Article
 \bibitem[{O'Hagan(1995)}]{Fractional1995}
 \bibinfo{author}{O'Hagan\xfnm[ A.]}.
 \newblock \bibinfo{title}{Fractional bayes factors for model comparison}
   \bibinfo{year}{1995};\bibinfo{volume}{57}:\bibinfo{pages}{99--138}.
+%Type = Article
+\bibitem[{Shafer(1982)}]{Lindley1982}
+\bibinfo{author}{Shafer\xfnm[ G.]}.
+\newblock \bibinfo{title}{Lindley's paradox}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{year}{1982};\bibinfo{volume}{77}(\bibinfo{number}{378}):\bibinfo{pages}{325--334}.
+\newblock \DOIprefix\doi{10.1080/01621459.1982.10477809}.
+  \href{http://arxiv.org/abs/http://amstat.tandfonline.com/doi/pdf/10.1080/01621459.1982.10477809}{\tt
+  arXiv:http://amstat.tandfonline.com/doi/pdf/10.1080/01621459.1982.10477809}.
+%Type = Article
+\bibitem[{Shen and Wasserman(2001)}]{Shen2001Rates}
+\bibinfo{author}{Shen\xfnm[ X.]}, \bibinfo{author}{Wasserman\xfnm[ L.]}.
+\newblock \bibinfo{title}{Rates of convergence of posterior distributions}.
+\newblock \bibinfo{journal}{Annals of Statistics}
+  \bibinfo{year}{2001};\bibinfo{volume}{29}(\bibinfo{number}{3}):\bibinfo{pages}{687--714}.
 %Type = Book
 \bibitem[{der Vaart(2000)}]{van2000asymptotic}
 \bibinfo{author}{der Vaart\xfnm[ A.]}.
 \newblock \bibinfo{title}{Asymptotic Statistics}.
 \newblock \bibinfo{address}{???}: \bibinfo{publisher}{Cambridge university
   press}, \bibinfo{year}{2000}.
+%Type = Article
+\bibitem[{van~der {Vaart} and {Ghosal}(2007)}]{vaart2007convergence}
+\bibinfo{author}{van~der {Vaart}\xfnm[ A.]}, \bibinfo{author}{{Ghosal}\xfnm[
+  S.]}.
+\newblock \bibinfo{title}{Convergence rates of posterior distributions for
+  noniid observations}.
+\newblock \bibinfo{journal}{Annals of Statistics}
+  \bibinfo{year}{2007};\bibinfo{volume}{35}(\bibinfo{number}{1}):\bibinfo{pages}{192--223}.
 %Type = Article
 \bibitem[{Walker and Hjort(2001)}]{kar10563}
 \bibinfo{author}{Walker\xfnm[ S.G.]}, \bibinfo{author}{Hjort\xfnm[ N.L.]}.
