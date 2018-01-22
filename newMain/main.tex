@@ -149,7 +149,7 @@
     However, it has some weaknesses.
     Likelihood is unbounded for some important models.
     Even when the likelihood is bounded, the maximum may be not easy to obtain if it is not convex in parameters.
-    Based on existing work on Bayes hypothesis testing,
+    Based on existing work on Bayesian hypothesis testing,
     we propose a new test procedure called integrated likelihood ratio test which shares the same asymptotic properties as that of likelihood ratio test.
     The proposed methodology is very flexible which takes posterior Bayes factor and fractional Bayes factor as special cases.
     It can also be used in the model where the posterior distribution is difficult to compute.
@@ -189,35 +189,30 @@
 
 %Bayesian hypothesis testing is very different from point estimation in that the data can not yanmo prior.
 
-Suppose that we have $n$ observations $X_1,\ldots,X_n$ which are independent identically distributed (i.i.d.) random variables with values in some space space $(\mathcal{X};\mathscr{A})$.
-Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
-The parameter $\theta$ takes its values in $\Theta$, a subset of $\mathbb{R}^{p}$.
-Suppose $\theta=(\nu^T,\xi^T)^T$, where $\nu$ is a $p_0$ dimensional subvector, and $\xi$ is a $p-p_0$ dimensional subvector.
- We would like to test the nested hypotheses
-\begin{equation*}
-    H_0:\theta\in\Theta_0\quad \text{v.s.}\quad \theta\in\Theta,
-\end{equation*}
-where the null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
-\begin{equation*}
-    \Theta_0=\{(\nu^T,\xi^T)^T:(\nu^T,\xi^T)^T\in\Theta, \, \xi=\xi_0\}.
-\end{equation*}
-If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the true parameter which generates the data.
-
-Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
-Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
-The well known likelihood ratio test (LRT) for the problem is defined as
-\begin{equation}
-    \frac{\sup_{\Theta} p_n(\BX^{(n)}|{\theta})}{\sup_{\Theta_0} p_n(\BX^{(n)}|\theta)}.
-\end{equation}
-LRT is the most widely used statistical method which enjoys many optimal properties. For example, by Neyman-Pearson lemma, it's the most powerful test in simple null and simple alternative case \citep{Lehmann}.
-In multi-dimensional parameter case, MPT does not exist.
+Likelihood ratio test (LRT) is the most widely used statistical testing method which enjoys many optimal properties.
+For example, by Neyman-Pearson lemma, it's the most powerful test in simple null and simple alternative case \citep{Lehmann}.
+In multi-dimensional parameter case, most powerful test does not exist.
 Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
 However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
 In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
 
-
-
 In Bayesian framework, Bayes factor is the most popular testing methodology.
+
+
+
+Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (i.i.d.) observations from a family parametrized by $\theta=(\nu^T,\xi^T)^T$, with $\text{dim}(\theta)=p$ and $\text{dim}(\nu)=p_0$.
+We would like to test the hypotheses
+\begin{equation*}
+    H_0:\theta\in\Theta_0\quad \text{v.s.}\quad H_1:\theta\in\Theta,
+\end{equation*}
+where $\Theta$ is an open subset of $\mathbb{R}^p$ and  $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
+\begin{equation*}
+    \Theta_0=\{(\nu^T,\xi^T)^T:(\nu^T,\xi^T)^T\in\Theta, \, \xi=\xi_0\}.
+\end{equation*}
+
+
+
+
 Bayesians put prior $\pi(\nu)$ and $\pi(\theta)$ on parameters under the null and alternative hypotheses, respectively.
 The conventional Bayes factor is defined as
 \begin{equation*}
@@ -278,6 +273,30 @@ All technical proves are in Apppendix.
 
 
 \section{Generalized FBF}
+
+Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (i.i.d.) observations with values in some space space $(\mathcal{X};\mathscr{A})$.
+Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
+The parameter $\theta$ takes its values in $\Theta$, a subset of $\mathbb{R}^{p}$.
+Suppose $\theta=(\nu^T,\xi^T)^T$, where $\nu$ is a $p_0$ dimensional subvector, and $\xi$ is a $p-p_0$ dimensional subvector.
+ We would like to test the nested hypotheses
+\begin{equation*}
+    H_0:\theta\in\Theta_0\quad \text{v.s.}\quad \theta\in\Theta,
+\end{equation*}
+where the null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
+\begin{equation*}
+    \Theta_0=\{(\nu^T,\xi^T)^T:(\nu^T,\xi^T)^T\in\Theta, \, \xi=\xi_0\}.
+\end{equation*}
+If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the true parameter which generates the data.
+
+Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
+Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
+
+Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
+Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
+
+
+If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the true parameter which generates the data.
+
 In this section, we study the asymptotic behavior of the generalized FBF.
 
 Let $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics.
