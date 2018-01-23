@@ -1,4 +1,4 @@
-\begin{thebibliography}{15}
+\begin{thebibliography}{17}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -17,15 +17,18 @@
 \newblock \bibinfo{title}{Posterior bayes factors. journal of the royal
   statistical society series b-methodological}.
 \newblock \bibinfo{year}{1991}.
-%Type = Book
-\bibitem[{Bahadur(1971)}]{MR0315820}
-\bibinfo{author}{Bahadur\xfnm[ R.]}.
-\newblock \bibinfo{title}{Some Limit Theorems in Statistics}.
-\newblock volume~\bibinfo{volume}{4} of \textit{\bibinfo{series}{Conference
-  Board of the Mathematical Sciences Regional Conference Series in Applied
-  Mathematics}}.
-\newblock \bibinfo{address}{Philadelphia, Pa}: \bibinfo{publisher}{Society for
-  Industrial and Applied Mathematics}, \bibinfo{year}{1971}.
+%Type = Article
+\bibitem[{Berger and Pericchi(1996)}]{intrisicBayesFactor}
+\bibinfo{author}{Berger\xfnm[ J.O.]}, \bibinfo{author}{Pericchi\xfnm[ L.R.]}.
+\newblock \bibinfo{title}{The intrinsic bayes factor for model selection and
+  prediction}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{year}{1996};\bibinfo{volume}{91}(\bibinfo{number}{433}):\bibinfo{pages}{109--122}.
+\newblock \URLprefix
+  \url{http://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476668}.
+  \DOIprefix\doi{10.1080/01621459.1996.10476668}.
+  \href{http://arxiv.org/abs/http://www.tandfonline.com/doi/pdf/10.1080/01621459.1996.10476668}{\tt
+  arXiv:http://www.tandfonline.com/doi/pdf/10.1080/01621459.1996.10476668}.
 %Type = Article
 \bibitem[{Blei et~al.(2017)Blei, Kucukelbir and McAuliffe}]{blei2017}
 \bibinfo{author}{Blei\xfnm[ D.M.]}, \bibinfo{author}{Kucukelbir\xfnm[ A.]},
@@ -43,12 +46,6 @@
   \bibinfo{year}{2016};\href{http://arxiv.org/abs/1608.01805}{\tt
   arXiv:1608.01805}.
 %Type = Article
-\bibitem[{Cam(1990)}]{Cam1990Maximum}
-\bibinfo{author}{Cam\xfnm[ L.]}.
-\newblock \bibinfo{title}{Maximum likelihood: An introduction}.
-\newblock \bibinfo{journal}{International Statistical Review}
-  \bibinfo{year}{1990};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{153--171}.
-%Type = Article
 \bibitem[{Ghosal et~al.(2000)Ghosal, Ghosh and van~der Vaart}]{ghosal2000}
 \bibinfo{author}{Ghosal\xfnm[ S.]}, \bibinfo{author}{Ghosh\xfnm[ J.K.]},
   \bibinfo{author}{van~der Vaart\xfnm[ A.W.]}.
@@ -58,18 +55,36 @@
 \newblock \URLprefix \url{https://doi.org/10.1214/aos/1016218228}.
   \DOIprefix\doi{10.1214/aos/1016218228}.
 %Type = Article
+\bibitem[{Han and Carlin(2001)}]{MarkovC}
+\bibinfo{author}{Han\xfnm[ C.]}, \bibinfo{author}{Carlin\xfnm[ B.P.]}.
+\newblock \bibinfo{title}{Markov chain monte carlo methods for computing bayes
+  factors}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{year}{2001};\bibinfo{volume}{96}(\bibinfo{number}{455}):\bibinfo{pages}{1122--1132}.
+\newblock \URLprefix \url{https://doi.org/10.1198/016214501753208780}.
+  \DOIprefix\doi{10.1198/016214501753208780}.
+  \href{http://arxiv.org/abs/https://doi.org/10.1198/016214501753208780}{\tt
+  arXiv:https://doi.org/10.1198/016214501753208780}.
+%Type = Book
+\bibitem[{Jeffreys(1931)}]{scientificInference}
+\bibinfo{author}{Jeffreys\xfnm[ H.]}.
+\newblock \bibinfo{title}{Scientific Inference}.
+\newblock \bibinfo{edition}{1st} ed.
+\newblock \bibinfo{address}{Cambridge}: \bibinfo{publisher}{Cambridge
+  University Press}, \bibinfo{year}{1931}.
+%Type = Article
+\bibitem[{Kass and Raftery(1995)}]{Robert1995Bayes}
+\bibinfo{author}{Kass\xfnm[ R.E.]}, \bibinfo{author}{Raftery\xfnm[ A.E.]}.
+\newblock \bibinfo{title}{Bayes factors}.
+\newblock \bibinfo{journal}{Journal of the American Statistical Association}
+  \bibinfo{year}{1995};\bibinfo{volume}{90}(\bibinfo{number}{430}):\bibinfo{pages}{773--795}.
+%Type = Article
 \bibitem[{Kleijn and Vaart(2012)}]{Kleijn2012The}
 \bibinfo{author}{Kleijn\xfnm[ B.]}, \bibinfo{author}{Vaart\xfnm[ A.]}.
 \newblock \bibinfo{title}{The bernstein-von-mises theorem under
   misspecification}.
 \newblock \bibinfo{journal}{Electron J Stat}
   \bibinfo{year}{2012};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{354--381}.
-%Type = Book
-\bibitem[{Lehmann J. P.~R(2005)}]{Lehmann}
-\bibinfo{author}{Lehmann J. P.~R\xfnm[ E.]}.
-\newblock \bibinfo{title}{Testing Statistical Hypotheses}.
-\newblock \bibinfo{address}{New York}: \bibinfo{publisher}{Springer},
-  \bibinfo{year}{2005}.
 %Type = Incollection
 \bibitem[{Li and Turner(2016)}]{NIPS2016_6208}
 \bibinfo{author}{Li\xfnm[ Y.]}, \bibinfo{author}{Turner\xfnm[ R.E.]}.
@@ -87,6 +102,14 @@
 \bibinfo{author}{O'Hagan\xfnm[ A.]}.
 \newblock \bibinfo{title}{Fractional bayes factors for model comparison}
   \bibinfo{year}{1995};\bibinfo{volume}{57}:\bibinfo{pages}{99--138}.
+%Type = Article
+\bibitem[{{Raftery} et~al.(2006){Raftery}, {Newton}, {Satagopan} and
+  {Krivitsky}}]{raftery2006estimating}
+\bibinfo{author}{{Raftery}\xfnm[ A.E.]}, \bibinfo{author}{{Newton}\xfnm[
+  M.A.]}, \bibinfo{author}{{Satagopan}\xfnm[ J.M.]},
+  \bibinfo{author}{{Krivitsky}\xfnm[ P.N.]}.
+\newblock \bibinfo{title}{Estimating the integrated likelihood via posterior
+  simulation using the harmonic mean identity} \bibinfo{year}{2006};.
 %Type = Article
 \bibitem[{Shafer(1982)}]{Lindley1982}
 \bibinfo{author}{Shafer\xfnm[ G.]}.

@@ -189,14 +189,45 @@
 
 %Bayesian hypothesis testing is very different from point estimation in that the data can not yanmo prior.
 
-Likelihood ratio test (LRT) is the most widely used statistical testing method which enjoys many optimal properties.
-For example, by Neyman-Pearson lemma, it's the most powerful test in simple null and simple alternative case \citep{Lehmann}.
-In multi-dimensional parameter case, most powerful test does not exist.
-Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
-However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
-In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
 
-In Bayesian framework, Bayes factor is the most popular testing methodology.
+
+%%%%%% LRT %%%%%%%%%%%%%
+%Likelihood ratio test (LRT) is the most widely used statistical testing method which enjoys many optimal properties.
+%For example, by Neyman-Pearson lemma, it's the most powerful test in simple null and simple alternative case \citep{Lehmann}.
+%In multi-dimensional parameter case, most powerful test does not exist.
+%Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
+%However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
+%In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
+%
+
+
+The Bayes factor, proposed by~\cite{scientificInference}, is the conventional tool for Bayesian hypothesis testing and has been widely used by practitioners (See~\cite{Robert1995Bayes} for a review).
+Compared with the methods in other Beyasian inference problem, such as point estimation and credible sets, Bayes factor is developed on its own ground and thus has its own nature.
+A notable feature of Bayes factor is that it can not be obtained solely from the posterior distribution of paramters.
+There are two consequence of this feature.
+First, the computation of Bayes factor is highly nontrivial.
+See~\cite{Robert1995Bayes},~\cite{MarkovC},~\cite{raftery2006estimating} and the references therein.
+Second, Bayes factor is sensitive to the choice of prior distribution even in the large sample setting. 
+In contrast, it is well known that the posterior distribution tends to become independent of the prior distribution as the sample size increases.
+
+Several modifications of Bayes factor have been proposed.
+\cite{Aitkin1991Posterior} proposed the posterior Bayes factor (PBF) which integrated the likelihood with respect to the posterior distribution.
+Another approach uses a portion of data as training sample.
+A posterior is computed using the training sample and then be used to calculate Bayes factor.
+\cite{intrisicBayesFactor} proposed the intrinsic Bayes factor by using all possible training samples of minimal size and averaging the resulting Bayes factor.
+Unfortunately, .
+\cite{Fractional1995} found that the training sample approximates to the full likelihood raised to a fractional power.
+They called the resulting statistic an fractional Bayes factor (FBF).
+Compared with the Bayes factor, these testing methods are less sensitive to the prior distribution.
+
+%has drawn much attention in recent years.
+Existing research on the frequentist properties of Bayesian method is largely concerned with the consistency and asymptotic normality of the posetrior distribution.
+These results can be applied to Bayes point estimation and interval estimation.
+However, these testing methods lack a rigorous frequentist evaluation.
+
+
+In this paper, we are concerned about the frequentist evaluations of Bayesian hypothesis testing.
+
 
 
 
@@ -277,6 +308,7 @@ All technical proves are in Apppendix.
 
 \section{Generalized FBF}
 
+\subsection{setup}
 Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (i.i.d.) observations with values in some space space $(\mathcal{X};\mathscr{A})$.
 Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
 The parameter $\theta$ takes its values in $\Theta$, a subset of $\mathbb{R}^{p}$.
