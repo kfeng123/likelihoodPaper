@@ -144,15 +144,11 @@
 \address[mysecondaryaddress]{360 Park Avenue South, New York}
 
 \begin{abstract}
-
-    Likelihood ratio test is the most widely used test procedure.
-    However, it has some weaknesses.
-    Likelihood is unbounded for some important models.
-    Even when the likelihood is bounded, the maximum may be not easy to obtain if it is not convex in parameters.
-    Based on existing work on Bayesian hypothesis testing,
-    we propose a new test procedure called integrated likelihood ratio test which shares the same asymptotic properties as that of likelihood ratio test.
-    The proposed methodology is very flexible which takes posterior Bayes factor and fractional Bayes factor as special cases.
-    It can also be used in the model where the posterior distribution is difficult to compute.
+This paper is concerned with the Bayesian hypothesis testing problem.
+    A general methodology called integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes fator as special cases.
+    Our methodology also includes the statistics produced by approximation computation.
+    The frequentist properties of the integrated likelihood ratio test are investigated.
+    We find that the integrated likelihood ratio shares the same asymptotic local power as that of likelihood ratio test.
 \end{abstract}
 
 \begin{keyword}
@@ -215,89 +211,26 @@ Several modifications of Bayes factor have been proposed.
 Another approach uses a portion of data as training sample.
 A posterior is computed using the training sample and then be used to calculate Bayes factor.
 \cite{intrisicBayesFactor} proposed the intrinsic Bayes factor by using all possible training samples of minimal size and averaging the resulting Bayes factor.
-Unfortunately, .
 \cite{Fractional1995} found that the training sample approximates to the full likelihood raised to a fractional power.
 They called the resulting statistic an fractional Bayes factor (FBF).
 Compared with the Bayes factor, these testing methods are less sensitive to the prior distribution.
 
-%has drawn much attention in recent years.
-Existing research on the frequentist properties of Bayesian method is largely concerned with the consistency and asymptotic normality of the posetrior distribution.
-These results can be applied to Bayes point estimation and interval estimation.
-However, these testing methods lack a rigorous frequentist evaluation.
 
 
-In this paper, we are concerned about the frequentist evaluations of Bayesian hypothesis testing.
+The computations of PBF and FBF are easier than that of Bayes factor since the PBF and FBF can be computed by sampling the likelihood according to posterior distribution or fractional posterior distribution.
+For moderately complex model, however, sampling from posterior may be difficult and hence some approximation methods may be used in practice.
+Variational inference is a popular method for approximating intractable posterior distribution.
+See~\cite{blei2017} and the references therein.
 
+In this paper, we are interested in the frequentist evaluations of Bayesian hypothesis testing methods.
+We propose a flexible methodology called integrated likelihood ratio test (ILRT) which takes PBF and FBF as special examples.
+ILRT also includes methos that are produced by approximation computation.
+Under certain regular conditions, we rigorously derive the asymptotic behavior of ILRT statistic.
 
-
-
-Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (i.i.d.) observations from a family parametrized by $\theta=(\nu^T,\xi^T)^T$, with $\text{dim}(\theta)=p$ and $\text{dim}(\nu)=p_0$.
-We would like to test the hypotheses
-\begin{equation*}
-    H_0:\theta\in\Theta_0\quad \text{v.s.}\quad H_1:\theta\in\Theta,
-\end{equation*}
-where $\Theta$ is an open subset of $\mathbb{R}^p$ and  $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
-\begin{equation*}
-    \Theta_0=\{(\nu^T,\xi^T)^T:(\nu^T,\xi^T)^T\in\Theta, \, \xi=\xi_0\}.
-\end{equation*}
-
-
-
-
-Bayesians put prior $\pi(\nu)$ and $\pi(\theta)$ on parameters under the null and alternative hypotheses, respectively.
-The conventional Bayes factor is defined as
-\begin{equation*}
-  \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta)\, d\theta}
-    {\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu)\, d\nu},
-\end{equation*}
-where $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$.
-However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absense of a well-formulated subjective prior. See, for example, \cite{Lindley1982}.
-%The frequency property of Bayes factor is not satisfactory.
-%To overcome this weakness, several robust alternatives to Bayes factor have been proposed.
-To deal with this problem, several modifications of Bayes factor have been proposed.
-~\cite{Aitkin1991Posterior} proposed posterior Bayes factor (PBF) which is defined to be
-\begin{equation*}
-    \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta|\BX^{(n)})\, d\theta}{\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu|\BX^{(n)})\, d\nu},
-\end{equation*}
-where $\pi(\nu|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under the null and alternative hypothesis, respectively.
-\cite{Fractional1995} proposed fractional Bayes factor (FBF) which is defiend to be
-\begin{equation*}
-    \frac{L_{1}}{L_{b}}\cdot \frac{L_{b}^*}{L_{1}^*}\quad \text{for}\quad 0<b<1,
-\end{equation*}
-where for $t>0$,
- $$
- L_t=\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta,\quad
- L_t^*=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
- $$
-
- In this paper, we generalize the PBF and FBF and propose the integrated likelihood ratio test (ILRT) statistic, as follow  
-\begin{equation}
-    \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
-\end{equation}
-where $a>0$ are  hyperparameters,
- $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are the weight functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
-Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density.
-If we take the weight function as
-\begin{equation}\label{firstWeight}
-\pi(\theta;\BX^{(n)})=\frac{\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)}{\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)\, d\theta},
-\end{equation}
-then the ILRT statistic equals 
-$$
-    \Lambda_{a,b}(\BX^{(n)})=
-    \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^*}{L_{a+b}^*}.
-$$
-We shall call $\Lambda_{a,b}(\BX^{(n)})$ the generalized FBF throughout the paper.
-The FBF and PBF are both the special cases of the generalized FBF.
-In fact, the FBF is equal to $\Lambda_{1,b}(\BX^{(n)})$, the PBF is equal to $\Lambda_{2,1}(\BX^{(n)})$.
-
-
-The ILRT methodology is very flexible.
-For some models, the quantity $L_t$ is hard to compute.
-In this case,~\eqref{firstWeight} may be complicated.
-Consequently, one may choose to use some simple form weight function, for example, the distribution obtained from variational inference.
-
-
-The ILRT is computational feasible. Compared with LRT. Compared with Bayes factor.
+The frequentist properties of Bayesian methods have drawn much attention in recent years.
+See~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence},~\cite{Kleijn2012The} and the references therein.
+However, existing research is largely concerned with the consistency and asymptotic normality of the posetrior distribution
+and can not be directly used to study the asymptotic behavior of ILRT.
 
 The paper is organized as follow.
 In Section 2, we investegate the asymptotic properties of the generalzied FBF.
@@ -306,13 +239,19 @@ Section 4 concludes the paper.
 All technical proves are in Apppendix.
 
 
-\section{Generalized FBF}
 
-\subsection{setup}
+
+
+\section{Integrated likelihood ratio test}
+
+\subsection{The test statistic}
+
 Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (i.i.d.) observations with values in some space space $(\mathcal{X};\mathscr{A})$.
 Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
+Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}$.
+Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
 The parameter $\theta$ takes its values in $\Theta$, a subset of $\mathbb{R}^{p}$.
-Suppose $\theta=(\nu^T,\xi^T)^T$, where $\nu$ is a $p_0$ dimensional subvector, and $\xi$ is a $p-p_0$ dimensional subvector.
+Suppose $\theta=(\nu^T,\xi^T)^T$, where $\nu$ is a $p_0$ dimensional subvector and $\xi$ is a $p-p_0$ dimensional subvector.
  We would like to test the nested hypotheses
 \begin{equation*}
     H_0:\theta\in\Theta_0\quad \text{v.s.}\quad \theta\in\Theta,
@@ -323,22 +262,79 @@ where the null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defi
 \end{equation*}
 If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the true parameter which generates the data.
 
-Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
-Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
-
-Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}=(X_1,\ldots, X_n)$.
-Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
 
 
-If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the true parameter which generates the data.
+In Bayesian hypothesis testing framework, one puts prior $\pi(\nu)$ and $\pi(\theta)$ on parameters under the null and alternative hypotheses, respectively.
+The conventional Bayes factor is defined as
+\begin{equation*}
+  \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta)\, d\theta}
+    {\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu)\, d\nu},
+\end{equation*}
+where $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$.
+However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absense of a well-formulated subjective prior. See, for example, \cite{Lindley1982}.
+%The frequency property of Bayes factor is not satisfactory.
+%To overcome this weakness, several robust alternatives to Bayes factor have been proposed.
+To deal with this problem,~\cite{Aitkin1991Posterior} proposed PBF which is defined to be
+\begin{equation*}
+    \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta|\BX^{(n)})\, d\theta}{\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu|\BX^{(n)})\, d\nu},
+\end{equation*}
+where $\pi(\nu|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under the null and alternative hypothesis, respectively.
+\cite{Fractional1995} proposed  FBF which is defiend to be
+\begin{equation*}
+    \frac{L_{1}}{L_{b}}\cdot \frac{L_{b}^*}{L_{1}^*}\quad \text{for}\quad 0<b<1,
+\end{equation*}
+where for $t>0$,
+ $$
+ L_t=\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta,\quad
+ L_t^*=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
+ $$
 
-In this section, we study the asymptotic behavior of the generalized FBF.
-
-Let $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics.
-The corresponding quantities in the null space are 
-$$\dot{\ell}^*(X)=\frac{\partial}{\partial \nu}\log p(X|\nu,\xi_0)\Big|_{\nu=\nu_0}, \quad I^*_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}^*\dot{\ell}_{\theta_0}^{*T},\quad \Delta_{n,\theta_0}^*
-=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^{*}_{\theta_0}(X_i).
+We generalize the PBF and FBF and propose the ILRT statistic as
+\begin{equation}\label{eq:definition}
+    \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
+\end{equation}
+where $a>0$ are  hyperparameters,
+ the weight functions $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are probability density functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
+Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density.
+If we take the weight function as
+\begin{equation}\label{firstWeight}
+\pi(\theta;\BX^{(n)})=\frac{\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)}{\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)\, d\theta},
+\quad
+\pi(\nu;\BX^{(n)})=\frac{\big[p_n(\BX^{(n)}|\nu,
+    \xi_0)\big]^b \pi(\nu)}{\int_{\tilde{\Theta}_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^b \pi(\nu)\, d\nu},
+\end{equation}
+then the ILRT statistic equals 
 $$
+    \Lambda_{a,b}(\BX^{(n)})=
+    \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^*}{L_{a+b}^*}.
+$$
+We shall call $\Lambda_{a,b}(\BX^{(n)})$ the generalized FBF throughout the paper.
+The FBF and PBF are both the special cases of the generalized FBF.
+In fact, the FBF is equal to $\Lambda_{1,b}(\BX^{(n)})$, the PBF is equal to $\Lambda_{2,1}(\BX^{(n)})$.
+
+The computation of the generalized FBF is simple.
+We can independently generate $\theta_1,\ldots,\theta_m$ and $\nu_1,\ldots,\nu_m$ according to~\eqref{firstWeight}  for a large $m$.
+Then $\Lambda_{a,b}(\BX^{(n)})$ can be approximated by
+\begin{equation*}
+    \frac{\sum_{i=1}^m \big[p_n(\BX^{(n)}|\theta)\big]^{a}}{\sum_{i=1}^m\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}}.
+\end{equation*}
+
+
+For some moderately complex models,~\eqref{firstWeight} may be complicated.
+Consequently, sampling from~\eqref{firstWeight} may be intractable.
+In this case, one may use some simple form weight function to approximate~\eqref{firstWeight}.
+A popular method for approximating~\eqref{firstWeight} is variational inference.
+See. See, for example,~\cite{blei2017}.
+In this case, the weight function in~\eqref{eq:definition} is equals to the variational apprixomation of~\eqref{firstWeight}.
+The ILRT methodology also includes such approximate method.
+
+
+
+
+\subsection{Generalized FBF}
+In this section, we investigate the asymptotic behavior of the generalized FBF.
+
+
 
 
 
@@ -387,8 +383,8 @@ The $\sqrt{n}$-consistency of $L_t^*$ is defined similarly.
 ``$\rightsquigarrow$'' means weak convergence.
     \end{theorem}
 Theorem~\ref{Thm:maintheorem} gives the asymptotic distribution of $2\log \Lambda_{a,b}(\BX^{(n)})$ under the null hypothesis and the local alternative hypothesis.
-To obtain a test with asymptotic level $\alpha$, the critical value of $2\log \Lambda_{a,b}(\BX^{(n)})$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{p-p_0,1-\alpha}$, where $\chi^2_{p-p_0,1-\alpha}$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
-The resulting test has local asymptotic power
+To obtain a test with asymptotic type I error rate $\alpha$, the critical value of $2\log \Lambda_{a,b}(\BX^{(n)})$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{p-p_0,1-\alpha}$, where $\chi^2_{p-p_0,1-\alpha}$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
+By Theorem~\ref{Thm:maintheorem}, the resulting test has local asymptotic power
 \begin{equation}\label{eq:likelihoodPower}
 \Pr \big( \chi^2_{p-p_0}(\delta)> \chi^2_{p-p_0,1-\alpha} \big).
 \end{equation}
@@ -396,8 +392,9 @@ It is known that, under certain regular conditions,~\eqref{eq:likelihoodPower} i
 In this view, $\Lambda_{a,b}(\BX^{(n)})$ enjoys good frequentist properties.
 
 
- The $\sqrt{n}$-consistency of $L_t$ plays a key role in the proof of \ref{Thm:maintheorem}.
-We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t$.
+ The $\sqrt{n}$-consistency of $L_t$ is a key assumption of Theorem \ref{Thm:maintheorem}.
+Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t$.
+ First we consider the exponential family.
  The following proposition shows that for full-rank exponential family, $L_t$ is $\sqrt{n}$-consistent for all $t>0$.
 \begin{proposition}\label{exponentialCon}
     Suppose $p(X|\theta)=\exp\big[\theta^T T(X)-A(\theta)\big]$, $\Theta$ is an open subset of $\mathbb{R}^p$, $\theta_0$ is an interior point of $\Theta$, 
@@ -406,75 +403,15 @@ We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L
 \end{proposition}
 
 
- In general case, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
- For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of posterior distribution.
- The consistency of posterior distribution have been considerable attention in the literature.
- See, for example,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence} and the references therein.
-A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
-This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
-
-\begin{assumption}\label{Assumption2}
-    For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
-        \begin{equation}
-            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
-        \end{equation}
-\end{assumption}
-
-\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
-    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
-\end{proposition}
-Assumption~\ref{Assumption2} is satisfied when the parameter space is compact and the model is suitably continuous. See Theorem 3.2 of~\cite{Kleijn2012The}.
-
-The consistency of $L_t$ for $0<t<1$ is different from the consistency of posterior distribution.
-\cite{kar10563} considered the Hellinger consistency of $L_{1/2}$.
-However, they only consider $t=1/2$ and didn't prove the $\sqrt{n}$-convergence result.
-Next we shall prove the consisency of $L_{t}$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
-
- For two parameters $\theta_1$ and $\theta_2$, the $\alpha$ order R\'{e}nyi divergence ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
+In the general setting, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
+It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
+Note that $L_1$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral:
 $$
-D_{\alpha}(\theta_1||\theta_2)=-\frac{1}{1-\alpha}\log \rho_{\alpha}(\theta_1,\theta_2),
+\int_{\mathcal{X}^n} L_1 \, d\mu^n=
+\int_{\Theta}\Big(\int_{\mathcal{X}^n} p_n(\BX^{(n)}|\theta) \, d\mu^n \Big) \, \pi(\theta)\, d\theta=1.
 $$
-where
-$
-\rho_{\alpha}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(X|\theta_1)^{\alpha} p(X|\theta_2)^{1-\alpha} \, d \mu
-$ is the so-called Hellinger integral.
-The following assumption will be assumed in our $\sqrt{n}$-consistency result.
-\begin{assumption}\label{Assumption4}
-    For some $\alpha\in(0,1)$, there exist positive constancts $\delta$, $\epsilon$ and $C$ such that,
-     $D_{\alpha}(\theta||\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
-\end{assumption}
-\begin{remark}
-    A remarkable property of R\'{e}nyi divergence is the equivalence of all $D_{\alpha}$: If $0<\alpha<\beta<1$, then
-    $$
-    \frac{\alpha}{1-\alpha}\frac{1-\beta}{1-\alpha} D_{\beta}(\theta_1||\theta_2)
-    \leq D_{\alpha}(\theta_1||\theta_2)\leq D_{\beta}(\theta_1||\theta_2).
-    $$
-    See, for example,~\cite{2016arXiv160801805B}.
-    As a result, if Assumption~\ref{Assumption4} holds for some $\alpha\in(0,1)$, then it will hold for every $\alpha\in(0,1)$.
-\end{remark}
-To appreciate Assumption~\ref{Assumption4},
-   suppose, for example, that $D_{\alpha}(\theta||\theta_0)$ is twice continuously differentiable in $\theta$.
-   Since $\theta=\theta_0$ is a minumum point of  $D_{\alpha}(\theta||\theta_0)$, the first order derivative of $D_{\alpha}(\theta||\theta)$ at $\theta=\theta_0$ is zero and the second order derivative at $\theta=\theta_0$ is positive semidefinite.
-By Taylor theorem, in a small neighbourhood of $\theta_0$,
-   $$
-   D_{\alpha}(\theta||\theta_0)=\frac{1}{2}(\theta-\theta_0)^T \frac{\partial^2}{\partial \theta \partial \theta^T} D_{\alpha}(\theta||\theta_0)\Big|_{\theta=\theta^*}  (\theta-\theta_0),
-   $$
-   where $\theta^*$ is between $\theta_0$ and $\theta$.
-   If we further assume the second order derivative is positive definite at $\theta=\theta_0$, then in a small neighbourhood of $\theta_0$, there is a positive constant $C$ such that $D_{\alpha(\theta||\theta_0)}\geq C\|\theta-\theta_0\|^2$.
-   Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
-\begin{proposition}\label{Theoremless1}
-    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t$ is consistent.
-\end{proposition}
-The consistency of $L_t$ for $t>1$ can be proved under conditions similar to Assumption~\ref{Assumption2}.
-However, while we require $\{\phi_n\}$ to be consistent tests, the requirement on the sequence $\{\phi_n\}$ for $t>1$ lacks statistical interpretation.
-This implies that it may not be natural to use $L_t$ for $t>1$.
-
-Note that $L_1$ is always well defined since it has finite integral.
-By holder inequality, $L_{t}$ is also well defined for $0<t<1$.
-However, $L_t$ is not always well defined.
-The following example is a counterexample.
+By h\"older's inequality, $L_{t}$ is also well defined $P_{\theta_0}^n$-a.s.\ for $0<t<1$.
+However, the following example shows that $L_t$ is not always well defined for $t>1$.
 
 \begin{example}
 Suppose $X_1,\ldots,X_n$ are i.i.d. from the density
@@ -508,27 +445,100 @@ $$
     The likelihood will almost surely have no ties and consequently $L_t(\BX^{(n)})=+\infty$ if and only if $t\geq 2$.
 \end{example}
 
-Based on our theoretical result and this example, we suggest to use FBF with $a+b\leq 1$.
+Because of the bad behavior of $L_t$ for $t>1$, next we consider $L_t$ for $t\leq 1$.
+ For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of posterior distribution.
+ The consistency of posterior distribution has drawn much attention in the literature.
+ See, for example,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
+A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
+This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
+
+\begin{assumption}\label{Assumption2}
+    For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+        \begin{equation*}
+            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
+        \end{equation*}
+\end{assumption}
+Assumption~\ref{Assumption2} is satisfied when the parameter space is compact and the model is suitably continuous. See Theorem 3.2 of~\cite{Kleijn2012The}.
+
+\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
+    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
+\end{proposition}
 
 
-\section{General weight function}
+%The consistency of $L_t$ for $t>1$ can be proved under conditions similar to Assumption~\ref{Assumption2}.
+%However, the requirement on the sequence $\{\phi_n\}$ lacks statistical interpretation for $t>1$.
 
 
-In some cases, the posterior density or the general FBF is not easy to calculate or have unsatisfactory properties.
-Thanks to the flexibility of ILRT, we can consider general weight function in such cases.
 
-Let $h=\sqrt{n}(\theta-\theta_0)$. \cite{Kleijn2012The}, Theorem 2.1 states that
-under Assumption~\ref{Assumption1},~\ref{Assumption2},
+The consistency of $L_t$ for $0<t<1$ is different from $t=1$.
+\cite{kar10563} considered the Hellinger consistency of $L_{1/2}$.
+However, they only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
+We shall prove the consisency of $L_{t}$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
+
+ For two parameters $\theta_1$ and $\theta_2$, the $\alpha$ order R\'{e}nyi divergence ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
+$$
+D_{\alpha}(\theta_1||\theta_2)=-\frac{1}{1-\alpha}\log \rho_{\alpha}(\theta_1,\theta_2),
+$$
+where
+$
+\rho_{\alpha}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(X|\theta_1)^{\alpha} p(X|\theta_2)^{1-\alpha} \, d \mu
+$ is the so-called Hellinger integral.
+The following assumption is needed for our $\sqrt{n}$-consistency result.
+\begin{assumption}\label{Assumption4}
+    For some $\alpha\in(0,1)$, there exist positive constancts $\delta$, $\epsilon$ and $C$ such that,
+     $D_{\alpha}(\theta||\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
+\end{assumption}
+\begin{remark}
+    A remarkable property of R\'{e}nyi divergence is the equivalence of all $D_{\alpha}$: If $0<\alpha<\beta<1$, then
+    $$
+    \frac{\alpha}{1-\alpha}\frac{1-\beta}{1-\alpha} D_{\beta}(\theta_1||\theta_2)
+    \leq D_{\alpha}(\theta_1||\theta_2)\leq D_{\beta}(\theta_1||\theta_2).
+    $$
+    See, for example,~\cite{2016arXiv160801805B}.
+    As a result, if Assumption~\ref{Assumption4} holds for some $\alpha\in(0,1)$, then it will hold for every $\alpha\in(0,1)$.
+\end{remark}
+To appreciate Assumption~\ref{Assumption4},
+   suppose, for example, that $D_{\alpha}(\theta||\theta_0)$ is twice continuously differentiable in $\theta$.
+   Since $\theta=\theta_0$ is a minumum point of  $D_{\alpha}(\theta||\theta_0)$, the first order derivative of $D_{\alpha}(\theta||\theta)$ at $\theta=\theta_0$ is zero and the second order derivative at $\theta=\theta_0$ is positive semidefinite.
+By Taylor theorem, in a small neighbourhood of $\theta_0$,
+   $$
+   D_{\alpha}(\theta||\theta_0)=\frac{1}{2}(\theta-\theta_0)^T \frac{\partial^2}{\partial \theta \partial \theta^T} D_{\alpha}(\theta||\theta_0)\Big|_{\theta=\theta^*}  (\theta-\theta_0),
+   $$
+   where $\theta^*$ is between $\theta_0$ and $\theta$.
+   If we further assume the second order derivative is positive definite at $\theta=\theta_0$, then in a small neighbourhood of $\theta_0$, there is a positive constant $C$ such that $D_{\alpha}(\theta||\theta_0)\geq C\|\theta-\theta_0\|^2$.
+   Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
+%%%%%%%%%%%%%%% Here we haven't consider the second condition. It can be done through a minimax lower bound argument.
+\begin{proposition}\label{Theoremless1}
+    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t$ is consistent.
+\end{proposition}
+
+Compared with Assumption~\ref{Assumption2}, it appears that Assumption~\ref{Assumption4} is easier to verify.
+Note that the asymptotic power of $\Lambda_{a,b}(\BX^{(n)})$ is independent of $a,b$.
+Hence it can be recommanded to use the generalized FBF with $a+b< 1$.
+
+
+\subsection{General weight function}
+
+For some moderately complexi models, the densities~\eqref{firstWeight} are not easy to calculate.
+In this case, we can use simpler weight functions to approximate~\eqref{firstWeight}.
+
+Let $h=\sqrt{n}(\theta-\theta_0)$.
+For two densities $q_1(h)$ and $q_2(h)$, let $\|q_1(h)-q_2(h)\|=\int |p(h)-q(h)|\, dh$ be the total variation distance between $q_1(h)$ and $q_2(h)$.
+Theorem 2.1 of \cite{Kleijn2012The} states that
+under Assumptions~\ref{Assumption1},~\ref{Assumption2},
 $$
             \|\pi_n(h|\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0,
 $$
-where for two density $p$ and $q$, $\|p-q\|=\int |p-q|$ is the total variation distance between $p$ and $q$.
+where
+$\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$.
 We shall assume that the weight function inherits this property.
         
 \begin{assumption}\label{Assumption3}
     Let $\pi_n(h;\BX^{(n)})$ be a weight function satisfying 
         \begin{equation}\label{vonMisesResults}
-            \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0
+            \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0
         \end{equation}
 Furthermore, assume that for every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and an $A>0$ such that 
 
@@ -542,19 +552,22 @@ Furthermore, assume that for every $\epsilon>0$, there's a Lebesgue integrable f
 \end{assumption}
 
 
-The condition~\ref{Assump31} assumes there is a function controlling the tail of weight function. For a statistical model, the likelihood value makes no sense when $\theta$ is far away from $\theta_0$, or $\sqrt{n}h$ is large.
+The condition~\ref{Assump31} assumes there is a function controlling the tail of weight function.
+For a statistical model, the likelihood value makes no sense when $\|\theta-\theta_0\|=n^{-1/2}h$ is large.
 The bad behavior of the tail of likelihood function may affect the behavior of posterior distribution.
-To avoid the bad behavior of the likelihood function when $\sqrt{n}h$ is large, most existing literatures impose conditions on the model.
-Here we impose~\ref{Assump31} on weight function instead.
+To avoid the bad behavior of the likelihood function for large ${n}^{-1/2}h$, we impose~\ref{Assump31} on weight function instead.
 The condition~\ref{Assump32} is satisfied in most usual case.
 
 \begin{theorem}\label{theoremMain}
-    Suppose the true parameter $\theta_0$ is an interior point of $\Theta$, $\nu$ is a relative interior point of $\tilde{\Theta}_0$.
-    Under Assumptions~\ref{Assumption1},~\ref{Assumption2} and\ref{Assumption3}, for bounded real numbers $\eta_n$, we have
+    Suppose that Assumptions~\ref{Assumption1} and \ref{Assumption3} hold, the true parameter $\theta_0$ is an interior point of $\Theta$, $\nu$ is a relative interior point of $\tilde{\Theta}_0$.
+    If $a+b=1$, we assume Assumption~\ref{Assumption2} holds. If $a+b<1$, we assume Assumption~\ref{Assumption4} holds. Then, for bounded real numbers $\eta_n$, we have
 
-    $$
-    2\log(\Lambda(X))\overset{P_{{\eta_n}}^n}{\rightsquigarrow} -(p_2-p_1)\log 2+\chi^2_{p_2-p_1}(\delta)
-    $$
+        $$
+        2\log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta).
+        $$
+    %$$
+    %2\log(\Lambda(X))\overset{P_{{\eta_n}}^n}{\rightsquigarrow} -(p_2-p_1)\log 2+\chi^2_{p_2-p_1}(\delta)
+    %$$
     %\begin{equation}
         %\Big|\int_{\mathbb{R}^{p}}\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\pi_n(h;\BX^{(n)})\,dh-
         %2^{-\frac{p}{2}}\exp\big[\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
@@ -581,6 +594,10 @@ The following example shows that the weight function obtained from R\'{e}nyi div
     Again by the equivalence of R\'{e}nyi divegence and total variation distance,~\eqref{vonMisesResults} holds.
     Since $\pi_n(h;\BX^{(n)})$ is a normal density,~\eqref{vonMisesResults} implies the mean and covariance parameter of $\pi_n(h;\BX^{(n)})$ converges to $\Delta_{n,\theta_0}$ and $I_{\theta_0}^{-1}$ respectively. Then~\eqref{Assump31} and~\eqref{Assump32} hold.
 \end{example}
+
+
+
+\input{someLatex/normalMixture.tex}
 
 
 \section{Conclusion}
@@ -703,13 +720,19 @@ This work was supported by the National Natural Science Foundation of China unde
 
 
 
-%\input{someLatex/normalMixture.tex}
 
 
 
 
 \begin{appendices}
-For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathcal{A}_n)$, denote by $P_n\triangleleft \triangleright Q_n$ that $P_n$ and $Q_n$ are mutually contiguous. That is, for any statistics $T_n$: $\Omega_n\mapsto \mathbb{R}^k$, we have $T_n\overset{P_n}{\rightsquigarrow}0\Leftrightarrow T_n\overset{Q_n}{\rightsquigarrow}0$.
+%For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathcal{A}_n)$, denote by $P_n\triangleleft \triangleright Q_n$ that $P_n$ and $Q_n$ are mutually contiguous. That is, for any statistics $T_n$: $\Omega_n\mapsto \mathbb{R}^k$, we have $T_n\overset{P_n}{\rightsquigarrow}0\Leftrightarrow T_n\overset{Q_n}{\rightsquigarrow}0$.
+
+%Let $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics.
+%The corresponding quantities in the null space are 
+    Define
+$$\dot{\ell}^*(X)=\frac{\partial}{\partial \nu}\log p(X|\nu,\xi_0)\Big|_{\nu=\nu_0}, \quad I^*_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}^*\dot{\ell}_{\theta_0}^{*T},\quad \Delta_{n,\theta_0}^*
+=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^{*}_{\theta_0}(X_i).
+$$
 
 \begin{lemma}[\cite{Kleijn2012The}, Lemma 2.1.]\label{Thm:localExpansion}
     Under Assumption~\ref{Assumption1},

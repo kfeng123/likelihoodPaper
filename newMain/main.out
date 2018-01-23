@@ -1,7 +1,9 @@
 \BOOKMARK [1][-]{section.1}{Introduction}{}% 1
-\BOOKMARK [1][-]{section.2}{Generalized FBF}{}% 2
-\BOOKMARK [2][-]{subsection.2.1}{setup}{section.2}% 3
-\BOOKMARK [1][-]{section.3}{General weight function}{}% 4
-\BOOKMARK [1][-]{section.4}{Conclusion}{}% 5
-\BOOKMARK [1][-]{Appendix .1.A}{Proofs in Section 2}{}% 6
-\BOOKMARK [1][-]{Appendix .1.B}{Proofs in Section 3}{}% 7
+\BOOKMARK [1][-]{section.2}{Integrated likelihood ratio test}{}% 2
+\BOOKMARK [2][-]{subsection.2.1}{The test statistic}{section.2}% 3
+\BOOKMARK [2][-]{subsection.2.2}{Generalized FBF}{section.2}% 4
+\BOOKMARK [2][-]{subsection.2.3}{General weight function}{section.2}% 5
+\BOOKMARK [1][-]{section.3}{Normal mixture}{}% 6
+\BOOKMARK [1][-]{section.4}{Conclusion}{}% 7
+\BOOKMARK [1][-]{Appendix .1.A}{Proofs in Section 2}{}% 8
+\BOOKMARK [1][-]{Appendix .1.B}{Proofs in Section 3}{}% 9

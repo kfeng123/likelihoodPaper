@@ -17,45 +17,45 @@ Warning--empty journal in Fractional1995
 `journal' is a missing field, not a string, for entry raftery2006estimating
 while executing---line 1676 of file model4-names.bst
 Warning--empty journal in raftery2006estimating
-You've used 17 entries,
+You've used 19 entries,
             3271 wiz_defined-function locations,
-            819 strings with 8516 characters,
-and the built_in function-call counts, 14144 in all, are:
-= -- 1198
-> -- 323
-< -- 15
-+ -- 128
-- -- 107
-* -- 1540
-:= -- 1897
-add.period$ -- 63
-call.type$ -- 17
-change.case$ -- 121
-chr.to.int$ -- 20
-cite$ -- 19
-duplicate$ -- 1229
-empty$ -- 1227
-format.name$ -- 165
-if$ -- 2780
+            833 strings with 8825 characters,
+and the built_in function-call counts, 15780 in all, are:
+= -- 1322
+> -- 383
+< -- 16
++ -- 151
+- -- 128
+* -- 1722
+:= -- 2126
+add.period$ -- 69
+call.type$ -- 19
+change.case$ -- 137
+chr.to.int$ -- 22
+cite$ -- 21
+duplicate$ -- 1362
+empty$ -- 1362
+format.name$ -- 190
+if$ -- 3093
 int.to.chr$ -- 1
 int.to.str$ -- 1
-missing$ -- 165
-newline$ -- 105
-num.names$ -- 70
-pop$ -- 304
+missing$ -- 187
+newline$ -- 115
+num.names$ -- 78
+pop$ -- 346
 preamble$ -- 1
-purify$ -- 102
+purify$ -- 117
 quote$ -- 0
-skip$ -- 268
+skip$ -- 298
 stack$ -- 0
-substring$ -- 1170
-swap$ -- 612
+substring$ -- 1281
+swap$ -- 685
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 147
+type$ -- 162
 warning$ -- 2
-while$ -- 83
+while$ -- 92
 width$ -- 0
-write$ -- 263
+write$ -- 290
 (There were 3 error messages)
