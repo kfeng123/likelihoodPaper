@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{20}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -111,6 +111,17 @@
   \bibinfo{year}{2016}. p. \bibinfo{pages}{1073--1081}.
 \newblock \URLprefix
   \url{http://papers.nips.cc/paper/6208-renyi-divergence-variational-inference.pdf}.
+%Type = Article
+\bibitem[{Liu and Shao(2004)}]{LIU200461}
+\bibinfo{author}{Liu\xfnm[ X.]}, \bibinfo{author}{Shao\xfnm[ Y.]}.
+\newblock \bibinfo{title}{Asymptotics for the likelihood ratio test in a
+  two-component normal mixture model}.
+\newblock \bibinfo{journal}{Journal of Statistical Planning and Inference}
+  \bibinfo{year}{2004};\bibinfo{volume}{123}(\bibinfo{number}{1}):\bibinfo{pages}{61
+  -- 81}.
+\newblock \URLprefix
+  \url{http://www.sciencedirect.com/science/article/pii/S0378375803001381}.
+  \DOIprefix\doi{https://doi.org/10.1016/S0378-3758(03)00138-1}.
 %Type = Article
 \bibitem[{O'Hagan(1995)}]{Fractional1995}
 \bibinfo{author}{O'Hagan\xfnm[ A.]}.

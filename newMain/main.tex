@@ -337,7 +337,6 @@ In this section, we investigate the asymptotic behavior of the generalized FBF.
 
 
 
-
 The following assumption is adapted from~\cite{Kleijn2012The}.
 \begin{assumption}\label{Assumption1}
 The parameter space $\Theta$ is an open subset of $\mathbb{R}^p$. 
@@ -352,7 +351,7 @@ There's an open neighborhood $V$ of $\theta_0$ such that for every $\theta_1,\th
         where $m(X)$ is a measurable function satisfying $P_{0}\exp[s m(X)]<\infty$ for some $s>0$.
         The Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ is positive-definite and as $\theta\to \theta_0$,
     \begin{equation*}
-        P_{\theta_0} \log \frac{p(X|\theta)}{ \log (X|\theta_0)}
+        P_{\theta_0} \log \frac{p(X|\theta)}{ p(X|\theta_0)}
         =-\frac{1}{2}(\theta-\theta_0)^T I_{\theta_0} (\theta-\theta_0)+o(\|\theta-\theta_0\|^2).
     \end{equation*}
 \end{assumption}     
@@ -366,7 +365,7 @@ Assumption~\ref{Assumption1} is satisfied by many common models, it ensures a lo
 $$
 L_t (A)=\int_{A} \Big[ {p_n(\BX^{(n)}|\theta)} \Big]^{t} \pi(\theta) \, d \theta.
 $$
-The $\sqrt{n}$-consistency of $L_t^*$ is defined similarly.
+The $\sqrt{n}$-consistency of $L_t^*$ is similarly defined.
     Note that the consistency of $L_1$ is equivalent to the consistency of the posterior distribution.
     In~\cite{Kleijn2012The}, the $\sqrt{n}$-consistency of posterior distribution is a key assumption to prove Bernstein-von Mises theorem.
     Likewise, the $\sqrt{n}$-consistency of $L_t$ is a key assumption of the following theorem.
@@ -492,7 +491,7 @@ The following assumption is needed for our $\sqrt{n}$-consistency result.
 \begin{remark}
     A remarkable property of R\'{e}nyi divergence is the equivalence of all $D_{\alpha}$: If $0<\alpha<\beta<1$, then
     $$
-    \frac{\alpha}{1-\alpha}\frac{1-\beta}{1-\alpha} D_{\beta}(\theta_1||\theta_2)
+    \frac{\alpha}{1-\alpha}\frac{1-\beta}{\beta} D_{\beta}(\theta_1||\theta_2)
     \leq D_{\alpha}(\theta_1||\theta_2)\leq D_{\beta}(\theta_1||\theta_2).
     $$
     See, for example,~\cite{2016arXiv160801805B}.
@@ -597,7 +596,218 @@ The following example shows that the weight function obtained from R\'{e}nyi div
 
 
 
-\input{someLatex/normalMixture.tex}
+
+\section{Normal mixture}
+
+
+\subsection{new}
+Suppose $X_1,\ldots,X_n$ are i.i.d.\ distributed as a mixture of normal distributions
+\begin{equation*}
+    p(X|\omega,\xi)=\frac{1-\omega}{\sqrt{2\pi}}\exp\big(-\frac{1}{2}X^2\big)
++\frac{\omega}{\sqrt{2\pi}}\exp\big(-\frac{1}{2}(X-\xi)^2\big),
+\end{equation*}
+where $0\leq \alpha\leq 1$ and $\mu\in \mathbb{R}$.
+We would like to test the hypotheses
+\begin{equation}
+    \omega \mu=0
+    \quad \text{vs}\quad
+    \omega \mu \neq 0.
+    \label{newHy}
+\end{equation}
+We would like to derive the asymptotics of
+\begin{equation}
+    \int_\Theta \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu.
+    \label{temp}
+\end{equation}
+
+Let $A=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$, we have
+\begin{equation*}
+    \myE \int_{A^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    =
+    \int_{A^c} \big( \int p(X_1|\omega,\xi)^t p_0(X_1)^{1-t}\, d\mu\big)^n \pi(\omega,\xi)\, d\omega d\xi.
+\end{equation*}
+Note that
+\begin{align*}
+    &\int p(X_i|\omega,\xi)^t p_0(X_i)^{1-t}\, d\mu
+    \\
+    \leq & \Big(\int \sqrt{p(X_i|\omega,\xi) p_0(X_i)}\, d\mu\Big)^{2(t\wedge (1-t))}
+    \\
+= & \Big(1-\frac{1}{2}\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p_0(X_i)}\big)^2\, d\mu\Big)^{2(t\wedge (1-t))}
+\\
+\leq & \exp \Big( -(t\wedge (1-t))\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p_0(X_i)}\big)^2\, d\mu \Big)
+\\
+\leq & \exp \Big( -\frac{1}{2}(t\wedge (1-t)) \big(\int \big| p(X_i|\omega,\xi)-p_0(X_i)\big|\, d\mu \big)^2 \Big)
+\\
+= & \exp \Big( -\frac{1}{2}(t\wedge (1-t)) \omega^2 \big(\int \big| \phi(X_i -\xi)-\phi (X_i)\big|\, d\mu \big)^2 \Big)
+\\
+= & \exp \Big( -2(t\wedge (1-t)) \omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
+\\
+\end{align*}
+Thus,
+\begin{equation*}
+    \myE \int_{A^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    \leq
+    \exp \Big( -2(t\wedge (1-t)) M_n^2 \Big)\to 0.
+\end{equation*}
+
+We only need to consider the behavior on $A$.
+
+We have
+\begin{equation*}
+    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p_0(X_i)\big)
+    =\sum_{i=1}^n \log\Big(1+\omega \big(\exp(\xi X_i -\xi^2/2)-1\big)\Big)=\sum_{i=1}^n \log(1+\omega \xi Y_i),
+\end{equation*}
+where
+$
+Y_i=\big(\exp(\xi X_i -\xi^2/2)-1\big)/\xi
+$ if $\xi \neq 0$ and $Y_i=X_i$ if $\xi =0$.
+ Define 
+$A(M)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M n^{-1/2}\}$.
+For fixed $M$, on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$,
+we have $|\xi| = O((\log n)/\sqrt{n})$.
+It is known that $\max_{1\leq i \leq n}|X_i|=O_P(\sqrt{\log n})$.
+On $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, we have $\max_{1\leq i\leq n}|\xi X_i-\xi^2/2|\leq |\xi| \max_{1\leq i\leq n}|X_i|+\xi^2/2=O_P(|\xi|\sqrt{\log n})$.
+Then on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, uniformly for $i=1,\ldots, n$, we have
+\begin{align*}
+    Y_i&=\xi^{-1}\Big(\xi X_i-\xi^2/2 +\frac{1}{2}(\xi X_i-\xi^2/2)^2+O_P \big(|\xi|^3 (\log n)^{3/2}\big)\Big) 
+    \\
+    &=X_i-\frac{1}{2}\xi+\frac{1}{2} \xi X_i^2-\frac{1}{2} \xi^2 X_i +\frac{1}{8}\xi^3+O_P \big(|\xi|^2 (\log n)^{3/2}\big)
+    \\
+    &=X_i+\frac{1}{2} \xi (X_i^2-1) + O_P \big(|\xi|^2 (\log n)^{3/2}\big).
+\end{align*}
+In particular, on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, we have $\max_{1\leq i \leq n}|Y_i|=O_P(\sqrt{\log n})$.
+On $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, $\omega \xi =O(n^{-1/2})$, then
+\begin{align*}
+    &\sum_{i=1}^n \log(1+\omega \xi Y_i)
+    =
+    \sum_{i=1}^n \log(1+\omega \xi Y_i)
+    \\
+    =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+O_P(n\omega^3 \xi^3 (\log n)^{3/2})
+    \\
+    =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+o_P(1).
+\end{align*}
+Note that
+\begin{equation*}
+    \omega \xi\sum_{i=1}^n Y_i
+    =
+    \omega \xi\sum_{i=1}^n 
+    X_i+\frac{1}{2} \omega \xi^2\sum_{i=1}^n (X_i^2-1) + O_P \big(n\omega |\xi|^3 (\log n)^{3/2}\big)
+    =
+    \omega \xi\sum_{i=1}^n X_i + o_P(1),
+\end{equation*}
+and
+\begin{equation*}
+    \omega^2 \xi^2 \sum_{i=1}^n Y_i^2=n\omega^2 \xi^2 +o_P(1).
+\end{equation*}
+
+Then
+\begin{align*}
+    & \int_{A(M)\cap \{\omega\geq (\log n)^{-1}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    \\
+    %=&\int_\Theta \exp\big\{
+        %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
+    %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
+    =&(1+o_P(1))\int_{A(M)\cap \{\omega\geq (\log n)^{-1}\} } \exp\big\{
+        t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
+    \big\} \pi(\omega,\xi)\, d\omega d\xi.
+\end{align*}
+
+
+By Theorem 2 of \cite{LIU200461}, we have 
+\begin{equation*}
+    \sup_{\omega\in [0,1],t\in \mathbb{R}}
+    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p_0(X_i)\big)
+    =O_P(\log \log n).
+\end{equation*}
+
+
+
+\subsection{old}
+
+ In this section, we apply ILRT to the normal mixture model.
+ is the first example of unbounded likelihood given in~\cite{Cam1990Maximum}.
+
+
+Suppose $X_1,\ldots,X_n$ are i.i.d.\ distributed as a mixture of normal distributions
+\begin{equation}
+    p(X|\theta)=\frac{1-\alpha}{\sqrt{2\pi}}\exp\left\{-\frac{1}{2}{(X-\mu)}^2\right\}+
+    \frac{\alpha}{\sigma\sqrt{2\pi}}\exp\left\{-\frac{1}{2}\frac{{(X-\mu)}^2}{\sigma^2}\right\},
+\end{equation}
+ where $\alpha$ is a known constant. Suppose the parameter space is
+\begin{equation}
+    \Theta=\{\theta={(\mu,\sigma^2)}^T:\mu\in(\-\infty,\infty),\sigma^2\in (0,M)\},
+\end{equation}
+where $M$ is a sufficiently large parameter.
+\cite{Cam1990Maximum} pointed out that the likelihood of the model is unbounded. In fact, let $\mu=X_1$ and let $\sigma^2\to 0$, then the likelihood tends to infinity.
+
+Under the model, we consider testing the hypotheses $H_0:\mu=0,\sigma=2$ vs $H_1:\theta\in
+\Theta$. Although LRT fails in this model, ILRT can still be used. To use ILRT, we need a weight function.
+First let the weight function be the posterior density of parameters. To make the posterior density bounded from infinity, we consider the so-called zero-avoiding prior. See~\cite{bayesianDataAnalysis} section 13.2.
+When $\mu=X_1$, as $\sigma^2\to 0$, the likelihood tends to infinity at the rate of ${1}/{\sigma}$. The rate can be hedged by the density of $\chi^2_3$. Hence we adopt the following prior distribution
+
+\begin{equation}
+    \phi(\mu)\times d\chi^2_3(\sigma^2),
+\end{equation}
+where $d\chi^2_3(\sigma^2)$ represents the density of $\chi^2$ distribution with freedom $3$ taking value at $\sigma^2$. Because the $\sigma^2$ is limited in $(0,M)$, we also truncate prior of $\sigma^2$ at $M$.
+
+ We take sample size $n=50,100,200$ and $\alpha=0.1,0.5,0.9$. In every combination, we repeat $1000$ samples and obtain $1000$ ILRT statistics.
+ We expect the empirical distribution of $2\log \Lambda_{a,b}(\BX^{(n)})$ is similar to that of $-2\log 2+\chi^2_2$.
+ We plot the QQ-plot of empirical distribution relative to  $-2\log 2+\chi^2_2$ distribution, it can be seen that ILRT can be well approximated by $\chi^2(2)$.
+
+\includegraphics{myQQPlot.pdf}
+
+
+Next we consider another weight function $\pi (\theta; X)= N(\hat{\theta},\frac{1}{n}\hat{I}^{-1}_{\hat{\theta}})$. Lt $\hat{\theta}$ be the highest probability density estimator. And 
+$$\hat{I}_\theta^{-1}=\sum_{i=1}^n
+\begin{bmatrix}
+-\frac{\partial^2 \log p_\theta(x_i)}{\partial \mu^2}&
+    -\frac{\partial^2 \log p_\theta(x_i)}{\partial \mu\partial (\sigma^2)}
+\\
+    -\frac{\partial^2 \log p_\theta(x_i)}{\partial \mu\partial (\sigma^2)}
+    &
+    -\frac{\partial^2 \log p_\theta(x_i)}{\partial {(\sigma^2)}^2}
+\end{bmatrix}$$
+where
+
+\begin{equation}
+    \begin{aligned}
+\frac{\partial^2 \log p_\theta(x)}{\partial
+        \mu^2}=&
+        \frac{(1-\alpha)({(x-\mu)}^2-1)dN(\mu,1)(x)+\alpha ({(x-\mu)}^2/\sigma^4 -\sigma^{-2})dN(\mu,\sigma^2)(x)}{p_\theta (x)}-\\
+        &
+        {\Big(\frac{(1-\alpha)(x-\mu)dN(\mu,1)(x)+\alpha(x-\mu)/\sigma^2 dN(\mu,\sigma^2)(x)}{p_\theta(x)}\Big)}^2,
+    \end{aligned}
+\end{equation}
+
+\begin{equation}
+    \begin{aligned}
+        &\frac{\partial^2 \log p_\theta(x)}{\partial
+        \mu\partial(\sigma^2)}=
+        \frac{(\frac{3\alpha(\mu-x)}{2\sigma^4}-\frac{\alpha {(\mu-x)}^3}{2\sigma^6})dN(\mu,\sigma^2)(x)}{p_\theta (x)}-\\
+        &
+        \frac{\alpha (\frac{{(\mu-x)}^2}{2\sigma^4}-\frac{1}{2\sigma^2})dN(\mu,\sigma^2)(x)\big((1-\alpha)(x-\mu)dN(\mu,1)(x)+\alpha(x-\mu)/\sigma^2 d(\mu,\sigma^2)(x)\big)}{p_{\theta}{(x)}^2},
+    \end{aligned}
+\end{equation}
+
+
+\begin{equation}
+    \begin{aligned}
+\frac{\partial^2 \log p_\theta(x)}{\partial
+        {(\sigma^2)}^2}=&
+        \frac{\alpha \big(\frac{3}{4\sigma^4}-\frac{3{(x-\mu)}^2}{2\sigma^6} +\frac{{(x-\mu)}^4}{4\sigma^8}\big)dN(\mu,\sigma^2)(x)}{p_\theta (x)}-\\
+        &
+        {\Big(\frac{\alpha\big(\frac{{(x-\mu)}^2}{2\sigma^4}-\frac{1}{2\sigma^2} \big)dN(\mu,\sigma^2)(x)}{p_\theta(x)}\Big)}^2.
+    \end{aligned}
+\end{equation}
+
+We do the same simulation as above and the QQ-plot is given.
+It  can be seen that the distribution of ILRT statistic is still close to the theoretical distribution in this case.
+For mixture model, sampling from posterior distribution is troublesome.
+The computing burden will be reduce by normal approximation.
+This is an advantage of normal weight ILRT.\@ From this example, we can see that ILRT is more flexible than posterior Bayes factor.
+
+
+\includegraphics{myQQPlotNormal.pdf}
 
 
 \section{Conclusion}
@@ -1154,7 +1364,7 @@ $$
     $$
     \begin{aligned}
         &\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } 
-        \exp \big[ -(1-t) {n} D_a(\theta||\theta_0) \big] \pi(\theta) \, d \theta
+        \exp \big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta
         \\
         =&\int_{\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}}
         \exp\big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta+
