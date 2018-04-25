@@ -606,12 +606,12 @@ Suppose $X_1,\ldots,X_n$ are i.i.d.\ distributed as a mixture of normal distribu
     p(X|\omega,\xi)=\frac{1-\omega}{\sqrt{2\pi}}\exp\big(-\frac{1}{2}X^2\big)
 +\frac{\omega}{\sqrt{2\pi}}\exp\big(-\frac{1}{2}(X-\xi)^2\big),
 \end{equation*}
-where $0\leq \alpha\leq 1$ and $\mu\in \mathbb{R}$.
+where $0\leq \omega \leq 1$ and $\mu\in \mathbb{R}$.
 We would like to test the hypotheses
 \begin{equation}
-    \omega \mu=0
+    \omega \xi=0
     \quad \text{vs}\quad
-    \omega \mu \neq 0.
+    \omega \xi \neq 0.
     \label{newHy}
 \end{equation}
 We would like to derive the asymptotics of
@@ -620,11 +620,18 @@ We would like to derive the asymptotics of
     \label{temp}
 \end{equation}
 
-Let $A=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$, we have
+Let $A(M_n)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$, we have
+\begin{proposition}
+    If $M_n \geq  \frac{1}{4(t\wedge (1-t))}\log n$,
+    \begin{equation*}
+        \myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu =o(n^{-1/2}).
+    \end{equation*}
+\end{proposition}
+\begin{proof}
 \begin{equation*}
-    \myE \int_{A^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    \myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     =
-    \int_{A^c} \big( \int p(X_1|\omega,\xi)^t p_0(X_1)^{1-t}\, d\mu\big)^n \pi(\omega,\xi)\, d\omega d\xi.
+    \int_{A(M_n)^c} \big( \int p(X_1|\omega,\xi)^t p_0(X_1)^{1-t}\, d\mu\big)^n \pi(\omega,\xi)\, d\omega d\xi.
 \end{equation*}
 Note that
 \begin{align*}
@@ -644,13 +651,32 @@ Note that
 \\
 \end{align*}
 Thus,
-\begin{equation*}
-    \myE \int_{A^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+\begin{align*}
+    &\myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
+\\
     \leq
-    \exp \Big( -2(t\wedge (1-t)) M_n^2 \Big)\to 0.
-\end{equation*}
+    &
+    \int_{A(M_n)^c} \exp \Big( -2(t\wedge (1-t)) n\omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
+\pi_{\omega}(\omega) \pi_\xi(\xi)\, d\omega d\xi
+\end{align*}
 
-We only need to consider the behavior on $A$.
+If $M_n \geq \frac{1}{4(t\wedge (1-t))}\log n$,
+\begin{align*}
+    &\myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
+\\
+    \leq
+    &
+    n^{-1/2}
+    \int_{A(M_n)^c} 
+\pi_{\omega}(\omega) \pi_\xi(\xi)\, d\omega d\xi
+=o(n^{-1/2}).
+\end{align*}
+
+
+
+
+\end{proof}
+
 
 We have
 \begin{equation*}
@@ -661,13 +687,13 @@ where
 $
 Y_i=\big(\exp(\xi X_i -\xi^2/2)-1\big)/\xi
 $ if $\xi \neq 0$ and $Y_i=X_i$ if $\xi =0$.
- Define 
-$A(M)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M n^{-1/2}\}$.
-For fixed $M$, on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$,
-we have $|\xi| = O((\log n)/\sqrt{n})$.
+
+Let $r>1$, on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
+we have $|\xi| = O\big((\log n)^{r}/n^{1/2-s}\big)$.
+
 It is known that $\max_{1\leq i \leq n}|X_i|=O_P(\sqrt{\log n})$.
-On $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, we have $\max_{1\leq i\leq n}|\xi X_i-\xi^2/2|\leq |\xi| \max_{1\leq i\leq n}|X_i|+\xi^2/2=O_P(|\xi|\sqrt{\log n})$.
-Then on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, uniformly for $i=1,\ldots, n$, we have
+On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i\leq n}|\xi X_i-\xi^2/2|\leq |\xi| \max_{1\leq i\leq n}|X_i|+\xi^2/2=O_P(|\xi|(\log n)^{1/2})$.
+Then on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, uniformly for $i=1,\ldots, n$, we have
 \begin{align*}
     Y_i&=\xi^{-1}\Big(\xi X_i-\xi^2/2 +\frac{1}{2}(\xi X_i-\xi^2/2)^2+O_P \big(|\xi|^3 (\log n)^{3/2}\big)\Big) 
     \\
@@ -675,26 +701,27 @@ Then on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, uniformly for $i=1,\ldots, n$, 
     \\
     &=X_i+\frac{1}{2} \xi (X_i^2-1) + O_P \big(|\xi|^2 (\log n)^{3/2}\big).
 \end{align*}
-In particular, on $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, we have $\max_{1\leq i \leq n}|Y_i|=O_P(\sqrt{\log n})$.
-On $A(M)\cap \{\omega\geq (\log n)^{-1}\}$, $\omega \xi =O(n^{-1/2})$, then
+In particular, on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i \leq n}|Y_i|=O_P(\sqrt{\log n})$.
+On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\omega \xi =O((\log n)^r /\sqrt{n})$, then
 \begin{align*}
     &\sum_{i=1}^n \log(1+\omega \xi Y_i)
-    =
-    \sum_{i=1}^n \log(1+\omega \xi Y_i)
     \\
     =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+O_P(n\omega^3 \xi^3 (\log n)^{3/2})
     \\
     =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+o_P(1).
 \end{align*}
 Note that
-\begin{equation*}
-    \omega \xi\sum_{i=1}^n Y_i
+\begin{align*}
+    &\omega \xi\sum_{i=1}^n Y_i
     =
     \omega \xi\sum_{i=1}^n 
     X_i+\frac{1}{2} \omega \xi^2\sum_{i=1}^n (X_i^2-1) + O_P \big(n\omega |\xi|^3 (\log n)^{3/2}\big)
-    =
-    \omega \xi\sum_{i=1}^n X_i + o_P(1),
-\end{equation*}
+    \\
+    =&
+    \omega \xi\sum_{i=1}^n X_i + O_P\Big( \frac{(\log n)^{3r+3/2}}{n^{1/2-2s}}\Big)
+=
+\omega \xi\sum_{i=1}^n X_i + o_P(1),
+\end{align*}
 and
 \begin{equation*}
     \omega^2 \xi^2 \sum_{i=1}^n Y_i^2=n\omega^2 \xi^2 +o_P(1).
@@ -702,16 +729,48 @@ and
 
 Then
 \begin{align*}
-    & \int_{A(M)\cap \{\omega\geq (\log n)^{-1}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    & \int_{A((\log n)^r)\cap \{\omega\geq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     \\
-    %=&\int_\Theta \exp\big\{
-        %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
-    %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
-    =&(1+o_P(1))\int_{A(M)\cap \{\omega\geq (\log n)^{-1}\} } \exp\big\{
+    =&(1+o_P(1))\int_{A( (\log n)^r )\cap \{\omega\geq  n^{-s}\} } \exp\big\{
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
     \big\} \pi(\omega,\xi)\, d\omega d\xi.
 \end{align*}
+Note that on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, $\pi_{\xi}(\xi)=\pi_\xi(0)(1+o(1))$. Then
+\begin{align*}
+    &\int_{A((\log n)^r)\cap \{\omega\geq n^{-s}\} } \exp\big\{
+        t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
+    \big\} \pi(\omega,\xi)\, d\omega d\xi
+    \\
+    =&(1+o_P(1))\pi_{\xi}(0)\int_{A((\log n)^r)\cap \{\omega\geq  n^{-s}\} } \exp\big\{
+        t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
+    \big\} \pi_{\omega}(\omega)\, d\omega d\xi
+    \\
+    =&(1+o_P(1))\pi_{\xi}(0)\int_{n^{-s}}^1 \pi_{\omega}(\omega)\, d\omega 
+    {\color{red}\int_{-2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)}^{2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)} \exp\big\{
+        t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
+\big\} d\xi}
+    \\
+=&(1+o_P(1))\pi_{\xi}(0)\sqrt{\frac{2\pi}{tn}}\exp \Big\{ \frac{t}{2n}(\sum_{i=1}^n X_i)^2\Big\} 
+\\
+&\int_{(\log n)^{-1}}^1 
+\frac{1}{\omega}
+\bigg(
+    \Phi\Big(2\sqrt{tn}\omega \Phi^{-1}\Big(\frac{(\log n)^r}{2\omega \sqrt{n}}+\frac{1}{2}\Big) -\sqrt{\frac{t}{n}}\sum_{i=1}^n X_i\Big)
+    -
+    \Phi\Big(-2\sqrt{tn}\omega \Phi^{-1}\Big(\frac{(\log n)^r}{2\omega \sqrt{n}}+\frac{1}{2}\Big)-\sqrt{\frac{t}{n}}\sum_{i=1}^n X_i\Big)
+\bigg)
+    \pi_{\omega}(\omega)\, d\omega 
+\end{align*}
 
+By Taylor expansion, we have $\Phi^{-1}(x+1/2)=\sqrt{2\pi} x+O(x^2)$ for $x\to 0$.
+Hence uniformly for $(\log n)^{-1}\leq \omega\leq 1$, we have
+\begin{equation*}
+    \Phi^{-1}\Big(\frac{(\log n)^r}{2\omega \sqrt{n}}+\frac{1}{2}\Big)=\frac{\sqrt{2\pi}(\log n)^r}{2\omega \sqrt{n}}+O\Big(\frac{(\log n)^{2r}}{\omega^2 n}\Big).
+\end{equation*}
+Hence
+\begin{equation*}
+    2\sqrt{nt}\omega\Phi^{-1}\Big(\frac{(\log n)^r}{2\omega \sqrt{n}}+\frac{1}{2}\Big)=\sqrt{2\pi t}(\log n)^r+O\Big(\frac{(\log n)^{2r}}{\omega \sqrt{n}}\Big).
+\end{equation*}
 
 By Theorem 2 of \cite{LIU200461}, we have 
 \begin{equation*}
@@ -719,6 +778,83 @@ By Theorem 2 of \cite{LIU200461}, we have
     \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p_0(X_i)\big)
     =O_P(\log \log n).
 \end{equation*}
+Thus
+
+\begin{align*}
+    & \int_{A( (\log n)^r )\cap \{\omega\leq (\log n)^{-1}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    \\
+    %=&\int_\Theta \exp\big\{
+        %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
+    %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
+    =&\exp\big\{O_P(\log(\log n))\big\}
+    \Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2}, \omega\leq (\log n)^{-1}\big).
+\end{align*}
+We break the probability into two part: 
+\begin{align*}
+    &\Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2}, \omega\leq (\log n)^{-1}\big)
+    \\
+    \leq &
+    \Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2}, \omega\leq  2(\log n)^r/\sqrt{n}\big)
+    \\
+    &
+    +
+    \Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2},   2(\log n)^r/\sqrt{n} \leq \omega\leq (\log n)^{-1}\big)
+    .
+\end{align*}
+The first probability satisfies
+\begin{align*}
+    &\Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2}, \omega\leq  2(\log n)^r/\sqrt{n}\big)
+    \\
+    \leq &
+    \Pi\big( \omega\leq  2(\log n)^r/\sqrt{n}\big)
+    \lesssim 
+    \int_{0}^{2(\log n)^r/\sqrt{n}} w^{\alpha_1-1}\, d\omega
+    \lesssim \Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}.
+\end{align*}
+Next we deal with the second probability.
+On this event, we have
+$
+    (2\Phi(|\xi|/2)-1)\leq \omega^{-1} (\log n)^r n^{-1/2}\leq 1/2
+    $,
+which implies the boundedness of $\xi$.
+Hence on this event, we have
+\begin{equation*}
+|\xi|\leq C\omega^{-1} (\log n)^r n^{-1/2}
+\end{equation*}
+for some constant $C>0$.
+Thus
+\begin{align*}
+    &\Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2},   2(\log n)^r/\sqrt{n} \leq \omega\leq (\log n)^{-1}\big)
+    \\
+    \leq
+    &\Pi\big(|\xi|\leq C \omega^{-1} (\log n)^r n^{-1/2},   2(\log n)^r/\sqrt{n} \leq \omega\leq (\log n)^{-1}\big)
+    \\
+    \leq
+    &\Pi\big(|\xi|\leq C \omega^{-1} (\log n)^r n^{-1/2},\omega\leq (\log n)^{-1}\big)
+    \\
+    \lesssim &
+    \int_{0}^{(\log n)^{-1}} \omega^{\alpha_1-1}\, d\omega
+    \int_{-C \omega^{-1} (\log n)^r n^{-1/2}}^{C \omega^{-1} (\log n)^r n^{-1/2}} \pi_{\xi}(\xi) \, d\xi.
+\end{align*}
+There exits $\epsilon>0$ and $M>0$ such that $\pi_{\xi}(\xi)\leq M$ for $\xi\in [-\epsilon,\epsilon]$. Then
+\begin{align*}
+    &\int_{0}^{(\log n)^{-1}} \omega^{\alpha_1-1}\, d\omega
+    \int_{-C \omega^{-1} (\log n)^r n^{-1/2}}^{C \omega^{-1} (\log n)^r n^{-1/2}} \pi_{\xi}(\xi) \, d\xi
+    \\
+    \leq &
+    \int_{0}^{{C(\log n)^r}/{(\epsilon \sqrt{n})}} \omega^{\alpha_1-1}\, d\omega
+    +
+    \int_{{C(\log n)^r}/{(\epsilon \sqrt{n})}}^{(\log n)^{-1}} 
+    2MC \omega^{\alpha_1-2}(\log n)^r n^{-1/2}
+    \, d\omega
+    \\
+    \lesssim &
+     \Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}
+     +\frac{(\log n)^r}{\sqrt{n}}\Bigg(\Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1-1}\vee \Big(\frac{1}{\log n}\Big)^{\alpha_1-1}\Bigg).
+\end{align*}
+
+
+
 
 
 
@@ -1380,7 +1516,7 @@ $$
         \\
         =&
         \big(\max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)\big)
-        n^{-p/2}\int_{\big\{h: \|h\|\geq M_n \big\}} \exp\big[-(1-t)C \|h\|^2 \big] \, d \theta
+        n^{-p/2}\int_{\big\{h: \|h\|\geq M_n \big\}} \exp\big[-(1-t)C \|h\|^2 \big] \, d h
         +
         \exp\big[ -(1-t)\epsilon n\big].
     \end{aligned}
