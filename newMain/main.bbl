@@ -1,4 +1,4 @@
-\begin{thebibliography}{20}
+\begin{thebibliography}{22}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 \providecommand{\url}[1]{\texttt{#1}}
 \providecommand{\href}[2]{#2}
@@ -51,14 +51,22 @@
 \newblock \bibinfo{title}{Maximum likelihood: An introduction}.
 \newblock \bibinfo{journal}{International Statistical Review}
   \bibinfo{year}{1990};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{153--171}.
-%Type = Book
-\bibitem[{Gelman et~al.(2013)Gelman, Carlin, Stern, Dunson, Vehtari and
-  Rubin}]{bayesianDataAnalysis}
-\bibinfo{author}{Gelman\xfnm[ A.]}, \bibinfo{author}{Carlin\xfnm[ J.B.]},
-  \bibinfo{author}{Stern\xfnm[ H.S.]}, \bibinfo{author}{Dunson\xfnm[ D.B.]},
-  \bibinfo{author}{Vehtari\xfnm[ A.]}, \bibinfo{author}{Rubin\xfnm[ D.B.]}.
-\newblock \bibinfo{title}{Bayesian Data Analysis}.
-\newblock \bibinfo{publisher}{Chapman and Hall/CRC}, \bibinfo{year}{2013}.
+%Type = Article
+\bibitem[{Chen(2017)}]{chenjiahua2017}
+\bibinfo{author}{Chen\xfnm[ J.]}.
+\newblock \bibinfo{title}{On finite mixture models}.
+\newblock \bibinfo{journal}{Statistical Theory and Related Fields}
+  \bibinfo{year}{2017};\bibinfo{volume}{1}(\bibinfo{number}{1}):\bibinfo{pages}{15--27}.
+\newblock \URLprefix \url{https://doi.org/10.1080/24754269.2017.1321883}.
+  \DOIprefix\doi{10.1080/24754269.2017.1321883}.
+  \href{http://arxiv.org/abs/https://doi.org/10.1080/24754269.2017.1321883}{\tt
+  arXiv:https://doi.org/10.1080/24754269.2017.1321883}.
+%Type = Article
+\bibitem[{{Clarke} and {Barron}(1990)}]{clarke1990information}
+\bibinfo{author}{{Clarke}\xfnm[ B.S.]}, \bibinfo{author}{{Barron}\xfnm[ A.R.]}.
+\newblock \bibinfo{title}{Information-theoretic asymptotics of bayes methods}.
+\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
+  \bibinfo{year}{1990};\bibinfo{volume}{36}(\bibinfo{number}{3}):\bibinfo{pages}{453--471}.
 %Type = Article
 \bibitem[{Ghosal et~al.(2000)Ghosal, Ghosh and van~der Vaart}]{ghosal2000}
 \bibinfo{author}{Ghosal\xfnm[ S.]}, \bibinfo{author}{Ghosh\xfnm[ J.K.]},
@@ -68,6 +76,17 @@
   \bibinfo{year}{2000};\bibinfo{volume}{28}(\bibinfo{number}{2}):\bibinfo{pages}{500--531}.
 \newblock \URLprefix \url{https://doi.org/10.1214/aos/1016218228}.
   \DOIprefix\doi{10.1214/aos/1016218228}.
+%Type = Article
+\bibitem[{Hall and Stewart(2005)}]{HALL2005158}
+\bibinfo{author}{Hall\xfnm[ P.]}, \bibinfo{author}{Stewart\xfnm[ M.]}.
+\newblock \bibinfo{title}{Theoretical analysis of power in a two-component
+  normal mixture model}.
+\newblock \bibinfo{journal}{Journal of Statistical Planning and Inference}
+  \bibinfo{year}{2005};\bibinfo{volume}{134}(\bibinfo{number}{1}):\bibinfo{pages}{158
+  -- 179}.
+\newblock \URLprefix
+  \url{http://www.sciencedirect.com/science/article/pii/S0378375804001879}.
+  \DOIprefix\doi{https://doi.org/10.1016/j.jspi.2004.04.003}.
 %Type = Article
 \bibitem[{Han and Carlin(2001)}]{MarkovC}
 \bibinfo{author}{Han\xfnm[ C.]}, \bibinfo{author}{Carlin\xfnm[ B.P.]}.

@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  25 APR 2018 22:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  26 APR 2018 22:36
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -591,54 +591,35 @@ LaTeX Info: Redefining \nameref on input line 123.
 \@outlinefile=\write4
 \openout4 = `main.out'.
 
-LaTeX Font Info:    Try loading font information for U+msa on input line 163.
+LaTeX Font Info:    Try loading font information for U+msa on input line 167.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 163.
+LaTeX Font Info:    Try loading font information for U+msb on input line 167.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 163.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 167.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 ) [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7] [8
-]
-Overfull \hbox (53.9486pt too wide) in paragraph at lines 763--763
-[] 
- []
-
-[9] [10] <./figure/myQQPlot.pdf, id=277, 325.215pt x 289.08pt>
-File: ./figure/myQQPlot.pdf Graphic file (type pdf)
-
-<use ./figure/myQQPlot.pdf>
-Package pdftex.def Info: ./figure/myQQPlot.pdf used on input line 893.
-(pdftex.def)             Requested size: 325.2142pt x 289.07928pt.
- [11 <./figure/myQQPlot.pdf>]
-<./figure/myQQPlotNormal.pdf, id=295, 325.215pt x 289.08pt>
-File: ./figure/myQQPlotNormal.pdf Graphic file (type pdf)
-
-<use ./figure/myQQPlotNormal.pdf>
-Package pdftex.def Info: ./figure/myQQPlotNormal.pdf used on input line 946.
-(pdftex.def)             Requested size: 325.2142pt x 289.07928pt.
- [12]
-Overfull \hbox (0.66719pt too wide) in paragraph at lines 957--958
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6] [7]
+Overfull \hbox (0.66719pt too wide) in paragraph at lines 688--689
 []\OT1/cmr/m/n/10 This work was sup-ported by the Na-tional Nat-u-ral Sci-ence 
 Foun-da-tion of China un-der Grant No. 11471035,
  []
 
-[13 <./figure/myQQPlotNormal.pdf>] [14] [15] [16] [17]
-Overfull \hbox (10.19905pt too wide) detected at line 1672
+[8] [9] [10] [11] [12]
+Overfull \hbox (10.19905pt too wide) detected at line 1402
 [] [] \OT1/cmr/m/n/10 0
  []
 
-[18]
-Overfull \hbox (3.19835pt too wide) detected at line 1677
+
+Overfull \hbox (3.19835pt too wide) detected at line 1407
 [][] []\OML/cmm/m/it/10 ^^Y[]\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 h\OT1/cmr/m/n/10
  ; \OT1/cmr/bx/n/10 X[]\OT1/cmr/m/n/10 ) \OML/cmm/m/it/10 dh \OT1/cmr/m/n/10 = 
 [][\OML/cmm/m/it/10 o[]\OT1/cmr/m/n/10 (1)] [][] [] []\OML/cmm/m/it/10 h[]I[]\O
@@ -647,8 +628,8 @@ cmr/m/n/10 (\OML/cmm/m/it/10 h\OT1/cmr/m/n/10 ; \OT1/cmr/bx/n/10 X[]\OT1/cmr/m/
 n/10 ) \OML/cmm/m/it/10 dh
  []
 
-[19]
-Overfull \hbox (9.69456pt too wide) detected at line 1786
+[13] [14]
+Overfull \hbox (9.69456pt too wide) detected at line 1516
 \OML/cmm/m/it/10  \OT1/cmr/m/n/10 (\OML/cmm/m/it/10 M\OT1/cmr/m/n/10 )(1 \OMS/c
 msy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 ) \OMS/cmsy/m/n/10 ^^T []\
 OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 ) 
@@ -656,26 +637,26 @@ OT1/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 ^^^[]\OT1/cmr/m/n/10 )
 OML/cmm/m/it/10 D[]\OMS/cmsy/m/n/10 g\OML/cmm/m/it/10 :
  []
 
-[20] (./main.bbl [21])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1895.
- [22]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1895.
+[15] [16] [17] [18] [19] (./main.bbl [20])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1930.
+ [21]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1930.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1895.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1895.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1930.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1930.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: B25E12E6321B2013E8151C14FA544348;633.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1895.
+(rerunfilecheck)             Checksum: C8562ACB67E08149A8F68EDF75DC4589;533.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1930.
  ) 
 Here is how much of TeX's memory you used:
- 9265 strings out of 493029
- 129516 string characters out of 6136235
- 256603 words of memory out of 5000000
- 12510 multiletter control sequences out of 15000+600000
- 19729 words of font info for 74 fonts, out of 8000000 for 9000
+ 9257 strings out of 493029
+ 129327 string characters out of 6136235
+ 255678 words of memory out of 5000000
+ 12509 multiletter control sequences out of 15000+600000
+ 20427 words of font info for 76 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,17n,35p,1008b,722s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,17n,35p,1008b,806s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texli
@@ -702,10 +683,10 @@ fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pf
 b></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm7.pfb>
 </usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/rsfs10.pfb></usr/share/t
 exlive/texmf-dist/fonts/type1/urw/zapfding/uzdr.pfb>
-Output written on main.pdf (22 pages, 501202 bytes).
+Output written on main.pdf (21 pages, 393696 bytes).
 PDF statistics:
- 523 PDF objects out of 1000 (max. 8388607)
- 462 compressed objects within 5 object streams
- 101 named destinations out of 1000 (max. 500000)
- 99 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 506 PDF objects out of 1000 (max. 8388607)
+ 450 compressed objects within 5 object streams
+ 97 named destinations out of 1000 (max. 500000)
+ 73 words of extra memory for PDF output out of 10000 (max. 10000000)
 
