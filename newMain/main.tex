@@ -1,48 +1,15 @@
-\documentclass[3p]{elsarticle}
+\documentclass[11pt]{article}
 
-\usepackage{lineno,hyperref}
-\modulolinenumbers[5]
 
-\journal{Journal of \LaTeX\ Templates}
 
-%%%%%%%%%%%%%%%%%%%%%%%
-%% Elsevier bibliography styles
-%%%%%%%%%%%%%%%%%%%%%%%
-%% To change the style, put a % in front of the second line of the current style and
-%% remove the % from the second line of the style you would like to use.
-%%%%%%%%%%%%%%%%%%%%%%%
-
-%% Numbered
-%\bibliographystyle{model1-num-names}
-
-%% Numbered without titles
-%\bibliographystyle{model1a-num-names}
-
-%% Harvard
-%\bibliographystyle{model2-names.bst}\biboptions{authoryear}
-
-%% Vancouver numbered
-%\usepackage{numcompress}\bibliographystyle{model3-num-names}
-
-%% Vancouver name/year
-\usepackage{numcompress}\bibliographystyle{model4-names}\biboptions{authoryear}
-
-%% APA style
-%\bibliographystyle{model5-names}\biboptions{authoryear}
-
-%% AMA style
-%\usepackage{numcompress}\bibliographystyle{model6-num-names}
-
-%% `Elsevier LaTeX' style
-\bibliographystyle{elsarticle-num}
-%%%%%%%%%%%%%%%%%%%%%%%
-
-\graphicspath{{./figure/}}
 
 
 
 
 \usepackage{lineno,hyperref}
+
+\usepackage[margin=1 in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
 
 \usepackage{galois} % composition function \comp
 \usepackage{bm}
@@ -61,11 +28,6 @@
 \usepackage{datetime}
 \newdate{date}{9}{1}{2017}
 
-%%%%%%%%%% page setup %%%%%%%%%%
-\textheight 8.5 in
-\textwidth 6.5 in
-\topmargin -0.5 in
-\oddsidemargin -0.1 in
 %%%%%%%%%%%%%%  Notations %%%%%%%%%%
 \DeclareMathOperator{\mytr}{tr}
 \DeclareMathOperator{\mydiag}{diag}
@@ -120,29 +82,12 @@
 \newtheorem{remark}{\quad\quad Remark}
 \theoremstyle{remark}
 
+
+%\title{Integrated likelihood ratio test with applications to testing the homogeneity in a two-component normal mixture model}
+\title{Integrated Likelihood Ratio Test}
+
 \begin{document}
-
-\begin{frontmatter}
-
-\title{Integrated likelihood ratio test with applications to testing the homogeneity in a two-component normal mixture model\tnoteref{mytitlenote}}
-\tnotetext[mytitlenote]{Fully documented templates are available in the elsarticle package on \href{http://www.ctan.org/tex-archive/macros/latex/contrib/elsarticle}{CTAN}.}
-
-%% Group authors per affiliation:
-\author{author \fnref{myfootnote}}
-\address{Radarweg 29, Amsterdam}
-\fntext[myfootnote]{Since 1880.}
-
-%% or include affiliations in footnotes:
-\author[mymainaddress,mysecondaryaddress]{Elsevier Inc}
-\ead[url]{www.elsevier.com}
-
-\author[mysecondaryaddress]{Global Customer Service\corref{mycorrespondingauthor}}
-\cortext[mycorrespondingauthor]{Corresponding author}
-\ead{support@elsevier.com}
-
-\address[mymainaddress]{1600 John F Kennedy Boulevard, Philadelphia}
-\address[mysecondaryaddress]{360 Park Avenue South, New York}
-
+\maketitle
 \begin{abstract}
     A general methodology called integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes factor as special cases.
     Our methodology also includes the statistics produced by approximation computation.
@@ -154,23 +99,18 @@
     In contrary, the integrated likelihood ratio test has good asymptotic power behavior.
     This demonstrate the superiority of the integrated likelihood ratio test.
 \end{abstract}
+{\small \textsc{Keywords:} {\em
+    Bayes consistency;
+   Bayes factor;
+   Hypothesis testing.
+}}
 
-\begin{keyword}
-%\texttt{elsarticle.cls} \sep \LaTeX \sep Elsevier \sep template
-%\MSC[2010] 00-01\sep  99-00
-    Bayes consistency \sep
-   Bayes factor \sep
- hypothesis testing 
-    
-\end{keyword}
-
-\end{frontmatter}
 
 %\linenumbers
 
 \section{Introduction}
 
-%Suppose we are interested in  testing the hypotheses $H_0:\theta\in \Theta_0$ vs $H_1:\theta\in \Theta$ for a subset $\Theta_0$ of $\Theta$.
+%Suppose we are interested in  testing the hypotheses $H_0:\theta\in \Theta_0$ vs. $H_1:\theta\in \Theta$ for a subset $\Theta_0$ of $\Theta$.
 
 
 % Where \cite{gelfand1993bayesian} derived the null distribution of PBF.
@@ -271,7 +211,7 @@ All technical proves are in Appendix.
 
 \subsection{The test statistic}
 
-Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (i.i.d.) observations with values in some space space $(\mathcal{X};\mathscr{A})$.
+Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) observations with values in some space $(\mathcal{X};\mathscr{A})$.
 Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
 Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}$.
 Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
@@ -318,7 +258,7 @@ We generalize the PBF and FBF and propose the ILRT statistic as
 \begin{equation}\label{eq:definition}
     \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
 \end{equation}
-where $a>0$ are  hyperparameters,
+where $a>0$ is a hyperparameter,
  the weight functions $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are probability density functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
 Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density.
 If we take the weight function as
@@ -328,7 +268,7 @@ If we take the weight function as
 \pi(\nu;\BX^{(n)})=\frac{\big[p_n(\BX^{(n)}|\nu,
     \xi_0)\big]^b \pi(\nu)}{\int_{\tilde{\Theta}_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^b \pi(\nu)\, d\nu},
 \end{equation}
-then the ILRT statistic equals 
+then the ILRT statistic equals to
 $$
     \Lambda_{a,b}(\BX^{(n)})=
     \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^*}{L_{a+b}^*}.
@@ -358,10 +298,6 @@ The ILRT methodology also includes such approximate method.
 
 \subsection{Generalized FBF}
 In this section, we investigate the asymptotic behavior of the generalized FBF.
-
-
-
-
 The following assumption is adapted from~\cite{Kleijn2012The}.
 \begin{assumption}\label{Assumption1}
 The parameter space $\Theta$ is an open subset of $\mathbb{R}^p$. 
@@ -386,10 +322,7 @@ Assumption~\ref{Assumption1} is satisfied by many common models, it ensures a lo
     $$
     \frac{L_t({\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}})}{L_t}\xrightarrow{P_{\theta_0}^n} 0,
     $$
-    where for a set $A\subset \Theta$,
-$$
-L_t (A)=\int_{A} \Big[ {p_n(\BX^{(n)}|\theta)} \Big]^{t} \pi(\theta) \, d \theta.
-$$
+    where for a set $A\subset \Theta$, $L_t (A)=\int_{A} \Big[ {p_n(\BX^{(n)}|\theta)} \Big]^{t} \pi(\theta) \, d \theta$.
 The $\sqrt{n}$-consistency of $L_t^*$ is similarly defined.
     Note that the consistency of $L_1$ is equivalent to the consistency of the posterior distribution.
     In~\cite{Kleijn2012The}, the $\sqrt{n}$-consistency of posterior distribution is a key assumption to prove Bernstein-von Mises theorem.
@@ -398,8 +331,7 @@ The $\sqrt{n}$-consistency of $L_t^*$ is similarly defined.
 
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}$, $L_b$, $L_{a+b}^*$ and $L_b^*$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$, then
-        for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
+        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}$, $L_b$, $L_{a+b}^*$ and $L_b^*$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
         $$
         2\log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta),
         $$
@@ -419,58 +351,39 @@ In this view, $\Lambda_{a,b}(\BX^{(n)})$ enjoys good frequentist properties.
  The $\sqrt{n}$-consistency of $L_t$ is a key assumption of Theorem \ref{Thm:maintheorem}.
 Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t$.
  First we consider the exponential family.
- The following proposition shows that for full-rank exponential family, $L_t$ is $\sqrt{n}$-consistent for all $t>0$.
 \begin{proposition}\label{exponentialCon}
     Suppose $p(X|\theta)=\exp\big[\theta^T T(X)-A(\theta)\big]$, $\Theta$ is an open subset of $\mathbb{R}^p$, $\theta_0$ is an interior point of $\Theta$, 
     $$I_{\theta_0}=\frac{\partial^2}{\partial \theta \partial \theta^T} A(\theta_0)>0.$$
     Then $L_{t}$ is consistent for $t>0$.
 \end{proposition}
 
+Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t$ for all $t>0$ under full-rank exponential family models.
+If the full model and the null model both belong to the full-rank exponential family, Assumption~\ref{Assumption1} is also satisfied.
+In this case, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF can be used as frequentist test.
+However,
+for any test methodology, the success in the full-rank exponential family models is just a minimal requirement 
+since for these models, LRT is also easy to implement and enjoys good asymptotic properties.
+We would like to consider more general models.
 
-In the general setting, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
-It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
-Note that $L_1$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral:
-$$
-\int_{\mathcal{X}^n} L_1 \, d\mu^n=
-\int_{\Theta}\Big(\int_{\mathcal{X}^n} p_n(\BX^{(n)}|\theta) \, d\mu^n \Big) \, \pi(\theta)\, d\theta=1.
-$$
-By h\"older's inequality, $L_{t}$ is also well defined $P_{\theta_0}^n$-a.s.\ for $0<t<1$.
-However, the following example shows that $L_t$ is not always well defined for $t>1$.
 
-\begin{example}
-Suppose $X_1,\ldots,X_n$ are i.i.d. from the density
-$$
-    p(x|\theta)=C |x-\theta|^{-1/2}\exp\big[-(x-\theta)^2\big]
-,
-$$
-    where $C$ is the normalizing constant. The parameter space $\Theta$ is equal to $\mathbb{R}$.
-    We would like to test the hypotheses $H_0:\theta=0$ vs $H_1:\theta\neq 0$.
-    The likelihood is
-    $$
-    p_n(\BX^{(n)}|\theta)=C^n \Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-1/2}
-    \exp \big[-\sum_{i=1}^n (X_i-\theta)^2 \big].
-    $$
-    Under the alternative hypothesis, the likelihood tends to infinity if $\theta$ tends to $X_i$, $i=1,\ldots, n$.
-    Consequently, LRT fails in this model.
-    We impose a prior $\pi(\theta)$.
-    Suppose that $\pi(\theta)$ is positive for all $\theta$.
-Then
-$$
-    \begin{aligned}
-        L_t(\BX^{(n)})=&
-    \int_{-\infty}^{+\infty}
-\Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-t/2}
-    \exp \big[-t\sum_{i=1}^n (X_i-\theta)^2 \big]
-        \pi(\theta)
-    \,
-    d \theta.
-    \end{aligned}
-$$
-    The likelihood will almost surely have no ties and consequently $L_t(\BX^{(n)})=+\infty$ if and only if $t\geq 2$.
-\end{example}
+For general models, the likelihood function may not be convex.
+This often makes LRT hard to implement.
+A more serious problem is that the likelihood may be unbounded and thus LRT can not be defined.
+This problem may occur even if the likelihood function has good local analytical properties, such as location-scale mixture models.  See \cite{Cam1990Maximum} for more examples.
+A natural question is that if the fractional integrated likelihood $L_t$ is always well defined.
+The following theorem shows that $L_t$ is always well defined for $t\leq 1$ and is not well defined for some model for $t>1$.
+%For more general models, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
+%For more general models, however, the $\sqrt{n}$-consistency of $L_t$ is more complicated.
+\begin{proposition}
+    If $t\leq 1$, $L_t< +\infty$ $P_{\theta_0}^n$-a.s. for any models. If $t> 1$, $L_t = +\infty$ for some models.
+    \label{exprop}
+\end{proposition}
 
-Because of the bad behavior of $L_t$ for $t>1$, next we consider $L_t$ for $t\leq 1$.
- For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of posterior distribution.
+
+%It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
+
+Because of the bad behavior of $L_t$ for $t>1$, next we only consider $L_t$ for $t\leq 1$.
+ For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution.
  The consistency of posterior distribution has drawn much attention in the literature.
  See, for example,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
 A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
@@ -540,7 +453,7 @@ By Taylor theorem, in a small neighbourhood of $\theta_0$,
 
 Compared with Assumption~\ref{Assumption2}, it appears that Assumption~\ref{Assumption4} is easier to verify.
 Note that the asymptotic power of $\Lambda_{a,b}(\BX^{(n)})$ is independent of $a,b$.
-Hence it can be recommanded to use the generalized FBF with $a+b< 1$.
+Hence it can be recommended to use the generalized FBF with $a+b< 1$.
 
 
 \subsection{General weight function}
@@ -640,7 +553,7 @@ where $0\leq \omega \leq 1$ and $\mu\in \mathbb{R}$.
 We would like to test the hypotheses
 \begin{equation}
     \omega \xi=0
-    \quad \text{vs}\quad
+    \quad \text{vs.}\quad
     \omega \xi \neq 0.
     \label{newHy}
 \end{equation}
@@ -1198,6 +1111,51 @@ $$
 $$
 
 \end{proof}
+
+\begin{proof}[\textbf{Proof of Proposition~\ref{exprop}}]
+
+Note that $L_1$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral
+$$
+\int_{\mathcal{X}^n} L_1 \, d\mu^n=
+\int_{\Theta}\Big(\int_{\mathcal{X}^n} p_n(\BX^{(n)}|\theta) \, d\mu^n \Big) \, \pi(\theta)\, d\theta=1.
+$$
+For $0<t<1$, by H\"older's inequality, we have $L_{t}\leq L_1^{1/t}$. This proves the first part of the proposition. 
+
+To prove the second part of the proposition, consider the following example.
+Suppose $X_1,\ldots,X_n$ are iid from the density
+$$
+    p(X|\theta)=C |X-\theta|^{-\gamma}\exp\big[-(X-\theta)^2\big]
+,
+$$
+where $C$ is the normalizing constant and $\gamma\in(0,1)$ is a known hyperparameter. The parameter space $\Theta$ is equal to $\mathbb{R}$.
+    %We would like to test the hypotheses $H_0:\theta=0$ vs. $H_1:\theta\neq 0$.
+    %The likelihood function is
+    %$$
+    %p_n(\BX^{(n)}|\theta)=C^n \Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-\gamma}
+    %\exp \big[-\sum_{i=1}^n (X_i-\theta)^2 \big].
+    %$$
+%It can be seen that the likelihood tends to infinity as $\theta$ tends to any one of $X_1,\ldots, X_n$.
+    %Consequently, LRT fails in this model.
+    %We impose a prior $\pi(\theta)$.
+    %Suppose that $\pi(\theta)$ is positive for all $\theta$.
+Then
+$$
+    \begin{aligned}
+        L_t=&
+    C^n \int_{-\infty}^{+\infty}
+\Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-t\gamma}
+    \exp \big[-t\sum_{i=1}^n (X_i-\theta)^2 \big]
+        \pi(\theta)
+    \,
+    d \theta.
+    \end{aligned}
+$$
+Note that almost surely, there is no tie among $X_1,\ldots,X_n$. Consequently, $L_t(\BX^{(n)})=+\infty$ almost surely if and only if $t\geq \gamma^{-1}$.
+Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t$ is not always well defined for $t>1$.
+
+\end{proof}
+
+
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{Theoremless1}}]
     Note that
@@ -1922,8 +1880,8 @@ Thus,
 
 \end{appendices}
 
-\section*{References}
 
+\bibliographystyle{apa}
 \bibliography{mybibfile}
 
 

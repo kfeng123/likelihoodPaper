@@ -1,195 +1,126 @@
-\begin{thebibliography}{22}
-\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
-\providecommand{\url}[1]{\texttt{#1}}
-\providecommand{\href}[2]{#2}
-\providecommand{\path}[1]{#1}
-\providecommand{\DOIprefix}{doi:}
-\providecommand{\ArXivprefix}{arXiv:}
-\providecommand{\URLprefix}{URL: }
-\providecommand{\Pubmedprefix}{pmid:}
-\providecommand{\doi}[1]{\href{http://dx.doi.org/#1}{\path{#1}}}
-\providecommand{\Pubmed}[1]{\href{pmid:#1}{\path{#1}}}
-\providecommand{\bibinfo}[2]{#2}
-\ifx\xfnm\undefined \def\xfnm[#1]{\unskip,\space#1}\fi
-%Type = Misc
-\bibitem[{Aitkin(1991)}]{Aitkin1991Posterior}
-\bibinfo{author}{Aitkin\xfnm[ M.]}.
-\newblock \bibinfo{title}{Posterior bayes factors. journal of the royal
-  statistical society series b-methodological}.
-\newblock \bibinfo{year}{1991}.
-%Type = Article
-\bibitem[{Berger and Pericchi(1996)}]{intrisicBayesFactor}
-\bibinfo{author}{Berger\xfnm[ J.O.]}, \bibinfo{author}{Pericchi\xfnm[ L.R.]}.
-\newblock \bibinfo{title}{The intrinsic bayes factor for model selection and
-  prediction}.
-\newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{year}{1996};\bibinfo{volume}{91}(\bibinfo{number}{433}):\bibinfo{pages}{109--122}.
-\newblock \URLprefix
-  \url{http://www.tandfonline.com/doi/abs/10.1080/01621459.1996.10476668}.
-  \DOIprefix\doi{10.1080/01621459.1996.10476668}.
-  \href{http://arxiv.org/abs/http://www.tandfonline.com/doi/pdf/10.1080/01621459.1996.10476668}{\tt
-  arXiv:http://www.tandfonline.com/doi/pdf/10.1080/01621459.1996.10476668}.
-%Type = Article
-\bibitem[{Blei et~al.(2017)Blei, Kucukelbir and McAuliffe}]{blei2017}
-\bibinfo{author}{Blei\xfnm[ D.M.]}, \bibinfo{author}{Kucukelbir\xfnm[ A.]},
-  \bibinfo{author}{McAuliffe\xfnm[ J.D.]}.
-\newblock \bibinfo{title}{Variational inference: A review for statisticians}.
-\newblock \bibinfo{journal}{arxiv} \bibinfo{year}{2017};.
-%Type = Article
-\bibitem[{{Bobkov} et~al.(2016){Bobkov}, {Chistyakov} and
-  {G{\"o}tze}}]{2016arXiv160801805B}
-\bibinfo{author}{{Bobkov}\xfnm[ S.G.]}, \bibinfo{author}{{Chistyakov}\xfnm[
-  G.P.]}, \bibinfo{author}{{G{\"o}tze}\xfnm[ F.]}.
-\newblock \bibinfo{title}{{R$\backslash$'enyi divergence and the central limit
-  theorem}}.
-\newblock \bibinfo{journal}{ArXiv e-prints}
-  \bibinfo{year}{2016};\href{http://arxiv.org/abs/1608.01805}{\tt
-  arXiv:1608.01805}.
-%Type = Article
-\bibitem[{Cam(1990)}]{Cam1990Maximum}
-\bibinfo{author}{Cam\xfnm[ L.]}.
-\newblock \bibinfo{title}{Maximum likelihood: An introduction}.
-\newblock \bibinfo{journal}{International Statistical Review}
-  \bibinfo{year}{1990};\bibinfo{volume}{58}(\bibinfo{number}{2}):\bibinfo{pages}{153--171}.
-%Type = Article
-\bibitem[{Chen(2017)}]{chenjiahua2017}
-\bibinfo{author}{Chen\xfnm[ J.]}.
-\newblock \bibinfo{title}{On finite mixture models}.
-\newblock \bibinfo{journal}{Statistical Theory and Related Fields}
-  \bibinfo{year}{2017};\bibinfo{volume}{1}(\bibinfo{number}{1}):\bibinfo{pages}{15--27}.
-\newblock \URLprefix \url{https://doi.org/10.1080/24754269.2017.1321883}.
-  \DOIprefix\doi{10.1080/24754269.2017.1321883}.
-  \href{http://arxiv.org/abs/https://doi.org/10.1080/24754269.2017.1321883}{\tt
-  arXiv:https://doi.org/10.1080/24754269.2017.1321883}.
-%Type = Article
-\bibitem[{{Clarke} and {Barron}(1990)}]{clarke1990information}
-\bibinfo{author}{{Clarke}\xfnm[ B.S.]}, \bibinfo{author}{{Barron}\xfnm[ A.R.]}.
-\newblock \bibinfo{title}{Information-theoretic asymptotics of bayes methods}.
-\newblock \bibinfo{journal}{IEEE Transactions on Information Theory}
-  \bibinfo{year}{1990};\bibinfo{volume}{36}(\bibinfo{number}{3}):\bibinfo{pages}{453--471}.
-%Type = Article
-\bibitem[{Ghosal et~al.(2000)Ghosal, Ghosh and van~der Vaart}]{ghosal2000}
-\bibinfo{author}{Ghosal\xfnm[ S.]}, \bibinfo{author}{Ghosh\xfnm[ J.K.]},
-  \bibinfo{author}{van~der Vaart\xfnm[ A.W.]}.
-\newblock \bibinfo{title}{Convergence rates of posterior distributions}.
-\newblock \bibinfo{journal}{Ann Statist}
-  \bibinfo{year}{2000};\bibinfo{volume}{28}(\bibinfo{number}{2}):\bibinfo{pages}{500--531}.
-\newblock \URLprefix \url{https://doi.org/10.1214/aos/1016218228}.
-  \DOIprefix\doi{10.1214/aos/1016218228}.
-%Type = Article
-\bibitem[{Hall and Stewart(2005)}]{HALL2005158}
-\bibinfo{author}{Hall\xfnm[ P.]}, \bibinfo{author}{Stewart\xfnm[ M.]}.
-\newblock \bibinfo{title}{Theoretical analysis of power in a two-component
-  normal mixture model}.
-\newblock \bibinfo{journal}{Journal of Statistical Planning and Inference}
-  \bibinfo{year}{2005};\bibinfo{volume}{134}(\bibinfo{number}{1}):\bibinfo{pages}{158
-  -- 179}.
-\newblock \URLprefix
-  \url{http://www.sciencedirect.com/science/article/pii/S0378375804001879}.
-  \DOIprefix\doi{https://doi.org/10.1016/j.jspi.2004.04.003}.
-%Type = Article
-\bibitem[{Han and Carlin(2001)}]{MarkovC}
-\bibinfo{author}{Han\xfnm[ C.]}, \bibinfo{author}{Carlin\xfnm[ B.P.]}.
-\newblock \bibinfo{title}{Markov chain monte carlo methods for computing bayes
-  factors}.
-\newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{year}{2001};\bibinfo{volume}{96}(\bibinfo{number}{455}):\bibinfo{pages}{1122--1132}.
-\newblock \URLprefix \url{https://doi.org/10.1198/016214501753208780}.
-  \DOIprefix\doi{10.1198/016214501753208780}.
-  \href{http://arxiv.org/abs/https://doi.org/10.1198/016214501753208780}{\tt
-  arXiv:https://doi.org/10.1198/016214501753208780}.
-%Type = Book
-\bibitem[{Jeffreys(1931)}]{scientificInference}
-\bibinfo{author}{Jeffreys\xfnm[ H.]}.
-\newblock \bibinfo{title}{Scientific Inference}.
-\newblock \bibinfo{edition}{1st} ed.
-\newblock \bibinfo{address}{Cambridge}: \bibinfo{publisher}{Cambridge
-  University Press}, \bibinfo{year}{1931}.
-%Type = Article
-\bibitem[{Kass and Raftery(1995)}]{Robert1995Bayes}
-\bibinfo{author}{Kass\xfnm[ R.E.]}, \bibinfo{author}{Raftery\xfnm[ A.E.]}.
-\newblock \bibinfo{title}{Bayes factors}.
-\newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{year}{1995};\bibinfo{volume}{90}(\bibinfo{number}{430}):\bibinfo{pages}{773--795}.
-%Type = Article
-\bibitem[{Kleijn and Vaart(2012)}]{Kleijn2012The}
-\bibinfo{author}{Kleijn\xfnm[ B.]}, \bibinfo{author}{Vaart\xfnm[ A.]}.
-\newblock \bibinfo{title}{The bernstein-von-mises theorem under
-  misspecification}.
-\newblock \bibinfo{journal}{Electron J Stat}
-  \bibinfo{year}{2012};\bibinfo{volume}{6}(\bibinfo{number}{1}):\bibinfo{pages}{354--381}.
-%Type = Incollection
-\bibitem[{Li and Turner(2016)}]{NIPS2016_6208}
-\bibinfo{author}{Li\xfnm[ Y.]}, \bibinfo{author}{Turner\xfnm[ R.E.]}.
-\newblock \bibinfo{title}{R\'{e}nyi divergence variational inference}.
-\newblock In: \bibinfo{editor}{Lee\xfnm[ D.D.]},
-  \bibinfo{editor}{Sugiyama\xfnm[ M.]}, \bibinfo{editor}{Luxburg\xfnm[ U.V.]},
-  \bibinfo{editor}{Guyon\xfnm[ I.]}, \bibinfo{editor}{Garnett\xfnm[ R.]},
-  editors. \bibinfo{booktitle}{Advances in Neural Information Processing
-  Systems 29}. \bibinfo{publisher}{Curran Associates, Inc.};
-  \bibinfo{year}{2016}. p. \bibinfo{pages}{1073--1081}.
-\newblock \URLprefix
-  \url{http://papers.nips.cc/paper/6208-renyi-divergence-variational-inference.pdf}.
-%Type = Article
-\bibitem[{Liu and Shao(2004)}]{LIU200461}
-\bibinfo{author}{Liu\xfnm[ X.]}, \bibinfo{author}{Shao\xfnm[ Y.]}.
-\newblock \bibinfo{title}{Asymptotics for the likelihood ratio test in a
-  two-component normal mixture model}.
-\newblock \bibinfo{journal}{Journal of Statistical Planning and Inference}
-  \bibinfo{year}{2004};\bibinfo{volume}{123}(\bibinfo{number}{1}):\bibinfo{pages}{61
-  -- 81}.
-\newblock \URLprefix
-  \url{http://www.sciencedirect.com/science/article/pii/S0378375803001381}.
-  \DOIprefix\doi{https://doi.org/10.1016/S0378-3758(03)00138-1}.
-%Type = Article
-\bibitem[{O'Hagan(1995)}]{Fractional1995}
-\bibinfo{author}{O'Hagan\xfnm[ A.]}.
-\newblock \bibinfo{title}{Fractional bayes factors for model comparison}
-  \bibinfo{year}{1995};\bibinfo{volume}{57}:\bibinfo{pages}{99--138}.
-%Type = Article
-\bibitem[{{Raftery} et~al.(2006){Raftery}, {Newton}, {Satagopan} and
-  {Krivitsky}}]{raftery2006estimating}
-\bibinfo{author}{{Raftery}\xfnm[ A.E.]}, \bibinfo{author}{{Newton}\xfnm[
-  M.A.]}, \bibinfo{author}{{Satagopan}\xfnm[ J.M.]},
-  \bibinfo{author}{{Krivitsky}\xfnm[ P.N.]}.
-\newblock \bibinfo{title}{Estimating the integrated likelihood via posterior
-  simulation using the harmonic mean identity} \bibinfo{year}{2006};.
-%Type = Article
-\bibitem[{Shafer(1982)}]{Lindley1982}
-\bibinfo{author}{Shafer\xfnm[ G.]}.
-\newblock \bibinfo{title}{Lindley's paradox}.
-\newblock \bibinfo{journal}{Journal of the American Statistical Association}
-  \bibinfo{year}{1982};\bibinfo{volume}{77}(\bibinfo{number}{378}):\bibinfo{pages}{325--334}.
-\newblock \DOIprefix\doi{10.1080/01621459.1982.10477809}.
-  \href{http://arxiv.org/abs/http://amstat.tandfonline.com/doi/pdf/10.1080/01621459.1982.10477809}{\tt
-  arXiv:http://amstat.tandfonline.com/doi/pdf/10.1080/01621459.1982.10477809}.
-%Type = Article
-\bibitem[{Shen and Wasserman(2001)}]{Shen2001Rates}
-\bibinfo{author}{Shen\xfnm[ X.]}, \bibinfo{author}{Wasserman\xfnm[ L.]}.
-\newblock \bibinfo{title}{Rates of convergence of posterior distributions}.
-\newblock \bibinfo{journal}{Annals of Statistics}
-  \bibinfo{year}{2001};\bibinfo{volume}{29}(\bibinfo{number}{3}):\bibinfo{pages}{687--714}.
-%Type = Book
-\bibitem[{der Vaart(2000)}]{van2000asymptotic}
-\bibinfo{author}{der Vaart\xfnm[ A.]}.
-\newblock \bibinfo{title}{Asymptotic Statistics}.
-\newblock \bibinfo{address}{???}: \bibinfo{publisher}{Cambridge university
-  press}, \bibinfo{year}{2000}.
-%Type = Article
-\bibitem[{van~der {Vaart} and {Ghosal}(2007)}]{vaart2007convergence}
-\bibinfo{author}{van~der {Vaart}\xfnm[ A.]}, \bibinfo{author}{{Ghosal}\xfnm[
-  S.]}.
-\newblock \bibinfo{title}{Convergence rates of posterior distributions for
-  noniid observations}.
-\newblock \bibinfo{journal}{Annals of Statistics}
-  \bibinfo{year}{2007};\bibinfo{volume}{35}(\bibinfo{number}{1}):\bibinfo{pages}{192--223}.
-%Type = Article
-\bibitem[{Walker and Hjort(2001)}]{kar10563}
-\bibinfo{author}{Walker\xfnm[ S.G.]}, \bibinfo{author}{Hjort\xfnm[ N.L.]}.
-\newblock \bibinfo{title}{On bayesian consistency}.
-\newblock \bibinfo{journal}{Journal of the Royal Statistical Society: Series B
-  (Statistical Methodology)}
-  \bibinfo{year}{2001};\bibinfo{volume}{63}(\bibinfo{number}{4}):\bibinfo{pages}{811--821}.
-\newblock \URLprefix \url{http://kar.kent.ac.uk/10563/}.
+\begin{thebibliography}{}
+
+\bibitem[\protect\astroncite{Aitkin}{1991}]{Aitkin1991Posterior}
+Aitkin, M. (1991).
+\newblock Posterior bayes factors. journal of the royal statistical society
+  series b-methodological.
+
+\bibitem[\protect\astroncite{Berger and Pericchi}{1996}]{intrisicBayesFactor}
+Berger, J.~O. and Pericchi, L.~R. (1996).
+\newblock The intrinsic bayes factor for model selection and prediction.
+\newblock {\em Journal of the American Statistical Association},
+  91(433):109--122.
+
+\bibitem[\protect\astroncite{Blei et~al.}{2017}]{blei2017}
+Blei, D.~M., Kucukelbir, A., and McAuliffe, J.~D. (2017).
+\newblock Variational inference: A review for statisticians.
+\newblock {\em arxiv}.
+
+\bibitem[\protect\astroncite{{Bobkov} et~al.}{2016}]{2016arXiv160801805B}
+{Bobkov}, S.~G., {Chistyakov}, G.~P., and {G{\"o}tze}, F. (2016).
+\newblock {R$\backslash$'enyi divergence and the central limit theorem}.
+\newblock {\em ArXiv e-prints}.
+
+\bibitem[\protect\astroncite{Cam}{1990}]{Cam1990Maximum}
+Cam, L. (1990).
+\newblock Maximum likelihood: An introduction.
+\newblock {\em International Statistical Review}, 58(2):153--171.
+
+\bibitem[\protect\astroncite{Chen}{2017}]{chenjiahua2017}
+Chen, J. (2017).
+\newblock On finite mixture models.
+\newblock {\em Statistical Theory and Related Fields}, 1(1):15--27.
+
+\bibitem[\protect\astroncite{{Clarke} and
+  {Barron}}{1990}]{clarke1990information}
+{Clarke}, B.~S. and {Barron}, A.~R. (1990).
+\newblock Information-theoretic asymptotics of bayes methods.
+\newblock {\em IEEE Transactions on Information Theory}, 36(3):453--471.
+
+\bibitem[\protect\astroncite{der Vaart}{2000}]{van2000asymptotic}
+der Vaart, A. (2000).
+\newblock {\em Asymptotic Statistics}.
+\newblock Cambridge university press, ???
+
+\bibitem[\protect\astroncite{Ghosal et~al.}{2000}]{ghosal2000}
+Ghosal, S., Ghosh, J.~K., and van~der Vaart, A.~W. (2000).
+\newblock Convergence rates of posterior distributions.
+\newblock {\em Ann. Statist.}, 28(2):500--531.
+
+\bibitem[\protect\astroncite{Hall and Stewart}{2005}]{HALL2005158}
+Hall, P. and Stewart, M. (2005).
+\newblock Theoretical analysis of power in a two-component normal mixture
+  model.
+\newblock {\em Journal of Statistical Planning and Inference}, 134(1):158 --
+  179.
+
+\bibitem[\protect\astroncite{Han and Carlin}{2001}]{MarkovC}
+Han, C. and Carlin, B.~P. (2001).
+\newblock Markov chain monte carlo methods for computing bayes factors.
+\newblock {\em Journal of the American Statistical Association},
+  96(455):1122--1132.
+
+\bibitem[\protect\astroncite{Jeffreys}{1931}]{scientificInference}
+Jeffreys, H. (1931).
+\newblock {\em Scientific Inference}.
+\newblock Cambridge University Press, Cambridge, 1 edition.
+
+\bibitem[\protect\astroncite{Kass and Raftery}{1995}]{Robert1995Bayes}
+Kass, R.~E. and Raftery, A.~E. (1995).
+\newblock Bayes factors.
+\newblock {\em Journal of the American Statistical Association},
+  90(430):773--795.
+
+\bibitem[\protect\astroncite{Kleijn and Vaart}{2012}]{Kleijn2012The}
+Kleijn, B. and Vaart, A. (2012).
+\newblock The bernstein-von-mises theorem under misspecification.
+\newblock {\em Electron. J. Stat.}, 6(1):354--381.
+
+\bibitem[\protect\astroncite{Li and Turner}{2016}]{NIPS2016_6208}
+Li, Y. and Turner, R.~E. (2016).
+\newblock R\'{e}nyi divergence variational inference.
+\newblock In Lee, D.~D., Sugiyama, M., Luxburg, U.~V., Guyon, I., and Garnett,
+  R., editors, {\em Advances in Neural Information Processing Systems 29},
+  pages 1073--1081. Curran Associates, Inc.
+
+\bibitem[\protect\astroncite{Liu and Shao}{2004}]{LIU200461}
+Liu, X. and Shao, Y. (2004).
+\newblock Asymptotics for the likelihood ratio test in a two-component normal
+  mixture model.
+\newblock {\em Journal of Statistical Planning and Inference}, 123(1):61 -- 81.
+
+\bibitem[\protect\astroncite{O'Hagan}{1995}]{Fractional1995}
+O'Hagan, A. (1995).
+\newblock Fractional bayes factors for model comparison.
+\newblock 57:99--138.
+
+\bibitem[\protect\astroncite{{Raftery} et~al.}{2006}]{raftery2006estimating}
+{Raftery}, A.~E., {Newton}, M.~A., {Satagopan}, J.~M., and {Krivitsky}, P.~N.
+  (2006).
+\newblock Estimating the integrated likelihood via posterior simulation using
+  the harmonic mean identity.
+
+\bibitem[\protect\astroncite{Shafer}{1982}]{Lindley1982}
+Shafer, G. (1982).
+\newblock Lindley's paradox.
+\newblock {\em Journal of the American Statistical Association},
+  77(378):325--334.
+
+\bibitem[\protect\astroncite{Shen and Wasserman}{2001}]{Shen2001Rates}
+Shen, X. and Wasserman, L. (2001).
+\newblock Rates of convergence of posterior distributions.
+\newblock {\em Annals of Statistics}, 29(3):687--714.
+
+\bibitem[\protect\astroncite{van~der {Vaart} and
+  {Ghosal}}{2007}]{vaart2007convergence}
+van~der {Vaart}, A. and {Ghosal}, S. (2007).
+\newblock Convergence rates of posterior distributions for noniid observations.
+\newblock {\em Annals of Statistics}, 35(1):192--223.
+
+\bibitem[\protect\astroncite{Walker and Hjort}{2001}]{kar10563}
+Walker, S.~G. and Hjort, N.~L. (2001).
+\newblock On bayesian consistency.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 63(4):811--821.
 
 \end{thebibliography}

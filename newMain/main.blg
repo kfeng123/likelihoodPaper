@@ -1,61 +1,51 @@
 This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
 Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
-The style file: model4-names.bst
-Illegal, another \bibstyle command---line 20 of file main.aux
- : \bibstyle
- :          {elsarticle-num}
-I'm skipping whatever remains of this command
+The style file: apa.bst
 Database file #1: mybibfile.bib
 Warning--entry type for "Aitkin1991Posterior" isn't style-file defined
 --line 1 of file mybibfile.bib
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Reallocated singl_function (elt_size=4) to 100 items from 50.
-`journal' is a missing field, not a string, for entry Fractional1995
-while executing---line 1676 of file model4-names.bst
 Warning--empty journal in Fractional1995
-`journal' is a missing field, not a string, for entry raftery2006estimating
-while executing---line 1676 of file model4-names.bst
 Warning--empty journal in raftery2006estimating
 You've used 22 entries,
-            3271 wiz_defined-function locations,
-            859 strings with 9501 characters,
-and the built_in function-call counts, 19193 in all, are:
-= -- 1667
-> -- 397
-< -- 20
-+ -- 157
-- -- 131
-* -- 2107
-:= -- 2547
-add.period$ -- 85
+            1940 wiz_defined-function locations,
+            626 strings with 6973 characters,
+and the built_in function-call counts, 8416 in all, are:
+= -- 824
+> -- 286
+< -- 19
++ -- 93
+- -- 89
+* -- 757
+:= -- 1448
+add.period$ -- 65
 call.type$ -- 22
-change.case$ -- 154
-chr.to.int$ -- 25
+change.case$ -- 151
+chr.to.int$ -- 22
 cite$ -- 24
-duplicate$ -- 1685
-empty$ -- 1693
-format.name$ -- 206
-if$ -- 3802
+duplicate$ -- 316
+empty$ -- 620
+format.name$ -- 133
+if$ -- 1646
 int.to.chr$ -- 1
-int.to.str$ -- 1
-missing$ -- 213
-newline$ -- 133
-num.names$ -- 90
-pop$ -- 369
+int.to.str$ -- 0
+missing$ -- 23
+newline$ -- 111
+num.names$ -- 68
+pop$ -- 113
 preamble$ -- 1
-purify$ -- 130
+purify$ -- 152
 quote$ -- 0
-skip$ -- 343
+skip$ -- 249
 stack$ -- 0
-substring$ -- 1734
-swap$ -- 808
+substring$ -- 650
+swap$ -- 52
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 192
+type$ -- 128
 warning$ -- 2
-while$ -- 110
+while$ -- 69
 width$ -- 0
-write$ -- 343
-(There were 3 error messages)
+write$ -- 281
+(There were 3 warnings)
