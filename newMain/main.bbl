@@ -36,11 +36,6 @@ Chen, J. (2017).
 \newblock Information-theoretic asymptotics of bayes methods.
 \newblock {\em IEEE Transactions on Information Theory}, 36(3):453--471.
 
-\bibitem[\protect\astroncite{der Vaart}{2000}]{van2000asymptotic}
-der Vaart, A. (2000).
-\newblock {\em Asymptotic Statistics}.
-\newblock Cambridge university press, ???
-
 \bibitem[\protect\astroncite{Ghosal et~al.}{2000}]{ghosal2000}
 Ghosal, S., Ghosh, J.~K., and van~der Vaart, A.~W. (2000).
 \newblock Convergence rates of posterior distributions.
@@ -93,6 +88,11 @@ O'Hagan, A. (1995).
 \newblock Fractional bayes factors for model comparison.
 \newblock 57:99--138.
 
+\bibitem[\protect\astroncite{{Pati} et~al.}{2017}]{pati2017}
+{Pati}, D., {Bhattacharya}, A., and {Yang}, Y. (2017).
+\newblock {On Statistical Optimality of Variational Bayes}.
+\newblock {\em ArXiv e-prints}.
+
 \bibitem[\protect\astroncite{{Raftery} et~al.}{2006}]{raftery2006estimating}
 {Raftery}, A.~E., {Newton}, M.~A., {Satagopan}, J.~M., and {Krivitsky}, P.~N.
   (2006).
@@ -122,10 +122,20 @@ Walker, S.~G. and Hjort, N.~L. (2001).
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)}, 63(4):811--821.
 
+\bibitem[\protect\astroncite{{Wang} and {Blei}}{2017}]{yixin2017}
+{Wang}, Y. and {Blei}, D.~M. (2017).
+\newblock {Frequentist Consistency of Variational Bayes}.
+\newblock {\em ArXiv e-prints}.
+
 \bibitem[\protect\astroncite{Wilks}{1938}]{Wilks1938The}
 Wilks, S.~S. (1938).
 \newblock The large-sample distribution of the likelihood ratio for testing
   composite hypotheses.
 \newblock {\em Annals of Mathematical Statistics}, 9(1):60--62.
+
+\bibitem[\protect\astroncite{{Yang} et~al.}{2017}]{yunyang2017}
+{Yang}, Y., {Pati}, D., and {Bhattacharya}, A. (2017).
+\newblock {$\alpha$-Variational Inference with Statistical Guarantees}.
+\newblock {\em ArXiv e-prints}.
 
 \end{thebibliography}
