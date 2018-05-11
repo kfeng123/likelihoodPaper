@@ -7,45 +7,45 @@ Warning--entry type for "Aitkin1991Posterior" isn't style-file defined
 --line 1 of file mybibfile.bib
 Warning--empty journal in Fractional1995
 Warning--empty journal in raftery2006estimating
-You've used 22 entries,
+You've used 23 entries,
             1940 wiz_defined-function locations,
-            626 strings with 6973 characters,
-and the built_in function-call counts, 8416 in all, are:
-= -- 824
-> -- 286
+            630 strings with 7081 characters,
+and the built_in function-call counts, 8696 in all, are:
+= -- 849
+> -- 298
 < -- 19
-+ -- 93
-- -- 89
-* -- 757
-:= -- 1448
-add.period$ -- 65
-call.type$ -- 22
-change.case$ -- 151
-chr.to.int$ -- 22
-cite$ -- 24
-duplicate$ -- 316
-empty$ -- 620
-format.name$ -- 133
-if$ -- 1646
++ -- 97
+- -- 93
+* -- 778
+:= -- 1504
+add.period$ -- 68
+call.type$ -- 23
+change.case$ -- 158
+chr.to.int$ -- 23
+cite$ -- 25
+duplicate$ -- 329
+empty$ -- 638
+format.name$ -- 136
+if$ -- 1696
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 23
-newline$ -- 111
-num.names$ -- 68
-pop$ -- 113
+missing$ -- 24
+newline$ -- 116
+num.names$ -- 71
+pop$ -- 120
 preamble$ -- 1
-purify$ -- 152
+purify$ -- 159
 quote$ -- 0
-skip$ -- 249
+skip$ -- 259
 stack$ -- 0
-substring$ -- 650
-swap$ -- 52
+substring$ -- 656
+swap$ -- 54
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 128
+type$ -- 134
 warning$ -- 2
-while$ -- 69
+while$ -- 71
 width$ -- 0
-write$ -- 281
+write$ -- 293
 (There were 3 warnings)

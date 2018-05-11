@@ -89,15 +89,16 @@
 \begin{document}
 \maketitle
 \begin{abstract}
-    A general methodology called integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes factor as special cases.
-    Our methodology also includes the statistics produced by approximation computation.
-    Differentiating from Bayesian hypothesis testing, we treat the resulting test procedure as frequentist test which controls the significance level.
-    Under certain regular conditions, the integrated likelihood ratio test shares similar frequency properties as the likelihood ratio test.
+    A general methodology called integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes factor as the main test statistics.
+    Different from Bayesian hypothesis testing, we treat the resulting test procedure as frequentist test which controls the significance level.
+    Under certain regular conditions, we prove the Wilks phenomenon of the integrated likelihood ratio test and derive its asymptotic local power.
+    Our results show that the likelihood ratio test shares similar frequency properties as the likelihood ratio test{\color{red} but have wider application scope}.
     %However, the proposed methodology may exhibit considerable differences from likelihood ratio test.
-    We also apply the proposed method to testing the homogeneity in a two-component normal mixture model.
+    Our methodology also includes the statistics produced by approximation computation.
+    We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
     This problem is fairly irregular and it is known that the likelihood ratio test statistic has undesirable local power behavior.
     In contrary, the integrated likelihood ratio test has good asymptotic power behavior.
-    This demonstrate the superiority of the integrated likelihood ratio test.
+    This shows the superiority of the integrated likelihood ratio test.
 \end{abstract}
 {\small \textsc{Keywords:} {\em
     Bayes consistency;
@@ -139,8 +140,35 @@
 %However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
 %In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
 %
+Likelihood inference plays a dominant role in parametric statistic inference.
+On the one hand, the maximum likelihood estimation is asymptotically optimal in a great variety of problems.
+On the other hand, the fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test when the null and alternative hypotheses are both simple.
+For the general hypothesis testing problem
+\begin{equation}\label{eq:newHy}
+    H:\theta\in\Theta_0\quad \text{vs.}\quad K: \theta\in \Theta_1,
+\end{equation}
+where $\Theta_0\cap \Theta_1=\emptyset$, $\Theta_0\cup \Theta_1=\Theta$, $\Theta$ is an open subset of $\mathbb{R}^p$ and $\Theta_0$ is a $p_0$-dimensional subset of $\mathbb{R}^p$,
+the LRT statistic is defined as
+\begin{equation*}
+    \Lambda_{\text{LRT}}=\frac{\max_{\theta\in\Theta}L_x(\theta)}{\max_{\theta\in\Theta_0} L_x(\theta)}=\frac{L_x(\hat{\theta}_{\text{MLE}})}{ L_x(\hat{\theta}^{(0)}_{\text{MLE}})},
+\end{equation*}
+where $L_x(\theta)$ is the likelihood function, $\hat{\theta}_{\text{MLE}}$ and $\hat{\theta}^{(0)}_{\text{MLE}}$ are the MLE of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
+A key property of the LRT is Wilks phenomenon~\citep{Wilks1938The} which asserts that for regular models, $2\log \Lambda_{\text{LRT}}$ converges to $\chi^2(p-p_0)$ in law under the null hypothesis.
+The LRT has been very successful in many specific problems.
+For some moderately complex problems, however, some difficulties may arise when using the LRT.
+For example, the maximization of $L_x(\theta)$ may be difficult if the likelihood function is not concave and has multiple local maxima.
+Worse still, in some problems the likelihood is unbounded and hence the LRT is not defined.
+See, for example,~\cite{Cam1990Maximum}.
+Note that the unbounded likelihood occurs not only in artifical models, but also in some widely used models, for example, the mixture models with unknown component location and scale~\citep{chenjiahua2017}.
 
-
+In classical goodness of fit test, there are two common types of tests: one based on the maximum (Kolmogorov-Smirnov test, e.g.) and the other based on the integral (Cram\'er-von Mises test, e.g.).
+However, the integral type tests draw little attention to frequentist in parametric hypothesis testing problem.
+A natural integral type test statistic for hypothesis \eqref{eq:newHy} is defined as
+\begin{equation}\label{naiLiS}
+\frac{\int_{\Theta}L_x(\theta) d\Pi(\theta)}{\int_{\Theta_0} L_x(\theta) d\Pi^{(0)}(\theta)},
+\end{equation}
+where $\Pi$ and $\Pi^{(0)}$ are some probability measures on $\Theta$ and $\Theta_{0}$, respectively.
+If $\Pi(d\theta)$ and $\Pi^{(0)}(d\theta)$ don't rely on data, then~\eqref{naiLiS} has exactly the same form as the Bayes factor with Prior distributions $\Pi$ and $\Pi^{(0)}$.
 The Bayes factor, proposed by~\cite{scientificInference}, is the conventional tool for Bayesian hypothesis testing and has been widely used by practitioners (See~\cite{Robert1995Bayes} for a review).
 Compared with the methods in other Beyasian inference problem, such as point estimation and credible sets, Bayes factor is developed on its own ground and thus has its own nature.
 A notable feature of Bayes factor is that it can not be obtained solely from the posterior distribution of parameters.
@@ -148,57 +176,94 @@ There are two consequence of this feature.
 First, the computation of Bayes factor is highly nontrivial.
 See~\cite{Robert1995Bayes},~\cite{MarkovC},~\cite{raftery2006estimating} and the references therein.
 Second, Bayes factor is sensitive to the choice of prior distribution. 
-In fact, they asymptotic behavior of the Bayes factor relies on the prior density evaluated at the true parameter value. See, for example,~\cite{clarke1990information}.
-In contrast, it is well known that the posterior distribution tends to become independent of the prior distribution as the sample size increases.
+In fact, if the Bayes factor is treated as a frequentist test statistic,
+ its asymptotic null distribution relies on the prior density evaluated at the true parameter value.
+See, for example,~\cite{clarke1990information}.
+Thus, to formulate a frequentist test statistic, the measures $\Pi(d\theta)$ and $\Pi^{(0)}(d\theta)$ in~\eqref{naiLiS} should rely on data.
 
-Several modifications of Bayes factor have been proposed.
-\cite{Aitkin1991Posterior} proposed the posterior Bayes factor (PBF) which integrated the likelihood with respect to the posterior distribution.
-Another approach uses a portion of data as training sample.
-A posterior is computed using the training sample and then be used to calculate Bayes factor.
-\cite{intrisicBayesFactor} proposed the intrinsic Bayes factor by using all possible training samples of minimal size and averaging the resulting Bayes factor.
-\cite{Fractional1995} found that the training sample approximates to the full likelihood raised to a fractional power.
-They called the resulting statistic an fractional Bayes factor (FBF).
-Compared with the Bayes factor, these testing methods are less sensitive to the prior distribution.
+If $\Pi(\theta=\hat{\theta}_{\text{MLE}})=1$ and $\Pi^{(0)}(\theta=\hat{\theta}^{(0)}_{\text{MLE}})=1$, then~\eqref{naiLiS} equals to the LRT statistic.
+In this case, the measure $\Pi$ and $\Pi^{(0)}$ both concentrate on one point which are highly nonsmooth.
+For many models, although the LRT fails, the likelihood function $L_x(\theta)$ still has good properties for most $\theta$ and  the MLE is trapped in a fairly small area of $\theta$ where $L_x(\theta)$ has bad behavior.
+{\color{red} A figure?}
+In such cases, some smoother $\Pi$ and $\Pi^{(0)}$ may perform better intuitively.
+Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with respect to certain predefined prior distribution) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
+In this case, the statistic~\eqref{naiLiS} becomes the posterior Bayes factor proposed (PBF) by~\cite{Aitkin1991Posterior}.
+~\cite{Aitkin1991Posterior} argued that if the likelihood is concentrated around the MLE, the PBF should approximately equal to $2^{(p-p_0)}\Lambda_{\text{LRT}}$.
+This implies that PBF has a similar Wilks phenomenon as the LRT.
+%Note that if the likelihood is concentrated around the MLE, then the MLE is consistent and thus the LRT can be applied.
+%Hence we are more interested in the case where the MLE is inconsistent.
+%In a theoretical point of view, the Wilks phenomenon of PBF requires certain conditions which are undesirable.
+%In contrast, it is well known that the posterior distribution tends to become independent of the prior distribution as the sample size increases.
+%Several modifications of Bayes factor have been proposed.
 
 
 
-The computations of PBF and FBF are easier than that of Bayes factor since the PBF and FBF can be computed by sampling the likelihood according to posterior distribution or fractional posterior distribution.
-For moderately complex model, however, sampling from posterior may be difficult and hence some approximation methods may be used in practice.
-Variational inference is a popular method for approximating intractable posterior distribution.
-See~\cite{blei2017} and the references therein.
+Note that for any $a>0$, the LRT is equivalent to
+\begin{equation*}
+    \frac{\max_{\theta\in\Theta}L_x^{a}(\theta)}{\max_{\theta\in\Theta_0}L_x^a(\theta)}.
+\end{equation*}
+In the contrary, the statistic
+\begin{equation}\label{naiLiS2}
+\frac{\int_{\Theta}L_x^a(\theta) d\Pi(\theta)}{\int_{\Theta_0} L_x^a(\theta) d\Pi^{(0)}(\theta)}
+\end{equation}
+is not equivalent to~\eqref{naiLiS}.
+We shall consider the test statistic~\eqref{naiLiS2} with $0<a<1$.
+Correspondingly, the measure $\Pi$ and $\Pi^{(0)}$ can also take the fractional posterior~\cite{Bha2016}.
+Raising the likelihood to a fractional power has several advantages. See, for example,~\cite{kar10563} and~\cite{Bha2016}.
+In particular, the consistency of the fractional posterior requires less conditions than the consistency of the usual posterior.
+A special case of~\eqref{naiLiS} is the fractional Bayes factor (FBF) proposed by \cite{Fractional1995}.
+We call~\eqref{naiLiS} the generalized FBF if $\Pi$ and $\Pi^{(0)}$ are fractional posterior distributions.
 
-The frequentist properties of Bayesian methods have drawn much attention in recent years.
-See~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence},~\cite{Kleijn2012The} and the references therein.
-These works show that many Bayesian methods still perform well when they are treated as frequentist methods.
-%However, existing research is largely concerned with the consistency and asymptotic normality of the posterior distribution.
-Existing research is largely concerned with the frequentist properties of Bayesian point estimation and credible sets.
-For these problems, Bayesian methods can be directly treated as frequentist methods.
-However, for testing problem, Bayesian methods are not required to control the type I error rate and hence can not be directly treated as frequentist methods.
-To formulate Bayes methods into frequentist tests, we would like to modify the critical value such that the resulting test procedures control the type I error rate asymptotically.
-Bayes factor is hard to be formulated into frequentist test since it is too sensitive to prior.
-In contrary, PBF and FBF can be successfully formulated into frequentist test.
-Compared with likelihood ratio test which utilize the maximum of the likelihood, Bayesian methods integrate the likelihood by a weight function.
-For PBF and FBF, the weight function relies on data.
+Under certain regular conditions, we rigorously prove the Wilks phenomenon of the generalized FBF.
+Based on the Wilks phenomenon, an asymptotically correct frequentist test procedure can be formulated.
+We also give the asymptotic power of the resulting test procedure under contiguous alternative.
+It is shown that the generalized FBF has similar asymptotic behavior as the LRT.
+{\color{red}However, it has wider application scope.}
+
+
+%The frequentist properties of Bayesian methods have drawn much attention in recent years.
+%See~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence},~\cite{Kleijn2012The} and the references therein.
+%These works show that many Bayesian methods still perform well when they are treated as frequentist methods.
+%%However, existing research is largely concerned with the consistency and asymptotic normality of the posterior distribution.
+%Existing research is largely concerned with the frequentist properties of Bayesian point estimation and credible sets.
+%For these problems, Bayesian methods can be directly treated as frequentist methods.
+%However, for testing problem, Bayesian methods are not required to control the type I error rate and hence can not be directly treated as frequentist methods.
+
+%Compared with likelihood ratio test which utilize the maximum of the likelihood, Bayesian methods integrate the likelihood by a weight function.
 %Can these Bayesian methods be formulated into frequentist tests?
 %If they can, what's the behavior of these tests?
 %This paper is devoted to answering such questions.
-Motivated by this, we propose a flexible methodology called integrated likelihood ratio test (ILRT) which takes PBF and FBF as special examples.
-ILRT also includes methods that are produced by approximation computation.
 
-Under certain regular conditions, we rigorously derive the asymptotic behavior of ILRT statistic.
-Our theoretical results show that ILRT shares similar frequency properties as the likelihood ratio test under regular conditions.
+%Motivated by this, we propose a flexible methodology called integrated likelihood ratio test (ILRT) which takes PBF and FBF as special examples.
+%ILRT also includes methods that are produced by approximation computation.
+
+
+
+The generalized FBF can be computed by sampling $\theta$ from the fractional posterior and calculate the sample mean of the fractional likelihood.
+For moderately complex model, however, sampling from the fractional posterior may be difficult and hence some approximation methods may be used in practice.
+%The computations of PBF and FBF are easier than that of Bayes factor since the PBF and FBF can be computed by sampling the likelihood according to posterior distribution or fractional posterior distribution.
+Variational inference is a popular method for approximating intractable posterior distribution.
+See~\cite{blei2017} and the references therein.
+Such procedure produce a distribution other than the fractional posterior distribution.
+To accommodate such cases, we also give a theorem for the general measure $\Pi$ and $\Pi^{(0)}$ in~\eqref{naiLiS2}.
+{\color{red} Allow $a+b=1$.}
+
+
+
+
+
 For some irregular problems, the behavior of likelihood is complicated.
-Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that ILRT may have better behavior than likelihood ratio test.
-To illustrate this point,
-we apply the proposed method to testing the homogeneity in a two-component normal mixture model.
-This problem is fairly irregular and suffers from problems such as nonidentifiability and nonconvex likelihood.
-It is known that the likelihood ratio test has trivial power under $n^{-1/2}$ local alternative hypothesis. See, for example,~\cite{HALL2005158}.
+%Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that ILRT may have better behavior than the LRT.
+%To illustrate this point,
+We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
+This problem is fairly irregular and suffers from nonidentifiability and nonconvex likelihood.
+~\cite{HALL2005158} showed that the likelihood ratio test has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 In contrary, we show that the ILRT have nontrivial power under $n^{-1/2}$ local alternative hypothesis.
 
 
 
 The paper is organized as follow.
-In Section 2, we introduce and investigate the asymptotic properties the ILRT under regular conditions.
+In Section 2, we prove the Wilks phenomenon of the ILRT statistic and gives the asympototic local power.
 In Section 3, we apply ILRT to testing the homogeneity in a two-component normal mixture model.
 Section 4 concludes the paper.
 All technical proves are in Appendix.
@@ -246,18 +311,18 @@ To deal with this problem,~\cite{Aitkin1991Posterior} proposed PBF which is defi
 where $\pi(\nu|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under the null and alternative hypothesis, respectively.
 \cite{Fractional1995} proposed  FBF which is defiend to be
 \begin{equation*}
-    \frac{L_{1}}{L_{b}}\cdot \frac{L_{b}^*}{L_{1}^*}\quad \text{for}\quad 0<b<1,
+    \frac{L_{1}}{L_{b}}\cdot \frac{L_{b}^{(0)}}{L_{1}^{(0)}}\quad \text{for}\quad 0<b<1,
 \end{equation*}
 where for $t>0$,
  $$
  L_t=\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta,\quad
- L_t^*=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
+ L_t^{(0)}=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
  $$
 
 We generalize the PBF and FBF and propose the ILRT statistic as
-\begin{equation}\label{eq:definition}
+\begin{equation*}
     \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
-\end{equation}
+\end{equation*}
 where $a>0$ is a hyperparameter,
  the weight functions $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are probability density functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
 Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density.
@@ -270,18 +335,18 @@ If we take the weight function as
 \end{equation}
 then the ILRT statistic equals to
 $$
-    \Lambda_{a,b}(\BX^{(n)})=
-    \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^*}{L_{a+b}^*}.
+    \Lambda_{a,b}=
+    \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^{(0)}}{L_{a+b}^{(0)}}.
 $$
-We shall call $\Lambda_{a,b}(\BX^{(n)})$ the generalized FBF throughout the paper.
+We shall call $\Lambda_{a,b}$ the generalized FBF throughout the paper.
 The FBF and PBF are both the special cases of the generalized FBF.
-In fact, the FBF is equal to $\Lambda_{1,b}(\BX^{(n)})$, the PBF is equal to $\Lambda_{2,1}(\BX^{(n)})$.
+In fact, the FBF is equal to $\Lambda_{1,b}$, the PBF is equal to $\Lambda_{2,1}$.
 
 The computation of the generalized FBF is simple.
 We can independently generate $\theta_1,\ldots,\theta_m$ and $\nu_1,\ldots,\nu_m$ according to~\eqref{firstWeight}  for a large $m$.
-Then $\Lambda_{a,b}(\BX^{(n)})$ can be approximated by
+Then $\Lambda_{a,b}$ can be approximated by
 \begin{equation*}
-    \frac{\sum_{i=1}^m \big[p_n(\BX^{(n)}|\theta)\big]^{a}}{\sum_{i=1}^m\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}}.
+    \frac{\sum_{i=1}^m \big[p_n(\BX^{(n)}|\theta_i)\big]^{a}}{\sum_{i=1}^m\big[p_n(\BX^{(n)}|\nu_i,\xi_0)\big]^{a}}.
 \end{equation*}
 
 
@@ -323,7 +388,7 @@ Assumption~\ref{Assumption1} is satisfied by many common models, it ensures a lo
     \frac{L_t({\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}})}{L_t}\xrightarrow{P_{\theta_0}^n} 0,
     $$
     where for a set $A\subset \Theta$, $L_t (A)=\int_{A} \Big[ {p_n(\BX^{(n)}|\theta)} \Big]^{t} \pi(\theta) \, d \theta$.
-The $\sqrt{n}$-consistency of $L_t^*$ is similarly defined.
+    The $\sqrt{n}$-consistency of $L_t^{(0)}$ is similarly defined.
     Note that the consistency of $L_1$ is equivalent to the consistency of the posterior distribution.
     In~\cite{Kleijn2012The}, the $\sqrt{n}$-consistency of posterior distribution is a key assumption to prove Bernstein-von Mises theorem.
     Likewise, the $\sqrt{n}$-consistency of $L_t$ is a key assumption of the following theorem.
@@ -331,21 +396,21 @@ The $\sqrt{n}$-consistency of $L_t^*$ is similarly defined.
 
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}$, $L_b$, $L_{a+b}^*$ and $L_b^*$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
+        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}$, $L_b$, $L_{a+b}^{(0)}$ and $L_b^{(0)}$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
         $$
-        2\log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta),
+        2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta),
         $$
         where $\chi^2_{p-p_0}(\delta)$ is a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\delta=\eta^T\big( I_{\theta_0}-I_{\theta_0} J(J^T I_{\theta_0} J)^{-1}J^T I_{\theta_0}\big)\eta$ and $J=(I_{p_0},0_{p_0\times(p-p_0)})^T$,
 ``$\rightsquigarrow$'' means weak convergence.
     \end{theorem}
-Theorem~\ref{Thm:maintheorem} gives the asymptotic distribution of $2\log \Lambda_{a,b}(\BX^{(n)})$ under the null hypothesis and the local alternative hypothesis.
-To obtain a test with asymptotic type I error rate $\alpha$, the critical value of $2\log \Lambda_{a,b}(\BX^{(n)})$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{p-p_0,1-\alpha}$, where $\chi^2_{p-p_0,1-\alpha}$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
+Theorem~\ref{Thm:maintheorem} gives the asymptotic distribution of $2\log \Lambda_{a,b}$ under the null hypothesis and the local alternative hypothesis.
+To obtain a test with asymptotic type I error rate $\alpha$, the critical value of $2\log \Lambda_{a,b}$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{p-p_0,1-\alpha}$, where $\chi^2_{p-p_0,1-\alpha}$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
 By Theorem~\ref{Thm:maintheorem}, the resulting test has local asymptotic power
 \begin{equation}\label{eq:likelihoodPower}
 \Pr \big( \chi^2_{p-p_0}(\delta)> \chi^2_{p-p_0,1-\alpha} \big).
 \end{equation}
 It is known that, under certain regular conditions,~\eqref{eq:likelihoodPower} is also the local asymptotic power of the likelihood ratio test. 
-In this view, $\Lambda_{a,b}(\BX^{(n)})$ enjoys good frequentist properties.
+In this view, $\Lambda_{a,b}$ enjoys good frequentist properties.
 
 
  The $\sqrt{n}$-consistency of $L_t$ is a key assumption of Theorem \ref{Thm:maintheorem}.
@@ -452,65 +517,80 @@ By Taylor theorem, in a small neighbourhood of $\theta_0$,
 \end{proposition}
 
 Compared with Assumption~\ref{Assumption2}, it appears that Assumption~\ref{Assumption4} is easier to verify.
-Note that the asymptotic power of $\Lambda_{a,b}(\BX^{(n)})$ is independent of $a,b$.
+Note that the asymptotic power of $\Lambda_{a,b}$ is independent of $a,b$.
 Hence it can be recommended to use the generalized FBF with $a+b< 1$.
 
 
 \subsection{General weight function}
 
-For some moderately complexi models, the densities~\eqref{firstWeight} are not easy to calculate.
+For some moderately complex models, the fractional posterior~\eqref{firstWeight} are not easy to calculate.
 In this case, we can use simpler weight functions to approximate~\eqref{firstWeight}.
 
-Let $h=\sqrt{n}(\theta-\theta_0)$.
-For two densities $q_1(h)$ and $q_2(h)$, let $\|q_1(h)-q_2(h)\|=\int |p(h)-q(h)|\, dh$ be the total variation distance between $q_1(h)$ and $q_2(h)$.
-Theorem 2.1 of \cite{Kleijn2012The} states that
-under Assumptions~\ref{Assumption1},~\ref{Assumption2},
+Let $h=\sqrt{n}(\theta-\theta_0)$ be the local parameter.
+Then the posterior density of $h$ is $\pi_n(h|\BX^{(n)})=n^{-1/2}\pi_n(\theta|\BX^{(n)})$.
+Theorem 2.1 of \cite{Kleijn2012The} states that under Assumptions~\ref{Assumption1} and~\ref{Assumption2},
 $$
             \|\pi_n(h|\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0,
 $$
-where
-$\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$.
+where $\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ and for two densities $q_1(h)$ and $q_2(h)$, $\|q_1(h)-q_2(h)\|=\int |q_1(h)-q_2(h)|\, dh$ is their total variation distance.
 We shall assume that the weight function inherits this property.
         
 \begin{assumption}\label{Assumption3}
-    Let $\pi_n(h;\BX^{(n)})$ be a weight function satisfying 
+    Let $b\in(0,1)$ be a fixed number.
+    Assume that $\pi_n(h;\BX^{(n)})$ satisfies
         \begin{equation}\label{vonMisesResults}
-            \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0
+            \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0.
         \end{equation}
-Furthermore, assume that for every $\epsilon>0$, there's a Lebesgue integrable function $T(h)$, a $K>0$ and an $A>0$ such that 
+
+        Similarly, let $h^{(0)}=\sqrt{n}(\nu-\nu_0)$. Define $\pi_n(h^{(0)};\BX^{(n)})=n^{-1/2}\pi_n(\nu;\BX^{(n)})$. Assume that 
+\begin{equation}\label{vonMisesResultsl}
+    \|\pi_n(h^{(0)};\BX^{(n)})-\phi(h^{(0)};\Delta^{(0)}_{n,\theta_0},b^{-1}I_{\theta_0}^{(0)-1})\|\overset{P_{\theta_0}^n}{\to}0,
+\end{equation}
+where $$ \Delta_{n,\theta_0}^{(0)}
+=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{(0)-1}\dot{\ell}^{(0)}_{\theta_0}(X_i),
+\quad I^{(0)}_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}^{(0)}\dot{\ell}_{\theta_0}^{(0)T},\quad 
+\dot{\ell}^{(0)}(X)=\frac{\partial}{\partial \nu}\log p(X|\nu,\xi_0)\Big|_{\nu=\nu_0}
+.
+$$
+
+Furthermore, assume that for every $\epsilon>0$, there exists Lebesgue integrable functions $T(h)$ and $T^{(0)}(h)$ such that 
 
     \begin{equation}\label{Assump31}
-        \lim_{n\to \infty}P_{\theta_0}^n(\sup_{\|h\|\geq K\sqrt{n}}(\pi_n(h;\BX^{(n)})-T(h))\leq 0)\geq 1-\epsilon
+        \lim_{n\to \infty}P_{\theta_0}^n\left\{\sup_{h\in \mathbb{R}^p}(\pi_n(h;\BX^{(n)})-T(h))\leq 0\right\}\geq 1-\epsilon.
+\end{equation}
+    \begin{equation}\label{Assump31l}
+        \lim_{n\to \infty}P_{\theta_0}^n\left\{\sup_{h^{(0)}\in \mathbb{R}^{p_0}}(\pi_n(h^{(0)};\BX^{(n)})-T^{(0)}(h^{(0)}))\leq 0\right\}\geq 1-\epsilon.
 \end{equation}
 
-        \begin{equation}\label{Assump32}
-            \lim_{n\to \infty} P_{\theta_0}^n(\sup_{\|h\|\leq K\sqrt{n}} \pi_n(h;\BX^{(n)})\leq A)\geq 1-\epsilon
-        \end{equation}
+
 \end{assumption}
+The conditions~\eqref{Assump31} and~\eqref{Assump31l} in Assumption~\ref{Assumption3} assume that there is a function controlling the tail of the weight functions.
+We need to control the tail of the weight function since the behavior of the likelihood may be undersirable when $\theta$ is far away from $\theta_0$.
+In fact, even for some fairly regular models, the likelihood may tends to infinity, which invalidates LRT.
+See, for example,~\cite{Cam1990Maximum}.
+So we control the tail of the weight function to avoid too much weights on the tail of likelihood.
+If the weight function $\pi_n(h;\BX^{(n)})$ is normal density, then it can be shown that the conditions~\eqref{vonMisesResults} and~\eqref{vonMisesResultsl} implies~\eqref{Assump31} and~\eqref{Assump31l}.
 
 
-The condition~\ref{Assump31} assumes there is a function controlling the tail of weight function.
-For a statistical model, the likelihood value makes no sense when $\|\theta-\theta_0\|=n^{-1/2}h$ is large.
-The bad behavior of the tail of likelihood function may affect the behavior of posterior distribution.
-To avoid the bad behavior of the likelihood function for large ${n}^{-1/2}h$, we impose~\ref{Assump31} on weight function instead.
-The condition~\ref{Assump32} is satisfied in most usual case.
+Under Assumption~\ref{Assumption3}, we consider the ILRT statistic
+\begin{equation}
+    \Lambda^*_{a,b}=\frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu}.
+\label{eq:definition}
+\end{equation}
+The following theorem gives the asymptotic distribution of ILRT statistic.
+
 
 \begin{theorem}\label{theoremMain}
     Suppose that Assumptions~\ref{Assumption1} and \ref{Assumption3} hold, the true parameter $\theta_0$ is an interior point of $\Theta$, $\nu$ is a relative interior point of $\tilde{\Theta}_0$.
-    If $a+b=1$, we assume Assumption~\ref{Assumption2} holds. If $a+b<1$, we assume Assumption~\ref{Assumption4} holds. Then, for bounded real numbers $\eta_n$, we have
+    Suppose $a+b\leq 1$.
+    Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, we have
 
         $$
-        2\log \Lambda_{a,b}(\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta).
+        2\log \Lambda^*_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2_{p-p_0}(\delta),
         $$
-    %$$
-    %2\log(\Lambda(X))\overset{P_{{\eta_n}}^n}{\rightsquigarrow} -(p_2-p_1)\log 2+\chi^2_{p_2-p_1}(\delta)
-    %$$
-    %\begin{equation}
-        %\Big|\int_{\mathbb{R}^{p}}\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\pi_n(h;\BX^{(n)})\,dh-
-        %2^{-\frac{p}{2}}\exp\big[\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
-        %\Big|\xrightarrow{P_{\eta_n}^n}0.
-    %\end{equation}
+        where $\delta$ is defined as in Theorem~\ref{Thm:maintheorem}.
 \end{theorem}
+Theorem~\ref{theoremMain} shows that even with approximate weight function, the ILRT statistic can still produce an asymptotic optimal test.
 
 A practical method to obtain simple form weight function $\pi_n(h;\BX^{(n)})$ is the variational inference. See, for example,~\cite{blei2017}.
 The following example shows that the weight function obtained from R\'{e}nyi divergence variational inference satisfies Assumption~\ref{Assumption3}.
@@ -579,8 +659,8 @@ We have the following theorem.
     \begin{equation*}
         2\log \Lambda_{a,b} (\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}\log(1+\frac a b)+ a\chi^2_{1}(\eta).
     \end{equation*}
-    \label{mixtureThm}
 \end{enumerate}
+    \label{mixtureThm}
 \end{theorem}
 Theorem~\ref{mixtureThm} shows that under certain $\sqrt{n}$ local alternatives, ILRT has nontrival power. 
 This illustrates the superiority of ILRT over likelihood ratio test.
@@ -603,106 +683,6 @@ This work was supported by the National Natural Science Foundation of China unde
 
 
 
-%Suppose  the Assumptions of~\ref{theoremWilks} are met. The true parameter $\theta$ satisfies $\eta_n=\sqrt{n}(\theta-\theta_0)\to \eta$. If
-%\begin{equation}
-    %I_{\theta_0}=\left(
-        %\begin{matrix}
-            %I^*_{\theta_0}&I_{12}
-            %\\
-            %I_{21}&I_{22}
-        %\end{matrix}
-    %\right),
-%\end{equation}
-%$I_{22\cdot 1}=I_{22}-I_{21}I_{\theta_0}^{*-1}I_{12}$,
-    %then we have
-%\begin{equation}
-    %2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2)
-%\end{equation}
-%where
-%\begin{equation}
-%\delta=\eta^T
-    %\left(
-        %\begin{matrix}
-            %0&0\\
-            %0&I_{22\cdot 1}
-        %\end{matrix}
-    %\right)
-    %\eta
-%\end{equation}
-%\end{theorem}
-%
-%The results can be explained by the limit experiment point of view. As $h_n\to h$, the `locally sufficient' statistic $\Delta_{n,\theta_0}\rightsquigarrow N(h,I^{-1}_{\theta_0})$. In the limit experiment, we have one observation $X\sim N(h,I_{\theta_0}^{-1})$. In this case, the integrated likelihood ratio test statistics can be calculated easily whose distribution is exactly the same as~\ref{theoremPower}.
-%
-
-%\begin{proof}[\textbf{Proof of Theorem~\ref{theoremPower}}]
-    %We note that $h_n=\eta_n$ converges to $\eta$. By Proposition~\ref{Thm:localExpansion} and CLT,
-%\begin{equation}
-    %\begin{aligned}
-    %\left(
-    %\begin{matrix}
-        %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
-        %\\
-        %\log \frac{p_{\eta_n}(X)}{p_0(X)}
-    %%\end{matrix}
-    %\right)
-    %&=\left(
-        %\begin{matrix}
-        %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
-        %\\
-        %\frac{1}{\sqrt{n}}\sum^n_{i=1}\eta^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}\eta^T I_{\theta_0}\eta
-        %\end{matrix}
-    %\right)
-    %+o_{P_0^n}(1)\\
-    %&\overset{P_0^n}{\rightsquigarrow}
-    %N(
-    %\left(
-    %\begin{matrix}
-        %0\\
-        %-\frac{1}{2}\eta^T I_{\theta_0}\eta
-    %\end{matrix}
-    %\right),
-    %\left(
-        %\begin{matrix}
-            %I_{\theta_0}&I_{\theta_0}\eta\\
-            %\eta^T I_{\theta_0}&\eta^T I_{\theta_0}\eta
-        %\end{matrix}
-    %\right)
-    %).
-    %\end{aligned}
-%\end{equation}
-%Hence by Le Cam's third lemma,
-%\begin{equation}
-    %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\eta_n}}{\rightsquigarrow}\xi\sim N(I_{\theta_0}\eta,I_{\theta_0}).
-%\end{equation}
-%By Theorem~\ref{theoremMain}, under $P_{\eta_n}^n$, we have~\eqref{equationNull}.
-%Hence
-%\begin{equation}
-    %2\log(\Lambda(X))\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2_{p_2-p_1}(\delta)-(p_2-p_1)\log(2),
-%\end{equation}
-%where noncentral parameter $\delta$ can be obtained by substituting $\xi$ by $I_{\theta_0}\eta$ in~\eqref{equationXi}:
-%\begin{equation}
-    %\begin{aligned}
-        %\delta&=\eta^T(
-        %I_{\theta_0}-
-        %I_{\theta_0}
-        %\left(\begin{matrix} 
-                %I^{*-1}_{\theta_0}&0\\
-                %0&0
-        %\end{matrix}\right)
-        %I_{\theta_0}
-    %)\eta
-    %\\
-    %&=\eta^T
-    %\left(
-        %\begin{matrix}
-            %0&0\\
-            %0&I_{22\cdot 1}
-        %\end{matrix}
-    %\right)
-    %\eta.
-    %\end{aligned}
-%\end{equation}
-%\end{proof}
 
 
 
@@ -715,22 +695,14 @@ This work was supported by the National Natural Science Foundation of China unde
 
 
 \begin{appendices}
-%For two measure sequence $P_n$ and $Q_n$ on measurable spaces $(\Omega_n,\mathcal{A}_n)$, denote by $P_n\triangleleft \triangleright Q_n$ that $P_n$ and $Q_n$ are mutually contiguous. That is, for any statistics $T_n$: $\Omega_n\mapsto \mathbb{R}^k$, we have $T_n\overset{P_n}{\rightsquigarrow}0\Leftrightarrow T_n\overset{Q_n}{\rightsquigarrow}0$.
-
-%Let $\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ be the `locally sufficient' statistics.
-%The corresponding quantities in the null space are 
-    Define
-$$\dot{\ell}^*(X)=\frac{\partial}{\partial \nu}\log p(X|\nu,\xi_0)\Big|_{\nu=\nu_0}, \quad I^*_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}^*\dot{\ell}_{\theta_0}^{*T},\quad \Delta_{n,\theta_0}^*
-=\frac{1}{\sqrt{n}}\sum_{i=1}^n I_{\theta_0}^{*-1}\dot{\ell}^{*}_{\theta_0}(X_i).
-$$
 
 \begin{lemma}[\cite{Kleijn2012The}, Lemma 2.1.]\label{Thm:localExpansion}
     Under Assumption~\ref{Assumption1},
-    we have $\|\dot{\ell}_{\theta_0}(X)\|\leq m(X)$ $P_0$-a.s., $P_0 \dot{\ell}_{\theta_0}(X)=0$ and for every $M>0$
+    we have $\|\dot{\ell}_{\theta_0}(X)\|\leq m(X)$ $P_{\theta_0}$-a.s., $P_{\theta_0} \dot{\ell}_{\theta_0}(X)=0$ and for every $M>0$
     \begin{equation*}
         \sup_{\|h\|\leq M}\Big|
          \log \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}-h^T I_{\theta_0}\Delta_{n,\theta_0}+\frac{1}{2}h^T I_{\theta_0}h
-        \Big|\xrightarrow{P^n_0}0.
+         \Big|\xrightarrow{P^n_{\theta_0}}0.
     \end{equation*}
     %(See~\cite{van2000asymptotic} Theorem 5.23 or)
 \end{lemma}
@@ -739,7 +711,7 @@ $$
     Under Assumptions~\ref{Assumption1} and~\ref{Assumption2},
     there exists for every $M_n\to \infty$ a sequence of tests $\phi_n$ and a constant $\delta>0$ such that, for every sufficiently large $n$ and every $\|\theta-\theta_0\|\geq M_n/\sqrt{n}$,
     $$
-    P^n_{0} \phi_n\to 0,\quad
+    P^n_{\theta_0} \phi_n\to 0,\quad
     P^n_{\theta} (1-\phi_n)\leq \exp[-\delta n(\|\theta-\theta\|^2\wedge 1)].
     $$
     (See~\cite{van2000asymptotic} Lemma 10.3.,~\cite{Kleijn2012The})
@@ -747,47 +719,41 @@ $$
     \section{Proofs in Section 2}
 
     \begin{proof}[\textbf{Proof of Theorem~\ref{Thm:maintheorem}}]
-         For fixed $t>0$ and $M>0$, we have
-$$
-        \begin{aligned}
-            &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
-            =
-            &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \, d\theta+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1)\\
-            =
-            &\log \int_{\{h:\|h\|\leq M\}}\exp\big[ t\log p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\big] \, dh-\frac{p}{2}\log n+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1).
-        \end{aligned}
-        $$
-By Proposition~\ref{Thm:localExpansion},
-$$
-        \begin{aligned}
-            &\log \int_{\{h:\|h\|\leq M\}}\exp\big[ t\log p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\big] \, dh\\
-            =&\log \int_{\{h:\|h\|\leq M\}}\exp\big[ t\log p_n(\BX^{(n)}|\theta_0)+t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh+o_{P_{\theta_0}^n}(1)\\
-            =&\log \int_{\{h:\|h\|\leq M\}}\exp\big[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^T I_{\theta_0}(h-\Delta_{n,\theta_0})\big] \, dh
-            +
-            \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
-            +
-            t\log p_n(\BX^{(n)}|\theta_0)
-            +o_{P_{\theta_0}^n}(1).
-        \end{aligned}
-        $$
+        For fixed $t>0$ and $M>0$, we have
+\begin{align*}
+    &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
+    =
+    &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \, d\theta+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1)\\
+    =
+    &\log \int_{\{h:\|h\|\leq M\}}\exp\big[ t\log p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\big] \, dh-\frac{p}{2}\log n+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1),
+\end{align*}
+where the first equality holds since $\pi(\theta)$ is continuous at $\theta_0$ and the second equality follows from the coordinate transformation $h=\sqrt{n}(\theta-\theta_0)$.
+By the uniform expansion given by Lemma~\ref{Thm:localExpansion} and a little algebra, we have
+\begin{align*}
+    &\log \int_{\{h:\|h\|\leq M\}}\exp\big[ t\log p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\big] \, dh\\
+    %=&\log \int_{\{h:\|h\|\leq M\}}\exp\big[ t\log p_n(\BX^{(n)}|\theta_0)+t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh+o_{P_{\theta_0}^n}(1)\\
+    =&\log \int_{\{h:\|h\|\leq M\}}\exp\big[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^T I_{\theta_0}(h-\Delta_{n,\theta_0})\big] \, dh
+    +
+    \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
+    +
+    t\log p_n(\BX^{(n)}|\theta_0)
+    +o_{P_{\theta_0}^n}(1).
+\end{align*}
         Thus
-$$
-        \begin{aligned}
-            &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
-            =
-            &\log \int_{\{h:\|h\|\leq M\}}\exp\big[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^T I_{\theta_0}(h-\Delta_{n,\theta_0})\big] \, dh
-            \\
-            & +
-            \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
-            +
-            t\log p_n(\BX^{(n)}|\theta_0)
-            -\frac{p}{2}\log n+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1).
-        \end{aligned}
-        $$
-        This equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
+\begin{align*}
+    &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
+    =
+    &\log \int_{\{h:\|h\|\leq M\}}\exp\big[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^T I_{\theta_0}(h-\Delta_{n,\theta_0})\big] \, dh
+    \\
+    & +
+    \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
+    +
+    t\log p_n(\BX^{(n)}|\theta_0)
+    -\frac{p}{2}\log n+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1).
+\end{align*}
+This equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
         %By central limit theorem, $\Delta_{n,\theta_0}$ weakly converges to $N_p(\mathbf{0}_p,I_{\theta_0}^{-1})$ in $P_{\theta_0}^n$.
-        Note that $\Delta_{n,\theta_0}$ is bounded in probability.
-        Hence
+Since $\Delta_{n,\theta_0}$ is bounded in probability, we have
         $$
             \begin{aligned}
             &\log \int_{\{h:\|h\|\leq M_n\}}\exp\big[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^T I_{\theta_0}(h-\Delta_{n,\theta_0})\big] \, dh
@@ -802,114 +768,107 @@ $$
         $$
         Thus,
 $$
-        \begin{aligned}
-            &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
-            =
-            &
-                \frac{p}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p}{2}\log t-\frac{1}{2}\log |I_{\theta_0}|
-                +\log \pi(\theta_0)
-             +
-            \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
-            +
-            t\log p_n(\BX^{(n)}|\theta_0)
-            +o_{P^n_{\theta_0}}(1).
-        \end{aligned}
-        $$
-If $L_t(\BX^{(n)})$ is consistent, then
-$$
-        \begin{aligned}
-            &\log L_t(\BX^{(n)})=\log \int_{\Theta}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
-            =
-            &
-                \frac{p}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p}{2}\log t-\frac{1}{2}\log |I_{\theta_0}|
-                +\log \pi(\theta_0)
-             +
-            \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
-            +
-            t\log p_n(\BX^{(n)}|\theta_0)
-            +o_{P^n_{\theta_0}}(1).
-        \end{aligned}
-        $$
-Similarly, if $L_t^*(\BX^{(n)})$ is consistent,
-$$
 \begin{aligned}
-    &\log L_t^* (\BX^{(n)})=\log \int_{\tilde{\Theta}_0}\big[ p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu\\
-    =&
-                \frac{p_1}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p_1}{2}\log t-\frac{1}{2}\log |I_{\theta_0}^*|
-                +\log \pi(\nu_0)
-             +
-            \frac{t}{2}\Delta_{n,\theta_0}^{*T} I^*_{\theta_0}\Delta^*_{n,\theta_0}
-            +
-            t\log p_n(\BX^{(n)}|\theta_0)
-            +o_{P^n_{\theta_0}}(1).
+    &\log \int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
+    =
+    &
+        \frac{p}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p}{2}\log t-\frac{1}{2}\log |I_{\theta_0}|
+        +\log \pi(\theta_0)
+     +
+    \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
+    +
+    t\log p_n(\BX^{(n)}|\theta_0)
+    +o_{P^n_{\theta_0}}(1).
 \end{aligned}
 $$
-These expansions, combined with the mutually contiguity of $P_{\theta_0}^n$ and $P^n_{\theta_n}$, yield
-        $$
-        \begin{aligned}
-        \log \Lambda_{a,b}(\BX^{(n)})
-            =&
-            \log L_a(\BX^{(n)})-
-            \log L_b(\BX^{(n)})
-            -
-            \log L^*_a(\BX^{(n)})+
-            \log L^*_b(\BX^{(n)})\\
-            =&
-            -\frac{p-p_1}{2}\log \frac{a}{b}
+If $L_t$ is consistent, then
+\begin{align*}
+    &\log L_t=\log \int_{\Theta}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
+    =
+    &
+        \frac{p}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p}{2}\log t-\frac{1}{2}\log |I_{\theta_0}|
+        +\log \pi(\theta_0)
+     +
+    \frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
+    +
+    t\log p_n(\BX^{(n)}|\theta_0)
+    +o_{P^n_{\theta_0}}(1).
+\end{align*}
+Similarly, if $L_t^{(0)}$ is consistent,
+\begin{equation*}
+\begin{split}
+    &\log L_t^{(0)} =\log \int_{\tilde{\Theta}_0}\big[ p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu\\
+    =&
+    \frac{p_0}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p_0}{2}\log t-\frac{1}{2}\log |I_{\theta_0}^{(0)}|
+                +\log \pi(\nu_0)
+             +
+             \frac{t}{2}\Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0}\Delta^{(0)}_{n,\theta_0}
             +
-            \frac{a-b}{2}\Big(
-            \Delta_{n,\theta_0}^T I_{\theta_0} \Delta_{n,\theta_0}
-            -
-            \Delta_{n,\theta_0}^{*T} I^*_{\theta_0} \Delta^*_{n,\theta_0}
-            \Big)
-            +o_{P^n_{\theta_n}}(1).
-        \end{aligned}
-        $$
-Note that
-$$
-I_{\theta_0}^*= J^T I_{\theta_0}J, \quad \Delta_{n,\theta_0}^*=(J^T I_{\theta_0}J)^{-1} J^T I_{\theta_0} \Delta_{n,\theta_0}.
-$$
-Then
+            t\log p_n(\BX^{(n)}|\theta_0)
+            +o_{P^n_{\theta_0}}(1).
+\end{split}
+\end{equation*}
+By the mutual contiguity of $P_{\theta_0}^n$ and $P^n_{\theta_n}$, the term $o_{P^n_{\theta_0}}(1)$ is also $o_{P^n_{\theta_n}}(1)$. Hence
 $$
 \begin{aligned}
+\log \Lambda_{a,b}
+    =&
+    \log L_{a+b}-
+    \log L_b
+    -
+    \log L^{(0)}_{a+b}+
+    \log L^{(0)}_b\\
+    =&
+    -\frac{p-p_0}{2}\log (1+\frac{a}{b})
+    +
+    \frac{a}{2}\Big(
+    \Delta_{n,\theta_0}^T I_{\theta_0} \Delta_{n,\theta_0}
+    -
+    \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
+    \Big)
+    +o_{P^n_{\theta_n}}(1).
+\end{aligned}
+$$
+Since $I_{\theta_0}^{(0)}= J^T I_{\theta_0}J$ and $\Delta_{n,\theta_0}^{(0)}=(J^T I_{\theta_0}J)^{-1} J^T I_{\theta_0} \Delta_{n,\theta_0}$, we have
+$$
             \Delta_{n,\theta_0}^T I_{\theta_0} \Delta_{n,\theta_0}
             -
-            \Delta_{n,\theta_0}^{*T} I^*_{\theta_0} \Delta^*_{n,\theta_0}
+            \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
             =
             \Delta_{n,\theta_0}^T I_{\theta_0}^{1/2}\big(
             I_p-
             I_{\theta_0}^{1/2} J (J^T I_{\theta_0} J)^{-1} J^T I_{\theta_0}^{1/2}
             \big)I_{\theta_0}^{1/2}\Delta_{n,\theta_0},
-\end{aligned}
 $$
 where $
             I_p-
             I_{\theta_0}^{1/2} J (J^T I_{\theta_0} J)^{-1} J^T I_{\theta_0}^{1/2}
 $
-is a projection matrix with rank $p-p_1$.
-
-Now we need to derive the asymptotic distribution of $\Delta_{n,\theta_0}$.
+is a projection matrix with rank $p-p_0$.
+It remains to derive the asymptotic distribution of $\Delta_{n,\theta_0}$.
 Let $h_n=\sqrt{n}(\theta_n-\theta_0)$.
      By Proposition~\ref{Thm:localExpansion} and CLT,
 \begin{equation*}
-    \begin{aligned}
+    \begin{split}
     \left(
     \begin{matrix}
+        \displaystyle
         \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
         \\
+        \displaystyle
         \log \frac{p_n(\BX^{(n)}|\theta_n)}{p_n(\BX^{(n)}|\theta_0)}
     \end{matrix}
     \right)
-    &=\left(
-        \begin{matrix}
-        \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
-        \\
-        \frac{1}{\sqrt{n}}\sum^n_{i=1}h_n^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h_n^T I_{\theta_0}h_n
-        \end{matrix}
-    \right)
-    +o_{P_0^n}(1)\\
+    %&=\left(
+        %\begin{matrix}
+        %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
+        %\\
+        %\frac{1}{\sqrt{n}}\sum^n_{i=1}h_n^T\dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h_n^T I_{\theta_0}h_n
+        %\end{matrix}
+    %\right)
+    %+o_{P_0^n}(1)\\
     &\overset{P_0^n}{\rightsquigarrow}
-    N\left(
+    \mathcal{N}\left(
     \left(
     \begin{matrix}
         0\\
@@ -923,32 +882,32 @@ Let $h_n=\sqrt{n}(\theta_n-\theta_0)$.
         \end{matrix}
     \right)
     \right).
-    \end{aligned}
+    \end{split}
 \end{equation*}
 Hence by Le Cam's third lemma,
 \begin{equation*}
-    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\theta_n}}{\rightsquigarrow} N(I_{\theta_0}\eta,I_{\theta_0}).
+    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(I_{\theta_0}\eta,I_{\theta_0}).
 \end{equation*}
 Consequently,
 $
 \Delta_{n,\theta_0}
 $
-weakly converges to $N(\eta, I_{\theta_0}^{-1})$ in  $P^n_{\theta_n}$.
-Hence
+weakly converges to $\mathcal{N}(\eta, I_{\theta_0}^{-1})$ in  $P^n_{\theta_n}$.
+It follows that
 \begin{equation*}
-            \Delta_{n,\theta_0}^T I_{\theta_0} \Delta_{n,\theta_0}
-            -
-            \Delta_{n,\theta_0}^{*T} I^*_{\theta_0} \Delta^*_{n,\theta_0}
-    \overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2_{p-p_1}(\delta).
+\Delta_{n,\theta_0}^T I_{\theta_0} \Delta_{n,\theta_0}
+-
+\Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
+\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2_{p-p_0}(\delta),
 \end{equation*}
-        This completes the proof.
+which completes the proof.
 
     \end{proof}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{exponentialCon}}]
-    By some algebra, we have
+    For exponential family, we have
     $$
-    \Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n T(X_i)-\sqrt{n}\frac{\partial}{\partial \theta} A(\theta_0)
+    I_{\theta_0}\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n T(X_i)-\sqrt{n}\frac{\partial}{\partial \theta} A(\theta_0)
     $$
     and
     $$
@@ -961,30 +920,29 @@ Hence
     g_n(h)=n\Big(A(\theta_0+n^{-1/2}h)-A(\theta_0)-n^{-1/2}h \frac{\partial}{\partial \theta}A(\theta_0)-\frac{1}{2n}h^T I_{\theta_0}h\Big).
     $$
     Without loss of generality, we assume $M_n\to \infty$ and $M_n^3/\sqrt{n}\to 0$.
-    Then by Taylor's theorem and the continuity of the third derivative of $A(\theta)$, 
+    By Taylor's theorem and the continuity of the third derivative of $A(\theta)$, 
     $$
-        \max_{\{h:\|h\|\leq M_n\}}|g_n(h)|=O\Big(\frac{M_n^3}{\sqrt{n}}\Big)\to 0.
+        \max_{\{h:\|h\|\leq M_n\}}|g_n(h)|=O\left(\frac{M_n^3}{\sqrt{n}}\right)\to 0.
     $$
-    Then
-$$
-    \begin{aligned}
-        &\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
-        \geq
-        \int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
-        \\
-        &=
-        (1+o_{P_0^n}(1))n^{-p/2}\pi(\theta_0)\big[p_n(\BX^{(n)}|\theta_0)\big]^t\int_{\{h:h\leq M_n\}} \exp\big[ t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh
-        \\
-        &=
-        (1+o_{P_0^n}(1))n^{-p/2}\pi(\theta_0) \big[p_n(\BX^{(n)}|\theta_0)\big]^t\int_{\mathbb{R}^p} \exp\big[t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh
-        \\
-        &=
-        (1+o_{P_0^n}(1))n^{-p/2}\pi(\theta_0)\big[p_n(\BX^{(n)}|\theta_0)\big]^t
-        \exp\big[-\frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
-        (2\pi)^{p/2} t^{-p/2}  |I_{\theta_0}|^{-1/2}.
-    \end{aligned}
-$$
+    This allows us to derive the following lower bound for $L_t$.
+\begin{align*}
+    L_t
+    \geq &
+    \int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
+    \\
+    =&
+    (1+o_{P_{\theta_0}^n}(1))n^{-p/2}\pi(\theta_0)\big[p_n(\BX^{(n)}|\theta_0)\big]^t\int_{\{h:h\leq M_n\}} \exp\big[ t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh
+    \\
+    =&
+    (1+o_{P_{\theta_0}^n}(1))n^{-p/2}\pi(\theta_0) \big[p_n(\BX^{(n)}|\theta_0)\big]^t\int_{\mathbb{R}^p} \exp\big[t h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{t}{2}h^T I_{\theta_0}h\big] \, dh
+    \\
+    =&
+    (1+o_{P_{\theta_0}^n}(1))n^{-p/2}\pi(\theta_0)\big[p_n(\BX^{(n)}|\theta_0)\big]^t
+    \exp\big[-\frac{t}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
+    (2\pi)^{p/2} t^{-p/2}  |I_{\theta_0}|^{-1/2}.
+\end{align*}
 
+Next we upper bound $\log (p_n(\BX^{(n)}|\theta)/p_n(\BX^{(n)}|\theta_0))$ for $\|\theta-\theta_0\|\geq M_n/\sqrt{n}$.
     We have
     $$
     \begin{aligned}
@@ -1035,7 +993,7 @@ $$
         M_n.
     \end{aligned}
     $$
-    For $\epsilon>0$ such that $\sup_{\|\theta-\theta_0\|< \epsilon}\pi(\theta)\leq +\infty $, we have
+    Fix an $\epsilon>0$ such that $\sup_{\|\theta-\theta_0\|< \epsilon}\pi(\theta) < +\infty $. We have
 $$
     \begin{aligned}
         &\int_{\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
@@ -1163,9 +1121,9 @@ Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t$ is not always 
        \frac{L_{t} (\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}
            {L_{t}}
 =
-    \frac{
-        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\big\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{t} \pi(\theta) \, d \theta
-    }{
+    \frac{\displaystyle
+        \int_{\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{t} \pi(\theta) \, d \theta
+    }{\displaystyle
         \int_{\Theta} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{t} \pi(\theta) \, d \theta
     }.
        \end{equation}
@@ -1173,43 +1131,49 @@ Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t$ is not always 
 
     Consider the expactation of the numerator of~\ref{eq:numden}.
     It follows from Fubini's theorem that
-    $$
-    \begin{aligned}
-        &P_0^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{t} \pi(\theta) \, d \theta
-        \\
-        =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \left\{\int_{\mathcal{X}^n}\big[ {p_n} (\BX^{(n)}|\theta)\big]^t \big[ p_n (\BX^{(n)}|\theta_0) \big]^{1-t} \, d\mu^n \right\} \pi(\theta) \, d \theta\\
-        =&
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ \rho_{t}(\theta,\theta_0) \big]^n \pi(\theta) \, d \theta\\
-        = &
-        \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[-(1-t) n D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta.
-    \end{aligned}
-    $$
-    Decompose the integral region into two parts $\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}$ and $\{\theta: \|\theta-\theta_0\|>\delta\}$, 
-    $$
-    \begin{aligned}
-        &\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } 
-        \exp \big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta
-        \\
-        =&\int_{\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}}
-        \exp\big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta+
-        \int_{\{\theta: \|\theta-\theta_0\|>\delta\}} \exp\big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta
-        \\
-        \leq &
-        \max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)
-        \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}}
-        \exp\big[ -(1-t)C {n} \|\theta-\theta_0\|^2 \big]
-        \, d \theta
+\begin{align*}
+    &P_{\theta_0}^n\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{t} \pi(\theta) \, d \theta
+    \\
+    =&
+    \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \left\{\int_{\mathcal{X}^n}\big[ {p_n} (\BX^{(n)}|\theta)\big]^t \big[ p_n (\BX^{(n)}|\theta_0) \big]^{1-t} \, d\mu^n \right\} \pi(\theta) \, d \theta\\
+    =&
+    \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \big[ \rho_{t}(\theta,\theta_0) \big]^n \pi(\theta) \, d \theta\\
+    = &
+    \int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \exp \big[-(1-t) n D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta.
+\end{align*}
+    Decompose the integral region into two parts $\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}$ and $\{\theta: \|\theta-\theta_0\|>\delta\}$.
+Then Assumption~\ref{Assumption4} implies that
+\begin{align*}
+    &\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } 
+    \exp \big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta
+    \\
+    =&\left(
+        \int_{\{\theta:\frac{M_n}{\sqrt{n}}\leq \|\theta-\theta_0\|\leq \delta \}}
         +
-        \exp\big[ -(1-t)\epsilon n\big]
-        \\
-        =&
-        \big(\max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)\big)
-        n^{-p/2}\int_{\big\{h: \|h\|\geq M_n \big\}} \exp\big[-(1-t)C \|h\|^2 \big] \, d h
-        +
-        \exp\big[ -(1-t)\epsilon n\big].
-    \end{aligned}
-    $$
+\int_{\{\theta: \|\theta-\theta_0\|>\delta\}}
+    \right)
+    \exp\big[ -(1-t) {n} D_t(\theta||\theta_0) \big] \pi(\theta) \, d \theta
+    \\
+    \leq &
+    \max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)
+    \int_{\big\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}} \big\}}
+    \exp\big[ -(1-t)C {n} \|\theta-\theta_0\|^2 \big]
+    \, d \theta
+    +
+    \exp\big[ -(1-t)\epsilon n\big]
+    \\
+    =&
+    \big(\max_{\|\theta-\theta_0\|\leq \delta}\pi(\theta)\big)
+    n^{-p/2}\int_{\big\{h: \|h\|\geq M_n \big\}} \exp\big[-(1-t)C \|h\|^2 \big] \, d h
+    +
+    \exp\big[ -(1-t)\epsilon n\big].
+\end{align*}
+Hence
+\begin{equation}\label{Prop4:eq2}
+    n^{p/2}\int_{\{\theta:\|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\} } \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}  \Big]^{t} \pi(\theta) \, d \theta
+    =o_{P^n_{\theta_0}}(1).
+\end{equation}
+
     Now we consider the denominator of~\eqref{eq:numden}.
     $$
     \begin{aligned}
@@ -1237,340 +1201,114 @@ Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t$ is not always 
         n^{-p/2}\frac{2\pi^{p/2}}{\Gamma(p/2)}.
     \end{aligned}
     $$
-    By Proposition~\ref{Thm:localExpansion},
+    By Lemma~\ref{Thm:localExpansion},
     $$
    \begin{aligned} 
         \min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
         \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
         \geq
         -\|I_{\theta_0}\Delta_{n,\theta_0}\|-\frac{1}{2}\|I_{\theta_0}\|+
-        o_{P^n_0}(1).
+        o_{P^n_{\theta_0}}(1),
    \end{aligned}
     $$
-    Since 
+    where
     $I_{\theta_0}\Delta_{n,\theta_0}$
-    is bounded in probability, 
-    $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} 
-        \log\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}
-    $$ is lower bounded in probability.
-    Note that 
+    is bounded in probability.
+    Also note that 
     $$\min_{\|\theta-\theta_0\|\leq n^{-1/2}} \pi(\theta)\to \pi(\theta_0)>0.$$
     Then for every $\epsilon'>0$, there is a constant $c>0$ such that with probability at least $1-\epsilon'$,
     $$
          \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta\geq c n^{-p/2}.
     $$
-
-
-
-
-
-
-     %Lemma~\ref{lemma:denominator} implies that for every $\epsilon'>0$, there is a set $B_{\epsilon'}$ with $P_0^nB_{\epsilon'}>1-1/(4C^2 n \epsilon')$ on which
-     %\begin{equation}\label{eq:dentemp}
-     %\int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{1/2} \pi(\theta)\, d\theta
-     %\geq \Pi(A_{\epsilon'}) \exp \big(-(1+C)\epsilon' n\big).
-     %\end{equation}
-     %We take
-     %$$\epsilon'=\frac{\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2}{2(1+C)n}.$$
-     %It can be seen that $\epsilon'\to 0$. Hence for sufficiently large $n$, we have
-     %$$
-     %\begin{aligned}
-     %\Pi(A_{\epsilon'})
-         %=&\Pi\big(\{\theta: D_{KL}(\theta_0,\theta)\leq \epsilon',\, V(\theta_0||\theta)\leq \epsilon'\}\big)
-         %\\
-         %\geq&
-         %\Pi\Big(\big\{\theta:\|\theta-\theta_0\|^2\leq \frac{\epsilon'}{C_1}\big\}\Big)
-         %\\
-         %=&
-         %\int_{\big\{\theta:\|\theta-\theta_0\|^2\leq \frac{\epsilon'}{C_1}\big\}}\pi(\theta)\, d\theta
-         %\\
-         %\geq&
-         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)\int_{\big\{\theta:\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}\big\}}\, d\theta
-         %\\
-         %=&
-         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)
-         %\big(\frac{\epsilon'}{C_1}\big)^{p/2}
-         %\frac{2\pi^{p/2}}{\Gamma(p/2)}
-         %%%\\
-         %=&
-         %\Big(\min_{\|\theta-\theta_0\|\leq \sqrt{\frac{\epsilon'}{C_1}}} \pi(\theta) \Big)
-         %{\epsilon'}^{p/2}
-         %\frac{2\pi^{p/2}}{(2(1+C)C_1)^{p/2}\Gamma(p/2)}\cdot \frac{\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^p}{n^{p/2}}
-         %\\
-         %\asymp&
-         %\frac{M_n^p}{n^{p/2}}.
-     %\end{aligned}
-     %$$
-     %Then it follows from \eqref{eq:dentemp} that on the set $B_{\epsilon'}$,
-     %\begin{equation}\label{eq:den}
-     %\int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{1/2} \pi(\theta)\, d\theta
-     %\gtrsim
-         %\frac{M_n^p}{n^{p/2}}
-         %\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big].
-     %\end{equation}
-
-     Combining the upper bound and the lower bound yields that with probability at least $1-\epsilon'$,
-     $$
-     \begin{aligned}
-         &
-       \frac{L_{t} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{t}}
-          \\
-          \leq&
-         c^{-1}\big(\max_{\|\theta-\theta_0\|\leq \delta} \pi(\theta)\big)
-         \int_{\big\{h:\|h\|\geq M_n\big\}}\exp\big[-(1-t)C \|h\|^2\big]\, d\theta
-        +
-         c^{-1}n^{p/2} \exp\big[-(1-t)\epsilon n\big]
-         \to 0.
-     \end{aligned}
-     $$
-    Since $\epsilon $ is arbitrary, the theorem follows.
-     %Since 
-     %$$
-%P_0^n B_{\epsilon'}^C=1-P_0^n B_{\epsilon'}
-     %<\frac{1}{4C^2 n \epsilon'}=\frac{1+C}{2C^2\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2}\to 0,
-     %$$
-      %we only need to upper bound the first term.
-      %Combine~\eqref{eq:numden},~\eqref{eq:num} and~\eqref{eq:den}, for sufficiently large $n$ we have
-      %$$
-      %\begin{aligned}
-          %&P_0^n \left\{ \mathbf{1}_{B_{\epsilon'}} \frac{L_{1/2} ( \{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}{L_{1/2}(\Theta)}\right\}
-          %\\
-          %\lesssim&
-              %\frac{1}{M_n^p }
-%\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big]
-          %+\frac{n^{p/2}}{M_n^p}\exp\Big[-\frac{n}{2}\epsilon^2+\frac{1}{2}(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p})^2\Big]
-          %\\
-          %\leq&
-              %\frac{1}{M_n^p }
-%\exp \Big[-\frac{1}{2}\big(\frac{\sqrt{2}}{2}C_2 M_n-\sqrt{p}\big)^2 \Big]
-          %+\frac{n^{p/2}}{M_n^p}\exp\big[-\frac{n}{4}\epsilon^2\big]\to 0.
-      %\end{aligned}
-      %$$
+    This inequality, together with~\eqref{Prop4:eq2}, proves the consistency of $L_t$.
 \end{proof}
 
 
 
 \begin{proof}[\textbf{Proof of Theorem~\ref{theoremMain}}]
-    By contiguity, we only need to prove the convergence in $P_0^n$.
 
-The proof consists of two steps. In the first part of the proof, let  $M$ be a fixed positive number. We prove
-\begin{equation}\label{eq:14}
-    \left|\int_{\|h\|\leq M} \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh-\int_{\|h\|\leq M} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big] \phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh\right|
- \xrightarrow{P^n_0}0
-\end{equation}
-Propostion~\ref{Thm:localExpansion} implies that
+
+    By contiguity, we only need to prove the convergence in $P_{\theta_0}^n$.
+    Let $M>0$ be any fixed number.
+     %In the first part, we prove that for any fixed positive number $M$,
+Lemma~\ref{Thm:localExpansion} implies that
 \begin{equation}\label{eq:8}
-    \int_{\|h\|\leq M} \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh=
-    \exp [o_{p^n_0}(1)]\int_{\|h\|\leq M} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big]\pi_n (h;\BX^{(n)}) \, dh
+    \begin{split}
+    &\int_{\|h\|\leq M} \left[\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^a \pi_n (h;\BX^{(n)}) \, dh\\
+    =&
+    \exp [o_{p^n_0}(1)]\int_{\|h\|\leq M} \exp\big[ a h^T I_{\theta_0}\Delta_{n,\theta_0}- \frac{a}{2}h^T I_{\theta_0}h\big]\pi_n (h;\BX^{(n)}) \, dh.
+\end{split}
 \end{equation}
-    So we only need to consider $\int_{\|h\|\leq M} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big]\pi_n (h;\BX^{(n)}) \, dh$.
-    By central limit theorem, $\Delta_{n,\theta_0}$ weakly converges to a normal distribution.
-    As a result, $\sup_{\|h\|\leq M}\exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big]$ is bounded in probability.
-    It follows that
+    %So we only need to consider $\int_{\|h\|\leq M} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big]\pi_n (h;\BX^{(n)}) \, dh$.
+    %By central limit theorem, $\Delta_{n,\theta_0}$ weakly converges to a normal distribution.
+Since $\Delta_{n,\theta_0}$ is bounded in probability, we have
 \begin{equation*}
 \begin{aligned}
-    &\int_{\|h\|\leq M} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big] \big|\pi_n (h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\big|\, dh
+    &\int_{\|h\|\leq M} \exp\big[a h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{a}{2}h^T I_{\theta_0}h\big] \big|\pi_n (h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1} I_{\theta_0}^{-1})\big|\, dh
 \\
-    \leq& \sup_{\|h\|\leq M}\exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big] 
+    \leq& \sup_{\|h\|\leq M}\exp\big[a h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{a}{2}h^T I_{\theta_0}h\big] 
     \int_{\|h\|\leq M}
-    \big|\pi_n (h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\big|\, dh
-    \xrightarrow{P^n_0}0.
+    \big|\pi_n (h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0}, b^{-1} I_{\theta_0}^{-1})\big|\, dh
+    \xrightarrow{P^n_{\theta_0}}0.
 \end{aligned}
 \end{equation*}
-This, combined with~\eqref{eq:8}, proves~\eqref{eq:14}. 
-This is true for every $M$ and hence also for some $M_n\to \infty$.
-
-In the second part, we prove
-\begin{equation}\label{eq:4}
-    \psi(M)\overset{def}{=}\frac{\int_{\|h\|> M}p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh}{\int p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh}
-    \xrightarrow{P_0^n}0.
-\end{equation}
-    Let $\phi_n$ be a test function satisfying the conclusion of Lemma~\ref{Thm:someTest}. We have
-\begin{equation*}
-    \psi(M)
-    = 
-    \psi(M)\phi_n
-    +
-    \psi(M)(1-\phi_n).
-\end{equation*}
-    Since $\psi(M)\leq 1$, 
-    $
-    \psi(M)\phi_n\leq \phi_n\xrightarrow{P_0^n}0
-    $.
-So it's enough to prove
-\begin{equation*}
-    \psi(M)(1-\phi_n)\xrightarrow{P_0^n}0
-\end{equation*}
-Fix a positive number $U$. Then
-\begin{equation}\label{eq:11}
-\psi(M)(1-\phi_n)
-    \leq \frac{\int_{\|h\|>M_n}p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh}{\int_{\|h\|\leq U} p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh}(1-\phi_n).
-\end{equation}
-    First we give a lower bound of $\int_{\|h\|\leq U} p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh$.
- Note that
-\begin{equation*}
-    \begin{aligned}
-        &\int_{\|h\|\leq U} p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh
-\\
-        = &
-        \exp[o_{P_0^n}(1)]
-        p_n(\BX^{(n)}|\theta_0)
-        \int_{\|h\|\leq U}\exp\big[ h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0} h\big]\pi_n(h;\BX^{(n)})\, dh
-        \\
-        \geq &
-        \exp[o_{P_0^n}(1)]
-        p_n(\BX^{(n)}|\theta_0)
-        \Big\{
-            \int_{\|h\|\leq U}\exp\big[ h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0} h\big]\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh
-            \\
-            &-
-            \sup_{\|h\|\leq U}\exp\big[ h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0} h\big]
-            \int_{\|h\|\leq U}\big|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\big|\, dh
-            \Big\}
-        \\
-        = &
-        \exp[o_{P_0^n}(1)]
-        p_n(\BX^{(n)}|\theta_0)
-        \Big\{
-            \int_{\|h\|\leq U}\exp\big[ h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0} h\big]\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh
-            -O_P(1) o_P(1)
-                        \Big\}.
-        \\
-    \end{aligned}
-\end{equation*}
-Fix an $\epsilon>0$.
- Since $\Delta_{n,\theta_0}$ is uniformly tight,
- with probability at least $1-\epsilon/2$, $|\Delta_{n,\theta_0}|\leq C$ for a constant $C$.
- If this event happens, we have
- $$
-            \int_{\|h\|\leq U}\exp\big[ h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0} h\big]\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh
-            >2c
- $$
- for some $c>0$.
- Thus, there is a $c>0$ and an event $D_{1,n}$ with probability  at least $1-\epsilon$ on which
-\begin{equation*}
-    \begin{aligned}
-        &\int_{\|h\|\leq U} p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n(h;\BX^{(n)})\, dh
-        \geq 
-        c p_n(\BX^{(n)}|\theta_0)
-    \end{aligned}
-\end{equation*}
-  for sufficiently large $n$.
-
-    On the other hand,
-    by Assumption~\ref{Assumption3}, there is a $K>0$, a $A>0$ and an event $D_{2,n}$ with probability at least $1-\epsilon$ on which
-    $$
-    \sup_{\|h\|>K\sqrt{n}} (\pi_n(h;\BX^{(n)})-T(h))\leq 0,\quad
-    \sup_{\|h\|\leq K \sqrt{n}} \pi_n(h;\BX^{(n)})\leq A
-    $$
-for sufficiently large $n$.
-
-Combining these bounds yields
-$$
-\psi(M)(1-\phi_n)
-    \leq
-    \frac{\int_{\|h\|>M_n}p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\big(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}}\big)\, dh}{c p_n(\BX^{(n)}|\theta_0)}(1-\phi_n)
-    +\mathbf{1}\{D_{1,n}^{C}\cup D_{2,n}^{C}\}.
-$$
-Hence for sufficiently large $n$,
-$$
-\begin{aligned}
-    &P_0^n\psi(M)(1-\phi_n)
+This, combined with~\eqref{eq:8}, yields 
+\begin{equation}\label{eq:14}
+    \begin{split}
+    &\int_{\|h\|\leq M} \left[ \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^a \pi_n (h;\BX^{(n)}) \, dh
     \\
-    \leq &
-    c^{-1}\int_{\mathcal{X}^n}\int_{\|h\|>M_n}(1-\phi_n)p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\big(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}}\big)\, dh \, d\mu^n
-+2\epsilon
-\\
-    = &
-    c^{-1}\int_{\|h\|>M_n}\Big(\int_{\mathcal{X}^n}(1-\phi_n)p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)\, d\mu^n\Big) \big(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}}\big)\, dh 
-+2\epsilon\\
-    \leq &
-    c^{-1}\int_{\|h\|>M_n} \exp\big[ -\delta (\|h\|^2 \wedge n)\big] \big(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}}\big)\, dh 
-+2\epsilon.
-\end{aligned}
-$$
-Note that $\delta(\|h\|^2\cap n)\geq \delta^* (\|h\|^2\wedge K^2 n)$, where $\delta^*=\delta \min(1,K^{-2})$.
+    =&\int_{\|h\|\leq M} \exp\big[ a h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{a}{2}h^T I_{\theta_0}h\big] \phi(h;\Delta_{n,\theta_0}, b^{-1} I_{\theta_0}^{-1})\, dh
+    +o_{P^n_{\theta_0}}(1).
+\end{split}
+\end{equation}
+This is true for every $M>0$ and hence also for some $M_n\to \infty$.
+
+Now we prove that for any $M_n\to +\infty$, we have
+\begin{equation}\label{eq:4}
+    \int_{\|h\|> M_n}\left[\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^{a} \pi_n(h;\BX^{(n)})\, dh
+    \xrightarrow{P_{\theta_0}^n}0.
+\end{equation}
+By Assumption~\ref{Assumption3}, for any $\epsilon>0$, with probability at least $1-\epsilon$,
+\begin{equation}\label{eq:4l}
+    \int_{\|h\|> M_n}\left[\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^{a} \pi_n(h;\BX^{(n)})\, dh
+    \leq
+    \int_{\|h\|> M_n}\left[\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^{a} T(h)\, dh.
+\end{equation}
+By  H\"older's inequality, 
+\begin{equation*}
+    P^n_{\theta_0}\left[\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^{a}
+    =
+    \int p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)^a p_n(\BX^{(n)}|\theta_0)^{1-a} d\mu^n\leq 1.
+\end{equation*}
+Hence the expectation of the right hand side of~\eqref{eq:4l} satisfies
+\begin{equation*}
+   P^n_{\theta_0} \int_{\|h\|> M_n}\left[\frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^{a} T(h)\, dh
+   \leq
+   \int_{\|h\|> M_n} T(h)\, dh\to 0.
+\end{equation*}
+This verifies~\eqref{eq:4}.
+
+Combining~\eqref{eq:14} and~\eqref{eq:4} yields
+\begin{equation*}
+    \int_{h\in\mathbb{R}^p} \left[ \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}\right]^a \pi_n (h;\BX^{(n)}) \, dh
+    =\left(1+\frac{a}{b}\right)^{-p/2} \exp\left(\frac{a}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\right)+o_{P_{\theta_0}^n}(1).
+\end{equation*}
+Similarly, we have
+\begin{equation*}
+    \int_{h^{(0)}\in\mathbb{R}^{p_0}} \left[ \frac{p_n(\BX^{(n)}|\nu_0+n^{-1/2}h^{(0)},\xi_0)}{p_n(\BX^{(n)}|\theta_0)}\right]^a \pi_n (h^{(0)};\BX^{(n)}) \, dh^{(0)}
+    =\left(1+\frac{a}{b}\right)^{-p_0/2} \exp\left(\frac{a}{2}\Delta_{n,\theta_0}^{(0)T} I^{(0)}_{\theta_0}\Delta^{(0)}_{n,\theta_0}\right)+o_{P_{\theta_0}^n}(1).
+\end{equation*}
 Hence
 \begin{equation*}
-    \begin{aligned}
-        &\int_{\|h\|>M_n} \exp\big[ -\delta (\|h\|^2 \wedge n)\big] \big(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}}\big)\, dh \\
-        \leq&\int_{\|h\|>M_n} \exp\big[ -\delta^* (\|h\|^2 \wedge K^2 n)\big] \big(A\textbf{1}_{M_n\leq \|h\|\leq K\sqrt{n}}+T(h)\textbf{1}_{\|h\|> K\sqrt{n}}\big)\, dh \\
-        \leq& A \int_{\|h\|\geq M_n}e^{-\delta^*\|h\|^2}\, dh + e^{-\delta^*K^2n}\int_{\|h\|>K\sqrt{n}} T(h)\, dh  \to 0.
-    \end{aligned}
-\end{equation*}
-Therefore $\psi(M)\xrightarrow{P_0^n}0$.
-
-Finally we have
-\begin{equation*}
-    \begin{aligned}
-        &\left|\int \frac{p(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh-2^{-\frac{p}{2}}\exp\big[\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
- \right|\\
-        &=\left|\int \frac{p(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh-\int_{\|h\|\leq M_n}\frac{p(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh\right|\\
-        &+\left|\int_{\|h\|\leq M_n} \frac{p(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh -\int_{\|h\|\leq M_n} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big]\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh\right|\\
-        &+\left| \int_{\|h\|\leq M_n} \exp\big[h^T I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^T I_{\theta_0}h\big]\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\, dh-2^{-\frac{p}{2}}\exp\big[\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\big]
- \right|\\
-        &=J_1+J_2+J_3
-\end{aligned}
-\end{equation*}
-By the first step of the proof, we have $J_2\xrightarrow{P^n_0}0$.
-Hence 
-$$
-\int_{\|h\|\leq M_n} \frac{p(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh
-$$ is bounded in probability. Therefore
-\begin{equation*}
-\begin{aligned}
-    J_1&=
-\int_{\|h\|\leq M_n} \frac{p(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p(\BX^{(n)}|\theta_0)}\pi_n (h;\BX^{(n)}) \, dh
-\left|\frac{
-\int p(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n (h;\BX^{(n)}) \, dh}{\int_{\|h\|\leq M_n} p(\BX^{(n)}|\theta_0+n^{-1/2}h)\pi_n (h;\BX^{(n)}) \, dh}-1\right|\\
-       &=O_{P_0^n}(1)o_{P_0^n}(1)
-\end{aligned}
-\end{equation*}
-And $J_3$ convenges to $0$ for trivial reason.
-
-    Then we can apply the argument to both the numerator and denominator of integrated likelihood ratio statistics. By CLT,
-
-    \begin{equation}
-    I_{\theta_0}\Delta_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow }\xi, 
-\end{equation}
-where $\xi\sim N(0,I_{\theta_0})$.
-\begin{equation}
-    I^*_{\theta_0}\Delta^*_{n,\theta_0}=\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}^*_{\theta_0}(X_i)\overset{P_0^n}{\rightsquigarrow} \xi^*, 
-\end{equation}
-where $\xi^*$ is the first $p_1$ coordinates of $\xi$. Hence
-
-
-\begin{equation}\label{equationNull}
     \begin{aligned} 
-        \Lambda(X)&=
-        \frac{2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}\}+o_{P_0^n}(1)
-        }{2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\Delta_{n,\theta_0}^{*T}I^*_{\theta_0}\Delta^*_{n,\theta_0}\}+o_{P_0^n}(1)
-        }
-        \\
-        &\overset{P_{0}^n}{\rightsquigarrow }
-        \frac{2^{-\frac{p_2}{2}}\exp\{\frac{1}{2}\xi^T I^{-1}_{\theta_0}\xi\}
-        }{2^{-\frac{p_1}{2}}\exp\{\frac{1}{2}\xi^{*T}I^{*-1}_{\theta_0}\xi^*\}
-        }.
+        2\log \Lambda_{a,b}&=
+        -{(p-p_0)}\log (1+\frac{a}{b})+{a}\left(
+\Delta_{n,\theta_0}^T I_{\theta_0}\Delta_{n,\theta_0}
+        -\Delta_{n,\theta_0}^{(0)T} I^{(0)}_{\theta_0}\Delta^{(0)}_{n,\theta_0}\right)
+        +o_{P^n_{\theta_0}}(1).
     \end{aligned}
-\end{equation}
-But
-\begin{equation}\label{equationXi}
-    \xi^T I^{-1}_{\theta_0}\xi -\xi^{*T}I^{*-1}_{\theta_0}\xi^*
-    ={(I_{\theta_0}^{-\frac{1}{2}}\xi)}^T\Big(
-        I_{p_{2}\times p_{2}}-
-        I_{\theta_0}^{\frac{1}{2}}
-        \left(\begin{matrix} 
-                I^{*-1}_{\theta_0}&0\\
-                0&0
-        \end{matrix}\right)
-        I_{\theta_0}^{\frac{1}{2}}
-    \Big)(I_{\theta_0}^{-\frac{1}{2}}\xi).
-\end{equation}
-    $I_{\theta_0}^{-\frac{1}{2}}\xi$ is a $p_2$-dimensional standard normal distribution, The middle term is a projection matrix with rank $p_2-p_1$. Hence we have
-\begin{equation}
-    2\log(\Lambda(X))\overset{P_0^n}{\rightsquigarrow} \chi^2_{p_2-p_1}-(p_2-p_1)\log(2).
-\end{equation}
-%\begin{theorem}\label{theoremPower}
+\end{equation*}
+Then the conclusion follows by the same argument as the last part of Theorem~\ref{Thm:maintheorem}.
 \end{proof}
 
 \section{Proofs in Section 3}

@@ -5,11 +5,10 @@ Aitkin, M. (1991).
 \newblock Posterior bayes factors. journal of the royal statistical society
   series b-methodological.
 
-\bibitem[\protect\astroncite{Berger and Pericchi}{1996}]{intrisicBayesFactor}
-Berger, J.~O. and Pericchi, L.~R. (1996).
-\newblock The intrinsic bayes factor for model selection and prediction.
-\newblock {\em Journal of the American Statistical Association},
-  91(433):109--122.
+\bibitem[\protect\astroncite{{Bhattacharya} et~al.}{2016}]{Bha2016}
+{Bhattacharya}, A., {Pati}, D., and {Yang}, Y. (2016).
+\newblock {Bayesian fractional posteriors}.
+\newblock {\em ArXiv e-prints}.
 
 \bibitem[\protect\astroncite{Blei et~al.}{2017}]{blei2017}
 Blei, D.~M., Kucukelbir, A., and McAuliffe, J.~D. (2017).
@@ -122,5 +121,11 @@ Walker, S.~G. and Hjort, N.~L. (2001).
 \newblock On bayesian consistency.
 \newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
   Methodology)}, 63(4):811--821.
+
+\bibitem[\protect\astroncite{Wilks}{1938}]{Wilks1938The}
+Wilks, S.~S. (1938).
+\newblock The large-sample distribution of the likelihood ratio for testing
+  composite hypotheses.
+\newblock {\em Annals of Mathematical Statistics}, 9(1):60--62.
 
 \end{thebibliography}
