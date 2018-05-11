@@ -697,25 +697,19 @@ Let $M>0$ is a fixed constant.  For $h=(h_1,h_2)^T\in \mathbb{R}^2$ such that $\
     \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}=
     \frac{1}{2}+\frac{1}{2}\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}.
 \end{equation*}
-It is known that $\max_{1\leq i\leq n}|X_i|=O_P(\sqrt{\log n})$. Thus, uniforly for$\|h\|\leq M$ and $i=1,\ldots,nj$, we have
+It is known that $\max_{1\leq i\leq n}|X_i|=O_P(\sqrt{\log n})$.
+Then by Taylor expansion $\exp(x)=1+x+x^2/2+O(x^3)$, we have, uniformly for$\|h\|\leq M$ and $i=1,\ldots,n$, that
 \begin{align*}
     &\exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
     \\
-    =&
-    1-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
-    \\
-    &+\frac{1}{2}\left\{
-    -\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
-\right\}^2+O_P\left(\frac{\log^3 n}{n^{3/2}}\right)
-    \\
     %=&
-    %1-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{h_1^2}{2n}
-    %+\frac{h_2^2}{8n}X_i^4 
-    %+
-     %\frac{h_1^2}{2n} X_i^2
-     %-\frac{h_1 h_2}{2n}X_i^3
-%+O_P\left(\frac{\log^3 n}{n^{3/2}}\right)
-%\\
+    %1-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
+    %\\
+    %&+\frac{1}{2}\left\{
+    %-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
+%\right\}^2+O_P\left(\frac{\log^3 n}{n^{3/2}}\right)
+    %\\
+    %=&
     =&
 1
 -\frac{h_1^2}{2n}
@@ -735,25 +729,25 @@ On the other hand,
 \begin{equation*}
     \sqrt{1+\frac{h_2}{\sqrt{n}}}=1+\frac{h_2}{2\sqrt{n}}-\frac{h_2^2}{8n} +O\left(\frac{1}{n^3}\right).
 \end{equation*}
-Hence
-\begin{equation*}
-    \begin{split}
-    &\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
-    \\
-    =&
-    1
-+\frac{h_1}{\sqrt{n}} X_i
-+\left(\frac{h_2}{2\sqrt{n}}-\frac{h_1^2}{2n}\right)
-        (1-X_i^2)
-    +\frac{h_2^2}{8n}X_i^4 
-    -\frac{h_2^2}{4n}X_i^2
--\frac{h_2^2}{8n}
-+\frac{3 h_1 h_2}{2 n}  X_i
-     -\frac{h_1 h_2}{2n}X_i^3
-    +O_P\left(\frac{\log^3 n}{n^{3/2}}\right).
-    \end{split}
-\end{equation*}
-Then
+Combining these two expansion yields
+%\begin{equation*}
+    %\begin{split}
+    %&\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
+    %\\
+    %=&
+    %1
+%+\frac{h_1}{\sqrt{n}} X_i
+%+\left(\frac{h_2}{2\sqrt{n}}-\frac{h_1^2}{2n}\right)
+        %(1-X_i^2)
+    %+\frac{h_2^2}{8n}X_i^4 
+    %-\frac{h_2^2}{4n}X_i^2
+%-\frac{h_2^2}{8n}
+%+\frac{3 h_1 h_2}{2 n}  X_i
+     %-\frac{h_1 h_2}{2n}X_i^3
+    %+O_P\left(\frac{\log^3 n}{n^{3/2}}\right).
+    %\end{split}
+%\end{equation*}
+%Then
 \begin{equation*}
     \begin{split}
     &\frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
@@ -771,7 +765,7 @@ Then
     +O_P\left(\frac{\log^4 n}{n^{3/2}}\right).
     \end{split}
 \end{equation*}
-Using expansion $\log(1+x)=x-x^2/2+O(x^3)$ for $x\in(-1,1)$, we have
+Use Taylor expansion $\log(1+x)=x-x^2/2+O(x^3)$ for $x\in(-1,1)$, we have
 \begin{equation*}
     \begin{split}
     &\log \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
@@ -789,11 +783,106 @@ Using expansion $\log(1+x)=x-x^2/2+O(x^3)$ for $x\in(-1,1)$, we have
      &-\frac{h_1^2}{8n}X_i^2
      -\frac{h_2^2}{32n}(1-X_i^2)^2
      -\frac{h_1 h_2}{8n}X_i(1-X_i^2)
-    +O_P\left(\frac{\log^6 n}{n^{3/2}}\right).
+     +O_P\left(\frac{\log^6 n}{n^{3/2}}\right).
     \end{split}
 \end{equation*}
+This expansion is uniform for $\|h\|\leq M$ and $i=1,\ldots,n$.
+Thus,
+\begin{equation*}
+    \begin{split}
+        &
+        \log 
+        \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}=
+        \sum_{i=1}^n\log \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
+    \\
+    =&
+    \frac{h_1}{2\sqrt{n}} \sum_{i=1}^n X_i
++
+\frac{h_2}{4\sqrt{n}} \sum_{i=1}^n (1-X_i^2)
+     -\frac{h_1^2}{8}
+     -\frac{h_2^2}{16n}
+     +o_P(1),
+    \end{split}
+\end{equation*}
+where the $o_P(1)$ term is uniform for $\|h\|\leq M$.
+This verifies Assumption~\ref{Assumption1}.
 
+Now we verify Assumption~\ref{Assumption4}.
+We have
+\begin{equation*}
+    \begin{split}
+    &D_{1/2}(\theta||\theta_0)
+    =-2\log \int \sqrt{p(X|\theta)p(X|\theta_0)} d\mu
+    \geq
+    2(1-\int \sqrt{p(X|\theta)p(X|\theta_0)} d\mu)
+    \\
+    =&\int (\sqrt{p(X|\theta)}-\sqrt{p(X|\theta_0)})^2 d\mu
+    \geq
+    \frac{1}{4}
+    \left(\int \left|p(X|\theta)-p(X|\theta_0)\right| d\mu\right)^2
+    \\
+    =&
+    \frac{1}{16}
+    \left(\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu\right)^2
+    .
+\end{split}
+\end{equation*}
+We have
+\begin{equation*}
+    \begin{split}
+    &\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
+    \geq
+    \left|\int  exp(iX)\sigma^{-1}\phi((X-\xi)/\sigma)-exp(itX)\phi(X) d\mu\right|
+    \\
+    =&\left|\exp(i\xi -\sigma^2 /2)-\exp(-1/2)\right|.
+\end{split}
+\end{equation*}
+On the one hand,
+\begin{equation*}
+    \int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
+    \geq
+    |\sin \xi |\exp(-\sigma^2/2).
+\end{equation*}
+Hence if $(\xi, \sigma^2)^T$ is close enough to $(0,1)$, we have
+\begin{equation*}
+    \int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
+    \gtrsim |\xi|.
+\end{equation*}
+On the other hand, if $(\xi, \sigma^2)^2$ is close enough to $(0,1)$
+\begin{equation*}
+    \begin{split}
+    &\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
+    \geq
+    \left|\exp(i\xi -\sigma^2 /2)-\exp(-1/2)\right|
+    \\
+    \geq &
+    \left|\exp(-\sigma^2 /2)-\exp(-1/2)\right|\gtrsim |\sigma^2-1|.
+\end{split}
+\end{equation*}
+Thus, there exist $\delta>0$ and $C>0$, such that for $\sqrt{\xi^2+(\sigma^2-1)^2}<\delta$, we have
+\begin{equation*}
+    D_{1/2}(\theta||\theta_0)\geq C (\xi^2+(\sigma^2-1)^2).
+\end{equation*}
+For $\sqrt{\xi^2+(\sigma^2-1)^2}\geq\delta$, we have
+\begin{equation*}
+    \begin{split}
+    D_{1/2}(\theta||\theta_0)
+    &\geq
+    \frac{1}{16}
+    \left(\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu\right)^2
+    \\
+    &\geq
+    \frac{1}{16}
+\left(\int \left(\sqrt{\sigma^{-1}\phi((X-\xi)/\sigma)}-\sqrt{\phi(X)}\right)^2 d\mu\right)^2
+    .
+\end{split}
+\end{equation*}
+The Hellinger distance between normal distribution can be explicitly derived. And it can be easily seen that it has a lower bound $\epsilon>0$ for $\sqrt{\xi^2+(\sigma^2-1)^2}\geq\delta$.
+Thus Assumption~\ref{Assumption4} holds.
+
+Then by Theorem~\ref{Thm:maintheorem}, we have {\color{red} xxxxxxxx}.
 \end{proof}
+
 
 
 Next, we assume $\sigma^2=1$ is known and consider testing the hypotheses
@@ -1487,7 +1576,7 @@ We would like to derive the asymptotics of
 
 Let $A(M_n)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$, we have
 \begin{proposition}
-    If $M_n \geq  \frac{1}{4(t\wedge (1-t))}\log n$,
+    If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
     \begin{equation*}
         \myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu =o(n^{-1/2}).
     \end{equation*}
@@ -1508,11 +1597,11 @@ Note that
 \\
 \leq & \exp \Big( -(t\wedge (1-t))\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p_0(X_i)}\big)^2\, d\mu \Big)
 \\
-\leq & \exp \Big( -\frac{1}{2}(t\wedge (1-t)) \big(\int \big| p(X_i|\omega,\xi)-p_0(X_i)\big|\, d\mu \big)^2 \Big)
+\leq & \exp \Big( -\frac{1}{4}(t\wedge (1-t)) \big(\int \big| p(X_i|\omega,\xi)-p_0(X_i)\big|\, d\mu \big)^2 \Big)
 \\
-= & \exp \Big( -\frac{1}{2}(t\wedge (1-t)) \omega^2 \big(\int \big| \phi(X_i -\xi)-\phi (X_i)\big|\, d\mu \big)^2 \Big)
+= & \exp \Big( -\frac{1}{4}(t\wedge (1-t)) \omega^2 \big(\int \big| \phi(X_i -\xi)-\phi (X_i)\big|\, d\mu \big)^2 \Big)
 \\
-= & \exp \Big( -2(t\wedge (1-t)) \omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
+= & \exp \Big( -(t\wedge (1-t)) \omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
 \\
 \end{align*}
 Thus,
@@ -1521,11 +1610,11 @@ Thus,
 \\
     \leq
     &
-    \int_{A(M_n)^c} \exp \Big( -2(t\wedge (1-t)) n\omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
+    \int_{A(M_n)^c} \exp \Big( -(t\wedge (1-t)) n\omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
 \pi_{\omega}(\omega) \pi_\xi(\xi)\, d\omega d\xi
 \end{align*}
 
-If $M_n \geq \frac{1}{4(t\wedge (1-t))}\log n$,
+If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
 \begin{align*}
     &\myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
 \\
@@ -1773,10 +1862,9 @@ Thus,
 \frac{1}{\omega}
 \pi_{\omega}(\omega)\, d\omega.
 \end{align*}
-
-Thus,
+This implies that
 \begin{equation*}
-    2\log \Lambda_{a,b}(\BX^{(n)})=-\log(1+a/b)+\frac{a}{n}(\sum_{i=1}^n X_i)^2+o_P(1).
+    2\log \Lambda_{a,b}=-\log(1+a/b)+\frac{a}{n}(\sum_{i=1}^n X_i)^2+o_P(1).
 \end{equation*}
 
 %Now suppose
