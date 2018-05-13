@@ -1579,7 +1579,7 @@ We have
     \begin{split}
         &\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
     \geq
-    \left|\int  exp(iX)\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-exp(itX)\phi(X) d\mu\right|
+    \left|\int  \exp(iX)\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\exp(itX)\phi(X) d\mu\right|
     \\
     =&\left|\exp(i\xi -1 /(2\tau))-\exp(-1/2)\right|.
 \end{split}
@@ -1590,12 +1590,12 @@ On the one hand,
     \geq
     |\sin \xi |\exp(-\sigma^2/2).
 \end{equation*}
-Hence if $(\xi, \tau)^T$ is close enough to $(0,1)$, we have
+Hence if $(\xi, \tau)^T$ is close enough to $(0,1)^T$, we have
 \begin{equation*}
     \int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
     \gtrsim |\xi|.
 \end{equation*}
-On the other hand, for $(\xi, \tau)^T$ close enough to $(0,1)$, 
+On the other hand, for $(\xi, \tau)^T$ close enough to $(0,1)^T$, 
 \begin{equation*}
     \begin{split}
         &\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
@@ -1639,25 +1639,25 @@ To prove Theorem~\ref{mixtureThm}, the following result is useful.
     Let $0<t<1$ be a constant.
     If $M_n \geq \sqrt{{\log n}/(2(t\wedge (1-t)))}$, we have
     \begin{equation*}
-        P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu =o(n^{-1/2}).
+        P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu =o(n^{-1/2}).
     \end{equation*}
 \end{proposition}
 \begin{proof}
 \begin{equation*}
-    P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     =
-    \int_{A(M_n)^c} \big( \int p(X_1|\omega,\xi)^t p_0(X_1)^{1-t}\, d\mu\big)^n \pi(\omega,\xi)\, d\omega d\xi.
+    \int_{A(M_n)^c} \big( \int p(X_1|\omega,\xi)^t p(X_1|0,0)^{1-t}\, d\mu\big)^n \pi(\omega,\xi)\, d\omega d\xi.
 \end{equation*}
 Note that
 \begin{align*}
-    &\int p(X_i|\omega,\xi)^t p_0(X_i)^{1-t}\, d\mu
-    \leq  \Big(\int \sqrt{p(X_i|\omega,\xi) p_0(X_i)}\, d\mu\Big)^{2(t\wedge (1-t))}
+    &\int p(X_i|\omega,\xi)^t p(X_i|0,0)^{1-t}\, d\mu
+    \leq  \Big(\int \sqrt{p(X_i|\omega,\xi) p(X_i|0,0)}\, d\mu\Big)^{2(t\wedge (1-t))}
     \\
-= & \Big(1-\frac{1}{2}\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p_0(X_i)}\big)^2\, d\mu\Big)^{2(t\wedge (1-t))}
+= & \Big(1-\frac{1}{2}\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p(X_i|0,0)}\big)^2\, d\mu\Big)^{2(t\wedge (1-t))}
 \\
-\leq & \exp \Big( -(t\wedge (1-t))\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p_0(X_i)}\big)^2\, d\mu \Big)
+\leq & \exp \Big( -(t\wedge (1-t))\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p(X_i|0,0)}\big)^2\, d\mu \Big)
 \\
-\leq & \exp \Big( -\frac{1}{4}(t\wedge (1-t)) \big(\int \big| p(X_i|\omega,\xi)-p_0(X_i)\big|\, d\mu \big)^2 \Big)
+\leq & \exp \Big( -\frac{1}{4}(t\wedge (1-t)) \big(\int \big| p(X_i|\omega,\xi)-p(X_i|0,0)\big|\, d\mu \big)^2 \Big)
 \\
 = & \exp \Big( -\frac{1}{4}(t\wedge (1-t)) \omega^2 \big(\int \big| \phi(X_i -\xi)-\phi (X_i)\big|\, d\mu \big)^2 \Big)
 \\
@@ -1665,7 +1665,7 @@ Note that
 \end{align*}
 This implies that
 \begin{align*}
-    &P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
+    &P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
 \\
     \leq
     &
@@ -1674,7 +1674,7 @@ This implies that
 \end{align*}
 If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
 \begin{align*}
-    &P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
+    &P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
 \\
     \leq
     &
