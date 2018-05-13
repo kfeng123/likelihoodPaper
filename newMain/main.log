@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.4)  12 MAY 2018 01:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  12 MAY 2018 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -175,20 +175,28 @@ Package: geometry 2010/09/12 v5.6 Page Geometry
 \Gm@layoutvoffset=\dimen119
 \Gm@dimlist=\toks16
 )
+(/usr/share/texlive/texmf-dist/tex/latex/preprint/authblk.sty
+Package: authblk 2001/02/27 1.3 (PWD)
+\affilsep=\skip44
+\@affilsep=\skip45
+\c@Maxaffil=\count107
+\c@authors=\count108
+\c@affil=\count109
+)
 (/usr/share/texlive/texmf-dist/tex/latex/galois/galois.sty
 Package: galois 2005/03/19 v1.05, Galois connections, Patrick.Cousot@ens.fr
-\@GALOISalphadepth=\skip44
-\@GALOISalphaheight=\skip45
-\@GALOISgammadepth=\skip46
-\@GALOISwidth=\skip47
-\@GALOISheight=\skip48
-\@GALOISdepth=\skip49
-\@GALOIStotalheight=\skip50
-\@GALOISGap=\skip51
-\@GALOISalphaarrowwidth=\skip52
-\@GALOISalphaarrowhalfheight=\skip53
-\@GALOISgammaarrowwidth=\skip54
-\@GALOISgammaarrowhalfheight=\skip55
+\@GALOISalphadepth=\skip46
+\@GALOISalphaheight=\skip47
+\@GALOISgammadepth=\skip48
+\@GALOISwidth=\skip49
+\@GALOISheight=\skip50
+\@GALOISdepth=\skip51
+\@GALOIStotalheight=\skip52
+\@GALOISGap=\skip53
+\@GALOISalphaarrowwidth=\skip54
+\@GALOISalphaarrowhalfheight=\skip55
+\@GALOISgammaarrowwidth=\skip56
+\@GALOISgammaarrowhalfheight=\skip57
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty
 Package: bm 2014/10/28 v1.1c Bold Symbol Support (DPC/FMi)
@@ -200,7 +208,7 @@ LaTeX Info: Redefining \bm on input line 207.
 )
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
 Package: amsmath 2016/03/03 v2.15a AMS math features
-\@mathmargin=\skip56
+\@mathmargin=\skip58
 
 For additional information on amsmath, use the `?' option.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
@@ -219,13 +227,13 @@ LaTeX Info: Redefining \boldsymbol on input line 28.
 (/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 1999/12/14 v2.01 operator names
 )
-\inf@bad=\count107
+\inf@bad=\count110
 LaTeX Info: Redefining \frac on input line 199.
-\uproot@=\count108
-\leftroot@=\count109
+\uproot@=\count111
+\leftroot@=\count112
 LaTeX Info: Redefining \overline on input line 297.
-\classnum@=\count110
-\DOTSCASE@=\count111
+\classnum@=\count113
+\DOTSCASE@=\count114
 LaTeX Info: Redefining \ldots on input line 394.
 LaTeX Info: Redefining \dots on input line 397.
 LaTeX Info: Redefining \cdots on input line 518.
@@ -234,15 +242,15 @@ LaTeX Info: Redefining \cdots on input line 518.
 \big@size=\dimen122
 LaTeX Font Info:    Redeclaring font encoding OML on input line 630.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
-\macc@depth=\count112
-\c@MaxMatrixCols=\count113
+\macc@depth=\count115
+\c@MaxMatrixCols=\count116
 \dotsspace@=\muskip11
-\c@parentequation=\count114
-\dspbrk@lvl=\count115
+\c@parentequation=\count117
+\dspbrk@lvl=\count118
 \tag@help=\toks18
-\row@=\count116
-\column@=\count117
-\maxfields@=\count118
+\row@=\count119
+\column@=\count120
+\maxfields@=\count121
 \andhelp@=\toks19
 \eqnshift@=\dimen123
 \alignsep@=\dimen124
@@ -251,8 +259,8 @@ LaTeX Font Info:    Redeclaring font encoding OMS on input line 631.
 \totwidth@=\dimen127
 \lineht@=\dimen128
 \@envbody=\toks20
-\multlinegap=\skip57
-\multlinetaggap=\skip58
+\multlinegap=\skip59
+\multlinetaggap=\skip60
 \mathdisplay@stack=\toks21
 LaTeX Info: Redefining \[ on input line 2735.
 LaTeX Info: Redefining \] on input line 2736.
@@ -278,17 +286,17 @@ Package: amsthm 2015/03/04 v2.20.2
 \thm@headfont=\toks24
 \thm@notefont=\toks25
 \thm@headpunct=\toks26
-\thm@preskip=\skip59
-\thm@postskip=\skip60
-\thm@headsep=\skip61
+\thm@preskip=\skip61
+\thm@postskip=\skip62
+\thm@headsep=\skip63
 \dth@everypar=\toks27
 )
 (/usr/share/texlive/texmf-dist/tex/latex/natbib/natbib.sty
 Package: natbib 2010/09/13 8.31b (PWD, AO)
-\bibhang=\skip62
-\bibsep=\skip63
+\bibhang=\skip64
+\bibsep=\skip65
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count119
+\c@NAT@ctr=\count122
 )
 (/usr/share/texlive/texmf-dist/tex/latex/graphics/graphicx.sty
 Package: graphicx 2014/10/28 v1.0g Enhanced LaTeX Graphics (DPC,SPQR)
@@ -306,7 +314,7 @@ Package graphics Info: Driver file: pdftex.def on input line 95.
 
 (/usr/share/texlive/texmf-dist/tex/latex/pdftex-def/pdftex.def
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
-\Gread@gobject=\count120
+\Gread@gobject=\count123
 ))
 \Gin@req@height=\dimen129
 \Gin@req@width=\dimen130
@@ -331,19 +339,19 @@ Package: booktabs 2005/04/14 v1.61803 publication quality tables
 \cmidrulesep=\dimen138
 \cmidrulekern=\dimen139
 \defaultaddspace=\dimen140
-\@cmidla=\count121
-\@cmidlb=\count122
+\@cmidla=\count124
+\@cmidlb=\count125
 \@aboverulesep=\dimen141
 \@belowrulesep=\dimen142
-\@thisruleclass=\count123
-\@lastruleclass=\count124
+\@thisruleclass=\count126
+\@lastruleclass=\count127
 \@thisrulewidth=\dimen143
 )
 (/usr/share/texlive/texmf-dist/tex/latex/appendix/appendix.sty
 Package: appendix 2009/09/02 v1.2b extra appendix facilities
-\c@@pps=\count125
-\c@@ppsavesec=\count126
-\c@@ppsaveapp=\count127
+\c@@pps=\count128
+\c@@ppsavesec=\count129
+\c@@ppsaveapp=\count130
 )
 (/usr/share/texlive/texmf-dist/tex/latex/tools/enumerate.sty
 Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
@@ -351,15 +359,15 @@ Package: enumerate 2015/07/23 v3.00 enumerate extensions (DPC)
 )
 (/usr/share/texlive/texmf-dist/tex/latex/changepage/changepage.sty
 Package: changepage 2009/10/20 v1.0c check page and change page layout
-\c@cp@cntr=\count128
-\cp@tempcnt=\count129
+\c@cp@cntr=\count131
+\cp@tempcnt=\count132
 )
 (/usr/share/texlive/texmf-dist/tex/latex/datetime/datetime.sty
 Package: datetime 2015/03/20 v2.60 Date Time Package
 
 (/usr/share/texlive/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2015/08/02 v2.2a e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count130
+\etb@tempcnta=\count133
 )
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fmtcount.sty
 Package: fmtcount 2015/05/05 v3.01
@@ -375,7 +383,7 @@ Package: xkeyval 2014/12/03 v2.7a package option processing (HA)
 \XKV@toks=\toks29
 \XKV@tempa@toks=\toks30
 )
-\XKV@depth=\count131
+\XKV@depth=\count134
 File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
 ))
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fcprefix.sty
@@ -383,17 +391,17 @@ Package: fcprefix 2012/09/28
 
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fcnumparser.sty
 Package: fcnumparser 2012/09/28
-\fc@digit@counter=\count132
+\fc@digit@counter=\count135
 ))
-\c@padzeroesN=\count133
-\fc@tmpcatcode=\count134
-\@DT@modctr=\count135
-\@ordinalctr=\count136
-\@orgargctr=\count137
-\@strctr=\count138
-\@tmpstrctr=\count139
-\@DT@loopN=\count140
-\@DT@X=\count141
+\c@padzeroesN=\count136
+\fc@tmpcatcode=\count137
+\@DT@modctr=\count138
+\@ordinalctr=\count139
+\@orgargctr=\count140
+\@strctr=\count141
+\@tmpstrctr=\count142
+\@DT@loopN=\count143
+\@DT@X=\count144
 
 (/usr/share/texlive/texmf-dist/tex/latex/fmtcount/fc-english.def
 File: fc-english.def 2013/08/17
@@ -401,66 +409,66 @@ File: fc-english.def 2013/08/17
 (/usr/share/texlive/texmf-dist/tex/latex/datetime/datetime-defaults.sty
 Package: datetime-defaults 2013/09/10
 )
-\@day=\count142
-\@month=\count143
-\@year=\count144
-\c@HOUR=\count145
-\c@HOURXII=\count146
-\c@MINUTE=\count147
-\c@TOHOUR=\count148
-\c@TOMINUTE=\count149
-\c@SECOND=\count150
-\currenthour=\count151
-\currentminute=\count152
-\currentsecond=\count153
+\@day=\count145
+\@month=\count146
+\@year=\count147
+\c@HOUR=\count148
+\c@HOURXII=\count149
+\c@MINUTE=\count150
+\c@TOHOUR=\count151
+\c@TOMINUTE=\count152
+\c@SECOND=\count153
+\currenthour=\count154
+\currentminute=\count155
+\currentsecond=\count156
 Package datetime Info: No datetime.cfg file found, using default settings on in
 put line 308.
-\@dtctr=\count154
-\dayofyear=\count155
-\dayofweek=\count156
+\@dtctr=\count157
+\dayofyear=\count158
+\dayofweek=\count159
 LaTeX Info: Redefining \today on input line 736.
 \dt@a=\toks31
 \dt@b=\toks32
 )
-\c@theorem=\count157
-\c@proposition=\count158
-\c@corollary=\count159
-\c@lemma=\count160
-\c@example=\count161
-\c@assumption=\count162
-\c@condition=\count163
-\c@remark=\count164
+\c@theorem=\count160
+\c@proposition=\count161
+\c@corollary=\count162
+\c@lemma=\count163
+\c@example=\count164
+\c@assumption=\count165
+\c@condition=\count166
+\c@remark=\count167
 
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 89.
-LaTeX Font Info:    ... okay on input line 89.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
+LaTeX Font Info:    ... okay on input line 111.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 89.
+Package hyperref Info: Link coloring OFF on input line 111.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
 (/usr/share/texlive/texmf-dist/tex/generic/oberdiek/gettitlestring.sty
 Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
-\c@section@level=\count165
+\c@section@level=\count168
 )
-LaTeX Info: Redefining \ref on input line 89.
-LaTeX Info: Redefining \pageref on input line 89.
-LaTeX Info: Redefining \nameref on input line 89.
+LaTeX Info: Redefining \ref on input line 111.
+LaTeX Info: Redefining \pageref on input line 111.
+LaTeX Info: Redefining \nameref on input line 111.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -503,16 +511,16 @@ LaTeX Info: Redefining \nameref on input line 89.
 
 (/usr/share/texlive/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count166
+\scratchcounter=\count169
 \scratchdimen=\dimen144
 \scratchbox=\box30
-\nofMPsegments=\count167
-\nofMParguments=\count168
+\nofMPsegments=\count170
+\nofMParguments=\count171
 \everyMPshowfont=\toks33
-\MPscratchCnt=\count169
+\MPscratchCnt=\count172
 \MPscratchDim=\dimen145
-\MPnumerator=\count170
-\makeMPintoPDFobject=\count171
+\MPnumerator=\count173
+\makeMPintoPDFobject=\count174
 \everyMPtoPDFconversion=\toks34
 ) (/usr/share/texlive/texmf-dist/tex/latex/oberdiek/epstopdf-base.sty
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
@@ -529,81 +537,95 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 91.
+LaTeX Font Info:    Try loading font information for U+msa on input line 112.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 91.
+LaTeX Font Info:    Try loading font information for U+msb on input line 112.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 91.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 112.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
 
-LaTeX Warning: No \author given.
 
-[1
+(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
+)
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+ [1
 
-{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2] [3] [4] [5] [6]
-[7] [8] [9] [10] [11]
-Overfull \hbox (31.98491pt too wide) in paragraph at lines 767--767
+{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
+<figure/newnewPP.png, id=105, 569.7285pt x 346.896pt>
+File: figure/newnewPP.png Graphic file (type png)
+
+<use figure/newnewPP.png>
+Package pdftex.def Info: figure/newnewPP.png used on input line 228.
+(pdftex.def)             Requested size: 422.77664pt x 257.41888pt.
+ [3 <./figure/newnewPP.png>] [4] [5] [6] [7] [8]
+[9] [10] [11] [12]
+Overfull \hbox (24.17433pt too wide) in paragraph at lines 847--847
 [] 
  []
 
-[12] [13]
-Overfull \hbox (24.17433pt too wide) in paragraph at lines 996--996
-[] 
- []
-
-[14] [15] [16] [17] [18] [19]
-Overfull \hbox (46.28958pt too wide) detected at line 1555
+[13] [14] [15] [16] [17] [18] [19]
+Overfull \hbox (46.28958pt too wide) detected at line 1406
 [][] [][] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h[]\
 OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/1
 0.95 dh[] \OT1/cmr/m/n/10.95 = [][] [] [] + \OML/cmm/m/it/10.95 o[]\OT1/cmr/m/n
 /10.95 (1)\OML/cmm/m/it/10.95 :
  []
 
-[20] [21]
-Overfull \hbox (17.40016pt too wide) in paragraph at lines 1649--1652
-[]\OT1/cmr/m/n/10.95 It is known that $[][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/
-10.95 X[]\OMS/cmsy/m/n/10.95 j \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 O[]\OT1
-/cmr/m/n/10.95 ([])$. On $\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.95 (([] \OML/cmm
-/m/it/10.95 n\OT1/cmr/m/n/10.95 )[]) \OMS/cmsy/m/n/10.95 \ f\OML/cmm/m/it/10.95
- ! \OMS/cmsy/m/n/10.95 ^^U \OML/cmm/m/it/10.95 n[]\OMS/cmsy/m/n/10.95 g$\OT1/cm
-r/m/n/10.95 , we have $[][] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^XX[] \OM
-S/cmsy/m/n/10.95 ^^@
- []
 
-[22]
-Overfull \hbox (1.84024pt too wide) in paragraph at lines 1738--1738
+Overfull \hbox (39.01263pt too wide) in paragraph at lines 1514--1514
 [] 
  []
 
-[23] [24] (./main.bbl [25])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1880.
- [26]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1880.
+[20] [21]
+Overfull \hbox (12.1982pt too wide) in paragraph at lines 1637--1641
+[]  \OT1/cmr/bx/n/10.95 Propo-si-tion 6. []\OT1/cmr/m/it/10.95 Sup-pose the con
+-di-tions of The-o-rem []3[] holds. Let $\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.9
+5 (\OML/cmm/m/it/10.95 M[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 f\OT1/cmr/
+m/n/10.95 (\OML/cmm/m/it/10.95 !; ^^X\OT1/cmr/m/n/10.95 ) : \OML/cmm/m/it/10.95
+ ![]\OT1/cmr/m/n/10.95 2^^H(\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^X\OMS/cm
+sy/m/n/10.95 j\OML/cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 2) \OMS/cmsy/m/n/10.95 ^^
+@
+ []
+
+[22] [23]
+Overfull \hbox (8.86797pt too wide) in paragraph at lines 1796--1796
+[] 
+ []
+
+[24] [25] [26] (./main.bbl [27])
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1969.
+ [28]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1969.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1880.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1880.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1969.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1969.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1DE4FF26DDFF56255CE9201398C7FB96;531.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1880.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1969.
  ) 
 Here is how much of TeX's memory you used:
- 8933 strings out of 493029
- 125650 string characters out of 6136235
- 246431 words of memory out of 5000000
- 12224 multiletter control sequences out of 15000+600000
- 18053 words of font info for 66 fonts, out of 8000000 for 9000
+ 9071 strings out of 493029
+ 127344 string characters out of 6136235
+ 249680 words of memory out of 5000000
+ 12336 multiletter control sequences out of 15000+600000
+ 22409 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,22n,35p,1008b,457s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,22n,35p,1008b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
@@ -616,17 +638,18 @@ blic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/am
 sfonts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
 cm/cmr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6
 .pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></u
-sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/sha
-re/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texl
-ive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dis
-t/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/
-fonts/type1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (26 pages, 339035 bytes).
+sr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/t
+ype1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/ty
+pe1/public/rsfs/rsfs10.pfb>
+Output written on main.pdf (28 pages, 403937 bytes).
 PDF statistics:
- 507 PDF objects out of 1000 (max. 8388607)
- 454 compressed objects within 5 object streams
- 100 named destinations out of 1000 (max. 500000)
- 73 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 539 PDF objects out of 1000 (max. 8388607)
+ 481 compressed objects within 5 object streams
+ 104 named destinations out of 1000 (max. 500000)
+ 78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

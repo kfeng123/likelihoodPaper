@@ -5,48 +5,48 @@ The style file: apa.bst
 Database file #1: mybibfile.bib
 Warning--entry type for "Aitkin1991Posterior" isn't style-file defined
 --line 1 of file mybibfile.bib
-Warning--I didn't find a database entry for ""
 Warning--empty journal in Fractional1995
 Warning--empty journal in raftery2006estimating
-You've used 25 entries,
+Warning--can't use both author and editor fields in van2000asymptotic
+You've used 26 entries,
             1940 wiz_defined-function locations,
-            634 strings with 7305 characters,
-and the built_in function-call counts, 9406 in all, are:
-= -- 915
-> -- 340
-< -- 19
-+ -- 111
-- -- 107
-* -- 841
-:= -- 1638
-add.period$ -- 74
-call.type$ -- 25
-change.case$ -- 176
-chr.to.int$ -- 25
-cite$ -- 27
-duplicate$ -- 354
-empty$ -- 675
-format.name$ -- 154
-if$ -- 1824
+            639 strings with 7428 characters,
+and the built_in function-call counts, 9701 in all, are:
+= -- 944
+> -- 347
+< -- 20
++ -- 113
+- -- 109
+* -- 864
+:= -- 1692
+add.period$ -- 78
+call.type$ -- 26
+change.case$ -- 181
+chr.to.int$ -- 26
+cite$ -- 29
+duplicate$ -- 368
+empty$ -- 698
+format.name$ -- 157
+if$ -- 1882
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 25
-newline$ -- 126
-num.names$ -- 77
-pop$ -- 135
+missing$ -- 27
+newline$ -- 131
+num.names$ -- 80
+pop$ -- 140
 preamble$ -- 1
-purify$ -- 176
+purify$ -- 182
 quote$ -- 0
-skip$ -- 280
+skip$ -- 290
 stack$ -- 0
-substring$ -- 680
-swap$ -- 58
+substring$ -- 692
+swap$ -- 61
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 148
-warning$ -- 2
-while$ -- 75
+type$ -- 152
+warning$ -- 3
+while$ -- 77
 width$ -- 0
-write$ -- 316
+write$ -- 329
 (There were 4 warnings)

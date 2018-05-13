@@ -11,6 +11,7 @@
 \usepackage[margin=1 in]{geometry}
 \renewcommand{\baselinestretch}{1.25}
 
+\usepackage{authblk}
 \usepackage{galois} % composition function \comp
 \usepackage{bm}
 \usepackage{amsmath}
@@ -86,28 +87,54 @@
 %\title{Integrated likelihood ratio test with applications to testing the homogeneity in a two-component normal mixture model}
 \title{Integrated Likelihood Ratio Test}
 
+
+\author[1]{Rui Wang}
+\author[2]{Na Li}
+\author[1,3]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
+\affil[1]{
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
+    100081,China
+}
+\affil[2]{
+    School of Econometrics and Management, University of the Chinese Academy of Sciences, Beijing 100049, China.
+}
+\affil[3]{
+Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
+}
+
+
+
+
+
+
+
 \begin{document}
 \maketitle
 \begin{abstract}
     A general methodology called integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes factor as the main test statistics.
     Different from Bayesian hypothesis testing, we treat the resulting test procedure as frequentist test which controls the significance level.
     Under certain regular conditions, we prove the Wilks phenomenon of the integrated likelihood ratio test and derive its asymptotic local power.
-    Our results show that the likelihood ratio test shares similar frequency properties as the likelihood ratio test{\color{red} but have wider application scope}.
+    It is shown that the integrated likelihood ratio test shares similar frequency properties as the likelihood ratio test with fewer conditions.
+    Our results hold even if the likelihood is unbounded where the likelihood ratio test can not be defined.
     %However, the proposed methodology may exhibit considerable differences from likelihood ratio test.
-    Our methodology also includes the statistics produced by approximation computation.
-    We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
-    This problem is fairly irregular and it is known that the likelihood ratio test statistic has undesirable local power behavior.
-    In contrary, the integrated likelihood ratio test has good asymptotic power behavior.
-    This shows the superiority of the integrated likelihood ratio test.
+    %Our methodology also includes the statistics produced by approximation computation.
+    We apply the proposed method to two testing problems in normal mixture model.
+    %The normal mixture model is quite an irregular model.
+    The likelihood ratio test can not be defined for the first problem and  has undesirable local power behavior for the second problem.
+    In comparison, we prove that the integrated likelihood ratio test has good asymptotic power behavior in both problems.
+    %This shows that the integrated likelihood ratio test.
 \end{abstract}
 {\small \textsc{Keywords:} {\em
     Bayes consistency;
    Bayes factor;
-   Hypothesis testing.
+   Fractional posterior;
+   Hypothesis testing;
+   Mixture model;
+    R\'{e}nyi divergence;
+   Variational inference.
 }}
 
 
-%\linenumbers
 
 \section{Introduction}
 
@@ -183,8 +210,8 @@ Thus, to formulate a frequentist test statistic, the measures $\Pi(d\theta)$ and
 
 If $\Pi(\theta=\hat{\theta}_{\text{MLE}})=1$ and $\Pi^{(0)}(\theta=\hat{\theta}^{(0)}_{\text{MLE}})=1$, then~\eqref{naiLiS} equals to the LRT statistic.
 In this case, the measure $\Pi$ and $\Pi^{(0)}$ both concentrate on one point which are highly nonsmooth.
-For many models, although the LRT fails, the likelihood function $L(\theta)$ still has good properties for most $\theta$ and  the MLE is trapped in a fairly small area of $\theta$ where $L(\theta)$ has bad behavior.
-{\color{red} A figure?}
+For many models, although the LRT fails, the likelihood function $L(\theta)$ still has good properties for most $\theta$ and  the MLE is unfortunately trapped in a fairly small area of $\theta$ where $L(\theta)$ has bad behavior.
+See Figure~\ref{myFigure1}.
 In such cases, some smoother $\Pi$ and $\Pi^{(0)}$ may perform better intuitively.
 Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with respect to certain predefined prior distribution) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
 In this case, the statistic~\eqref{naiLiS} becomes the posterior Bayes factor proposed (PBF) by~\cite{Aitkin1991Posterior}.
@@ -195,6 +222,20 @@ This implies that PBF has a similar Wilks phenomenon as the LRT.
 %In a theoretical point of view, the Wilks phenomenon of PBF requires certain conditions which are undesirable.
 %In contrast, it is well known that the posterior distribution tends to become independent of the prior distribution as the sample size increases.
 %Several modifications of Bayes factor have been proposed.
+
+\begin{figure}
+    \begin{center}
+        \includegraphics[width=0.9\textwidth]{figure/newnewPP}
+    \end{center}
+    \caption{
+        An example of unbounded likelihood.
+        We generate data $X_1,\ldots,X_n$ are iid from the mixture model $(1-\omega)\mathcal{N}(0,1)+\omega\mathcal{N}(\xi,\sigma^2)$ with $(\omega,\xi,\sigma^2)^T=(1/2,1,10^{-2})$ and $n=50$.
+        We plot the likelihood function  versus $-\log (\sigma^2)$ with $\omega=1/2$ and $\xi=X_1$.
+        The likelihood tends to infinity as $-\log (\sigma^2)$ tends to infinity.
+        However, the behavior of the likelihood around the true parameter is fairly well.
+    }
+    \label{myFigure1}
+\end{figure}
 
 
 
@@ -218,7 +259,9 @@ Under certain regular conditions, we rigorously prove the Wilks phenomenon of th
 Based on the Wilks phenomenon, an asymptotically correct frequentist test procedure can be formulated.
 We also give the asymptotic power of the resulting test procedure under contiguous alternative.
 It is shown that the generalized FBF has similar asymptotic behavior as the LRT.
-{\color{red}However, it has wider application scope.}
+However, the generalized FBF
+can be applied to the cases where the likelihood is unbounded
+and thus has a wider application scope than the LRT.
 
 
 %The frequentist properties of Bayesian methods have drawn much attention in recent years.
@@ -246,7 +289,7 @@ Variational inference is a popular method for approximating intractable posterio
 See~\cite{blei2017} and the references therein.
 Such procedure produce a distribution other than the fractional posterior distribution.
 To accommodate such cases, we also give a theorem for the general measure $\Pi$ and $\Pi^{(0)}$ in~\eqref{naiLiS2}.
-{\color{red} Allow $a+b=1$.}
+%{\color{red} Allow $a+b=1$.}
 
 
 
@@ -664,239 +707,35 @@ Thus, the LRT can not be defined.
 Using Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, we can obtain the following proposition.
 \begin{proposition}
 For hypotheses testing problem~\eqref{mixturehy1}, 
-the generalized FBF satisfies
+If $\sqrt{n}((\xi,\sigma^2)-(0,1))^T\to (\eta_1,\eta_2)^T $, 
+then the generalized FBF with $a>0$, $b>0$ and $a+b<1$ satisfies
 \begin{equation*}
-    2\log \Lambda_{a,b} 
+    2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow}-2\log (1+\frac{a}{b})+{a}\chi^2(2,\eta_1^2/4+\eta_2^2/8).
 \end{equation*}
-where $a>0$, $b>0$ and $a+b<1$.
     \label{propositionTT}
 \end{proposition}
-This example shows that the ILRT methodology has a wider application scope than the LRT.
-\begin{proof}[\textbf{Proof of Proposition~\ref{propositionTT}}]
-We shall verify Assumption~\ref{Assumption1} and Assumption~\ref{Assumption4}.
-We use the following parameterization
-$
-\theta=(\xi,\tau)^T =(\xi,\sigma^{-2})^T$.
-Then
-\begin{equation*}
-    p(X|\theta)=\frac{1}{2}\phi(X)+\frac{1}{2}\sqrt{\tau} \phi(\sqrt{\tau}(X-\xi)).
-\end{equation*}
-By direct calculation, we have 
-\begin{equation*}
-    \dot{\ell}_{\theta_0}(X)=\left(\frac{1}{2}X,\frac{1}{4}(1-X^2)\right)^T.
-\end{equation*}
-Hence $P^n_{\theta_0}\dot{\ell}_{\theta_0}=0_2$ and
-\begin{equation*}
-    I_{\theta_0}=\begin{pmatrix}
-        \frac{1}{4} & 0\\
-        0& \frac{1}{8}
-    \end{pmatrix}.
-\end{equation*}
-Let $M>0$ is a fixed constant.  For $h=(h_1,h_2)^T\in \mathbb{R}^2$ such that $\|h\|\leq M$ and $i=1,\ldots, n$, we have
-\begin{equation*}
-    \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}=
-    \frac{1}{2}+\frac{1}{2}\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}.
-\end{equation*}
-It is known that $\max_{1\leq i\leq n}|X_i|=O_P(\sqrt{\log n})$.
-Then by Taylor expansion $\exp(x)=1+x+x^2/2+O(x^3)$, we have, uniformly for$\|h\|\leq M$ and $i=1,\ldots,n$, that
-\begin{align*}
-    &\exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
-    \\
-    %=&
-    %1-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
-    %\\
-    %&+\frac{1}{2}\left\{
-    %-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
-%\right\}^2+O_P\left(\frac{\log^3 n}{n^{3/2}}\right)
-    %\\
-    %=&
-    =&
-1
--\frac{h_1^2}{2n}
-+\left(\frac{h_1}{\sqrt{n}}+\frac{h_1 h_2}{n}\right)  X_i
-+
-    \left(
-        -\frac{h_2}{2\sqrt{n}}
-    +
-     \frac{h_1^2}{2n}
-\right)
-    X_i^2
-     -\frac{h_1 h_2}{2n}X_i^3
-    +\frac{h_2^2}{8n}X_i^4 
-    +O_P\left(\frac{\log^3 n}{n^{3/2}}\right).
-\end{align*}
-On the other hand, 
-\begin{equation*}
-    \sqrt{1+\frac{h_2}{\sqrt{n}}}=1+\frac{h_2}{2\sqrt{n}}-\frac{h_2^2}{8n} +O\left(\frac{1}{n^3}\right).
-\end{equation*}
-Combining these two expansion yields
-%\begin{equation*}
-    %\begin{split}
-    %&\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
-    %\\
-    %=&
-    %1
-%+\frac{h_1}{\sqrt{n}} X_i
-%+\left(\frac{h_2}{2\sqrt{n}}-\frac{h_1^2}{2n}\right)
-        %(1-X_i^2)
-    %+\frac{h_2^2}{8n}X_i^4 
-    %-\frac{h_2^2}{4n}X_i^2
-%-\frac{h_2^2}{8n}
-%+\frac{3 h_1 h_2}{2 n}  X_i
-     %-\frac{h_1 h_2}{2n}X_i^3
-    %+O_P\left(\frac{\log^3 n}{n^{3/2}}\right).
-    %\end{split}
-%\end{equation*}
-%Then
-\begin{equation*}
-    \begin{split}
-    &\frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
-    \\
-    =&
-1
-+\frac{h_1}{2\sqrt{n}} X_i
-+\left(\frac{h_2}{4\sqrt{n}}-\frac{h_1^2}{4n}\right)
-        (1-X_i^2)
-    +\frac{h_2^2}{16n}X_i^4 
-    -\frac{h_2^2}{8n}X_i^2
--\frac{h_2^2}{16n}
-+\frac{3 h_1 h_2}{4 n}  X_i
-     -\frac{h_1 h_2}{4 n}X_i^3
-    +O_P\left(\frac{\log^4 n}{n^{3/2}}\right).
-    \end{split}
-\end{equation*}
-Use Taylor expansion $\log(1+x)=x-x^2/2+O(x^3)$ for $x\in(-1,1)$, we have
-\begin{equation*}
-    \begin{split}
-    &\log \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
-    \\
-    =&
-\frac{h_1}{2\sqrt{n}} X_i
-+\left(\frac{h_2}{4\sqrt{n}}-\frac{h_1^2}{4n}\right)
-        (1-X_i^2)
-    +\frac{h_2^2}{16n}X_i^4 
-    -\frac{h_2^2}{8n}X_i^2
--\frac{h_2^2}{16n}
-+\frac{3 h_1 h_2}{4 n}  X_i
-     -\frac{h_1 h_2}{4 n}X_i^3
-     \\
-     &-\frac{h_1^2}{8n}X_i^2
-     -\frac{h_2^2}{32n}(1-X_i^2)^2
-     -\frac{h_1 h_2}{8n}X_i(1-X_i^2)
-     +O_P\left(\frac{\log^6 n}{n^{3/2}}\right).
-    \end{split}
-\end{equation*}
-This expansion is uniform for $\|h\|\leq M$ and $i=1,\ldots,n$.
-Thus,
-\begin{equation*}
-    \begin{split}
-        &
-        \log 
-        \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}=
-        \sum_{i=1}^n\log \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
-    \\
-    =&
-    \frac{h_1}{2\sqrt{n}} \sum_{i=1}^n X_i
-+
-\frac{h_2}{4\sqrt{n}} \sum_{i=1}^n (1-X_i^2)
-     -\frac{h_1^2}{8}
-     -\frac{h_2^2}{16n}
-     +o_P(1),
-    \end{split}
-\end{equation*}
-where the $o_P(1)$ term is uniform for $\|h\|\leq M$.
-This verifies Assumption~\ref{Assumption1}.
-
-Now we verify Assumption~\ref{Assumption4}.
-We have
-\begin{equation*}
-    \begin{split}
-    &D_{1/2}(\theta||\theta_0)
-    =-2\log \int \sqrt{p(X|\theta)p(X|\theta_0)} d\mu
-    \geq
-    2(1-\int \sqrt{p(X|\theta)p(X|\theta_0)} d\mu)
-    \\
-    =&\int (\sqrt{p(X|\theta)}-\sqrt{p(X|\theta_0)})^2 d\mu
-    \geq
-    \frac{1}{4}
-    \left(\int \left|p(X|\theta)-p(X|\theta_0)\right| d\mu\right)^2
-    \\
-    =&
-    \frac{1}{16}
-    \left(\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu\right)^2
-    .
-\end{split}
-\end{equation*}
-We have
-\begin{equation*}
-    \begin{split}
-    &\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
-    \geq
-    \left|\int  exp(iX)\sigma^{-1}\phi((X-\xi)/\sigma)-exp(itX)\phi(X) d\mu\right|
-    \\
-    =&\left|\exp(i\xi -\sigma^2 /2)-\exp(-1/2)\right|.
-\end{split}
-\end{equation*}
-On the one hand,
-\begin{equation*}
-    \int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
-    \geq
-    |\sin \xi |\exp(-\sigma^2/2).
-\end{equation*}
-Hence if $(\xi, \sigma^2)^T$ is close enough to $(0,1)$, we have
-\begin{equation*}
-    \int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
-    \gtrsim |\xi|.
-\end{equation*}
-On the other hand, if $(\xi, \sigma^2)^2$ is close enough to $(0,1)$
-\begin{equation*}
-    \begin{split}
-    &\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu
-    \geq
-    \left|\exp(i\xi -\sigma^2 /2)-\exp(-1/2)\right|
-    \\
-    \geq &
-    \left|\exp(-\sigma^2 /2)-\exp(-1/2)\right|\gtrsim |\sigma^2-1|.
-\end{split}
-\end{equation*}
-Thus, there exist $\delta>0$ and $C>0$, such that for $\sqrt{\xi^2+(\sigma^2-1)^2}<\delta$, we have
-\begin{equation*}
-    D_{1/2}(\theta||\theta_0)\geq C (\xi^2+(\sigma^2-1)^2).
-\end{equation*}
-For $\sqrt{\xi^2+(\sigma^2-1)^2}\geq\delta$, we have
-\begin{equation*}
-    \begin{split}
-    D_{1/2}(\theta||\theta_0)
-    &\geq
-    \frac{1}{16}
-    \left(\int \left|\sigma^{-1}\phi((X-\xi)/\sigma)-\phi(X)\right| d\mu\right)^2
-    \\
-    &\geq
-    \frac{1}{16}
-\left(\int \left(\sqrt{\sigma^{-1}\phi((X-\xi)/\sigma)}-\sqrt{\phi(X)}\right)^2 d\mu\right)^2
-    .
-\end{split}
-\end{equation*}
-The Hellinger distance between normal distribution can be explicitly derived. And it can be easily seen that it has a lower bound $\epsilon>0$ for $\sqrt{\xi^2+(\sigma^2-1)^2}\geq\delta$.
-Thus Assumption~\ref{Assumption4} holds.
-
-Then by Theorem~\ref{Thm:maintheorem}, we have {\color{red} xxxxxxxx}.
-\end{proof}
+This example shows that every when the LRT fails, the ILRT may still be valid and has the expected asymptotic distribution.
+Thus, the ILRT methodology has a wider application scope than the LRT.
 
 
-
-Next, we assume $\sigma^2=1$ is known and consider testing the hypotheses
+In the above example, we assume $\omega=1/2$ is known.
+If $\omega$ in unknown, then the mixture model suffers from loss of identifiability and the behavior of the likelihood is fairly comlicated.
+For simplicity, we assume $\sigma^2=1$ is known and consider testing the hypotheses
 \begin{equation}
     \omega \xi=0
     \quad \text{vs.}\quad
     \omega \xi \neq 0.
     \label{newHy}
 \end{equation}
-Even for this simple case, the likelihood ratio test also has undesirable behavior. In particular, it has trivial power under $n^{-1/2}$ local alternative hypothesis. See ,for example,~\cite{HALL2005158}.
-
-
-We use FBF with $a+b<1$. The prior of $\omega$ is $\text{Beta}(\alpha_1,\alpha_2)$.
-We have the following theorem.
+%There has been considerable literature considering the testing problem in this case. See~\cite{chenjiahua2017} for a review.
+Even for this simple case,
+the likelihood has undesirable behavior due to loss of identifiability.
+Although the LRT exists in this problem, its power behavior is not satisfactory.
+In fact,~\cite{HALL2005158} showed that it has trivial power under $n^{-1/2}$ local alternative hypothesis. 
+For this irregular problem, theorems in Section 2 can not be directly applied.
+This is because the second part is Assumption~\eqref{Assumption3} is violated due to loss of identifiability.
+However, this does not means that the ILRT is not applicable.
+In fact, the following theorem shows that the generalized FBF with $a+b<1$ has the desirable asymptotic properties.
 
 \begin{theorem}
     Suppose $\pi(\omega,\xi)=\pi_{\omega}(\omega) \pi_{\xi}(\xi)$, $\pi_\xi(\xi)$ is positive and continuous at $\xi=0$,
@@ -907,18 +746,20 @@ We have the following theorem.
         \item
     under the null hypothesis,
     \begin{equation*}
-        2\log \Lambda_{a,b} (\BX^{(n)})\overset{P^n_{\theta_0}}{\rightsquigarrow}\log(1+\frac a b)+ a\chi^2(1);
+        2\log \Lambda_{a,b} \overset{P^n_{\theta_0}}{\rightsquigarrow}\log(1+\frac a b)+ a\chi^2(1);
     \end{equation*}
 \item
     suppose for some $s<1/4$, $\omega \geq n^{-s}$ for large $n$, $\sqrt{n}\omega \xi \to \eta$, then
     \begin{equation*}
-        2\log \Lambda_{a,b} (\BX^{(n)})\overset{P^n_{\theta_n}}{\rightsquigarrow}\log(1+\frac a b)+ a\chi^2(1,\eta).
+        2\log \Lambda_{a,b} \overset{P^n_{\theta_n}}{\rightsquigarrow}\log(1+\frac a b)+ a\chi^2(1,\eta^2).
     \end{equation*}
 \end{enumerate}
     \label{mixtureThm}
 \end{theorem}
-Theorem~\ref{mixtureThm} shows that under certain $\sqrt{n}$ local alternatives, ILRT has nontrival power. 
-This illustrates the superiority of ILRT over likelihood ratio test.
+Theorem~\ref{mixtureThm} shows that the ILRT has nontrival power if $\omega \xi $ is of order $n^{-1/2}$. 
+In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asymptotically if $\omega \xi=\gamma(n^{-1}\log \log n)^{1/2}$ with $|\gamma|< 1$.
+To have a nontrivial power, 
+%This illustrates the superiority of the ILRT over the LRT.
 
 
 
@@ -927,13 +768,23 @@ This illustrates the superiority of ILRT over likelihood ratio test.
 
 \section{Conclusion}
 In this paper, we proposed a flexible methodology ILRT which includes some existing method as special cases.
-We gave the asymptotic distribution of the generalized FPF, which is a special case of ILRT.
-We also investigates the asymptotic behavior of ILRT for general weight functions.
-This allows one to use a simple form approximation of the posterior distribution as weight function.
-In particular, we show that the weight function can be obtained from R\'{e}nyi divergence variational inference.
+We gave the asymptotic distribution of the generalized FBF, which is a special case of ILRT.
+We also investigates the asymptotic behavior of the ILRT for general weight functions.
+It is shown that the generalized FBF has a Wilks phenomenon similar to the LRT.
+The asymptotic local power is also given.
+%This allows one to use a simple form approximation of the posterior distribution as weight function.
+%In particular, we show that the weight function can be obtained from R\'{e}nyi divergence variational inference.
+We also apply the ILRT methodology to two testing problems for the normal mixture model.
+These examples show that the ILRT can have good behavior even if the LRT is not defined or has poor properties.
+
+The integral can smooth the likelihood.
+hence it can be expected that the ILRT method can have better properties than the LRT when the likilihood has complicated behavior.
+The success of the ILRT methodology in our examples verifies this point.
+It is interesting to apply the ILRT methodology to more problems where classical methods don't have good properties.
+We leave it for future research.
 
 \section*{Acknowledgements}
-This work was supported by the National Natural Science Foundation of China under Grant No. 11471035, 11471030.
+This work was supported by the National Natural Science Foundation of China under Grant No. 11471035.
 
 
 
@@ -1568,30 +1419,239 @@ Then the conclusion follows by the same argument as the last part of Theorem~\re
 
 \section{Proofs in Section 3}
 
-We would like to derive the asymptotics of
-\begin{equation}
-    \int_\Theta \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu.
-    \label{temp}
-\end{equation}
+\begin{proof}[\textbf{Proof of Proposition~\ref{propositionTT}}]
+We shall verify Assumption~\ref{Assumption1} and Assumption~\ref{Assumption4}.
+We use the following parameterization
+$
+\theta=(\xi,\tau)^T =(\xi,\sigma^{-2})^T$.
+Then
+\begin{equation*}
+    p(X|\theta)=\frac{1}{2}\phi(X)+\frac{1}{2}\sqrt{\tau} \phi(\sqrt{\tau}(X-\xi)).
+\end{equation*}
+By direct calculation, we have 
+\begin{equation*}
+    \dot{\ell}_{\theta_0}(X)=\left(\frac{1}{2}X,\frac{1}{4}(1-X^2)\right)^T.
+\end{equation*}
+Hence $P^n_{\theta_0}\dot{\ell}_{\theta_0}=0_2$ and
+\begin{equation*}
+    I_{\theta_0}=\begin{pmatrix}
+        \frac{1}{4} & 0\\
+        0& \frac{1}{8}
+    \end{pmatrix}.
+\end{equation*}
+Let $M>0$ is a fixed constant.  For $h=(h_1,h_2)^T\in \mathbb{R}^2$ such that $\|h\|\leq M$ and $i=1,\ldots, n$, we have
+\begin{equation*}
+    \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}=
+    \frac{1}{2}+\frac{1}{2}\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}.
+\end{equation*}
+It is known that $\max_{1\leq i\leq n}|X_i|=O_{P^n_{\theta_0}}(\sqrt{\log n})$.
+Then by Taylor expansion $\exp(x)=1+x+x^2/2+O(x^3)$, we have, uniformly for$\|h\|\leq M$ and $i=1,\ldots,n$, that
+\begin{align*}
+    &\exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
+    \\
+    %=&
+    %1-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
+    %\\
+    %&+\frac{1}{2}\left\{
+    %-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}
+%\right\}^2+O_P\left(\frac{\log^3 n}{n^{3/2}}\right)
+    %\\
+    %=&
+    =&
+1
+-\frac{h_1^2}{2n}
++\left(\frac{h_1}{\sqrt{n}}+\frac{h_1 h_2}{n}\right)  X_i
++
+    \left(
+        -\frac{h_2}{2\sqrt{n}}
+    +
+     \frac{h_1^2}{2n}
+\right)
+    X_i^2
+     -\frac{h_1 h_2}{2n}X_i^3
+    +\frac{h_2^2}{8n}X_i^4 
+    +O_{P^n_{\theta}}\left(\frac{\log^3 n}{n^{3/2}}\right).
+\end{align*}
+On the other hand, 
+\begin{equation*}
+    \sqrt{1+\frac{h_2}{\sqrt{n}}}=1+\frac{h_2}{2\sqrt{n}}-\frac{h_2^2}{8n} +O\left(\frac{1}{n^3}\right).
+\end{equation*}
+Combining these two expansion yields
+%\begin{equation*}
+    %\begin{split}
+    %&\sqrt{1+\frac{h_2}{\sqrt{n}}} \exp\left\{-\frac{h_2}{2\sqrt{n}}X_i^2+\left(1+\frac{h_2}{\sqrt{n}}\right) \frac{h_1}{\sqrt{n}} X_i-\frac{1}{2}\left(1+\frac{h_2}{\sqrt{n}}\right)\frac{h_1^2}{n}\right\}
+    %\\
+    %=&
+    %1
+%+\frac{h_1}{\sqrt{n}} X_i
+%+\left(\frac{h_2}{2\sqrt{n}}-\frac{h_1^2}{2n}\right)
+        %(1-X_i^2)
+    %+\frac{h_2^2}{8n}X_i^4 
+    %-\frac{h_2^2}{4n}X_i^2
+%-\frac{h_2^2}{8n}
+%+\frac{3 h_1 h_2}{2 n}  X_i
+     %-\frac{h_1 h_2}{2n}X_i^3
+    %+O_P\left(\frac{\log^3 n}{n^{3/2}}\right).
+    %\end{split}
+%\end{equation*}
+%Then
+\begin{equation*}
+    \begin{split}
+    &\frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
+    \\
+    =&
+1
++\frac{h_1}{2\sqrt{n}} X_i
++\left(\frac{h_2}{4\sqrt{n}}-\frac{h_1^2}{4n}\right)
+        (1-X_i^2)
+    +\frac{h_2^2}{16n}X_i^4 
+    -\frac{h_2^2}{8n}X_i^2
+-\frac{h_2^2}{16n}
++\frac{3 h_1 h_2}{4 n}  X_i
+     -\frac{h_1 h_2}{4 n}X_i^3
+     +O_{P^n_{\theta_0}}\left(\frac{\log^4 n}{n^{3/2}}\right).
+    \end{split}
+\end{equation*}
+Use Taylor expansion $\log(1+x)=x-x^2/2+O(x^3)$ for $x\in(-1,1)$, we have
+\begin{equation*}
+    \begin{split}
+    &\log \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
+    \\
+    =&
+\frac{h_1}{2\sqrt{n}} X_i
++\left(\frac{h_2}{4\sqrt{n}}-\frac{h_1^2}{4n}\right)
+        (1-X_i^2)
+    +\frac{h_2^2}{16n}X_i^4 
+    -\frac{h_2^2}{8n}X_i^2
+-\frac{h_2^2}{16n}
++\frac{3 h_1 h_2}{4 n}  X_i
+     -\frac{h_1 h_2}{4 n}X_i^3
+     \\
+     &-\frac{h_1^2}{8n}X_i^2
+     -\frac{h_2^2}{32n}(1-X_i^2)^2
+     -\frac{h_1 h_2}{8n}X_i(1-X_i^2)
+     +O_{P^n_{\theta_0}}\left(\frac{\log^6 n}{n^{3/2}}\right).
+    \end{split}
+\end{equation*}
+This expansion is uniform for $\|h\|\leq M$ and $i=1,\ldots,n$.
+Thus,
+\begin{equation*}
+    \begin{split}
+        &
+        \log 
+        \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}=
+        \sum_{i=1}^n\log \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
+    \\
+    =&
+    \frac{h_1}{2\sqrt{n}} \sum_{i=1}^n X_i
++
+\frac{h_2}{4\sqrt{n}} \sum_{i=1}^n (1-X_i^2)
+     -\frac{h_1^2}{8}
+     -\frac{h_2^2}{16n}
+     +o_{P^n_{\theta_0}}(1),
+    \end{split}
+\end{equation*}
+where the $o_{P^n_{\theta_0}}(1)$ term is uniform for $\|h\|\leq M$.
+This verifies Assumption~\ref{Assumption1}.
 
-Let $A(M_n)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$, we have
-\begin{proposition}
-    If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
+Now we verify Assumption~\ref{Assumption4}.
+We have
+\begin{equation*}
+    \begin{split}
+    &D_{1/2}(\theta||\theta_0)
+    =-2\log \int \sqrt{p(X|\theta)p(X|\theta_0)} d\mu
+    \geq
+    2(1-\int \sqrt{p(X|\theta)p(X|\theta_0)} d\mu)
+    \\
+    =&\int (\sqrt{p(X|\theta)}-\sqrt{p(X|\theta_0)})^2 d\mu
+    \geq
+    \frac{1}{4}
+    \left(\int \left|p(X|\theta)-p(X|\theta_0)\right| d\mu\right)^2
+    \\
+    =&
+    \frac{1}{16}
+    \left(\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu\right)^2
+    .
+\end{split}
+\end{equation*}
+We have
+\begin{equation*}
+    \begin{split}
+        &\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
+    \geq
+    \left|\int  exp(iX)\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-exp(itX)\phi(X) d\mu\right|
+    \\
+    =&\left|\exp(i\xi -1 /(2\tau))-\exp(-1/2)\right|.
+\end{split}
+\end{equation*}
+On the one hand,
+\begin{equation*}
+    \int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
+    \geq
+    |\sin \xi |\exp(-\sigma^2/2).
+\end{equation*}
+Hence if $(\xi, \tau)^T$ is close enough to $(0,1)$, we have
+\begin{equation*}
+    \int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
+    \gtrsim |\xi|.
+\end{equation*}
+On the other hand, for $(\xi, \tau)^T$ close enough to $(0,1)$, 
+\begin{equation*}
+    \begin{split}
+        &\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu
+    \geq
+    \left|\exp(i\xi -1/(2\tau))-\exp(-1/2)\right|
+    \\
+    \geq &
+    \left|\exp(-1/(2\tau))-\exp(-1/2)\right|\gtrsim |\tau-1|.
+\end{split}
+\end{equation*}
+Thus, there exist $\delta>0$ and $C>0$, such that for $\sqrt{\xi^2+(\tau-1)^2}<\delta$,
+\begin{equation*}
+    D_{1/2}(\theta||\theta_0)\geq C (\xi^2+(\tau-1)^2).
+\end{equation*}
+For $\sqrt{\xi^2+(\tau-1)^2}\geq\delta$, we have
+\begin{equation*}
+    \begin{split}
+    D_{1/2}(\theta||\theta_0)
+    &\geq
+    \frac{1}{16}
+    \left(\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))-\phi(X)\right| d\mu\right)^2
+    \\
+    &\geq
+    \frac{1}{16}
+\left(\int \left(\sqrt{\sqrt{\tau}\phi(\sqrt{\tau}(X-\xi))}-\sqrt{\phi(X)}\right)^2 d\mu\right)^2
+    .
+\end{split}
+\end{equation*}
+The Hellinger distance between normal distribution can be explicitly derived. And it can be easily seen that it has a lower bound $\epsilon>0$ for $\sqrt{\xi^2+(\sigma^2-1)^2}\geq\delta$.
+Thus Assumption~\ref{Assumption4} holds.
+
+If $\sqrt{n}((\xi,\sigma^2)-(0,1))^T\to (\eta_1,\eta_2)^T $, then $\sqrt{n}((\xi,\tau)-(0,1))^T\to (\eta_1,-\eta_2)^T $ and the conclusion follows from Theorem~\ref{Thm:maintheorem}.
+\end{proof}
+
+
+To prove Theorem~\ref{mixtureThm}, the following result is useful.
+
+\begin{proposition}\label{lastProp}
+    Suppose the conditions of Theorem~\ref{mixtureThm} holds.
+    Let $A(M_n)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$.
+    Let $0<t<1$ be a constant.
+    If $M_n \geq \sqrt{{\log n}/(2(t\wedge (1-t)))}$, we have
     \begin{equation*}
-        \myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu =o(n^{-1/2}).
+        P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\mu =o(n^{-1/2}).
     \end{equation*}
 \end{proposition}
 \begin{proof}
 \begin{equation*}
-    \myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     =
     \int_{A(M_n)^c} \big( \int p(X_1|\omega,\xi)^t p_0(X_1)^{1-t}\, d\mu\big)^n \pi(\omega,\xi)\, d\omega d\xi.
 \end{equation*}
 Note that
 \begin{align*}
     &\int p(X_i|\omega,\xi)^t p_0(X_i)^{1-t}\, d\mu
-    \\
-    \leq & \Big(\int \sqrt{p(X_i|\omega,\xi) p_0(X_i)}\, d\mu\Big)^{2(t\wedge (1-t))}
+    \leq  \Big(\int \sqrt{p(X_i|\omega,\xi) p_0(X_i)}\, d\mu\Big)^{2(t\wedge (1-t))}
     \\
 = & \Big(1-\frac{1}{2}\int \big(\sqrt{p(X_i|\omega,\xi) }-\sqrt{p_0(X_i)}\big)^2\, d\mu\Big)^{2(t\wedge (1-t))}
 \\
@@ -1601,22 +1661,20 @@ Note that
 \\
 = & \exp \Big( -\frac{1}{4}(t\wedge (1-t)) \omega^2 \big(\int \big| \phi(X_i -\xi)-\phi (X_i)\big|\, d\mu \big)^2 \Big)
 \\
-= & \exp \Big( -(t\wedge (1-t)) \omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
-\\
+= & \exp \Big( -(t\wedge (1-t)) \omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big).
 \end{align*}
-Thus,
+This implies that
 \begin{align*}
-    &\myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
+    &P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
 \\
     \leq
     &
     \int_{A(M_n)^c} \exp \Big( -(t\wedge (1-t)) n\omega^2 \big( 2\Phi(|\xi|/2)-1\big)^2 \Big)
 \pi_{\omega}(\omega) \pi_\xi(\xi)\, d\omega d\xi
 \end{align*}
-
 If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
 \begin{align*}
-    &\myE \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
+    &P^n_{\theta_0} \int_{A(M_n)^c} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi_{\omega}(\omega)\pi_{\xi}(\xi)\, d\omega d\xi
 \\
     \leq
     &
@@ -1625,6 +1683,7 @@ If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
 \pi_{\omega}(\omega) \pi_\xi(\xi)\, d\omega d\xi
 =o(n^{-1/2}).
 \end{align*}
+This completes the proof.
 
 
 
@@ -1635,7 +1694,7 @@ If $M_n \geq \sqrt{{\log n}/{2(t\wedge (1-t))}}$,
 \begin{proof}[\textbf{Proof of Theorem~\ref{mixtureThm}}]
 We have
 \begin{equation*}
-    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p_0(X_i)\big)
+    \sum_{i=1}^n \log \frac{p(X_i|\omega,\xi)}{ p(X_i|0,0)}
     =\sum_{i=1}^n \log\Big(1+\omega \big(\exp(\xi X_i -\xi^2/2)-1\big)\Big)=\sum_{i=1}^n \log(1+\omega \xi Y_i),
 \end{equation*}
 where
@@ -1643,52 +1702,51 @@ $
 Y_i=\big(\exp(\xi X_i -\xi^2/2)-1\big)/\xi
 $ if $\xi \neq 0$ and $Y_i=X_i$ if $\xi =0$.
 
-Let $r>1$ and $s< 1/4$, on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
+Let $r>1/2$ and $s< 1/4$, on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
 we have $|\xi| = O\big((\log n)^{r}/n^{1/2-s}\big)$.
-
 It is known that $\max_{1\leq i \leq n}|X_i|=O_P(\sqrt{\log n})$.
 On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i\leq n}|\xi X_i-\xi^2/2|\leq |\xi| \max_{1\leq i\leq n}|X_i|+\xi^2/2=O_P(|\xi|(\log n)^{1/2})$.
 Then on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, uniformly for $i=1,\ldots, n$, we have
 \begin{align*}
-    Y_i&=\xi^{-1}\Big(\xi X_i-\xi^2/2 +\frac{1}{2}(\xi X_i-\xi^2/2)^2+O_P \big(|\xi|^3 (\log n)^{3/2}\big)\Big) 
+Y_i&=\xi^{-1}\Big(\xi X_i-\xi^2/2 +\frac{1}{2}(\xi X_i-\xi^2/2)^2+O_{P^n_{\theta_0}} \big(|\xi|^3 (\log n)^{3/2}\big)\Big) 
     \\
-    &=X_i-\frac{1}{2}\xi+\frac{1}{2} \xi X_i^2-\frac{1}{2} \xi^2 X_i +\frac{1}{8}\xi^3+O_P \big(|\xi|^2 (\log n)^{3/2}\big)
+    &=X_i-\frac{1}{2}\xi+\frac{1}{2} \xi X_i^2-\frac{1}{2} \xi^2 X_i +\frac{1}{8}\xi^3+O_{P^n_{\theta_0}} \big(|\xi|^2 (\log n)^{3/2}\big)
     \\
-    &=X_i+\frac{1}{2} \xi (X_i^2-1) + O_P \big(|\xi|^2 (\log n)^{3/2}\big).
+    &=X_i+\frac{1}{2} \xi (X_i^2-1) + O_{P^n_{\theta_0}} \big(|\xi|^2 (\log n)^{3/2}\big).
 \end{align*}
-In particular, on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i \leq n}|Y_i|=O_P(\sqrt{\log n})$.
-On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\omega \xi =O((\log n)^r /\sqrt{n})$, then
+In particular, on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i \leq n}|Y_i|=O_{P^n_{\theta_0}}(\sqrt{\log n})$.
+On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\omega \xi =O((\log n)^r /\sqrt{n})$, then by Taylor expansion, 
 \begin{align*}
     &\sum_{i=1}^n \log(1+\omega \xi Y_i)
+    = \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+O_{P^n_{\theta_0}}(n\omega^3 \xi^3 (\log n)^{3/2})
     \\
-    =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+O_P(n\omega^3 \xi^3 (\log n)^{3/2})
-    \\
-    =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+o_P(1).
+    =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+o_{P^n_{\theta_0}}(1).
 \end{align*}
 Note that
 \begin{align*}
     &\omega \xi\sum_{i=1}^n Y_i
     =
     \omega \xi\sum_{i=1}^n 
-    X_i+\frac{1}{2} \omega \xi^2\sum_{i=1}^n (X_i^2-1) + O_P \big(n\omega |\xi|^3 (\log n)^{3/2}\big)
+    X_i+\frac{1}{2} \omega \xi^2\sum_{i=1}^n (X_i^2-1) + O_{P^n_{\theta_0}} \big(n\omega |\xi|^3 (\log n)^{3/2}\big)
     \\
     =&
-    \omega \xi\sum_{i=1}^n X_i + O_P\Big( \frac{(\log n)^{3r+3/2}}{n^{1/2-2s}}\Big)
+    \omega \xi\sum_{i=1}^n X_i + O_{P^n_{\theta_0}}\Big( \frac{(\log n)^{3r+3/2}}{n^{1/2-2s}}\Big)
 =
-\omega \xi\sum_{i=1}^n X_i + o_P(1),
+\omega \xi\sum_{i=1}^n X_i + o_{P^n_{\theta_0}}(1).
 \end{align*}
-and
-\begin{equation*}
-    \omega^2 \xi^2 \sum_{i=1}^n Y_i^2=n\omega^2 \xi^2 +o_P(1).
-\end{equation*}
-
-Then
+On the other hand, $\omega^2 \xi^2 \sum_{i=1}^n Y_i^2=n\omega^2 \xi^2 +o_{P^n_{\theta_0}}(1)$.
+Then uniformly on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
+\begin{equation}\label{eq:mixtureaiya1}
+    \sum_{i=1}^n \log \frac{p(X_i|\omega,\xi)}{ p(X_i|0,0)}
+    =\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} n\omega^2 \xi^2+o_{P^n_{\theta_0}}(1).
+\end{equation}
+As a result,
 \begin{align*}
-    & \int_{A((\log n)^r)\cap \{\omega\geq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    & \int_{A((\log n)^r)\cap \{\omega\geq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     \\
-    =&(1+o_P(1))\int_{A( (\log n)^r )\cap \{\omega\geq  n^{-s}\} } \exp\big\{
+    =&(1+o_{P^n_{\theta_0}}(1))\int_{A( (\log n)^r )\cap \{\omega\geq  n^{-s}\} } \exp\left\{
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
-    \big\} \pi(\omega,\xi)\, d\omega d\xi.
+    \right\} \pi(\omega,\xi)\, d\omega d\xi.
 \end{align*}
 Note that on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, $\pi_{\xi}(\xi)=(1+o(1))\pi_\xi(0)$. Then
 \begin{align*}
@@ -1696,16 +1754,16 @@ Note that on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, $\pi_{\xi}(\xi)=(1+o(1))
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
     \big\} \pi(\omega,\xi)\, d\omega d\xi
     \\
-    =&(1+o_P(1))\pi_{\xi}(0)\int_{A((\log n)^r)\cap \{\omega\geq  n^{-s}\} } \exp\big\{
+    =&(1+o_{P^n_{\theta_0}}(1))\pi_{\xi}(0)\int_{A((\log n)^r)\cap \{\omega\geq  n^{-s}\} } \exp\big\{
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
     \big\} \pi_{\omega}(\omega)\, d\omega d\xi
     \\
-    =&(1+o_P(1))\pi_{\xi}(0)\int_{n^{-s}}^1 \pi_{\omega}(\omega)\, d\omega 
+    =&(1+o_{P^n_{\theta_0}}(1))\pi_{\xi}(0)\int_{n^{-s}}^1 \pi_{\omega}(\omega)\, d\omega 
     \int_{-2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)}^{2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)} \exp\big\{
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
     \big\} d\xi.
 \end{align*}
-Note that
+By direct calculation, we have
 \begin{align*}
     &\int_{-2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)}^{2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)} \exp\big\{
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
@@ -1721,22 +1779,22 @@ Note that
     \Phi\bigg(-2\sqrt{tn}\omega \Phi^{-1}\Big(\frac{(\log n)^r}{2\omega\sqrt{n}}+\frac 12\Big)-\sqrt{\frac t n} \sum_{i=1}^n X_i\bigg)
 \bigg].
 \end{align*}
-Note that 
+Since
 \begin{equation*}
     2\sqrt{tn}\omega \Phi^{-1}\Big(\frac{(\log n)^r}{2\omega\sqrt{n}}+\frac 12\Big)
     \geq 
-    \sqrt{2\pi t} (\log n)^r.
+    \sqrt{2\pi t} (\log n)^r,
 \end{equation*}
-It follows that
+we have
 \begin{align*}
     &\int_{-2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)}^{2\Phi^{-1}\big((\log n)^r/(2\omega \sqrt{n})+1/2\big)} \exp\big\{
         t\omega \xi \sum_{i=1}^n X_i -\frac{1}{2} nt\omega^2 \xi^2
 \big\} d\xi
 =
  \frac{1}{\omega}\sqrt{\frac{2\pi}{tn}}  \exp\Big\{\frac{t}{2n}(\sum_{i=1}^n X_i)^2\Big\}
-(1+o_P(1)),
+(1+o_{P^n_{\theta_0}}(1)),
 \end{align*}
-where the $o_P(1)$ term is uniform for $\omega$.
+where the $o_{P^n_{\theta_0}}(1)$ term is uniform for $\omega$.
 Thus,
 \begin{align*}
     &\int_{A((\log n)^r)\cap \{\omega\geq n^{-s}\} } \exp\big\{
@@ -1748,7 +1806,7 @@ Thus,
 %\frac{1}{\omega}
 %\pi_{\omega}(\omega)\, d\omega
 %\\
-=&(1+o_P(1))\pi_{\xi}(0)\sqrt{\frac{2\pi}{tn}}\exp \Big\{ \frac{t}{2n}(\sum_{i=1}^n X_i)^2\Big\} 
+=&(1+o_{P^n_{\theta_0}}(1))\pi_{\xi}(0)\sqrt{\frac{2\pi}{tn}}\exp \Big\{ \frac{t}{2n}(\sum_{i=1}^n X_i)^2\Big\} 
 \int_{0}^1 
 \frac{1}{\omega}
 \pi_{\omega}(\omega)\, d\omega.
@@ -1758,17 +1816,17 @@ Thus,
 Now we consider $A((\log n)^r)\cap \{\omega\leq n^{-s}\} $. By Theorem 2 of \cite{LIU200461}, we have 
 \begin{equation*}
     \sup_{\omega\in [0,1],t\in \mathbb{R}}
-    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p_0(X_i)\big)
-    =O_P(\log \log n).
+    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p(X_i|0,0)\big)
+    =O_{P^n_{\theta_0}}(\log \log n).
 \end{equation*}
 Thus,
 \begin{align*}
-    & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     \\
     %=&\int_\Theta \exp\big\{
         %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
     %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
-    =&\exp\big\{O_P(\log(\log n))\big\}
+    =&\exp\big\{O_{P^n_{\theta_0}}(\log(\log n))\big\}
     \Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2}, \omega\leq n^{-s}\big).
 \end{align*}
 We break the probability into two parts: 
@@ -1804,7 +1862,7 @@ $
 |\xi|\leq C\omega^{-1} (\log n)^r n^{-1/2}
 $
 for some constant $C>0$ on this event.
-Thus, on this event,
+Thus,
 \begin{align*}
     &\Pi\big(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2},   2(\log n)^r n^{-1/2} \leq \omega\leq n^{-s}\big)
     \\
@@ -1837,35 +1895,66 @@ There exits $\epsilon>0$ and $M>0$ such that $\pi_{\xi}(\xi)\leq M$ for $\xi\in 
     = &
     \Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}\vee \frac{(\log n)^r}{n^{1/2+s(\alpha_1-1)}}.
 \end{align*}
-Thus,
+It follows that
 \begin{align*}
-    & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     \\
     %=&\int_\Theta \exp\big\{
         %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
     %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
-    =&\exp\big\{O_P(\log(\log n))\big\}
-    \Bigg(\Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}\vee \frac{(\log n)^r}{n^{1/2+s(\alpha_1-1)}}\Bigg)=o_P(n^{-1/2}).
+    =&\exp\big\{O_{P^2_{\theta_0}}(\log(\log n))\big\}
+    \Bigg(\Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}\vee \frac{(\log n)^r}{n^{1/2+s(\alpha_1-1)}}\Bigg)=o_{P^n_{\theta_0}}(n^{-1/2}).
 \end{align*}
-Thus,
+Combine these arguments and Proposition~\ref{lastProp}, we have
 \begin{align*}
-    & \int \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+    & \int \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     \\
-    =& \bigg( \int_{A( (\log n)^r )^c\}}+\int_{A( (\log n)^r )\cap \{\omega< n^{-s}\}}+\int_{A( (\log n)^r )\cap \{\omega\geq n^{-s}\}}\bigg) \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p_0(X_i)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
+=& \bigg( \int_{A( (\log n)^r )^c\}}+\int_{A( (\log n)^r )\cap \{\omega< n^{-s}\}}+\int_{A( (\log n)^r )\cap \{\omega\geq n^{-s}\}}\bigg) \Big[\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\Big]^t \pi(\omega,\xi)\, d\omega d\xi
     \\
     %=&\int_\Theta \exp\big\{
         %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
     %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
     =&
-(1+o_P(1))\pi_{\xi}(0)\sqrt{\frac{2\pi}{tn}}\exp \Big\{ \frac{t}{2n}(\sum_{i=1}^n X_i)^2\Big\} 
+    (1+o_{P^n_{\theta_0}}(1))\pi_{\xi}(0)\sqrt{\frac{2\pi}{tn}}\exp \Big\{ \frac{t}{2n}(\sum_{i=1}^n X_i)^2\Big\} 
 \int_{0}^1 
 \frac{1}{\omega}
 \pi_{\omega}(\omega)\, d\omega.
 \end{align*}
 This implies that
 \begin{equation*}
-    2\log \Lambda_{a,b}=-\log(1+a/b)+\frac{a}{n}(\sum_{i=1}^n X_i)^2+o_P(1).
+    2\log \Lambda_{a,b}=-\log(1+a/b)+\frac{a}{n}(\sum_{i=1}^n X_i)^2+o_{P^n_{\theta_0}}(1).
 \end{equation*}
+Then the conclusion of (i) holds since $(\sum_{i=1}^n X_i)^2/n$ weakly converges to $ \chi^2(1)$ under $P^n_{\theta_0}$.
+
+Now we prove (ii). Suppose that $\theta_n=(\omega,\xi)$ satisfies that for some $s<1/4$, $\omega\geq n^{-s}$ for large $n$ and$\sqrt{n}\omega \xi \to \eta$.
+Then it follows from~\eqref{eq:mixtureaiya1} and Le Cam's first lemma~\citep[Theorem 6.4]{van2000asymptotic} that
+$P^n_{\theta_n}$ and $P^n_{\theta_0}$ are mutually contiguous.
+As a result,
+\begin{equation*}
+    2\log \Lambda_{a,b}=-\log(1+a/b)+\frac{a}{n}(\sum_{i=1}^n X_i)^2+o_{P^n_{\theta_n}}(1).
+\end{equation*}
+Note that~\eqref{eq:mixtureaiya1} implies that
+\begin{equation*}
+        \left(n^{-1/2}\sum_{i=1}^n X_i,\log \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\right)^T
+        \overset{P^n_{\theta_0}}{\rightsquigarrow}
+        \mathcal{N}_2\left(
+    \begin{pmatrix}
+        0\\
+        -{\eta^2}/{2}
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+        1 & \eta\\
+        \eta & \eta^2
+    \end{pmatrix}
+\right).
+\end{equation*}
+By Le Cam's third lemma~\citep[Example 6.7]{van2000asymptotic}, we have
+\begin{equation*}
+    \sum_{i=1}^n X_i
+    \overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(\eta,1).
+\end{equation*}
+This proves the conclusion of (ii).
 
 %Now suppose
 \end{proof}

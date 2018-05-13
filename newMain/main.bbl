@@ -110,6 +110,12 @@ Shen, X. and Wasserman, L. (2001).
 \newblock Rates of convergence of posterior distributions.
 \newblock {\em Annals of Statistics}, 29(3):687--714.
 
+\bibitem[\protect\astroncite{Vaart}{1998}]{van2000asymptotic}
+Vaart, A. W. v.~d. (1998).
+\newblock {\em Asymptotic Statistics}.
+\newblock Cambridge Series in Statistical and Probabilistic Mathematics.
+  Cambridge University Press.
+
 \bibitem[\protect\astroncite{van~der {Vaart} and
   {Ghosal}}{2007}]{vaart2007convergence}
 van~der {Vaart}, A. and {Ghosal}, S. (2007).
