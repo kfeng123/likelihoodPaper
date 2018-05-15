@@ -184,8 +184,7 @@ A key property of the LRT is Wilks phenomenon~\citep{Wilks1938The} which asserts
 The LRT has been very successful in many specific problems.
 For some moderately complex problems, however, some difficulties may arise when using the LRT.
 For example, the maximization of $L(\theta)$ may be difficult if the likelihood function is not concave and has multiple local maxima.
-Worse still, in some problems the likelihood is unbounded and hence the LRT is not defined.
-See, for example,~\cite{Cam1990Maximum}.
+Worse still, in some problems the likelihood is unbounded and hence the LRT is not defined; see, for example,~\cite{Cam1990Maximum}.
 Note that the unbounded likelihood occurs not only in artifical models, but also in some widely used models, for example, the mixture models with unknown component location and scale~\citep{chenjiahua2017}.
 
 In classical goodness of fit test, there are two common types of tests: one based on the maximum (Kolmogorov-Smirnov test, e.g.) and the other based on the integral (Cram\'er-von Mises test, e.g.).
@@ -196,22 +195,19 @@ A natural integral type test statistic for hypothesis \eqref{eq:newHy} is define
 \end{equation}
 where $\Pi$ and $\Pi^{(0)}$ are some probability measures on $\Theta$ and $\Theta_{0}$, respectively.
 If $\Pi(d\theta)$ and $\Pi^{(0)}(d\theta)$ don't rely on data, then~\eqref{naiLiS} has exactly the same form as the Bayes factor with Prior distributions $\Pi$ and $\Pi^{(0)}$.
-The Bayes factor, proposed by~\cite{scientificInference}, is the conventional tool for Bayesian hypothesis testing and has been widely used by practitioners (See~\cite{Robert1995Bayes} for a review).
+The Bayes factor, proposed by~\cite{scientificInference}, is the conventional tool for Bayesian hypothesis testing and has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
 Compared with the methods in other Beyasian inference problem, such as point estimation and credible sets, Bayes factor is developed on its own ground and thus has its own nature.
 A notable feature of Bayes factor is that it can not be obtained solely from the posterior distribution of parameters.
 There are two consequence of this feature.
-First, the computation of Bayes factor is highly nontrivial.
-See~\cite{Robert1995Bayes},~\cite{MarkovC},~\cite{raftery2006estimating} and the references therein.
+First, the computation of Bayes factor is highly nontrivial;see~\cite{Robert1995Bayes},~\cite{MarkovC},~\cite{raftery2006estimating} and the references therein.
 Second, Bayes factor is sensitive to the choice of prior distribution. 
 In fact, if the Bayes factor is treated as a frequentist test statistic,
- its asymptotic null distribution relies on the prior density evaluated at the true parameter value.
-See, for example,~\cite{clarke1990information}.
+ its asymptotic null distribution relies on the prior density evaluated at the true parameter value; see, for example,~\cite{clarke1990information}.
 Thus, to formulate a frequentist test statistic, the measures $\Pi(d\theta)$ and $\Pi^{(0)}(d\theta)$ in~\eqref{naiLiS} should rely on data.
 
 If $\Pi(\theta=\hat{\theta}_{\text{MLE}})=1$ and $\Pi^{(0)}(\theta=\hat{\theta}^{(0)}_{\text{MLE}})=1$, then~\eqref{naiLiS} equals to the LRT statistic.
 In this case, the measure $\Pi$ and $\Pi^{(0)}$ both concentrate on one point which are highly nonsmooth.
-For many models, although the LRT fails, the likelihood function $L(\theta)$ still has good properties for most $\theta$ and  the MLE is unfortunately trapped in a fairly small area of $\theta$ where $L(\theta)$ has bad behavior.
-See Figure~\ref{myFigure1}.
+For many models, although the LRT fails, the likelihood function $L(\theta)$ still has good properties for most $\theta$ and  the MLE is unfortunately trapped in a fairly small area of $\theta$ where $L(\theta)$ has bad behavior. See Figure~\ref{myFigure1}.
 In such cases, some smoother $\Pi$ and $\Pi^{(0)}$ may perform better intuitively.
 Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with respect to certain predefined prior distribution) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
 In this case, the statistic~\eqref{naiLiS} becomes the posterior Bayes factor proposed (PBF) by~\cite{Aitkin1991Posterior}.
@@ -250,7 +246,7 @@ In the contrary, the statistic
 is not equivalent to~\eqref{naiLiS}.
 We shall consider the test statistic~\eqref{naiLiS2} with $0<a<1$.
 Correspondingly, the measure $\Pi$ and $\Pi^{(0)}$ can also take the fractional posterior~\cite{Bha2016}.
-Raising the likelihood to a fractional power has several advantages. See, for example,~\cite{kar10563} and~\cite{Bha2016}.
+Raising the likelihood to a fractional power has several advantages; see, e.g.,~\cite{kar10563} and~\cite{Bha2016}.
 In particular, the consistency of the fractional posterior requires less conditions than the consistency of the usual posterior.
 A special case of~\eqref{naiLiS} is the fractional Bayes factor (FBF) proposed by \cite{Fractional1995}.
 We call~\eqref{naiLiS} the generalized FBF if $\Pi$ and $\Pi^{(0)}$ are fractional posterior distributions.
@@ -285,8 +281,7 @@ and thus has a wider application scope than the LRT.
 The generalized FBF can be computed by sampling $\theta$ from the fractional posterior and calculate the sample mean of the fractional likelihood.
 For moderately complex model, however, sampling from the fractional posterior may be difficult and hence some approximation methods may be used in practice.
 %The computations of PBF and FBF are easier than that of Bayes factor since the PBF and FBF can be computed by sampling the likelihood according to posterior distribution or fractional posterior distribution.
-Variational inference is a popular method for approximating intractable posterior distribution.
-See~\cite{blei2017} and the references therein.
+Variational inference is a popular method for approximating intractable posterior distribution; see~\cite{blei2017} and the references therein.
 Such procedure produce a distribution other than the fractional posterior distribution.
 To accommodate such cases, we also give a theorem for the general measure $\Pi$ and $\Pi^{(0)}$ in~\eqref{naiLiS2}.
 %{\color{red} Allow $a+b=1$.}
@@ -306,7 +301,7 @@ In contrary, we show that the ILRT have nontrivial power under $n^{-1/2}$ local 
 
 
 The paper is organized as follow.
-In Section 2, we prove the Wilks phenomenon of the ILRT statistic and gives the asympototic local power.
+In Section 2, we prove the Wilks phenomenon of the ILRT statistic and gives the asymptotic local power.
 In Section 3, we apply ILRT to testing the homogeneity in a two-component normal mixture model.
 Section 4 concludes the paper.
 All technical proves are in Appendix.
@@ -344,7 +339,7 @@ The conventional Bayes factor is defined as
     {\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu)\, d\nu},
 \end{equation*}
 where $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$.
-However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absense of a well-formulated subjective prior. See, for example, \cite{Lindley1982}.
+However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absence of a well-formulated subjective prior; see, e.g., \cite{Lindley1982}.
 %The frequency property of Bayes factor is not satisfactory.
 %To overcome this weakness, several robust alternatives to Bayes factor have been proposed.
 To deal with this problem,~\cite{Aitkin1991Posterior} proposed PBF which is defined to be
@@ -396,9 +391,9 @@ Then the ILRT statistic can be approximated by
 For some moderately complex models,~\eqref{firstWeight} may be complicated.
 Consequently, sampling from~\eqref{firstWeight} may be intractable.
 In this case, one may use some simple form weight function to approximate~\eqref{firstWeight}.
-A popular method for approximating~\eqref{firstWeight} is variational inference.
-See. See, for example,~\cite{blei2017}.
-In this case, the weight function in~\eqref{eq:definition} is equals to the variational apprixomation of~\eqref{firstWeight}.
+A popular method for approximating~\eqref{firstWeight} is variational inference;
+see, e.g.,~\cite{blei2017}.
+In this case, the weight function in~\eqref{eq:definition} is equals to the variational approximation of~\eqref{firstWeight}.
 The ILRT methodology also includes such approximate method.
 
 
@@ -501,8 +496,7 @@ The following theorem shows that $L_t$ is always well defined for $t\leq 1$ and 
 
 Because of the bad behavior of $L_t$ for $t>1$, next we only consider $L_t$ for $t\leq 1$.
  For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution.
- The consistency of posterior distribution has drawn much attention in the literature.
- See, for example,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
+ The consistency of posterior distribution has drawn much attention in the literature; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
 A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
 This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
 
@@ -531,7 +525,7 @@ It is shown that the consistency of $L_{1/2}$ does not need Assumption~\ref{Assu
 However, they only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
 Recently,~\cite{Bha2016} further developed the idea of~\cite{kar10563} and derived a general bounds for the consistency of $L_t$ for $0<t<1$.
 However, their result can not yield the $\sqrt{n}$-consistency for parametric models.
-We shall prove the $\sqrt{n}$-consisency of $L_{t}$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
+We shall prove the $\sqrt{n}$-consistency of $L_{t}$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
 
  For two parameters $\theta_1$ and $\theta_2$, the $\alpha$ order R\'{e}nyi divergence ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
 $$
@@ -543,7 +537,7 @@ $
 $ is the so-called Hellinger integral.
 The following assumption is needed for our $\sqrt{n}$-consistency result.
 \begin{assumption}\label{Assumption4}
-    For some $\alpha\in(0,1)$, there exist positive constancts $\delta$, $\epsilon$ and $C$ such that,
+    For some $\alpha\in(0,1)$, there exist positive constants $\delta$, $\epsilon$ and $C$ such that,
      $D_{\alpha}(\theta||\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
 \end{assumption}
 \begin{remark}
@@ -552,12 +546,12 @@ The following assumption is needed for our $\sqrt{n}$-consistency result.
     \frac{\alpha}{1-\alpha}\frac{1-\beta}{\beta} D_{\beta}(\theta_1||\theta_2)
     \leq D_{\alpha}(\theta_1||\theta_2)\leq D_{\beta}(\theta_1||\theta_2).
     $$
-    See, for example,~\cite{2016arXiv160801805B}.
+    See, e.g.,~\cite{2016arXiv160801805B}.
     As a result, if Assumption~\ref{Assumption4} holds for some $\alpha\in(0,1)$, then it will hold for every $\alpha\in(0,1)$.
 \end{remark}
 To appreciate Assumption~\ref{Assumption4},
    suppose, for example, that $D_{\alpha}(\theta||\theta_0)$ is twice continuously differentiable in $\theta$.
-   Since $\theta=\theta_0$ is a minumum point of  $D_{\alpha}(\theta||\theta_0)$, the first order derivative of $D_{\alpha}(\theta||\theta)$ at $\theta=\theta_0$ is zero and the second order derivative at $\theta=\theta_0$ is positive semidefinite.
+   Since $\theta=\theta_0$ is a minimum point of  $D_{\alpha}(\theta||\theta_0)$, the first order derivative of $D_{\alpha}(\theta||\theta)$ at $\theta=\theta_0$ is zero and the second order derivative at $\theta=\theta_0$ is positive semidefinite.
 By Taylor theorem, in a small neighbourhood of $\theta_0$,
    $$
    D_{\alpha}(\theta||\theta_0)=\frac{1}{2}(\theta-\theta_0)^T \frac{\partial^2}{\partial \theta \partial \theta^T} D_{\alpha}(\theta||\theta_0)\Big|_{\theta=\theta^*}  (\theta-\theta_0),
@@ -619,9 +613,8 @@ Furthermore, assume that for every $\epsilon>0$, there exists Lebesgue integrabl
 
 \end{assumption}
 The conditions~\eqref{Assump31} and~\eqref{Assump31l} in Assumption~\ref{Assumption3} assume that there is a function controlling the tail of the weight functions.
-We need to control the tail of the weight function since the behavior of the likelihood may be undersirable when $\theta$ is far away from $\theta_0$.
-In fact, even for some fairly regular models, the likelihood may tends to infinity, which invalidates LRT.
-See, for example,~\cite{Cam1990Maximum}.
+We need to control the tail of the weight function since the behavior of the likelihood may be undesirable when $\theta$ is far away from $\theta_0$.
+In fact, even for some fairly regular models, the likelihood may tends to infinity, which invalidates LRT; see, e.g.,~\cite{Cam1990Maximum}.
 So we control the tail of the weight function to avoid too much weights on the tail of likelihood.
 If the weight function $\pi_n(h;\BX^{(n)})$ is normal density, then it can be shown that the conditions~\eqref{vonMisesResults} and~\eqref{vonMisesResultsl} implies~\eqref{Assump31} and~\eqref{Assump31l}.
 
@@ -645,9 +638,9 @@ The following theorem gives the asymptotic distribution of ILRT statistic.
         where $\delta$ is defined as in Theorem~\ref{Thm:maintheorem}.
 \end{theorem}
 Theorem~\ref{theoremMain} shows that even with approximate weight function, the ILRT statistic can still produce an asymptotic optimal test.
-A practical method to obtain simple form weight function $\pi_n(h;\BX^{(n)})$ is the variational inference. See, for example,~\cite{blei2017}.
+A practical method to obtain simple form weight function $\pi_n(h;\BX^{(n)})$ is the variational inference; see, e.g.,~\cite{blei2017}.
 Next we shall consider a simple variational method which is guaranteed to yield a weight function satisfying Assumption~\ref{Assumption3}.
-For comprehensive considerations of the statistical properties of variational methods, see the recent works of~\cite{yixin2017},~\cite{pati2017} and~\cite{yunyang2017}.
+For comprehensive considerations of the statistical properties of variational methods; see the recent works of~\cite{yixin2017},~\cite{pati2017} and~\cite{yunyang2017}.
 
 %The following example shows that the weight function obtained from R\'{e}nyi divergence variational inference satisfies Assumption~\ref{Assumption3}.
 
@@ -674,7 +667,7 @@ Let the weight function $\pi^{\dagger}_n(\theta;\BX^{(n)})$ be the normal approx
     -\frac{1}{1-\alpha} \log \int \phi(h;\Delta_{n,\theta_0}, I_{\theta_0}^{-1})^{\alpha} \pi_n(h|\BX^{(n)})^{1-\alpha}\, dh.
     \end{equation}
     Since R\'{e}nyi divergence and total variation distance are equivalent,~\eqref{eq:xiebuwanlaaa} implies that the right hand side of~\eqref{eq:xiebuwan} tends to $0$ in $P_{\theta_0}^n$-probability.
-    Again by the equivalence of R\'{e}nyi divegence and total variation distance, we have
+    Again by the equivalence of R\'{e}nyi divergence and total variation distance, we have
 \begin{equation*}
     \|\pi_n^{\dagger}(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\| \xrightarrow{P_{\theta_0}^n}0.
 \end{equation*}
@@ -701,7 +694,7 @@ First, we assume $\omega=1/2$ and consider testing the hypotheses
     H: \xi=0,\sigma=1\quad \text{vs.} \quad K: \xi\neq 0 \text{ or } \sigma \neq 1.
     \label{mixturehy1}
 \end{equation}
-For this testing problem, the likelihhood function is unbounded under the alternative hypothesis.
+For this testing problem, the likelihood function is unbounded under the alternative hypothesis.
 In fact, if we take $\xi=X_1$ and let $\sigma^2\to 0$, then the likelihood tends to infinity.
 Thus, the LRT can not be defined.
 Using Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, we can obtain the following proposition.
@@ -719,7 +712,7 @@ Thus, the ILRT methodology has a wider application scope than the LRT.
 
 
 In the above example, we assume $\omega=1/2$ is known.
-If $\omega$ in unknown, then the mixture model suffers from loss of identifiability and the behavior of the likelihood is fairly comlicated.
+If $\omega$ in unknown, then the mixture model suffers from loss of identifiability and the behavior of the likelihood is fairly complicated.
 For simplicity, we assume $\sigma^2=1$ is known and consider testing the hypotheses
 \begin{equation}
     \omega \xi=0
@@ -756,7 +749,7 @@ In fact, the following theorem shows that the generalized FBF with $a+b<1$ has t
 \end{enumerate}
     \label{mixtureThm}
 \end{theorem}
-Theorem~\ref{mixtureThm} shows that the ILRT has nontrival power if $\omega \xi $ is of order $n^{-1/2}$. 
+Theorem~\ref{mixtureThm} shows that the ILRT has nontrivial power if $\omega \xi $ is of order $n^{-1/2}$. 
 In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asymptotically if $\omega \xi=\gamma(n^{-1}\log \log n)^{1/2}$ with $|\gamma|< 1$.
 To have a nontrivial power, 
 %This illustrates the superiority of the ILRT over the LRT.
@@ -778,7 +771,7 @@ We also apply the ILRT methodology to two testing problems for the normal mixtur
 These examples show that the ILRT can have good behavior even if the LRT is not defined or has poor properties.
 
 The integral can smooth the likelihood.
-hence it can be expected that the ILRT method can have better properties than the LRT when the likilihood has complicated behavior.
+Hence it can be expected that the ILRT method can have better properties than the LRT when the likelihood has complicated behavior.
 The success of the ILRT methodology in our examples verifies this point.
 It is interesting to apply the ILRT methodology to more problems where classical methods don't have good properties.
 We leave it for future research.
@@ -1813,7 +1806,7 @@ Thus,
 \end{align*}
 
 
-Now we consider $A((\log n)^r)\cap \{\omega\leq n^{-s}\} $. By Theorem 2 of \cite{LIU200461}, we have 
+Now we consider the event $A((\log n)^r)\cap \{\omega\leq n^{-s}\} $. By Theorem 2 of \cite{LIU200461}, we have 
 \begin{equation*}
     \sup_{\omega\in [0,1],t\in \mathbb{R}}
     \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p(X_i|0,0)\big)
