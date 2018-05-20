@@ -4,6 +4,7 @@
 
 
 
+\newcommand\CG[1]{\textcolor{red}{#1}}
 
 
 \usepackage{lineno,hyperref}
@@ -111,27 +112,28 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 \begin{document}
 \maketitle
 \begin{abstract}
-    A general methodology called integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes factor as the main test statistics.
-    Different from Bayesian hypothesis testing, we treat the resulting test procedure as frequentist test which controls the significance level.
-    Under certain regular conditions, we prove the Wilks phenomenon of the integrated likelihood ratio test and derive its asymptotic local power.
-    It is shown that the integrated likelihood ratio test shares similar frequency properties as the likelihood ratio test with fewer conditions.
-    Our results hold even if the likelihood is unbounded where the likelihood ratio test can not be defined.
+    A general methodology named integrated likelihood ratio test is proposed which takes posterior Bayes factor and fractional Bayes factor as main test statistics.
+    %Different from Bayesian hypothesis testing, we treat the resulting test procedure as a frequentist one which controls significance level.
+    Under certain regular conditions, a Wilks phenomenon of the integrated likelihood ratio is proved, which can be used to determine the critical value of the test.
+    We also give the asymptotic local power of the integrated likelihood ratio test.
+    It is shown that the integrated likelihood ratio test shares similar frequency properties with the likelihood ratio test but requires fewer conditions.
+    The integrated likelihood ratio test is available even if the likelihood functions are unbounded where the classical likelihood ratio test can not be defined.
     %However, the proposed methodology may exhibit considerable differences from likelihood ratio test.
     %Our methodology also includes the statistics produced by approximation computation.
-    We apply the proposed method to two testing problems in normal mixture model.
+    We apply the integrated likelihood ratio test to two submodels of the normal mixture model.
     %The normal mixture model is quite an irregular model.
-    The likelihood ratio test can not be defined for the first problem and  has undesirable local power behavior for the second problem.
-    In comparison, we prove that the integrated likelihood ratio test has good asymptotic power behavior in both problems.
+    The likelihood ratio test can not be defined for the first submodel and has undesirable local power behavior for the second submodel.
+    In contrast, we show that the integrated likelihood ratio test has good asymptotic power behavior for both submodels.
     %This shows that the integrated likelihood ratio test.
 \end{abstract}
 {\small \textsc{Keywords:} {\em
     Bayes consistency;
-   Bayes factor;
-   Fractional posterior;
-   Hypothesis testing;
-   Mixture model;
-    R\'{e}nyi divergence;
-   Variational inference.
+    Fractional posterior;
+    Integrated likelihood ratio;
+    Mixture model;
+    Posterior Bayes factor.
+    %R\'{e}nyi divergence;
+   %Variational inference.
 }}
 
 
@@ -165,7 +167,7 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 %In multi-dimensional parameter case, most powerful test does not exist.
 %Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
 %However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
-%In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not convex in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
+%In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not concave in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
 %
 Likelihood inference plays a dominant role in parametric statistic inference.
 On the one hand, the maximum likelihood estimation is asymptotically optimal in a great variety of problems.
@@ -182,34 +184,40 @@ the LRT statistic is defined as
 where $L(\theta)$ is the likelihood function, $\hat{\theta}_{\text{MLE}}$ and $\hat{\theta}^{(0)}_{\text{MLE}}$ are the MLE of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
 A key property of the LRT is Wilks phenomenon~\citep{Wilks1938The} which asserts that for regular models, $2\log \Lambda_{\text{LRT}}$ converges to $\chi^2(p-p_0)$ in law under the null hypothesis.
 The LRT has been very successful in many specific problems.
-For some moderately complex problems, however, some difficulties may arise when using the LRT.
-For example, the maximization of $L(\theta)$ may be difficult if the likelihood function is not concave and has multiple local maxima.
-Worse still, in some problems the likelihood is unbounded and hence the LRT is not defined; see, for example,~\cite{Cam1990Maximum}.
-Note that the unbounded likelihood occurs not only in artifical models, but also in some widely used models, for example, the mixture models with unknown component location and scale~\citep{chenjiahua2017}.
+However, for some moderately complex problems, some difficulties may arise when using the LRT.
+The maximization of $L(\theta)$ may be difficult if the likelihood function is not concave and has multiple local maxima.
+Worse still, in some problems the likelihood functions are unbounded and hence the LRT is not defined; see, for example,~\cite{Cam1990Maximum}.
+Notice that the unbounded likelihood occurs not only in artificial models, but also in some widely used models, such as the mixture models with unknown component location and scale parameters~\citep{chenjiahua2017}.
 
-In classical goodness of fit test, there are two common types of tests: one based on the maximum (Kolmogorov-Smirnov test, e.g.) and the other based on the integral (Cram\'er-von Mises test, e.g.).
-However, the integral type tests draw little attention to frequentist in parametric hypothesis testing problem.
-A natural integral type test statistic for hypothesis \eqref{eq:newHy} is defined as
+In goodness of fit test, there are two common types of tests: extreme value type (Kolmogorov-Smirnov test, e.g.) and integral type (Cram\'er-von Mises test, e.g.).
+In classical parametric hypothesis testing, however, no attention has been paid to the integrated likelihood functions.
+A natural integral type test statistic for hypothesis \eqref{eq:newHy} is
 \begin{equation}\label{naiLiS}
 \frac{\int_{\Theta}L(\theta) d\Pi(\theta)}{\int_{\Theta_0} L(\theta) d\Pi^{(0)}(\theta)},
 \end{equation}
 where $\Pi$ and $\Pi^{(0)}$ are some probability measures on $\Theta$ and $\Theta_{0}$, respectively.
-If $\Pi(d\theta)$ and $\Pi^{(0)}(d\theta)$ don't rely on data, then~\eqref{naiLiS} has exactly the same form as the Bayes factor with Prior distributions $\Pi$ and $\Pi^{(0)}$.
-The Bayes factor, proposed by~\cite{scientificInference}, is the conventional tool for Bayesian hypothesis testing and has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
-Compared with the methods in other Beyasian inference problem, such as point estimation and credible sets, Bayes factor is developed on its own ground and thus has its own nature.
-A notable feature of Bayes factor is that it can not be obtained solely from the posterior distribution of parameters.
-There are two consequence of this feature.
-First, the computation of Bayes factor is highly nontrivial;see~\cite{Robert1995Bayes},~\cite{MarkovC},~\cite{raftery2006estimating} and the references therein.
-Second, Bayes factor is sensitive to the choice of prior distribution. 
-In fact, if the Bayes factor is treated as a frequentist test statistic,
- its asymptotic null distribution relies on the prior density evaluated at the true parameter value; see, for example,~\cite{clarke1990information}.
-Thus, to formulate a frequentist test statistic, the measures $\Pi(d\theta)$ and $\Pi^{(0)}(d\theta)$ in~\eqref{naiLiS} should rely on data.
+If $\Pi$ and $\Pi^{(0)}$ are independent of data, then the statistic~\eqref{naiLiS} is exactly the Bayes factor \citep{scientificInference} with the prior distributions $\Pi$ and $\Pi^{(0)}$.
+The Bayes factor is the conventional tool for Bayesian hypothesis testing and has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
+%Compared with other aspects of Bayesian inference, % such as point estimation and credible sets,
+%Bayes factor is developed on its own ground. % and thus has its own nature.
+%Bayes factor can not be obtained solely from the posterior distribution of parameters.
+%There are two consequence of this feature.
+%First, the computation of Bayes factor is highly nontrivial;see~\cite{Robert1995Bayes},~\cite{MarkovC},~\cite{raftery2006estimating} and the references therein.
+However, Bayes factor is sensitive to the choice of prior distribution. 
+In fact, the asymptotic distribution of Bayes factor depends on the prior density at the true parameter; see, for example,~\cite{clarke1990information}.
+As a result, the Bayes factor cannot be treated as a frequentist test statistic.
+Thus, the measures $\Pi$ and $\Pi^{(0)}$ considered in this paper will depend on data.
+%\CG{As a special case, $\Pi$ and $\Pi^{(0)}$ can be posterior distributions.}
 
-If $\Pi(\theta=\hat{\theta}_{\text{MLE}})=1$ and $\Pi^{(0)}(\theta=\hat{\theta}^{(0)}_{\text{MLE}})=1$, then~\eqref{naiLiS} equals to the LRT statistic.
-In this case, the measure $\Pi$ and $\Pi^{(0)}$ both concentrate on one point which are highly nonsmooth.
-For many models, although the LRT fails, the likelihood function $L(\theta)$ still has good properties for most $\theta$ and  the MLE is unfortunately trapped in a fairly small area of $\theta$ where $L(\theta)$ has bad behavior. See Figure~\ref{myFigure1}.
-In such cases, some smoother $\Pi$ and $\Pi^{(0)}$ may perform better intuitively.
-Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with respect to certain predefined prior distribution) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
+If $\Pi(\theta=\hat{\theta}_{\text{MLE}})=1$ and $\Pi^{(0)}(\theta=\hat{\theta}^{(0)}_{\text{MLE}})=1$, then the statistic~\eqref{naiLiS} becomes the LRT statistic.
+In this case, the measure $\Pi$ and $\Pi^{(0)}$ both concentrate on one point and are highly nonsmooth.
+For many models where the LRT fails, the likelihood function $L(\theta)$ still has good properties for most $\theta$ and  the MLE is unfortunately trapped in a fairly small area of $\theta$ where $L(\theta)$ has bad behavior.
+Figure~\ref{myFigure1} exhibits this phenomenon.
+%In such cases, some smoother $\Pi$ and $\Pi^{(0)}$ may perform better intuitively.
+Intuitively,
+if $\Pi$ and $\Pi^{(0)}$ are smooth and have small tail prabability,
+then the defeat of the likelihood function in a small area will not introduce much effect on the integrated likelihood.
+Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with certain prior distributions) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
 In this case, the statistic~\eqref{naiLiS} becomes the posterior Bayes factor proposed (PBF) by~\cite{Aitkin1991Posterior}.
 ~\cite{Aitkin1991Posterior} argued that if the likelihood is concentrated around the MLE, the PBF should approximately equal to $2^{(p-p_0)}\Lambda_{\text{LRT}}$.
 This implies that PBF has a similar Wilks phenomenon as the LRT.
@@ -225,36 +233,38 @@ This implies that PBF has a similar Wilks phenomenon as the LRT.
     \end{center}
     \caption{
         An example of unbounded likelihood.
-        We generate data $X_1,\ldots,X_n$ are iid from the mixture model $(1-\omega)\mathcal{N}(0,1)+\omega\mathcal{N}(\xi,\sigma^2)$ with $(\omega,\xi,\sigma^2)^T=(1/2,1,10^{-2})$ and $n=50$.
-        We plot the likelihood function  versus $-\log (\sigma^2)$ with $\omega=1/2$ and $\xi=X_1$.
-        The likelihood tends to infinity as $-\log (\sigma^2)$ tends to infinity.
-        However, the behavior of the likelihood around the true parameter is fairly well.
+        We data $X_1,\ldots,X_n$ which are iid from the mixture model $(1-\omega)\mathcal{N}(0,1)+\omega\mathcal{N}(\xi,\sigma^2)$ with $(\omega,\xi,\sigma^2)^T=(1/2,1,10^{-2})$ and $n=50$.
+        We plot the likelihood function  in $-\log (\sigma^2)$ with $\omega=1/2$ and $\xi=X_1$.
+        The likelihood tends to infinity as $-\log (\sigma^2)$ tends to infinity, i.e., $\sigma^2$ tends to $0$.
+        In contrast, the likelihood has a local maximum around the true parameter $-\log (\sigma^{2})=-\log (10^{-2})$.
     }
     \label{myFigure1}
 \end{figure}
 
 
 
-Note that for any $a>0$, the LRT is equivalent to
+If we replace the likelihood function $L(\theta)$ by $L(\theta)^a$ for $a>0$, then the LRT statistic becomes
 \begin{equation*}
-    \frac{\max_{\theta\in\Theta}L^{a}(\theta)}{\max_{\theta\in\Theta_0}L^a(\theta)}.
+    \frac{\max_{\theta\in\Theta}L^{a}(\theta)}{\max_{\theta\in\Theta_0}L^a(\theta)}=\Lambda^a_{\text{LRT}},
 \end{equation*}
-In the contrary, the statistic
+%Hence the LRT statistic is equivariant if we raise the likelihood to the power of $a$.
+which is equivalent to the LRT statistic.
+In contrast, the statistic
 \begin{equation}\label{naiLiS2}
 \frac{\int_{\Theta}L^a(\theta) d\Pi(\theta)}{\int_{\Theta_0} L^a(\theta) d\Pi^{(0)}(\theta)}
 \end{equation}
-is not equivalent to~\eqref{naiLiS}.
-We shall consider the test statistic~\eqref{naiLiS2} with $0<a<1$.
-Correspondingly, the measure $\Pi$ and $\Pi^{(0)}$ can also take the fractional posterior~\cite{Bha2016}.
+is not equivalent to the statistic~\eqref{naiLiS}.
+We will also consider the test statistic~\eqref{naiLiS2} with $0<a<1$.
+Correspondingly, the measure $\Pi$ and $\Pi^{(0)}$ can also take the fractional posterior~\citep{Bha2016}.
 Raising the likelihood to a fractional power has several advantages; see, e.g.,~\cite{kar10563} and~\cite{Bha2016}.
 In particular, the consistency of the fractional posterior requires less conditions than the consistency of the usual posterior.
-A special case of~\eqref{naiLiS} is the fractional Bayes factor (FBF) proposed by \cite{Fractional1995}.
-We call~\eqref{naiLiS} the generalized FBF if $\Pi$ and $\Pi^{(0)}$ are fractional posterior distributions.
+A special case of the statistic~\eqref{naiLiS2} is the fractional Bayes factor (FBF) proposed by \cite{Fractional1995}.
+We call the statistic~\eqref{naiLiS2} the generalized FBF if $\Pi$ and $\Pi^{(0)}$ are fractional posterior distributions.
 
 Under certain regular conditions, we rigorously prove the Wilks phenomenon of the generalized FBF.
 Based on the Wilks phenomenon, an asymptotically correct frequentist test procedure can be formulated.
-We also give the asymptotic power of the resulting test procedure under contiguous alternative.
-It is shown that the generalized FBF has similar asymptotic behavior as the LRT.
+We also give the asymptotic local power of the resulting test procedure under contiguous alternative.
+It is shown that the generalized FBF has a similar asymptotic local power to the LRT.
 However, the generalized FBF
 can be applied to the cases where the likelihood is unbounded
 and thus has a wider application scope than the LRT.
@@ -282,8 +292,8 @@ The generalized FBF can be computed by sampling $\theta$ from the fractional pos
 For moderately complex model, however, sampling from the fractional posterior may be difficult and hence some approximation methods may be used in practice.
 %The computations of PBF and FBF are easier than that of Bayes factor since the PBF and FBF can be computed by sampling the likelihood according to posterior distribution or fractional posterior distribution.
 Variational inference is a popular method for approximating intractable posterior distribution; see~\cite{blei2017} and the references therein.
-Such procedure produce a distribution other than the fractional posterior distribution.
-To accommodate such cases, we also give a theorem for the general measure $\Pi$ and $\Pi^{(0)}$ in~\eqref{naiLiS2}.
+Such procedure produces a distribution other than the fractional posterior distribution.
+To accommodate such cases, we also give a theorem (Theorem~\ref{theoremMain} in Section 2) for the general measure $\Pi$ and $\Pi^{(0)}$ in~\eqref{naiLiS2}.
 %{\color{red} Allow $a+b=1$.}
 
 
@@ -294,17 +304,17 @@ For some irregular problems, the behavior of likelihood is complicated.
 %Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that ILRT may have better behavior than the LRT.
 %To illustrate this point,
 We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
-This problem is fairly irregular and suffers from nonidentifiability and nonconvex likelihood.
+This problem is fairly irregular and suffers from nonidentifiability and nonconcave likelihood.
 ~\cite{HALL2005158} showed that the likelihood ratio test has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 In contrary, we show that the ILRT have nontrivial power under $n^{-1/2}$ local alternative hypothesis.
 
 
 
 The paper is organized as follow.
-In Section 2, we prove the Wilks phenomenon of the ILRT statistic and gives the asymptotic local power.
+In Section 2, we prove Wilks phenomenon of the ILRT statistic and gives the asymptotic local power of the corresponding test.
 In Section 3, we apply ILRT to testing the homogeneity in a two-component normal mixture model.
 Section 4 concludes the paper.
-All technical proves are in Appendix.
+All technical proofs are in Appendix.
 
 
 
@@ -314,7 +324,7 @@ All technical proves are in Appendix.
 
 \subsection{The test statistic}
 
-Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) observations with values in some space $(\mathcal{X};\mathscr{A})$.
+Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) observations taking values in some space $(\mathcal{X};\mathscr{A})$.
 Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
 Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}$.
 Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
@@ -332,22 +342,24 @@ If the null hypothesis is true, we denote by $\theta_0=(\nu_0^T,\xi_0^T)^T$ the 
 
 
 
-In Bayesian hypothesis testing framework, one puts prior $\pi(\nu)$ and $\pi(\theta)$ on parameters under the null and alternative hypotheses, respectively.
-The conventional Bayes factor is defined as
-\begin{equation*}
-  \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta)\, d\theta}
-    {\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu)\, d\nu},
-\end{equation*}
-where $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$.
-However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absence of a well-formulated subjective prior; see, e.g., \cite{Lindley1982}.
+%The conventional Bayes factor is defined as
+%\begin{equation*}
+  %\frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta)\, d\theta}
+    %{\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu)\, d\nu},
+%\end{equation*}
+%where $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$.
+%However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absence of a well-formulated subjective prior; see, e.g., \cite{Lindley1982}.
 %The frequency property of Bayes factor is not satisfactory.
 %To overcome this weakness, several robust alternatives to Bayes factor have been proposed.
-To deal with this problem,~\cite{Aitkin1991Posterior} proposed PBF which is defined to be
+%To deal with this problem,
+In Bayesian hypothesis testing framework, one puts prior $\pi(\nu)$ and $\pi(\theta)$ on parameters under the null and alternative hypotheses, respectively.
+The PBF proposed by~\cite{Aitkin1991Posterior}  is defined as
 \begin{equation*}
     \frac{\int_{\Theta} p_n(\BX^{(n)}|\theta)\pi(\theta|\BX^{(n)})\, d\theta}{\int_{\tilde{\Theta}_0}p_n(\BX^{(n)}|\nu,\xi_0)\pi(\nu|\BX^{(n)})\, d\nu},
 \end{equation*}
-where $\pi(\nu|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under the null and alternative hypothesis, respectively.
-\cite{Fractional1995} proposed  FBF which is defined as
+where
+$\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$, $\pi(\nu|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under the null and alternative hypothesis, respectively.
+The FBF proposed by~\cite{Fractional1995} is defined as
 \begin{equation*}
     \frac{L_{1}}{L_{b}}\cdot \frac{L_{b}^{(0)}}{L_{1}^{(0)}}\quad \text{for}\quad 0<b<1,
 \end{equation*}
@@ -357,14 +369,16 @@ where for $t>0$,
  L_t^{(0)}=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
  $$
 
-We generalize the PBF and FBF and propose the ILRT statistic as
+ Being treated as frequentist test statistics, the PBF and FBF are both integrated type statistics.
+ We generalize the PBF and FBF and propose the following integrated likelihood ratio test statistic
 \begin{equation*}
     \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
 \end{equation*}
 where $a>0$ is a hyperparameter,
  the weight functions $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are probability density functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
-Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ may be data dependent but does not need to be the posterior density.
-If we take the weight function as
+Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are data dependent but does not need to be the posterior density.
+
+If we take the weight function as the fractional posterior
 \begin{equation}\label{firstWeight}
 \pi(\theta;\BX^{(n)})=\frac{\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)}{\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^b \pi(\theta)\, d\theta},
 \quad
@@ -376,9 +390,16 @@ $$
     \Lambda_{a,b}=
     \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^{(0)}}{L_{a+b}^{(0)}}.
 $$
-We shall call $\Lambda_{a,b}$ the generalized FBF throughout the paper.
+We call $\Lambda_{a,b}$ the generalized FBF throughout the paper.
 The FBF and PBF are both the special cases of the generalized FBF.
-In fact, the FBF equals to $\Lambda_{1,b}$, the PBF equals to $\Lambda_{2,1}$.
+In fact, the FBF equals to $\Lambda_{1-b,b}$, the PBF equals to $\Lambda_{1,1}$.
+For some moderately complex models, the fractional posterior~\eqref{firstWeight} may be complicated.
+%Consequently, sampling from~\eqref{firstWeight} may be intractable.
+In this case, one may use some simple form weight function to approximate the fractional posterior~\eqref{firstWeight}.
+A popular method for approximating~\eqref{firstWeight} is variational inference;
+see, e.g.,~\cite{blei2017}.
+In this case, the weight function in~\eqref{eq:definition} is equals to the variational approximation of~\eqref{firstWeight}.
+The ILRT methodology also includes such approximate method.
 
 The computation of the ILRT statistic is relatively simple.
 We can independently generate $\theta_1,\ldots,\theta_m$ and $\nu_1,\ldots,\nu_m$ according to $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ for a large $m$.
@@ -386,15 +407,6 @@ Then the ILRT statistic can be approximated by
 \begin{equation*}
     \frac{\sum_{i=1}^m \big[p_n(\BX^{(n)}|\theta_i)\big]^{a}}{\sum_{i=1}^m\big[p_n(\BX^{(n)}|\nu_i,\xi_0)\big]^{a}}.
 \end{equation*}
-
-
-For some moderately complex models,~\eqref{firstWeight} may be complicated.
-Consequently, sampling from~\eqref{firstWeight} may be intractable.
-In this case, one may use some simple form weight function to approximate~\eqref{firstWeight}.
-A popular method for approximating~\eqref{firstWeight} is variational inference;
-see, e.g.,~\cite{blei2017}.
-In this case, the weight function in~\eqref{eq:definition} is equals to the variational approximation of~\eqref{firstWeight}.
-The ILRT methodology also includes such approximate method.
 
 
 
@@ -420,14 +432,14 @@ The following assumption is adapted from~\cite{Kleijn2012The} and is satisfied b
     The derivative 
 $$\dot{\ell}_{\theta_0}(X)=\frac{\partial}{\partial \theta}\log p(X|\theta)\Big|_{\theta=\theta_0}$$
 exists $P_{\theta_0}$-a.s.\ and satisfies $P_{\theta_0}\dot{\ell}_{\theta_0}=0_p$.
-The Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ is positive-definite.
+The Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^T$ is positive-definite, where $P f$ means the expectation of $f(X)$ when $X$ has distribution $P$.
 For every $M>0$,
     \begin{equation*}
         \sup_{\|h\|\leq M}\Big|
          \log \frac{p_n(\BX^{(n)}|\theta_0+n^{-1/2}h)}{p_n(\BX^{(n)}|\theta_0)}-h^T I_{\theta_0}\Delta_{n,\theta_0}+\frac{1}{2}h^T I_{\theta_0}h
          \Big|\xrightarrow{P^n_{\theta_0}}0,
     \end{equation*}
-where $\Delta_{n,\theta_0}=\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$.
+    where $\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$.
 \end{assumption}     
 %, it ensures a local asymptotic normality expansion of likelihood. See Lemma~\ref{Thm:localExpansion} in Appendix.
     For $t>0$, we say $L_t$ is $\sqrt{n}$-consistent if for every $M_n\to \infty$,
@@ -471,14 +483,15 @@ Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency
 
 Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t$ for all $t>0$ under full-rank exponential family models.
 If the full model and the null model both belong to the full-rank exponential family, Assumption~\ref{Assumption1} is also satisfied.
-In this case, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF can be used as frequentist test.
+%In this case, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF can be used as frequentist test.
+Hence, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF has the similar asymptotic properties with the classical LRT statistic.
 However,
 for any test methodology, the success in the full-rank exponential family models is just a minimal requirement 
-since for these models, LRT is also easy to implement and enjoys good asymptotic properties.
+since the LRT is also easy to implement and enjoys good asymptotic properties.
 We would like to consider more general models.
 
 
-For general models, the likelihood function may not be convex.
+For general models, the likelihood function may not be concave.
 This often makes it hard to implement the LRT.
 For some models, a more serious problem may occur, that is, the likelihood may be unbounded and hence the LRT can not be defined.
 This problem may occur even if the likelihood function has good local analytical properties, such as location-scale mixture models.  See \cite{Cam1990Maximum} for more examples.
@@ -495,23 +508,20 @@ The following theorem shows that $L_t$ is always well defined for $t\leq 1$ and 
 %It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
 
 Because of the bad behavior of $L_t$ for $t>1$, next we only consider $L_t$ for $t\leq 1$.
- For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution.
- The consistency of posterior distribution has drawn much attention in the literature; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
+For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution and is well studied; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
 A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
 This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
+For example, Theorem 3.1 of \cite{Kleijn2012The} assumes that for every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+\begin{equation}\label{eq:testSeq}
+    P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
+\end{equation}
+This condition is satisfied when the parameter space is compact and the model is suitably continuous; see Theorem 3.2 of~\cite{Kleijn2012The}.
+However, if the parameter space is not compact, one may have to manually construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
 
-\begin{assumption}\label{Assumption2}
-    For every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
-        \begin{equation*}
-            P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
-        \end{equation*}
-\end{assumption}
-Assumption~\ref{Assumption2} is satisfied when the parameter space is compact and the model is suitably continuous. See Theorem 3.2 of~\cite{Kleijn2012The}.
-
-\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
-    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
-\end{proposition}
+%\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
+    %Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    %Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
+%\end{proposition}
 
 
 %The consistency of $L_t$ for $t>1$ can be proved under conditions similar to Assumption~\ref{Assumption2}.
@@ -521,8 +531,8 @@ Assumption~\ref{Assumption2} is satisfied when the parameter space is compact an
 
 The consistency of $L_t$ for $0<t<1$ is different from $t=1$.
 \cite{kar10563} considered the Hellinger consistency of $L_{1/2}$.
-It is shown that the consistency of $L_{1/2}$ does not need Assumption~\ref{Assumption2}.
-However, they only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
+They showed the consistency of $L_{1/2}$ under simple conditions.
+%They only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
 Recently,~\cite{Bha2016} further developed the idea of~\cite{kar10563} and derived a general bounds for the consistency of $L_t$ for $0<t<1$.
 However, their result can not yield the $\sqrt{n}$-consistency for parametric models.
 We shall prove the $\sqrt{n}$-consistency of $L_{t}$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
@@ -558,31 +568,41 @@ By Taylor theorem, in a small neighbourhood of $\theta_0$,
    $$
    where $\theta^*$ is between $\theta_0$ and $\theta$.
    If we further assume the second order derivative is positive definite at $\theta=\theta_0$, then in a small neighbourhood of $\theta_0$, there is a positive constant $C$ such that $D_{\alpha}(\theta||\theta_0)\geq C\|\theta-\theta_0\|^2$.
-   Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
+Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
+%It is often straightforward to verify Assumption~\ref{Assumption4}.
+%Compared with Assumption~\ref{Assumption2},
 %%%%%%%%%%%%%%% Here we haven't consider the second condition. It can be done through a minimax lower bound argument.
 \begin{proposition}\label{Theoremless1}
     Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
     Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t$ is consistent.
 \end{proposition}
-
-Compared with Assumption~\ref{Assumption2}, it appears that Assumption~\ref{Assumption4} is easier to verify.
-Note that the asymptotic power of $\Lambda_{a,b}$ is independent of $a,b$.
-Hence it can be recommended to use the generalized FBF with $a+b< 1$.
+Note that if the conditions of Theorem~\ref{Thm:maintheorem} are satisfied, the asymptotic power of $\Lambda_{a,b}$ is independent of $a,b$.
+Hence specific choices of $a,b$ are not crucial provided $L_{a+b}$, $L_b$, $L^{(0)}_{a+b}$ and $L^{(0)}_b$ are $\sqrt{n}$-consistent.
+For some models, it is more convenient to verify Assumption~\ref{Assumption4} than to directly construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
+In such cases, it can be recommended to use the generalized FBF with $a+b< 1$.
+%By Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, one can .
 
 
 \subsection{General weight function}
-
 For some moderately complex models, the fractional posterior~\eqref{firstWeight} are not easy to calculate.
-In this case, we can use simpler weight functions to approximate~\eqref{firstWeight}.
+In such cases, one may want to use simpler weight functions to approximate~\eqref{firstWeight}.
+In this section, we consider the asymptotic properties of the ILRT statistic with general weight functions.
 
-Let $h=\sqrt{n}(\theta-\theta_0)$ be the local parameter.
-Then the posterior density of $h$ is $\pi_n(h|\BX^{(n)})=n^{-1/2}\pi_n(\theta|\BX^{(n)})$.
-Theorem 2.1 of \cite{Kleijn2012The} states that under Assumptions~\ref{Assumption1} and~\ref{Assumption2},
-$$
-            \|\pi_n(h|\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0,
-$$
-where $\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$ and for two densities $q_1(h)$ and $q_2(h)$, $\|q_1(h)-q_2(h)\|=\int |q_1(h)-q_2(h)|\, dh$ is their total variation distance.
-We shall assume that the weight function inherits this property.
+Let $h=\sqrt{n}(\theta-\theta_0)$ be the local parameter and $\pi_n(h;\BX^{(n)})=\pi(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the weight function of $h$.
+%Then the posterior density of $h$ is $\pi_n(h|\BX^{(n)})=n^{-1/2}\pi(\theta|\BX^{(n)})$.
+%Theorem 2.1 of \cite{Kleijn2012The},
+If $\pi(\theta;\BX^{(n)})$ is the posterior density of $\theta$, then Bernstein-von Mises theorem asserts that under certain conditions,
+$
+            \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|
+$
+converges to $0$ in $P_{\theta_0}^n$ probability,
+where for two densities $q_1(h)$ and $q_2(h)$, $\|q_1(h)-q_2(h)\|=\int |q_1(h)-q_2(h)|\, dh$ is their total variation distance.
+Similarly, if $\pi(\theta;\BX^{(n)})$ is the fractional posterior density of $\theta$ with fractional power $b$, it can be proved that under certain conditions,
+$
+\|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1} I_{\theta_0}^{-1})\|
+$
+converges to $0$ in $P_{\theta_0}^n$ probability.
+We shall assume that the weight function inherits such properties.
         
 \begin{assumption}\label{Assumption3}
     Let $b\in(0,1)$ be a fixed number.
@@ -591,7 +611,7 @@ We shall assume that the weight function inherits this property.
             \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\|\overset{P_{\theta_0}^n}{\to}0.
         \end{equation}
 
-        Similarly, let $h^{(0)}=\sqrt{n}(\nu-\nu_0)$. Define $\pi_n(h^{(0)};\BX^{(n)})=n^{-1/2}\pi_n(\nu;\BX^{(n)})$. Assume that 
+        Similarly, let $h^{(0)}=\sqrt{n}(\nu-\nu_0)$. Define $\pi_n(h^{(0)};\BX^{(n)})=n^{-1/2}\pi(\nu;\BX^{(n)})$. Assume that 
 \begin{equation}\label{vonMisesResultsl}
     \|\pi_n(h^{(0)};\BX^{(n)})-\phi(h^{(0)};\Delta^{(0)}_{n,\theta_0},b^{-1}I_{\theta_0}^{(0)-1})\|\overset{P_{\theta_0}^n}{\to}0,
 \end{equation}
@@ -645,24 +665,24 @@ For comprehensive considerations of the statistical properties of variational me
 %The following example shows that the weight function obtained from R\'{e}nyi divergence variational inference satisfies Assumption~\ref{Assumption3}.
 
 Let $\mathcal{Q}$ be the family of all $p$ dimensional normal distribution.
-Let $\pi_n(\theta;\BX^{(n)})$ be the fractional posterior of order $b$ and $\pi_n(h;\BX^{(n)})=n^{-1/2}\pi_n(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the corresponding fractional posterior of $h$.
+Let $\pi(\theta;\BX^{(n)})$ be the fractional posterior of order $b$ and $\pi_n(h;\BX^{(n)})=n^{-1/2}\pi(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the corresponding fractional posterior of $h$.
 Suppose that $\pi_n(h;\BX^{(n)})$ satisfies Bernstein-von Mises theorem,
 \begin{equation}\label{eq:xiebuwanlaaa}
     \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\| \xrightarrow{P_{\theta_0}^n}0.
 \end{equation}
-Let the weight function $\pi^{\dagger}_n(\theta;\BX^{(n)})$ be the normal approximation of $\pi_n(h;\BX^{(n)})$ obtained from R\'{e}nyi divergence variational inference~\citep{NIPS2016_6208}, that is,
+Let the weight function $\pi^{\dagger}(\theta;\BX^{(n)})$ be the normal approximation of $\pi(\theta;\BX^{(n)})$ obtained from R\'{e}nyi divergence variational inference~\citep{NIPS2016_6208}, that is,
     $$
-    \pi_n^{\dagger}(\theta;\BX^{(n)})=\argmin_{q(\theta)\in\mathcal{Q}} -\frac{1}{1-\alpha} \log \int q(\theta)^{\alpha} \pi_n(\theta;\BX^{(n)})^{1-\alpha}\, d\theta,
+    \pi^{\dagger}(\theta;\BX^{(n)})=\argmin_{q(\theta)\in\mathcal{Q}} -\frac{1}{1-\alpha} \log \int q(\theta)^{\alpha} \pi(\theta;\BX^{(n)})^{1-\alpha}\, d\theta,
     $$
     where $0<\alpha<1$ is an arbitrary constant.
-    Let $\pi_n^{\dagger}(h;\BX^{(n)})=n^{-1/2}\pi_n^{\dagger}(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the weight function of $h$.
+    Let $\pi_n^{\dagger}(h;\BX^{(n)})=n^{-1/2}\pi^{\dagger}(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the weight function of $h$.
     It can be seen that
     $$
     \pi_n^{\dagger}(h;\BX^{(n)})=\argmin_{q(h)\in\mathcal{Q}} -\frac{1}{1-\alpha} \log \int q(h)^{\alpha} \pi_n(h;\BX^{(n)})^{1-\alpha}\, dh.
     $$
     Hence we have
     \begin{equation}\label{eq:xiebuwan}
-        -\frac{1}{1-\alpha} \log \int \pi^{\dagger}(h;\BX^{(n)})^{\alpha} \pi_n(h;\BX^{(n)})^{1-\alpha}\, dh
+        -\frac{1}{1-\alpha} \log \int \pi^{\dagger}_n(h;\BX^{(n)})^{\alpha} \pi_n(h;\BX^{(n)})^{1-\alpha}\, dh
     \leq
     -\frac{1}{1-\alpha} \log \int \phi(h;\Delta_{n,\theta_0}, I_{\theta_0}^{-1})^{\alpha} \pi_n(h|\BX^{(n)})^{1-\alpha}\, dh.
     \end{equation}
@@ -678,7 +698,7 @@ Let the weight function $\pi^{\dagger}_n(\theta;\BX^{(n)})$ be the normal approx
 In this section, we apply the ILRT methodology to the testing the component number of normal mixture model.
 Normal mixture model is a highly irregular model.
 Due to partial loss of identifiability, the likelihood ratio test has undesirable behavior.
-For example, if the component variances are totally unknown, the likelihood is bounded and thus likelihood ratio test is not defined \citep{Cam1990Maximum}.
+For example, if the component variances are totally unknown, the likelihood is unbounded and thus likelihood ratio test is not defined \citep{Cam1990Maximum}.
 See~\cite{chenjiahua2017} for a review of the testing problems for mixture models.
 Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that ILRT may have better behavior than likelihood ratio test.
 For example, for unknown variances case, ILRT is at least well defined.
@@ -707,7 +727,7 @@ then the generalized FBF with $a>0$, $b>0$ and $a+b<1$ satisfies
 \end{equation*}
     \label{propositionTT}
 \end{proposition}
-This example shows that every when the LRT fails, the ILRT may still be valid and has the expected asymptotic distribution.
+This example shows that even when the LRT fails, the ILRT may still be valid and has the expected asymptotic distribution.
 Thus, the ILRT methodology has a wider application scope than the LRT.
 
 
@@ -725,7 +745,7 @@ Even for this simple case,
 the likelihood has undesirable behavior due to loss of identifiability.
 Although the LRT exists in this problem, its power behavior is not satisfactory.
 In fact,~\cite{HALL2005158} showed that it has trivial power under $n^{-1/2}$ local alternative hypothesis. 
-For this irregular problem, theorems in Section 2 can not be directly applied.
+For this irregular problem, Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1} cannot be directly applied.
 This is because the second part is Assumption~\eqref{Assumption3} is violated due to loss of identifiability.
 However, this does not means that the ILRT is not applicable.
 In fact, the following theorem shows that the generalized FBF with $a+b<1$ has the desirable asymptotic properties.
@@ -751,7 +771,7 @@ In fact, the following theorem shows that the generalized FBF with $a+b<1$ has t
 \end{theorem}
 Theorem~\ref{mixtureThm} shows that the ILRT has nontrivial power if $\omega \xi $ is of order $n^{-1/2}$. 
 In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asymptotically if $\omega \xi=\gamma(n^{-1}\log \log n)^{1/2}$ with $|\gamma|< 1$.
-To have a nontrivial power, 
+%To have a nontrivial power, 
 %This illustrates the superiority of the ILRT over the LRT.
 
 
@@ -761,19 +781,25 @@ To have a nontrivial power,
 
 \section{Conclusion}
 In this paper, we proposed a flexible methodology ILRT which includes some existing method as special cases.
-We gave the asymptotic distribution of the generalized FBF, which is a special case of ILRT.
-We also investigates the asymptotic behavior of the ILRT for general weight functions.
+We give the asymptotic distribution of the generalized FBF, which is a special case of ILRT.
+We also investigate the asymptotic behavior of the ILRT for general weight functions.
 It is shown that the generalized FBF has a Wilks phenomenon similar to the LRT.
 The asymptotic local power is also given.
 %This allows one to use a simple form approximation of the posterior distribution as weight function.
 %In particular, we show that the weight function can be obtained from R\'{e}nyi divergence variational inference.
-We also apply the ILRT methodology to two testing problems for the normal mixture model.
+We also apply the ILRT methodology to two submodels of the normal mixture model.
 These examples show that the ILRT can have good behavior even if the LRT is not defined or has poor properties.
 
-The integral can smooth the likelihood.
-Hence it can be expected that the ILRT method can have better properties than the LRT when the likelihood has complicated behavior.
-The success of the ILRT methodology in our examples verifies this point.
-It is interesting to apply the ILRT methodology to more problems where classical methods don't have good properties.
+
+The ILRT statistic is easy to implement provided sampling from weight functions is simple.
+If the weight functions are fractional posterior densities, then Markov chain Monte Carlo (MCMC) methods can be used to sample from weight functions.
+If MCMC is not efficient, one can use approximation methods such as variational inference and the resulting test procedure is still valid.
+Thus, the ILRT methodology can also be recommended when the classical LRT is not easy to implement.
+%The integral can smooth the likelihood.
+%Hence it can be expected that the ILRT method can have better properties than the LRT when the likelihood has complicated behavior.
+%The success of the ILRT methodology in our examples verifies this point.
+
+It is interesting to apply the ILRT methodology to specific complex testing problems.
 We leave it for future research.
 
 \section*{Acknowledgements}

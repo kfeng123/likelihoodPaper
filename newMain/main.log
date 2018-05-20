@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  15 MAY 2018 18:32
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  20 MAY 2018 15:07
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -442,22 +442,22 @@ LaTeX Info: Redefining \today on input line 736.
 (./main.aux)
 \openout1 = `main.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 111.
-LaTeX Font Info:    ... okay on input line 111.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 112.
+LaTeX Font Info:    ... okay on input line 112.
 \AtBeginShipoutBox=\box29
-Package hyperref Info: Link coloring OFF on input line 111.
+Package hyperref Info: Link coloring OFF on input line 112.
  (/usr/share/texlive/texmf-dist/tex/latex/hyperref/nameref.sty
 Package: nameref 2012/10/27 v2.43 Cross-referencing by name of section
 
@@ -466,9 +466,9 @@ Package: gettitlestring 2010/12/03 v1.4 Cleanup title references (HO)
 )
 \c@section@level=\count168
 )
-LaTeX Info: Redefining \ref on input line 111.
-LaTeX Info: Redefining \pageref on input line 111.
-LaTeX Info: Redefining \nameref on input line 111.
+LaTeX Info: Redefining \ref on input line 112.
+LaTeX Info: Redefining \pageref on input line 112.
+LaTeX Info: Redefining \nameref on input line 112.
 
 (./main.out) (./main.out)
 \@outlinefile=\write3
@@ -537,48 +537,47 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Try loading font information for U+msa on input line 112.
+LaTeX Font Info:    Try loading font information for U+msa on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 112.
+LaTeX Font Info:    Try loading font information for U+msb on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-LaTeX Font Info:    Try loading font information for U+rsfs on input line 112.
+LaTeX Font Info:    Try loading font information for U+rsfs on input line 113.
 
 (/usr/share/texlive/texmf-dist/tex/latex/jknapltx/ursfs.fd
 File: ursfs.fd 1998/03/24 rsfs font definition file (jk)
 )
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 112.
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 113.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 112.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 113.
  [1
 
 {/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] [2]
-<figure/newnewPP.png, id=104, 569.7285pt x 346.896pt>
+<figure/newnewPP.png, id=96, 569.7285pt x 346.896pt>
 File: figure/newnewPP.png Graphic file (type png)
-
-<use figure/newnewPP.png>
-Package pdftex.def Info: figure/newnewPP.png used on input line 224.
+ <use figure/newnewPP.png>
+Package pdftex.def Info: figure/newnewPP.png used on input line 232.
 (pdftex.def)             Requested size: 422.77664pt x 257.41888pt.
- [3 <./figure/newnewPP.png>] [4] [5] [6] [7] [8]
-[9] [10] [11] [12]
-Overfull \hbox (24.17433pt too wide) in paragraph at lines 840--840
+
+[3 <./figure/newnewPP.png>] [4] [5] [6] [7] [8] [9] [10] [11] [12]
+Overfull \hbox (24.17433pt too wide) in paragraph at lines 866--866
 [] 
  []
 
 [13] [14] [15] [16] [17] [18] [19]
-Overfull \hbox (46.28958pt too wide) detected at line 1399
+Overfull \hbox (46.28958pt too wide) detected at line 1425
 [][] [][] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h[]\
 OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/1
 0.95 dh[] \OT1/cmr/m/n/10.95 = [][] [] [] + \OML/cmm/m/it/10.95 o[]\OT1/cmr/m/n
@@ -586,13 +585,13 @@ OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/1
  []
 
 
-Overfull \hbox (39.01263pt too wide) in paragraph at lines 1507--1507
+Overfull \hbox (39.01263pt too wide) in paragraph at lines 1533--1533
 [] 
  []
 
 [20] [21]
-Overfull \hbox (12.1982pt too wide) in paragraph at lines 1630--1634
-[]  \OT1/cmr/bx/n/10.95 Propo-si-tion 6. []\OT1/cmr/m/it/10.95 Sup-pose the con
+Overfull \hbox (12.1982pt too wide) in paragraph at lines 1656--1660
+[]  \OT1/cmr/bx/n/10.95 Propo-si-tion 5. []\OT1/cmr/m/it/10.95 Sup-pose the con
 -di-tions of The-o-rem []3[] holds. Let $\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.9
 5 (\OML/cmm/m/it/10.95 M[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 f\OT1/cmr/
 m/n/10.95 (\OML/cmm/m/it/10.95 !; ^^X\OT1/cmr/m/n/10.95 ) : \OML/cmm/m/it/10.95
@@ -602,27 +601,27 @@ sy/m/n/10.95 j\OML/cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 2) \OMS/cmsy/m/n/10.95 ^^
  []
 
 [22] [23]
-Overfull \hbox (8.86797pt too wide) in paragraph at lines 1789--1789
+Overfull \hbox (8.86797pt too wide) in paragraph at lines 1815--1815
 [] 
  []
 
 [24] [25] [26] (./main.bbl [27])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1962.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 1988.
  [28]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 1962.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 1988.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1962.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1962.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 1988.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 1988.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 1DE4FF26DDFF56255CE9201398C7FB96;531.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1962.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 1988.
  ) 
 Here is how much of TeX's memory you used:
- 9071 strings out of 493029
- 127344 string characters out of 6136235
- 250680 words of memory out of 5000000
- 12336 multiletter control sequences out of 15000+600000
+ 9059 strings out of 493029
+ 127090 string characters out of 6136235
+ 251651 words of memory out of 5000000
+ 12328 multiletter control sequences out of 15000+600000
  22409 words of font info for 83 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  35i,22n,35p,1008b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -646,10 +645,10 @@ fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/
 type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/t
 ype1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/ty
 pe1/public/rsfs/rsfs10.pfb>
-Output written on main.pdf (28 pages, 404078 bytes).
+Output written on main.pdf (28 pages, 402031 bytes).
 PDF statistics:
- 538 PDF objects out of 1000 (max. 8388607)
- 480 compressed objects within 5 object streams
- 104 named destinations out of 1000 (max. 500000)
+ 523 PDF objects out of 1000 (max. 8388607)
+ 465 compressed objects within 5 object streams
+ 100 named destinations out of 1000 (max. 500000)
  78 words of extra memory for PDF output out of 10000 (max. 10000000)
 

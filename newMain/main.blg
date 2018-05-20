@@ -6,47 +6,46 @@ Database file #1: mybibfile.bib
 Warning--entry type for "Aitkin1991Posterior" isn't style-file defined
 --line 1 of file mybibfile.bib
 Warning--empty journal in Fractional1995
-Warning--empty journal in raftery2006estimating
 Warning--can't use both author and editor fields in van2000asymptotic
-You've used 26 entries,
+You've used 23 entries,
             1940 wiz_defined-function locations,
-            639 strings with 7428 characters,
-and the built_in function-call counts, 9701 in all, are:
-= -- 944
-> -- 347
-< -- 20
-+ -- 113
-- -- 109
-* -- 864
-:= -- 1692
-add.period$ -- 78
-call.type$ -- 26
-change.case$ -- 181
-chr.to.int$ -- 26
-cite$ -- 29
-duplicate$ -- 368
-empty$ -- 698
-format.name$ -- 157
-if$ -- 1882
+            620 strings with 7025 characters,
+and the built_in function-call counts, 8566 in all, are:
+= -- 837
+> -- 304
+< -- 18
++ -- 99
+- -- 95
+* -- 758
+:= -- 1494
+add.period$ -- 70
+call.type$ -- 23
+change.case$ -- 159
+chr.to.int$ -- 23
+cite$ -- 25
+duplicate$ -- 327
+empty$ -- 616
+format.name$ -- 138
+if$ -- 1663
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 27
-newline$ -- 131
-num.names$ -- 80
-pop$ -- 140
+missing$ -- 24
+newline$ -- 117
+num.names$ -- 71
+pop$ -- 122
 preamble$ -- 1
-purify$ -- 182
+purify$ -- 160
 quote$ -- 0
-skip$ -- 290
+skip$ -- 258
 stack$ -- 0
-substring$ -- 692
-swap$ -- 61
+substring$ -- 608
+swap$ -- 56
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 152
-warning$ -- 3
-while$ -- 77
+type$ -- 134
+warning$ -- 2
+while$ -- 69
 width$ -- 0
-write$ -- 329
-(There were 4 warnings)
+write$ -- 293
+(There were 3 warnings)
