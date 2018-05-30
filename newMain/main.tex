@@ -171,7 +171,7 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 %
 Likelihood inference plays a dominant role in parametric statistic inference.
 On the one hand, the maximum likelihood estimation is asymptotically optimal in a great variety of problems.
-On the other hand, the fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test when the null and alternative hypotheses are both simple.
+On the other hand, the fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test if the null and alternative hypotheses are both simple.
 For the general hypothesis testing problem
 \begin{equation}\label{eq:newHy}
     H:\theta\in\Theta_0\quad \text{vs.}\quad K: \theta\in \Theta_1,
@@ -215,7 +215,7 @@ For many models where the LRT fails, the likelihood function $L(\theta)$ still h
 Figure~\ref{myFigure1} exhibits this phenomenon.
 %In such cases, some smoother $\Pi$ and $\Pi^{(0)}$ may perform better intuitively.
 Intuitively,
-if $\Pi$ and $\Pi^{(0)}$ are smooth and have small tail prabability,
+if $\Pi$ and $\Pi^{(0)}$ are smooth and have small tail probability,
 then the defeat of the likelihood function in a small area will not introduce much effect on the integrated likelihood.
 Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with certain prior distributions) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
 In this case, the statistic~\eqref{naiLiS} becomes the posterior Bayes factor proposed (PBF) by~\cite{Aitkin1991Posterior}.
@@ -427,8 +427,8 @@ The following assumption is adapted from~\cite{Kleijn2012The} and is satisfied b
         %=-\frac{1}{2}(\theta-\theta_0)^T I_{\theta_0} (\theta-\theta_0)+o(\|\theta-\theta_0\|^2).
     %\end{equation*}
 \begin{assumption}\label{Assumption1}
-    The parameter space $\Theta$ and $\tilde{\Theta}_0$ are open subsets of $\mathbb{R}^p$ and $\mathbb{R}^{p_0}$, respectively.
-    The parameter $\theta_0$ and $\nu_0$ are inner points of $\Theta$ and $\tilde{\Theta}_0$, respectively.
+    The parameter spaces $\Theta$ and $\tilde{\Theta}_0$ are open subsets of $\mathbb{R}^p$ and $\mathbb{R}^{p_0}$, respectively.
+    The parameters $\theta_0$ and $\nu_0$ are inner points of $\Theta$ and $\tilde{\Theta}_0$, respectively.
     The derivative 
 $$\dot{\ell}_{\theta_0}(X)=\frac{\partial}{\partial \theta}\log p(X|\theta)\Big|_{\theta=\theta_0}$$
 exists $P_{\theta_0}$-a.s.\ and satisfies $P_{\theta_0}\dot{\ell}_{\theta_0}=0_p$.
@@ -463,7 +463,7 @@ For every $M>0$,
 ``$\rightsquigarrow$'' means weak convergence.
     \end{theorem}
 Theorem~\ref{Thm:maintheorem} gives the asymptotic distribution of $2\log \Lambda_{a,b}$ under the null hypothesis and the local alternative hypothesis.
-To obtain a test with asymptotic type I error rate $\alpha$, the critical value of $2\log \Lambda_{a,b}$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{1-\alpha}(p-p_0)$, where $\chi^2_{1-\alpha}(p-p_0)$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
+To formulate a test with asymptotic type I error rate $\alpha$, the critical value of $2\log \Lambda_{a,b}$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{1-\alpha}(p-p_0)$ where $\chi^2_{1-\alpha}(p-p_0)$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
 By Theorem~\ref{Thm:maintheorem}, the resulting test has local asymptotic power
 \begin{equation}\label{eq:likelihoodPower}
 \Pr \left( \chi^2(p-p_0,\delta)> \chi^2_{1-\alpha}(p-p_0) \right).
@@ -508,7 +508,7 @@ The following theorem shows that $L_t$ is always well defined for $t\leq 1$ and 
 %It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
 
 Because of the bad behavior of $L_t$ for $t>1$, next we only consider $L_t$ for $t\leq 1$.
-For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution and is well studied; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
+For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution which is a well studied problem; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
 A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
 This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
 For example, Theorem 3.1 of \cite{Kleijn2012The} assumes that for every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
@@ -588,7 +588,7 @@ For some moderately complex models, the fractional posterior~\eqref{firstWeight}
 In such cases, one may want to use simpler weight functions to approximate~\eqref{firstWeight}.
 In this section, we consider the asymptotic properties of the ILRT statistic with general weight functions.
 
-Let $h=\sqrt{n}(\theta-\theta_0)$ be the local parameter and $\pi_n(h;\BX^{(n)})=\pi(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the weight function of $h$.
+Let $h=\sqrt{n}(\theta-\theta_0)$ be the local parameter and $\pi_n(h;\BX^{(n)})=\pi(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the weight function in terms of $h$.
 %Then the posterior density of $h$ is $\pi_n(h|\BX^{(n)})=n^{-1/2}\pi(\theta|\BX^{(n)})$.
 %Theorem 2.1 of \cite{Kleijn2012The},
 If $\pi(\theta;\BX^{(n)})$ is the posterior density of $\theta$, then Bernstein-von Mises theorem asserts that under certain conditions,
@@ -648,8 +648,7 @@ The following theorem gives the asymptotic distribution of ILRT statistic.
 
 
 \begin{theorem}\label{theoremMain}
-    Suppose that Assumptions~\ref{Assumption1} and \ref{Assumption3} hold, the true parameter $\theta_0$ is an interior point of $\Theta$, $\nu$ is a relative interior point of $\tilde{\Theta}_0$.
-    Suppose $a+b\leq 1$.
+    Suppose that Assumptions~\ref{Assumption1} and \ref{Assumption3} hold with $a+b\leq 1$.
     Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, we have
 
         $$
@@ -666,7 +665,7 @@ For comprehensive considerations of the statistical properties of variational me
 
 Let $\mathcal{Q}$ be the family of all $p$ dimensional normal distribution.
 Let $\pi(\theta;\BX^{(n)})$ be the fractional posterior of order $b$ and $\pi_n(h;\BX^{(n)})=n^{-1/2}\pi(\theta_0+n^{-1/2}h;\BX^{(n)})$ be the corresponding fractional posterior of $h$.
-Suppose that $\pi_n(h;\BX^{(n)})$ satisfies Bernstein-von Mises theorem,
+Suppose that $\pi_n(h;\BX^{(n)})$ satisfies
 \begin{equation}\label{eq:xiebuwanlaaa}
     \|\pi_n(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\| \xrightarrow{P_{\theta_0}^n}0.
 \end{equation}
@@ -709,7 +708,7 @@ Suppose $X_1,\ldots,X_n$ are iid distributed as a mixture of normal distribution
 +\frac{\omega}{\sqrt{2\pi}\sigma}\exp\big(-\frac{1}{2\sigma^2}(X-\xi)^2\big),
 \end{equation*}
 where $0\leq \omega \leq 1$, $\mu\in \mathbb{R}$ and $\sigma^2\in \mathbb{R}^+$.
-First, we assume $\omega=1/2$ and consider testing the hypotheses
+First, we assume $\omega=1/2$ is known and consider testing the hypotheses
 \begin{equation}
     H: \xi=0,\sigma=1\quad \text{vs.} \quad K: \xi\neq 0 \text{ or } \sigma \neq 1.
     \label{mixturehy1}
@@ -720,7 +719,7 @@ Thus, the LRT can not be defined.
 Using Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, we can obtain the following proposition.
 \begin{proposition}
 For hypotheses testing problem~\eqref{mixturehy1}, 
-If $\sqrt{n}((\xi,\sigma^2)-(0,1))^T\to (\eta_1,\eta_2)^T $, 
+if $\sqrt{n}((\xi,\sigma^2)-(0,1))^T\to (\eta_1,\eta_2)^T $, 
 then the generalized FBF with $a>0$, $b>0$ and $a+b<1$ satisfies
 \begin{equation*}
     2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow}-2\log (1+\frac{a}{b})+{a}\chi^2(2,\eta_1^2/4+\eta_2^2/8).
@@ -741,9 +740,7 @@ For simplicity, we assume $\sigma^2=1$ is known and consider testing the hypothe
     \label{newHy}
 \end{equation}
 %There has been considerable literature considering the testing problem in this case. See~\cite{chenjiahua2017} for a review.
-Even for this simple case,
-the likelihood has undesirable behavior due to loss of identifiability.
-Although the LRT exists in this problem, its power behavior is not satisfactory.
+Although the LRT exists in this problem, its asymptotic behavior is complicated and its power behavior is not satisfactory.
 In fact,~\cite{HALL2005158} showed that it has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 For this irregular problem, Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1} cannot be directly applied.
 This is because the second part is Assumption~\eqref{Assumption3} is violated due to loss of identifiability.
