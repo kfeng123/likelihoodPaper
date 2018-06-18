@@ -172,7 +172,7 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 Likelihood inference plays a dominant role in parametric statistic inference.
 On the one hand, the maximum likelihood estimation is asymptotically optimal in a great variety of problems.
 On the other hand, the fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test if the null and alternative hypotheses are both simple.
-For the general hypothesis testing problem
+For testing complex hypotheses
 \begin{equation}\label{eq:newHy}
     H:\theta\in\Theta_0\quad \text{vs.}\quad K: \theta\in \Theta_1,
 \end{equation}
@@ -219,7 +219,7 @@ if $\Pi$ and $\Pi^{(0)}$ are smooth and have small tail probability,
 then the defeat of the likelihood function in a small area will not introduce much effect on the integrated likelihood.
 Following this idea, a natural choice is to take $\Pi$ and $\Pi^{(0)}$ as the posterior distribution (with certain prior distributions) of $\theta$ in $\Theta$ and $\Theta_0$, respectively.
 In this case, the statistic~\eqref{naiLiS} becomes the posterior Bayes factor proposed (PBF) by~\cite{Aitkin1991Posterior}.
-~\cite{Aitkin1991Posterior} argued that if the likelihood is concentrated around the MLE, the PBF should approximately equal to $2^{(p-p_0)}\Lambda_{\text{LRT}}$.
+~\cite{Aitkin1991Posterior} argued that if the likelihood is concentrated around the MLE, the PBF should approximately equal to $2^{(p-p_0)/2}\Lambda_{\text{LRT}}$.
 This implies that PBF has a similar Wilks phenomenon as the LRT.
 %Note that if the likelihood is concentrated around the MLE, then the MLE is consistent and thus the LRT can be applied.
 %Hence we are more interested in the case where the MLE is inconsistent.
@@ -328,7 +328,7 @@ Let $\BX^{(n)}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) ob
 Suppose that there is a $\sigma$-finite measure $\mu$ on $\mathcal{X}$ and that the  possible distribution $P_\theta$ of $X_i$ has a density $p(X|\theta)$ with respect to $\mu$.
 Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{(n)}$.
 Let $p_{n}(\BX^{(n)}|\theta)=\prod_{i=1}^n p(X_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
-The parameter $\theta$ takes its values in $\Theta$, a subset of $\mathbb{R}^{p}$.
+The parameter $\theta$ takes its values in $\Theta$, an open subset of $\mathbb{R}^{p}$.
 Suppose $\theta=(\nu^T,\xi^T)^T$, where $\nu$ is a $p_0$ dimensional subvector and $\xi$ is a $p-p_0$ dimensional subvector.
  We would like to test the hypotheses
 \begin{equation*}
@@ -361,12 +361,12 @@ where
 $\tilde{\Theta}_0=\{\nu: (\nu^T,\xi^T)^T\in \Theta_0\}$, $\pi(\nu|\BX^{(n)})$ and $\pi(\theta|\BX^{(n)})$ are the posterior densities under the null and alternative hypothesis, respectively.
 The FBF proposed by~\cite{Fractional1995} is defined as
 \begin{equation*}
-    \frac{L_{1}}{L_{b}}\cdot \frac{L_{b}^{(0)}}{L_{1}^{(0)}}\quad \text{for}\quad 0<b<1,
+    \frac{L_{1}(\Theta;\BX^{(n)})}{L_{b}(\Theta;\BX^{(n)})}\cdot \frac{L_{b}^{(0)}(\tilde{\Theta}_0;\BX^{(n)})}{L_{1}^{(0)}(\tilde{\Theta}_0;\BX^{(n)})}\quad \text{for}\quad 0<b<1,
 \end{equation*}
-where for $t>0$,
+where for $t>0$ and sets $A\subset \Theta$, $A_0\subset \tilde{\Theta}_0$,
  $$
- L_t=\int_{\Theta}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta,\quad
- L_t^{(0)}=\int_{\Theta_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
+ L_t(A;\BX^{(n)})=\int_{A}\big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta,\quad
+ L_t^{(0)}(A_0;\BX^{(n)})=\int_{A_0}\big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu.
  $$
 
  Being treated as frequentist test statistics, the PBF and FBF are both integrated type statistics.
@@ -375,7 +375,7 @@ where for $t>0$,
     \frac{\int_{\Theta} \big[p_n(\BX^{(n)}|\theta)\big]^{a}\pi(\theta;\BX^{(n)})\,d\theta}{\int_{\tilde{\Theta}_0} \big[p_n(\BX^{(n)}|\nu,\xi_0)\big]^{a}\pi(\nu;\BX^{(n)})\,d\nu},
 \end{equation*}
 where $a>0$ is a hyperparameter,
- the weight functions $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are probability density functions in $\Theta$ and $\tilde{\Theta}_0$ respectively.
+the weight functions $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are probability density functions in $\Theta$ and $\tilde{\Theta}_0$ given $\BX^{(n)}$, respectively.
 Note that $\pi(\theta;\BX^{(n)})$ and $\pi(\nu;\BX^{(n)})$ are data dependent but does not need to be the posterior density.
 
 If we take the weight function as the fractional posterior
@@ -388,7 +388,7 @@ If we take the weight function as the fractional posterior
 then the ILRT statistic equals to
 $$
     \Lambda_{a,b}=
-    \frac{L_{a+b}}{L_{b}}\cdot \frac{L_{b}^{(0)}}{L_{a+b}^{(0)}}.
+    \frac{L_{a+b}(\Theta;\BX^{(n)})}{L_{b}(\Theta;\BX^{(n)})}\cdot \frac{L_{b}^{(0)}(\tilde{\Theta}_0;\BX^{(n)})}{L_{a+b}^{(0)}(\tilde{\Theta}_0;\BX^{(n)})}.
 $$
 We call $\Lambda_{a,b}$ the generalized FBF throughout the paper.
 The FBF and PBF are both the special cases of the generalized FBF.
@@ -442,20 +442,19 @@ For every $M>0$,
     where $\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I_{\theta_0}^{-1}\dot{\ell}_{\theta_0}(X_i)$.
 \end{assumption}     
 %, it ensures a local asymptotic normality expansion of likelihood. See Lemma~\ref{Thm:localExpansion} in Appendix.
-    For $t>0$, we say $L_t$ is $\sqrt{n}$-consistent if for every $M_n\to \infty$,
+For $t>0$, we say $L_t(\cdot;\BX^{(n)})$ is $\sqrt{n}$-consistent if for every $M_n\to \infty$,
     $$
-    \frac{L_t({\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}})}{L_t}\xrightarrow{P_{\theta_0}^n} 0,
+    \frac{L_t({\{\theta:\|\theta-\theta_0\|> M_n/\sqrt{n}\}};\BX^{(n)})}{L_t(\Theta;\BX^{(n)})}\xrightarrow{P_{\theta_0}^n} 0.
     $$
-    where for a set $A\subset \Theta$, $L_t (A)=\int_{A} [ {p_n(\BX^{(n)}|\theta)} ]^{t} \pi(\theta) \, d \theta$.
-    The $\sqrt{n}$-consistency of $L_t^{(0)}$ is similarly defined.
-    Note that the consistency of $L_1$ is equivalent to the consistency of the posterior distribution.
+    The $\sqrt{n}$-consistency of $L_t^{(0)}(\cdot;\BX^{(n)})$ is similarly defined.
+    Note that the consistency of $L_1(\cdot;\BX^{(n)})$ is equivalent to the consistency of the posterior distribution.
     In~\cite{Kleijn2012The}, the $\sqrt{n}$-consistency of posterior distribution is a key assumption to prove Bernstein-von Mises theorem.
-    Likewise, the $\sqrt{n}$-consistency of $L_t$ is a key assumption of the following theorem.
+    Likewise, the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{(n)})$ is a key assumption of the following theorem.
 
 
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}$, $L_b$, $L_{a+b}^{(0)}$ and $L_b^{(0)}$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
+        Suppose that Assumption~\ref{Assumption1} holds, $L_{a+b}(\cdot;\BX^{(n)})$, $L_b(\cdot;\BX^{(n)})$, $L_{a+b}^{(0)}(\cdot;\BX^{(n)})$ and $L_b^{(0)}(\cdot;\BX^{(n)})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi(\nu)$ is continuous at $\nu_0$ with $\pi(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
         $$
         2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow}-{(p-p_0)}\log (1+\frac{a}{b})+{a}\chi^2(p-p_0,\delta),
         $$
@@ -472,16 +471,16 @@ It is known that, under certain regular conditions,~\eqref{eq:likelihoodPower} i
 In this view, $\Lambda_{a,b}$ enjoys good frequentist properties.
 
 
- The $\sqrt{n}$-consistency of $L_t$ is a key assumption of Theorem \ref{Thm:maintheorem}.
-Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t$.
- First we consider the exponential family.
+ The $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{(n)})$ is a key assumption of Theorem \ref{Thm:maintheorem}.
+Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{(n)})$.
+ First we consider the exponential family of distributions.
 \begin{proposition}\label{exponentialCon}
     Suppose $p(X|\theta)=\exp\big[\theta^T T(X)-A(\theta)\big]$, $\Theta$ is an open subset of $\mathbb{R}^p$, $\theta_0$ is an interior point of $\Theta$, 
     $$I_{\theta_0}=\frac{\partial^2}{\partial \theta \partial \theta^T} A(\theta_0)>0.$$
-    Then $L_{t}$ is consistent for $t>0$.
+    Then $L_{t}(\cdot;\BX^{(n)})$ is consistent for $t>0$.
 \end{proposition}
 
-Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t$ for all $t>0$ under full-rank exponential family models.
+Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t(\cdot;\BX^{(n)})$ for all $t>0$ under full-rank exponential family models.
 If the full model and the null model both belong to the full-rank exponential family, Assumption~\ref{Assumption1} is also satisfied.
 %In this case, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF can be used as frequentist test.
 Hence, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF has the similar asymptotic properties with the classical LRT statistic.
@@ -495,20 +494,20 @@ For general models, the likelihood function may not be concave.
 This often makes it hard to implement the LRT.
 For some models, a more serious problem may occur, that is, the likelihood may be unbounded and hence the LRT can not be defined.
 This problem may occur even if the likelihood function has good local analytical properties, such as location-scale mixture models.  See \cite{Cam1990Maximum} for more examples.
-A natural question is that if the fractional integrated likelihood $L_t$ is always well defined.
-The following theorem shows that $L_t$ is always well defined for $t\leq 1$ and is not well defined for some model for $t>1$.
+A natural question is that if the fractional integrated likelihood $L_t(\Theta;\BX^{(n)})$ is always well defined.
+The following theorem shows that $L_t(\Theta;\BX^{(n)})$ is always well defined for $t\leq 1$ and is not well defined for some model for $t>1$.
 %For more general models, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
 %For more general models, however, the $\sqrt{n}$-consistency of $L_t$ is more complicated.
 \begin{proposition}
-    If $t\leq 1$, $L_t< +\infty$ $P_{\theta_0}^n$-a.s. for any models. If $t> 1$, $L_t = +\infty$ for some models.
+    If $t\leq 1$, $L_t(\Theta;\BX^{(n)})< +\infty$ $P_{\theta_0}^n$-a.s. for any models. If $t> 1$, $L_t(\Theta;\BX^{(n)}) = +\infty$ for some models.
     \label{exprop}
 \end{proposition}
 
 
 %It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
 
-Because of the bad behavior of $L_t$ for $t>1$, next we only consider $L_t$ for $t\leq 1$.
-For $t=1$, the $\sqrt{n}$-consistency of $L_t$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution which is a well studied problem; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
+Because of the bad behavior of $L_t(\Theta;\BX^{(n)})$ for $t>1$, next we only consider $L_t(\Theta;\BX^{(n)})$ for $t\leq 1$.
+For $t=1$, the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{(n)})$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution which is a well studied problem; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
 A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
 This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
 For example, Theorem 3.1 of \cite{Kleijn2012The} assumes that for every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
@@ -529,13 +528,13 @@ However, if the parameter space is not compact, one may have to manually constru
 
 
 
-The consistency of $L_t$ for $0<t<1$ is different from $t=1$.
-\cite{kar10563} considered the Hellinger consistency of $L_{1/2}$.
-They showed the consistency of $L_{1/2}$ under simple conditions.
+The consistency of $L_t(\cdot;\BX^{(n)})$ for $0<t<1$ is different from $t=1$.
+\cite{kar10563} considered the Hellinger consistency of $L_{1/2}(\cdot;\BX^{(n)})$.
+They derived the consistency of $L_{1/2}(\cdot;\BX^{(n)})$ under simple conditions.
 %They only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
-Recently,~\cite{Bha2016} further developed the idea of~\cite{kar10563} and derived a general bounds for the consistency of $L_t$ for $0<t<1$.
+Recently,~\cite{Bha2016} further developed the idea of~\cite{kar10563} and derived a general bounds for the consistency of $L_t(\cdot;\BX^{(n)})$ for $0<t<1$.
 However, their result can not yield the $\sqrt{n}$-consistency for parametric models.
-We shall prove the $\sqrt{n}$-consistency of $L_{t}$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
+We shall prove the $\sqrt{n}$-consistency of $L_{t}(\cdot;\BX^{(n)})$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
 
  For two parameters $\theta_1$ and $\theta_2$, the $\alpha$ order R\'{e}nyi divergence ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
 $$
@@ -574,10 +573,10 @@ Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
 %%%%%%%%%%%%%%% Here we haven't consider the second condition. It can be done through a minimax lower bound argument.
 \begin{proposition}\label{Theoremless1}
     Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t$ is consistent.
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t(\cdot;\BX^{(n)})$ is consistent.
 \end{proposition}
 Note that if the conditions of Theorem~\ref{Thm:maintheorem} are satisfied, the asymptotic power of $\Lambda_{a,b}$ is independent of $a,b$.
-Hence specific choices of $a,b$ are not crucial provided $L_{a+b}$, $L_b$, $L^{(0)}_{a+b}$ and $L^{(0)}_b$ are $\sqrt{n}$-consistent.
+Hence specific choices of $a,b$ are not crucial provided $L_{a+b}(\cdot;\BX^{(n)})$, $L_b(\cdot;\BX^{(n)})$, $L^{(0)}_{a+b}(\cdot;\BX^{(n)})$ and $L^{(0)}_b(\cdot;\BX^{(n)})$ are $\sqrt{n}$-consistent.
 For some models, it is more convenient to verify Assumption~\ref{Assumption4} than to directly construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
 In such cases, it can be recommended to use the generalized FBF with $a+b< 1$.
 %By Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, one can .
@@ -690,7 +689,9 @@ Let the weight function $\pi^{\dagger}(\theta;\BX^{(n)})$ be the normal approxim
 \begin{equation*}
     \|\pi_n^{\dagger}(h;\BX^{(n)})-\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})\| \xrightarrow{P_{\theta_0}^n}0.
 \end{equation*}
-    Since $\pi_n(h;\BX^{(n)})$ is a normal density,~\eqref{vonMisesResults} implies the mean and covariance parameter of $\pi_n(h;\BX^{(n)})$ converges to $\Delta_{n,\theta_0}$ and $I_{\theta_0}^{-1}$ respectively.
+Note that $\pi_n^{\dagger}(h;\BX^{(n)})$ and $\phi(h;\Delta_{n,\theta_0},b^{-1}I_{\theta_0}^{-1})$ are both normal density functions.
+For normal distributions, the convergence in total variation implies the convergence of parameters.
+Hence the mean and covariance parameters of $\pi_n^{\dagger}(h;\BX^{(n)})$ are bounded in probability.
     Then a dominating function $T(h)$ exists and thus~\eqref{Assump31} holds.
 
 \section{Normal mixture model}
@@ -903,9 +904,9 @@ $$
     +o_{P^n_{\theta_0}}(1).
 \end{aligned}
 $$
-If $L_t$ is consistent, then
+If $L_t(\cdot;\BX^{(n)})$ is $\sqrt{n}$-consistent, then
 \begin{align*}
-    &\log L_t=\log \int_{\Theta}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
+    &\log L_t(\Theta;\BX^{(n)})=\log \int_{\Theta}\big[ p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta\\
     =
     &
         \frac{p}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p}{2}\log t-\frac{1}{2}\log |I_{\theta_0}|
@@ -916,10 +917,10 @@ If $L_t$ is consistent, then
     t\log p_n(\BX^{(n)}|\theta_0)
     +o_{P^n_{\theta_0}}(1).
 \end{align*}
-Similarly, if $L_t^{(0)}$ is consistent,
+Similarly, if $L_t^{(0)}(\cdot;\BX^{(n)})$ is $\sqrt{n}$-consistent,
 \begin{equation*}
 \begin{split}
-    &\log L_t^{(0)} =\log \int_{\tilde{\Theta}_0}\big[ p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu\\
+    &\log L_t^{(0)}(\tilde{\Theta};\BX^{(n)}) =\log \int_{\tilde{\Theta}_0}\big[ p_n(\BX^{(n)}|\nu,\xi_0)\big]^t \pi(\nu)\, d\nu\\
     =&
     \frac{p_0}{2}\log\big(\frac{2\pi}{n}\big)-\frac{p_0}{2}\log t-\frac{1}{2}\log |I_{\theta_0}^{(0)}|
                 +\log \pi(\nu_0)
@@ -935,11 +936,11 @@ $$
 \begin{aligned}
 \log \Lambda_{a,b}
     =&
-    \log L_{a+b}-
-    \log L_b
+    \log L_{a+b}(\Theta;\BX^{(n)})-
+    \log L_b(\Theta;\BX^{(n)})
     -
-    \log L^{(0)}_{a+b}+
-    \log L^{(0)}_b\\
+    \log L^{(0)}_{a+b}(\tilde{\Theta}_0;\BX^{(n)})+
+    \log L^{(0)}_b(\tilde{\Theta}_0;\BX^{(n)})\\
     =&
     -\frac{p-p_0}{2}\log (1+\frac{a}{b})
     +
@@ -1046,9 +1047,9 @@ which completes the proof.
     $$
         \max_{\{h:\|h\|\leq M_n\}}|g_n(h)|=O\left(\frac{M_n^3}{\sqrt{n}}\right)\to 0.
     $$
-    This allows us to derive the following lower bound for $L_t$.
+    This allows us to derive the following lower bound for $L_t(\Theta;\BX^{(n)})$.
 \begin{align*}
-    L_t
+    L_t(\Theta;\BX^{(n)})
     \geq &
     \int_{\{\theta:\|\theta-\theta_0\|\leq M_n/\sqrt{n}\}} \big[p_n(\BX^{(n)}|\theta)\big]^t \pi(\theta)\, d\theta
     \\
@@ -1194,12 +1195,12 @@ $$
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{exprop}}]
 
-Note that $L_1$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral
+Note that $L_1(\Theta;\BX^{(n)})$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral
 $$
-\int_{\mathcal{X}^n} L_1 \, d\mu^n=
+\int_{\mathcal{X}^n} L_1(\Theta;\BX^{(n)}) \, d\mu^n=
 \int_{\Theta}\Big(\int_{\mathcal{X}^n} p_n(\BX^{(n)}|\theta) \, d\mu^n \Big) \, \pi(\theta)\, d\theta=1.
 $$
-For $0<t<1$, by H\"older's inequality, we have $L_{t}\leq L_1^{1/t}$. This proves the first part of the proposition. 
+For $0<t<1$, by H\"older's inequality, we have $L_{t}(\Theta;\BX^{(n)})\leq L_1^{1/t}(\Theta;\BX^{(n)})$. This proves the first part of the proposition. 
 
 To prove the second part of the proposition, consider the following example.
 Suppose $X_1,\ldots,X_n$ are iid from the density
@@ -1221,7 +1222,7 @@ where $C$ is the normalizing constant and $\gamma\in(0,1)$ is a known hyperparam
 Then
 $$
     \begin{aligned}
-        L_t=&
+        L_t(\Theta;\BX^{(n)})=&
     C^n \int_{-\infty}^{+\infty}
 \Big[\prod_{i=1}^n |X_i-\theta|\Big]^{-t\gamma}
     \exp \big[-t\sum_{i=1}^n (X_i-\theta)^2 \big]
@@ -1230,8 +1231,8 @@ $$
     d \theta.
     \end{aligned}
 $$
-Note that almost surely, there is no tie among $X_1,\ldots,X_n$. Consequently, $L_t(\BX^{(n)})=+\infty$ almost surely if and only if $t\geq \gamma^{-1}$.
-Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t$ is not always well defined for $t>1$.
+Note that almost surely, there is no tie among $X_1,\ldots,X_n$. Consequently, $L_t(\Theta;\BX^{(n)})=+\infty$ almost surely if and only if $t\geq \gamma^{-1}$.
+Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t(\Theta;\BX^{(n)})$ is not always well defined for $t>1$.
 
 \end{proof}
 
@@ -1240,8 +1241,8 @@ Since $\gamma^{-1}\in (1,+\infty)$, this example shows that $L_t$ is not always 
 \begin{proof}[\textbf{Proof of Proposition~\ref{Theoremless1}}]
     Note that
        \begin{equation}\label{eq:numden}
-       \frac{L_{t} (\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\})}
-           {L_{t}}
+           \frac{L_{t} (\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\};\BX^{(n)})}
+           {L_{t}(\Theta;\BX^{(n)})}
 =
     \frac{\displaystyle
         \int_{\{\theta: \|\theta-\theta_0\|\geq \frac{M_n}{\sqrt{n}}\}} \Big[ \frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)} \Big]^{t} \pi(\theta) \, d \theta
@@ -1342,7 +1343,7 @@ Hence
     $$
          \int_{\Theta}\Big[\frac{p_n(\BX^{(n)}|\theta)}{p_n(\BX^{(n)}|\theta_0)}\Big]^{t} \pi(\theta)\, d\theta\geq c n^{-p/2}.
     $$
-    This inequality, together with~\eqref{Prop4:eq2}, proves the consistency of $L_t$.
+    This inequality, together with~\eqref{Prop4:eq2}, proves the consistency of $L_t(\cdot;\BX^{(n)})$.
 \end{proof}
 
 
