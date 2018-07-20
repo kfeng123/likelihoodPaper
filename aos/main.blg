@@ -1,0 +1,51 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: main.aux
+The style file: apa.bst
+Database file #1: mybibfile.bib
+Warning--entry type for "Aitkin1991Posterior" isn't style-file defined
+--line 1 of file mybibfile.bib
+Warning--empty journal in Fractional1995
+Warning--can't use both author and editor fields in van2000asymptotic
+You've used 23 entries,
+            1940 wiz_defined-function locations,
+            620 strings with 7025 characters,
+and the built_in function-call counts, 8566 in all, are:
+= -- 837
+> -- 304
+< -- 18
++ -- 99
+- -- 95
+* -- 758
+:= -- 1494
+add.period$ -- 70
+call.type$ -- 23
+change.case$ -- 159
+chr.to.int$ -- 23
+cite$ -- 25
+duplicate$ -- 327
+empty$ -- 616
+format.name$ -- 138
+if$ -- 1663
+int.to.chr$ -- 1
+int.to.str$ -- 0
+missing$ -- 24
+newline$ -- 117
+num.names$ -- 71
+pop$ -- 122
+preamble$ -- 1
+purify$ -- 160
+quote$ -- 0
+skip$ -- 258
+stack$ -- 0
+substring$ -- 608
+swap$ -- 56
+text.length$ -- 1
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 134
+warning$ -- 2
+while$ -- 69
+width$ -- 0
+write$ -- 293
+(There were 3 warnings)
