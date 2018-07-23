@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  20 JUL 2018 22:10
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.9.3)  21 JUL 2018 22:02
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -542,68 +542,60 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <8> not available
 \@address@2=\toks37
 \@address@3=\toks38
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <6> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 197.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 196.
  [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}
 
 ] [2]
-<figure/newnewPP.png, id=111, 569.7285pt x 346.896pt>
+<figure/newnewPP.png, id=118, 569.7285pt x 346.896pt>
 File: figure/newnewPP.png Graphic file (type png)
 
 <use figure/newnewPP.png>
-Package pdftex.def Info: figure/newnewPP.png used on input line 297.
+Package pdftex.def Info: figure/newnewPP.png used on input line 296.
 (pdftex.def)             Requested size: 323.9978pt x 197.27754pt.
- [3 <./figure/newnewPP.png>] [4]
-Overfull \hbox (50.74101pt too wide) detected at line 435
-\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10
-.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 ) = [][] []\OML/cmm/m/it/10.95 
-p[]\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 X[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/i
-t/10.95 ^^R\OT1/cmr/m/n/10.95 )[][]\OML/cmm/m/it/10.95 ^^Y\OT1/cmr/m/n/10.95 (\
-OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 d^^R;  L[]\OT1/c
-mr/m/n/10.95 (\OML/cmm/m/it/10.95 A[]\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X
-[]\OT1/cmr/m/n/10.95 ) = [][] []\OML/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (\OT1
-/cmr/bx/n/10.95 X[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^W; ^^X[]\OT1/cmr/
-m/n/10.95 )[][]\OML/cmm/m/it/10.95 ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^
-^W\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 d^^W:
+ [3 <./figure/newnewPP.png>] [4] [5]
+Overfull \hbox (11.2055pt too wide) in paragraph at lines 483--497
+\OT1/cmr/m/n/10.95 hav-ior of the gen-er-al-ized FBF. The fol-low-ing as-sump-t
+ion is adapted from [][]Kleijn
  []
 
-
-Overfull \hbox (29.75662pt too wide) detected at line 452
-[]\OML/cmm/m/it/10.95 ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/
-n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 ) = []\OML/cmm/m/it/10.95 ;
-  ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^W\OT1/cmr/m/n/10.95 ; \OT1/cmr/b
-x/n/10.95 X[]\OT1/cmr/m/n/10.95 ) = []\OML/cmm/m/it/10.95 ;
- []
-
-[5] [6]
-Overfull \hbox (12.5838pt too wide) in paragraph at lines 522--523
+[6]
+Overfull \hbox (21.5384pt too wide) in paragraph at lines 525--526
 [][][]\OT1/cmr/m/sc/10.95 Theorem \OT1/cmr/m/n/10.95 2.1\OT1/cmr/m/sc/10.95 . [
-]\OT1/cmr/m/it/10.95 Sup-pose that As-sump-tion [][]1[][] holds, $\OML/cmm/m/it
-/10.95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cmr/m/n/10.95 ; \OT1/
-cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/10.
-95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cmr/m/n/10.95 ; \OT1/cmr/
-bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 ,
+]\OT1/cmr/m/it/10.95 Sup-pose that As-sump-tion [][]2.1[][] holds, $\OML/cmm/m/
+it/10.95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cmr/m/n/10.95 ; \OT
+1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 , $\OML/cmm/m/it/1
+0.95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cmr/m/n/10.95 ; \OT1/cm
+r/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )$\OT1/cmr/m/it/10.95 ,
  []
 
 
-Overfull \hbox (24.39452pt too wide) in paragraph at lines 525--528
+Overfull \hbox (27.75249pt too wide) in paragraph at lines 528--531
 \OT1/cmr/m/it/10.95 grees of free-dom and non-cen-tral-ity pa-ram-e-ter $\OML/c
 mm/m/it/10.95 ^^N \OT1/cmr/m/n/10.95 = \OML/cmm/m/it/10.95 ^^Q[][]I[] \OMS/cmsy
 /m/n/10.95 ^^@ \OML/cmm/m/it/10.95 I[]J\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 
-J[]I[]J\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 J[]I[][]^^Q$
+J[]I[]J\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 J[]I[][]^^Q$\OT1/cmr/m/it/10.9
+5 ,
  []
 
-[7] [8] [9]
-Overfull \hbox (1.91383pt too wide) in paragraph at lines 672--674
-[][][]\OT1/cmr/m/sc/10.95 Assumption \OT1/cmr/m/n/10.95 3\OT1/cmr/m/sc/10.95 . 
-[]\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 b \OMS/cmsy/m/n/10.95 2 \OT1/cmr
-/m/n/10.95 (0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1)$ \OT1/cmr/m/it/10.95 b
-e a fixed num-ber. As-sume that $\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\
-OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10
-.95 )$
+[7] [8]
+Overfull \hbox (14.03337pt too wide) in paragraph at lines 599--606
+\OT1/cmr/m/n/10.95 de-rived the con-sis-tency of $\OML/cmm/m/it/10.95 L[]\OT1/c
+mr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X
+[]\OT1/cmr/m/n/10.95 )$ un-der sim-ple con-di-tions. Re-cently, [][]Bhat-
  []
 
+[9]
+Overfull \hbox (10.43051pt too wide) in paragraph at lines 675--677
+[][][]\OT1/cmr/m/sc/10.95 Assumption \OT1/cmr/m/n/10.95 2.3\OT1/cmr/m/sc/10.95 
+. []\OT1/cmr/m/it/10.95 Let $\OML/cmm/m/it/10.95 b \OMS/cmsy/m/n/10.95 2 \OT1/c
+mr/m/n/10.95 (0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 1)$ \OT1/cmr/m/it/10.95
+ be a fixed num-ber. As-sume that $\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 
+(\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/
+10.95 )$
+ []
 
-Overfull \hbox (55.07962pt too wide) detected at line 687
+[10]
+Overfull \hbox (55.07962pt too wide) detected at line 690
 \OT1/cmr/m/n/10.95 ^^A[] = [] [] \OML/cmm/m/it/10.95 I[][]\OT1/cmr/m/n/10.95 (\
 OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;  I[] \OT1/cmr/m
 /n/10.95 = \OML/cmm/m/it/10.95 P[][][];  []\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10
@@ -612,8 +604,8 @@ OML/cmm/m/it/10.95 X[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 ;  I[] \OT1/cmr/m
 n/10.95 )[][]\OML/cmm/m/it/10.95 :
  []
 
-[10] [11]
-Overfull \hbox (0.71545pt too wide) in paragraph at lines 730--733
+[11]
+Overfull \hbox (0.71545pt too wide) in paragraph at lines 733--736
 []\OT1/cmr/m/n/10.95 Let $\OMS/cmsy/m/n/10.95 Q$ \OT1/cmr/m/n/10.95 be the fam-
 ily of all $\OML/cmm/m/it/10.95 p$ \OT1/cmr/m/n/10.95 di-men-sional nor-mal dis
 -tri-bu-tion. Let $\OML/cmm/m/it/10.95 ^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.
@@ -621,7 +613,7 @@ ily of all $\OML/cmm/m/it/10.95 p$ \OT1/cmr/m/n/10.95 di-men-sional nor-mal dis
  []
 
 
-Overfull \hbox (17.21738pt too wide) in paragraph at lines 730--733
+Overfull \hbox (17.21738pt too wide) in paragraph at lines 733--736
 \OT1/cmr/m/n/10.95 be the frac-tional pos-te-rior of or-der $\OML/cmm/m/it/10.9
 5 b$ \OT1/cmr/m/n/10.95 and $\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/
 cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 
@@ -631,7 +623,7 @@ cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95
  []
 
 
-Overfull \hbox (2.7068pt too wide) in paragraph at lines 735--737
+Overfull \hbox (2.7068pt too wide) in paragraph at lines 738--740
 \OT1/cmr/m/n/10.95 Let the weight func-tion $\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/
 m/n/10.95 (\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\
 OT1/cmr/m/n/10.95 )$ be the nor-mal ap-prox-i-ma-tion of $\OML/cmm/m/it/10.95 ^
@@ -639,27 +631,14 @@ OT1/cmr/m/n/10.95 )$ be the nor-mal ap-prox-i-ma-tion of $\OML/cmm/m/it/10.95 ^
 /10.95 X[]\OT1/cmr/m/n/10.95 )$
  []
 
-
-Overfull \hbox (97.35518pt too wide) detected at line 751
-[] \OMS/cmsy/m/n/10.95 ^^@ [] [] [] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95
- (\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n
-/10.95 )[]\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h\OT
-1/cmr/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )[] \OML/cmm/m/it/1
-0.95 dh \OMS/cmsy/m/n/10.95 ^^T ^^@[] [] [] \OML/cmm/m/it/10.95 ^^^\OT1/cmr/m/n
-/10.95 (\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ; ^^A[]\OML/cmm/m/it/10.95 ; I[
-]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/
-it/10.95 h\OMS/cmsy/m/n/10.95 j\OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )[] \O
-ML/cmm/m/it/10.95 dh:
- []
-
-
-Overfull \hbox (6.09422pt too wide) in paragraph at lines 763--770
+[12]
+Overfull \hbox (6.09422pt too wide) in paragraph at lines 769--776
  \OT1/cmr/bx/n/10.95 3.Normal mix-ture model.[][] \OT1/cmr/m/n/10.95 In this se
 c-tion, we ap-ply the ILRT method-
  []
 
-[12] [13]
-Overfull \hbox (1.15474pt too wide) in paragraph at lines 846--855
+[13]
+Overfull \hbox (1.15474pt too wide) in paragraph at lines 852--860
  \OT1/cmr/bx/n/10.95 4.Conclusion.[][] \OT1/cmr/m/n/10.95 In this pa-per, we pr
 o-posed a flex-i-ble method-ol-ogy ILRT
  []
@@ -667,202 +646,57 @@ o-posed a flex-i-ble method-ol-ogy ILRT
 [14]
 
 LaTeX Font Warning: Font shape `OT1/cmr/bx/sc' undefined
-(Font)              using `OT1/cmr/bx/n' instead on input line 909.
+(Font)              using `OT1/cmr/bx/n' instead on input line 914.
 
 
-Overfull \hbox (33.16823pt too wide) in paragraph at lines 917--917
-[] 
- []
-
-
-Overfull \hbox (133.92935pt too wide) in paragraph at lines 929--929
-[] 
+Overfull \hbox (7.19221pt too wide) in paragraph at lines 915--917
+[]\OT1/cmr/m/n/10.95 Fix a $\OML/cmm/m/it/10.95 t > \OT1/cmr/m/n/10.95 0$ such 
+that $\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cm
+r/m/n/10.95 ; \OT1/cmr/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )$ and $\OML/cmm/m/it/1
+0.95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\OT1/cmr/m/n/10.95 ; \OT1/cm
+r/bx/n/10.95 X[]\OT1/cmr/m/n/10.95 )$
  []
 
 [15]
-Overfull \hbox (81.21863pt too wide) detected at line 971
-[] []
- []
-
-
-Overfull \hbox (79.39366pt too wide) in paragraph at lines 984--984
-[] 
- []
-
-
-Overfull \hbox (97.67964pt too wide) in paragraph at lines 998--998
-[] 
- []
-
-
-Overfull \hbox (97.67964pt too wide) in alignment at lines 997--998
-[] [] 
- []
-
-
-Overfull \hbox (53.90465pt too wide) detected at line 1019
-[] []
- []
-
-
-Overfull \hbox (28.55113pt too wide) detected at line 1030
-\OT1/cmr/m/n/10.95 ^^A[]\OML/cmm/m/it/10.95 I[]\OT1/cmr/m/n/10.95 ^^A[] \OMS/cm
-sy/m/n/10.95 ^^@ \OT1/cmr/m/n/10.95 ^^A[]\OML/cmm/m/it/10.95 I[]\OT1/cmr/m/n/10
-.95 ^^A[] = ^^A[]\OML/cmm/m/it/10.95 I[][]I[] \OMS/cmsy/m/n/10.95 ^^@ \OML/cmm/
-m/it/10.95 I[]J\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 J[]I[]J\OT1/cmr/m/n/10.9
-5 )[]\OML/cmm/m/it/10.95 J[]I[][]I[]\OT1/cmr/m/n/10.95 ^^A[]\OML/cmm/m/it/10.95
- ;
+Overfull \hbox (2.99277pt too wide) in paragraph at lines 1049--1052
+[]\OT1/cmr/m/n/10.95 It re-mains to de-rive the asymp-totic dis-tri-bu-tion of 
+$^^A[]$. Let $\OML/cmm/m/it/10.95 h[] \OT1/cmr/m/n/10.95 = [](\OML/cmm/m/it/10.
+95 ^^R[] \OMS/cmsy/m/n/10.95 ^^@
  []
 
 [16]
-Overfull \hbox (100.58434pt too wide) in paragraph at lines 1131--1131
-[] 
+Overfull \hbox (16.67119pt too wide) in paragraph at lines 1127--1129
+\OT1/cmr/m/n/10.95 This al-lows us to de-rive the fol-low-ing lower bound for $
+\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 (^^B; \OT1/cmr/bx/sc/10.95 X[]\OT1/cm
+r/m/n/10.95 )\OML/cmm/m/it/10.95 =\OT1/cmr/m/n/10.95 [\OML/cmm/m/it/10.95 p[]\O
+T1/cmr/m/n/10.95 (\OT1/cmr/bx/sc/10.95 X[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10
+.95 ^^R[]\OT1/cmr/m/n/10.95 )][]$. 
  []
 
-[17]
-Overfull \hbox (96.81895pt too wide) detected at line 1166
-[][] [] \OML/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/sc/10.95 X[]\OMS
-/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^R\OT1/cmr/m/n/10.95 ) \OMS/cmsy/m/n/10.9
-5 ^^@ [] \OML/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/sc/10.95 X[]\OM
-S/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n
-/10.95 ^^T [] \OML/cmm/m/it/10.95 p[][]\OT1/cmr/bx/sc/10.95 X[][]\OML/cmm/m/it/
-10.95 ^^R[] \OT1/cmr/m/n/10.95 + [](\OML/cmm/m/it/10.95 ^^R \OMS/cmsy/m/n/10.95
- ^^@ \OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 )[] \OMS/cmsy/m/n/10.95 ^^@ []
- \OML/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/sc/10.95 X[]\OMS/cmsy/m
-/n/10.95 j\OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 )\OML/cmm/m/it/10.95 :
- []
-
-
-Overfull \hbox (61.145pt too wide) detected at line 1233
-[] []
- []
-
-[18]
-Overfull \hbox (61.30042pt too wide) detected at line 1257
-[] []
- []
-
-[19]
-Overfull \hbox (30.74677pt too wide) in paragraph at lines 1358--1358
-[] 
- []
-
-[20] [21]
-Overfull \hbox (73.82372pt too wide) detected at line 1442
-[] []
- []
-
-
-Overfull \hbox (91.74843pt too wide) detected at line 1464
-[] [][] [][] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h
-\OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/sc/10.95 X[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it
-/10.95 dh \OMS/cmsy/m/n/10.95 ^^T [][] [][] \OML/cmm/m/it/10.95 T\OT1/cmr/m/n/1
-0.95 (\OML/cmm/m/it/10.95 h\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 dh:
- []
-
-
-Overfull \hbox (17.61346pt too wide) detected at line 1470
-\OML/cmm/m/it/10.95 P[] [][] \OT1/cmr/m/n/10.95 = [] \OML/cmm/m/it/10.95 p[]\OT
-1/cmr/m/n/10.95 (\OT1/cmr/bx/sc/10.95 X[]\OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.
-95 ^^R[] \OT1/cmr/m/n/10.95 + \OML/cmm/m/it/10.95 n[]h\OT1/cmr/m/n/10.95 )[]\OM
-L/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/sc/10.95 X[]\OMS/cmsy/m/n/1
-0.95 j\OML/cmm/m/it/10.95 ^^R[]\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it/10.95 d^^V[]
- \OMS/cmsy/m/n/10.95 ^^T \OT1/cmr/m/n/10.95 1\OML/cmm/m/it/10.95 :
+[17] [18] [19] [20] [21]
+Overfull \hbox (4.8115pt too wide) in paragraph at lines 1438--1440
+\OT1/cmr/m/n/10.95 This in-equal-ity, to-gether with [], im-plies the $[]$-cons
+istency of $\OML/cmm/m/it/10.95 L[]\OT1/cmr/m/n/10.95 (\OMS/cmsy/m/n/10.95 ^^A\
+OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/sc/10.95 X[]\OT1/cmr/m/n/10.95 )$.
  []
 
 [22]
-Overfull \hbox (84.07866pt too wide) detected at line 1483
-[][] [][] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h\OT
-1/cmr/m/n/10.95 ; \OT1/cmr/bx/sc/10.95 X[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10
-.95 dh \OT1/cmr/m/n/10.95 = [][] [] [] + \OML/cmm/m/it/10.95 o[]\OT1/cmr/m/n/10
-.95 (1)\OML/cmm/m/it/10.95 :
+Overfull \hbox (3.26007pt too wide) in paragraph at lines 1539--1544
+[]\OT1/cmr/m/n/10.95 We shall ver-ify As-sump-tion [][]2.1[][] and As-sump-
  []
 
-
-Overfull \hbox (156.0446pt too wide) detected at line 1488
-[][] [][] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 h[]\
-OT1/cmr/m/n/10.95 ; \OT1/cmr/bx/sc/10.95 X[]\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/
-10.95 dh[] \OT1/cmr/m/n/10.95 = [][] [] [] + \OML/cmm/m/it/10.95 o[]\OT1/cmr/m/
-n/10.95 (1)\OML/cmm/m/it/10.95 :
- []
-
-
-Overfull \hbox (36.22873pt too wide) detected at line 1498
-[] []
- []
-
-
-Overfull \hbox (93.4558pt too wide) detected at line 1528
-[] \OT1/cmr/m/n/10.95 = [] + [][] [] [] \OML/cmm/m/it/10.95 :
- []
-
-
-Overfull \hbox (69.06784pt too wide) in paragraph at lines 1556--1556
-[] 
- []
-
-[23]
-Overfull \hbox (148.76765pt too wide) in paragraph at lines 1596--1596
+[23] [24]
+Overfull \hbox (4.4827pt too wide) in paragraph at lines 1659--1659
 [] 
  []
 
 
-Overfull \hbox (148.76765pt too wide) in alignment at lines 1595--1596
+Overfull \hbox (4.4827pt too wide) in alignment at lines 1658--1659
 [] [] 
  []
 
-
-Overfull \hbox (41.57265pt too wide) in paragraph at lines 1617--1617
-[] 
- []
-
-
-Overfull \hbox (41.57265pt too wide) in alignment at lines 1616--1617
-[] [] 
- []
-
-
-Overfull \hbox (5.31189pt too wide) in paragraph at lines 1658--1658
-[] 
- []
-
-
-Overfull \hbox (5.31189pt too wide) in alignment at lines 1657--1658
-[] [] 
- []
-
-[24]
-Overfull \hbox (55.01286pt too wide) in paragraph at lines 1668--1668
-[] 
- []
-
-
-Overfull \hbox (55.01286pt too wide) in alignment at lines 1667--1668
-[] [] 
- []
-
-[25]
-Overfull \hbox (16.18413pt too wide) in paragraph at lines 1719--1723
-[][][]\OT1/cmr/m/sc/10.95 Proposition \OT1/cmr/m/n/10.95 5\OT1/cmr/m/sc/10.95 .
- []\OT1/cmr/m/it/10.95 Sup-pose the con-di-tions of The-o-rem [][]3.1[][] holds
-. Let $\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 M[]\OT1/cmr
-/m/n/10.95 ) =
- []
-
-
-Overfull \hbox (106.90782pt too wide) detected at line 1732
-\OML/cmm/m/it/10.95 P[] [][] [] [] [][][]^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/1
-0.95 !; ^^X\OT1/cmr/m/n/10.95 ) \OML/cmm/m/it/10.95 d!d^^X \OT1/cmr/m/n/10.95 =
- [][] [] [] \OML/cmm/m/it/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OM
-S/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 !; ^^X\OT1/cmr/m/n/10.95 )[]\OML/cmm/m/it
-/10.95 p\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 X[]\OMS/cmsy/m/n/10.95 j\OT1/cm
-r/m/n/10.95 0\OML/cmm/m/it/10.95 ; \OT1/cmr/m/n/10.95 0)[] \OML/cmm/m/it/10.95 
-d^^V[][]^^Y\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 !; ^^X\OT1/cmr/m/n/10.95 ) \
-OML/cmm/m/it/10.95 d!d^^X:
- []
-
-[26]
-Overfull \hbox (31.19458pt too wide) in paragraph at lines 1787--1792
+[25] [26] [27]
+Overfull \hbox (31.19458pt too wide) in paragraph at lines 1843--1848
 \OML/cmm/m/it/10.95 O[]\OT1/cmr/m/n/10.95 ([] \OML/cmm/m/it/10.95 n\OT1/cmr/m/n
 /10.95 )[]\OML/cmm/m/it/10.95 =n[][]$\OT1/cmr/m/n/10.95 . It is known that $[][
 ] \OMS/cmsy/m/n/10.95 j\OML/cmm/m/it/10.95 X[]\OMS/cmsy/m/n/10.95 j \OT1/cmr/m/
@@ -872,7 +706,7 @@ cmsy/m/n/10.95 \
  []
 
 
-Overfull \hbox (17.61717pt too wide) in paragraph at lines 1798--1801
+Overfull \hbox (17.61717pt too wide) in paragraph at lines 1854--1857
 \OT1/cmr/m/n/10.95 In par-tic-u-lar, on $\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/10.9
 5 (([] \OML/cmm/m/it/10.95 n\OT1/cmr/m/n/10.95 )[]) \OMS/cmsy/m/n/10.95 \ f\OML
 /cmm/m/it/10.95 ! \OMS/cmsy/m/n/10.95 ^^U \OML/cmm/m/it/10.95 n[]\OMS/cmsy/m/n/
@@ -881,37 +715,32 @@ Overfull \hbox (17.61717pt too wide) in paragraph at lines 1798--1801
 cmr/m/n/10.95 ([])$.
  []
 
-
-Overfull \hbox (3.61876pt too wide) in paragraph at lines 1832--1832
-[] 
- []
-
-[27]
-Overfull \hbox (77.40057pt too wide) in paragraph at lines 1847--1847
+[28]
+Overfull \hbox (3.61876pt too wide) in paragraph at lines 1889--1889
 [] 
  []
 
 
-Overfull \hbox (118.62299pt too wide) in paragraph at lines 1878--1878
+Overfull \hbox (77.40057pt too wide) in paragraph at lines 1905--1905
 [] 
  []
 
-[28] [29]
-Overfull \hbox (66.11325pt too wide) in paragraph at lines 2004--2004
+[29] [30]
+Overfull \hbox (66.11325pt too wide) in paragraph at lines 2066--2066
 [] 
  []
 
-[30] (./main.bbl [31])
-Overfull \hbox (0.41362pt too wide) in paragraph at lines 2051--2051
+[31] [32]
+Overfull \hbox (0.41362pt too wide) in paragraph at lines 2606--2606
 [][]    [] 
  []
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2051.
-[32]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 2051.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 2606.
+[33] [34]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 2606.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2051.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2051.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 2606.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 2606.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 96396F77C62688D2A1B8C0FEF4109954;686.
@@ -922,41 +751,42 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2051.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 2606.
  ) 
 Here is how much of TeX's memory you used:
- 9100 strings out of 493029
- 125115 string characters out of 6136235
- 240881 words of memory out of 5000000
- 12370 multiletter control sequences out of 15000+600000
+ 9115 strings out of 493029
+ 125322 string characters out of 6136235
+ 239245 words of memory out of 5000000
+ 12386 multiletter control sequences out of 15000+600000
  16046 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,22n,37p,1008b,494s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,22n,40p,1008b,497s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/tex
-live/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type
-1/public/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
-nts/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
-mr8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb>
-</usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/t
-exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-d
-ist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fo
-nts/type1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/public/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
-/rsfs/rsfs10.pfb>
-Output written on main.pdf (32 pages, 431581 bytes).
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx9.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmcsc10.pfb></usr/share/texlive/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-di
+st/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type
+1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
+c/amsfonts/cm/cmmi9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
+cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr9.pfb></usr/s
+hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/t
+exlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/share/texlive/
+texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/typ
+e1/public/amsfonts/cm/cmti7.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmti9.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsf
+onts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfo
+nts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/rsfs/r
+sfs10.pfb>
+Output written on main.pdf (34 pages, 446488 bytes).
 PDF statistics:
- 521 PDF objects out of 1000 (max. 8388607)
- 458 compressed objects within 5 object streams
- 113 named destinations out of 1000 (max. 500000)
+ 589 PDF objects out of 1000 (max. 8388607)
+ 522 compressed objects within 6 object streams
+ 115 named destinations out of 1000 (max. 500000)
  102 words of extra memory for PDF output out of 10000 (max. 10000000)
 
