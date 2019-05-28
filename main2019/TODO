@@ -1,0 +1,17 @@
+The conventional tool in Bayesian hypothesis testing is Bayes factor. But Bayes factor suffers from Lindley's paradox. That is, it is very sensitive to the choice of the prior distribution.
+Then is the intrinsic prior. But the asymptotic distribution of intrinsic prior still depends of the unknown parameters.
+
+
+non iid case.
+
+improper priors
+
+Nhot ho's paper on power posterior.
+
+if t is consistent, then for any alpha < t, it is also consistent
+
+varying t
+
+normalize all Bayes factors to the same scale
+
+Surprisingly, simply using Jeffrays prior can achieve free-of-parameter property
