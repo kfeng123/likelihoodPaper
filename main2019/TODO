@@ -15,3 +15,5 @@ varying t
 normalize all Bayes factors to the same scale
 
 Surprisingly, simply using Jeffrays prior can achieve free-of-parameter property
+
+Paper "Rényi Divergence and Kullback–Leibler Divergence" leaves open an important problem: under what conditions can KL divergence and renyi divergence can approximated by Fisher information.
