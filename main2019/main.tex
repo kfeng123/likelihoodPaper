@@ -480,9 +480,8 @@ For $t>0$, we say $L_t(\cdot;\BX^{n})$ is $\sqrt{n}$-consistent if for every $M_
     In~\cite{Kleijn2012The}, the $\sqrt{n}$-consistency of posterior distribution is a key assumption to prove Bernstein-von Mises theorem.
     Likewise, the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ is a key assumption of the following theorem.
 
-
     \begin{proposition}
-        Suppose that Assumption~\ref{Assumption1} holds, $L_{b}(\cdot;\BX^{n})$, $L_{b}^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
+        Suppose that Assumption~\ref{Assumption1} holds, $L_{t}(\cdot;\BX^{n})$, $L_{t}^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
         Then,
 \begin{align*}
     2 \log \text{BF}_t (\BX^{n})
@@ -508,6 +507,7 @@ For $t>0$, we say $L_t(\cdot;\BX^{n})$ is $\sqrt{n}$-consistent if for every $M_
 \end{align*}
 \label{prop:expansion}
     \end{proposition}
+
 Now we focus on the case $t=1$ which is the Bayes factor.
 It can be seen that the Lindley's paradox does not only exist when using improper priors.
 Once we have the asymptotic distribution of Bayes factor, the constant can be chosen accordingly.
@@ -593,6 +593,29 @@ In fact, the FBF is equal to $\Lambda_{1-b,b}$, the PBF is equal to $\Lambda_{1,
 We call $\Lambda_{a,b}$ the generalized FBF throughout the paper.
 
 
+\begin{assumption}
+    For any fixed $t \in (0,1]$,
+    we assume $D_t\left( \theta_0 \| \theta \right)$ satisfies the following conditions:
+    \begin{itemize}
+        \item 
+    $D_1(\theta_0 \| \theta)$ is finite for all $\theta \in \Theta$;
+\item
+    for each $\delta >0$,
+    there exists a $\epsilon>0$ such that $D_t\left( \theta_0 \| \theta \right)\geq \epsilon$ for $\|\theta-\theta_0\| \geq \delta$;
+\item
+    as $\theta \to \theta_0$, 
+    \begin{align*}
+        D_t(\theta_0 \| \theta) = (1+o(1))\frac{t}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0),\quad
+        V(\theta_0 \| \theta ) = O\left( \|\theta - \theta_0\|^2 \right)
+        .
+    \end{align*}
+    \end{itemize}
+    \label{assumption2019}
+\end{assumption}
+
+See, e.g., \cite{Erven2014}.
+
+
 
     \begin{theorem}\label{Thm:maintheorem}
         Suppose that Assumption~\ref{Assumption1} holds, $a,b>0$ are fixed numbers, $L_{a+b}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L_{a+b}^{(0)}(\cdot;\BX^{n})$ and $L_b^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
@@ -605,6 +628,118 @@ We call $\Lambda_{a,b}$ the generalized FBF throughout the paper.
         where $\chi^2(p-p_0,\delta)$ is a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\delta=\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta$,  $\BI_{p_0}$ is the $p_0$ dimensional identity matrix,
 ``$\rightsquigarrow$'' means weak convergence.
     \end{theorem}
+
+    \begin{proof}[\textbf{Proof of Theorem~\ref{Thm:maintheorem}}]
+$$
+\begin{aligned}
+\log \Lambda_{a,b}
+    =&
+    \log L_{a+b}(\Theta;\BX^{n})-
+    \log L_b(\Theta;\BX^{n})
+    \\
+    &-
+    \log L^{(0)}_{a+b}(\tilde{\Theta}_0;\BX^{n})+
+    \log L^{(0)}_b(\tilde{\Theta}_0;\BX^{n})\\
+    =&
+    -\frac{p-p_0}{2}\log (1+\frac{a}{b})
+    +
+    \frac{a}{2}\Big(
+    \Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
+    -
+    \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
+    \Big)
+    \\
+    &+o_{P^n_{\theta_n}}(1).
+\end{aligned}
+$$
+It can be seen that $I_{\theta_0}^{(0)}= \BJ^\top  I_{\theta_0}\BJ$ and $\Delta_{n,\theta_0}^{(0)}=(\BJ^\top  I_{\theta_0}\BJ)^{-1} \BJ^\top  I_{\theta_0} \Delta_{n,\theta_0}$.
+Then
+\begin{equation*}
+    \begin{split}
+            &\Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
+            -
+            \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
+            \\
+            =&
+            \Delta_{n,\theta_0}^\top  I_{\theta_0}^{1/2}\big(
+            \BI_p-
+            I_{\theta_0}^{1/2} \BJ (\BJ^\top  I_{\theta_0} \BJ)^{-1} \BJ^\top  I_{\theta_0}^{1/2}
+            \big)I_{\theta_0}^{1/2}\Delta_{n,\theta_0},
+    \end{split}
+\end{equation*}
+where $
+            \BI_p-
+            I_{\theta_0}^{1/2} \BJ (\BJ^\top  I_{\theta_0} \BJ)^{-1} \BJ^\top  I_{\theta_0}^{1/2}
+$
+is a projection matrix with rank $p-p_0$.
+
+It remains to derive the asymptotic distribution of $\Delta_{n,\theta_0}$.
+Let $h_n=\sqrt{n}(\theta_n-\theta_0)$.
+     From Assumption~\ref{Assumption1} and the central limit theorem, we have
+\begin{equation*}
+    \begin{split}
+    \left(
+    \begin{matrix}
+        \displaystyle
+        \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
+        \\
+        \displaystyle
+        \log \frac{p_n(\BX^{n}|\theta_n)}{p_n(\BX^{n}|\theta_0)}
+    \end{matrix}
+    \right)
+    %&=\left(
+        %\begin{matrix}
+        %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
+        %\\
+        %\frac{1}{\sqrt{n}}\sum^n_{i=1}h_n^\top \dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h_n^\top  I_{\theta_0}h_n
+        %\end{matrix}
+    %\right)
+    %+o_{P_0^n}(1)\\
+    &\overset{P_0^n}{\rightsquigarrow}
+    \mathcal{N}\left(
+    \left(
+    \begin{matrix}
+        0\\
+        -\frac{1}{2}\eta^\top  I_{\theta_0}\eta
+    \end{matrix}
+    \right),
+    \left(
+        \begin{matrix}
+            I_{\theta_0}&I_{\theta_0}\eta\\
+            \eta^\top  I_{\theta_0}&\eta^\top  I_{\theta_0}\eta
+        \end{matrix}
+    \right)
+    \right).
+    \end{split}
+\end{equation*}
+Then Le Cam's third lemma~\citep[Example 6.7]{van2000asymptotic} implies that
+\begin{equation*}
+    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(I_{\theta_0}\eta,I_{\theta_0}).
+\end{equation*}
+Consequently,
+$
+\Delta_{n,\theta_0}
+$
+weakly converges to $\mathcal{N}(\eta, I_{\theta_0}^{-1})$ in  $P^n_{\theta_n}$.
+It follows that
+\begin{equation*}
+\Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
+-
+\Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
+\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2(p-p_0,\delta),
+\end{equation*}
+which completes the proof.
+
+    \end{proof}
+
+
+
+
+
+
+
+
+
 Theorem~\ref{Thm:maintheorem} gives the asymptotic distribution of $\Lambda_{a,b}$ under the null hypothesis and the local alternative hypothesis.
 It can be seen that $\Lambda_{a,b}$ has Wilks phenomenon for any prior distributions so long as the prior density on the true value is positive.
 To formulate a test with asymptotic type I error rate $\alpha$, the critical value of $2\log \Lambda_{a,b}$ can be defined to be $-(p-p_0)\log (1+a/b)+ a\chi^2_{1-\alpha}(p-p_0)$ where $\chi^2_{1-\alpha}(p-p_0)$ is the $1-\alpha$ quantile of a chi-squared random variable with $p-p_0$ degrees of freedom.
@@ -1140,135 +1275,42 @@ By the mutual contiguity of $P_{\theta_0}^n$ and $P^n_{\theta_n}$, the term $o_{
           
     \end{proof}
 
-    \begin{proof}[\textbf{Proof of Theorem~\ref{Thm:maintheorem}}]
-$$
-\begin{aligned}
-\log \Lambda_{a,b}
-    =&
-    \log L_{a+b}(\Theta;\BX^{n})-
-    \log L_b(\Theta;\BX^{n})
-    \\
-    &-
-    \log L^{(0)}_{a+b}(\tilde{\Theta}_0;\BX^{n})+
-    \log L^{(0)}_b(\tilde{\Theta}_0;\BX^{n})\\
-    =&
-    -\frac{p-p_0}{2}\log (1+\frac{a}{b})
-    +
-    \frac{a}{2}\Big(
-    \Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
-    -
-    \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
-    \Big)
-    \\
-    &+o_{P^n_{\theta_n}}(1).
-\end{aligned}
-$$
-It can be seen that $I_{\theta_0}^{(0)}= \BJ^\top  I_{\theta_0}\BJ$ and $\Delta_{n,\theta_0}^{(0)}=(\BJ^\top  I_{\theta_0}\BJ)^{-1} \BJ^\top  I_{\theta_0} \Delta_{n,\theta_0}$.
-Then
-\begin{equation*}
-    \begin{split}
-            &\Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
-            -
-            \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
-            \\
-            =&
-            \Delta_{n,\theta_0}^\top  I_{\theta_0}^{1/2}\big(
-            \BI_p-
-            I_{\theta_0}^{1/2} \BJ (\BJ^\top  I_{\theta_0} \BJ)^{-1} \BJ^\top  I_{\theta_0}^{1/2}
-            \big)I_{\theta_0}^{1/2}\Delta_{n,\theta_0},
-    \end{split}
-\end{equation*}
-where $
-            \BI_p-
-            I_{\theta_0}^{1/2} \BJ (\BJ^\top  I_{\theta_0} \BJ)^{-1} \BJ^\top  I_{\theta_0}^{1/2}
-$
-is a projection matrix with rank $p-p_0$.
-
-It remains to derive the asymptotic distribution of $\Delta_{n,\theta_0}$.
-Let $h_n=\sqrt{n}(\theta_n-\theta_0)$.
-     From Assumption~\ref{Assumption1} and the central limit theorem, we have
-\begin{equation*}
-    \begin{split}
-    \left(
-    \begin{matrix}
-        \displaystyle
-        \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
-        \\
-        \displaystyle
-        \log \frac{p_n(\BX^{n}|\theta_n)}{p_n(\BX^{n}|\theta_0)}
-    \end{matrix}
-    \right)
-    %&=\left(
-        %\begin{matrix}
-        %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
-        %\\
-        %\frac{1}{\sqrt{n}}\sum^n_{i=1}h_n^\top \dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h_n^\top  I_{\theta_0}h_n
-        %\end{matrix}
-    %\right)
-    %+o_{P_0^n}(1)\\
-    &\overset{P_0^n}{\rightsquigarrow}
-    \mathcal{N}\left(
-    \left(
-    \begin{matrix}
-        0\\
-        -\frac{1}{2}\eta^\top  I_{\theta_0}\eta
-    \end{matrix}
-    \right),
-    \left(
-        \begin{matrix}
-            I_{\theta_0}&I_{\theta_0}\eta\\
-            \eta^\top  I_{\theta_0}&\eta^\top  I_{\theta_0}\eta
-        \end{matrix}
-    \right)
-    \right).
-    \end{split}
-\end{equation*}
-Then Le Cam's third lemma~\citep[Example 6.7]{van2000asymptotic} implies that
-\begin{equation*}
-    \frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)\overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(I_{\theta_0}\eta,I_{\theta_0}).
-\end{equation*}
-Consequently,
-$
-\Delta_{n,\theta_0}
-$
-weakly converges to $\mathcal{N}(\eta, I_{\theta_0}^{-1})$ in  $P^n_{\theta_n}$.
-It follows that
-\begin{equation*}
-\Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
--
-\Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
-\overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2(p-p_0,\delta),
-\end{equation*}
-which completes the proof.
-
-    \end{proof}
-
-    \vspace{3em}
-    \noindent \textbf{New proof.}
-    $t \to 0$, $tn \to \infty$.
-
+\begin{proposition}
+    Suppose that Assumptions \ref{Assumption1}, \ref{assumption2019} hold, $\pi(\theta)$ is countinuous at $\theta_0$ with $\pi(\theta_0) > 0 $, $t \to 0$, $tn \to \infty$.
+    Suppose
+    $\int_{\Theta} V(\theta_0 \| \theta) \pi(\theta) \, \mathrm d \theta  < \infty$
+where $V(\theta_0 \| \theta) = P_{\theta_0} \left( \log \left( p(X|\theta_0) / p(X | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2$.
+    Then
+\begin{align*}
+     \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+    =
+    (1+o_{P_{\theta_0}^n})
+    \int_\Theta \exp \{-tn D_1 \left( \theta_0 \| \theta \right)\} \pi(\theta) \, \mathrm d \theta.
+\end{align*}
+    \label{prop:tto0}
+\end{proposition}
+\begin{proof}
+    
     Let $R_n (\theta, \theta' )= \log \left\{ p(\BX^{n}|\theta)/ p(\BX^{n}|\theta') \right\}$ denote the log-likelihood ratio between $p(\BX^{n} | \theta )$ and $ p(\BX^{n} | \theta' )$.
-
-    Assume that $D_1(\theta_0 \| \theta)$ is finite for all $\theta \in \Theta$.
-
-
        Let
        \begin{align*}
            \pi_t( \theta | \BX^{n})
            =
            \frac{
-               e^{-t R_n (\theta_0, \theta)} \pi(\theta) 
+               \exp \{-t R_n (\theta_0, \theta)\} \pi(\theta) 
            }{
-           \int_{\Theta}  e^{-t R_n (\theta_0, \theta)} \pi(\theta) \, \mathrm d \theta
+           \int_{\Theta}  \exp \{-t R_n (\theta_0, \theta)\} \pi(\theta) \, \mathrm d \theta
            }
        \end{align*}
        be the fractional posterior density with exponent $t$.
        Define
        \begin{align*}
-           w_n(\theta) = \frac{
-               e^{ -t n D_1\left( \theta_0 \| \theta \right) } \pi(\theta)
+           w_n(\theta) =
+           \frac{
+               \exp \{ -t n D_1\left( \theta_0 \| \theta \right) \} \pi(\theta)
            }{
-               \int_{\Theta} e^{ -t n D_1\left( \theta_0 \| \theta \right) } \pi(\theta) \, \mathrm d \theta
+               \int_{\Theta} 
+               \exp \{ -t n D_1\left( \theta_0 \| \theta \right) \} \pi(\theta) \, \mathrm d \theta
            }.
        \end{align*}
 We have
@@ -1285,12 +1327,33 @@ We have
     w_n (\theta) \, \mathrm d \theta
     \\
     &
-    + \log \int_{\Theta} e^{-t R_n (\theta_0, \theta)} \pi (\theta) \, \mathrm d \theta  
-    -\log \int_\Theta e^{-tn D_1 \left( \theta_0 \| \theta \right)} \pi(\theta) \, \mathrm d \theta
+    + \log \frac{
+        \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+    }
+    {
+        \int_\Theta \exp \{-tn D_1 \left( \theta_0 \| \theta \right)\} \pi(\theta) \, \mathrm d \theta
+    }
     .
     \end{aligned}
 \end{equation}
-Note that Fubini's theorem and the fact $P_{\theta_0}^n R_n (\theta_0, \theta) = n D_1 (\theta_0 \| \theta)$ imply that
+To prove the proposition, we only need to proof
+\begin{align}
+    P_{\theta_0}^n D_1 \left( w_n (\theta)\, \mathrm d \theta \| \pi_t (\theta| \BX^n) \, \mathrm d \theta \right) \to 0
+    \label{toProof:1}
+\end{align}
+and
+\begin{align}
+    P_{\theta_0}^n \left( 
+    \int_{\Theta}
+    \left[   t R_n(\theta_0, \theta) - tn D_1 (\theta_0 \| \theta )  \right]
+    w_n (\theta) \, \mathrm d \theta
+    \right)^2
+    \to 0
+    \label{toProof:2}
+\end{align}
+
+\noindent\textbf{Proof of \eqref{toProof:1}:}
+From Fubini's theorem and the fact $P_{\theta_0}^n R_n (\theta_0, \theta) = n D_1 (\theta_0 \| \theta)$, we have
 \begin{equation*}
 P_{\theta_0}^n\int_{\Theta}
     \left[   t R_n(\theta_0, \theta) - tn D_1 (\theta_0 \| \theta )  \right]
@@ -1298,177 +1361,157 @@ P_{\theta_0}^n\int_{\Theta}
     =0
     .
 \end{equation*}
-For the second term of \eqref{eq:leiApp}, we have
-\begin{equation*}
-    P_{\theta_0}^n \log \int_{\Theta} e^{-t R_n (\theta_0, \theta)} \pi (\theta) \, \mathrm d \theta  
-    \leq
+Jensen's inequality implies that
+\begin{align*}
+    P_{\theta_0}^n \log \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+    \leq &
     \log 
     P_{\theta_0}^n
-    \int_{\Theta} e^{-t R_n (\theta_0, \theta)} \pi (\theta) \, \mathrm d \theta  
-    =
+    \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+    \\
+    =&
     \log 
-    \int_{\Theta} e^{-tn D_{1-t}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta.
-\end{equation*}
+    \int_{\Theta} \exp \{-tn D_{1-t}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta.
+\end{align*}
 It follows that
-\begin{align*}
+\begin{align}
     P_{\theta_0}^n
      D_1\left( 
         w_n (\theta) \, \mathrm d \theta
         \big\|
         \pi_t (\theta | \BX^{n}) \, \mathrm d \theta
     \right)
-    \leq
+    \leq &
     \log \frac{
-        \int_{\Theta} e^{-tn D_{1-t}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta
+        \int_{\Theta} \exp \{-tn D_{1-t}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
     }
     {
-    \int_{\Theta} e^{-tn D_{1}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta
+    \int_{\Theta} \exp \{-tn D_{1}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
 }.
-\end{align*}
-
-
-\begin{assumption}
-    For any fixed $t \in (0,1]$,
-    we assume $D_t\left( \theta_0 \| \theta \right)$ satisfies the following conditions:
-    \begin{itemize}
-        \item 
-    if $\theta \neq \theta_0$, then $D_t (\theta_0 \| \theta)>0$;
-\item
-    there exist positive constants $\delta$, $\epsilon$ such that $D_t\left( \theta_0 \| \theta \right)$ is continuous in $\theta$ for $\|\theta-\theta_0\| \leq \delta$ and $D_t (\theta_0 \| \theta)\geq \epsilon$ for $\|\theta - \theta_0\| \geq \delta$;
-\item
-    as $\theta \to \theta_0$, 
-    \begin{align*}
-    D_t(\theta_0 \| \theta) = (1+o(1))\frac{t}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0).
-    \end{align*}
-    \end{itemize}
-    \label{assumption2019}
-\end{assumption}
-
-See, e.g., \cite{Erven2014}.
-
-
-Fix a $t_0 \in (0,1)$.
-Then for $t < t_0$,
+\label{eq:KLBound}
+\end{align}
+If $tn\to c \in (0, +\infty)$, 
+then the dominated convergence theorem implies that
 \begin{align*}
-        \int_{\Theta} e^{-tn D_{1-t}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta
-        \leq&
-        \int_{\Theta} e^{-tn D_{1-t_0}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta.
+    &
+    \lim_{n\to \infty} \int_{\Theta} \exp \{-tn D_{1-t}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+    =
+    \int_{\Theta} \exp \{-c D_{1}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta,
+    \\
+    &
+    \lim_{n\to \infty} \int_{\Theta} \exp \{-tn D_{1-t}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+    =
+    \int_{\Theta} \exp \{-c D_{1}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+    .
 \end{align*}
-By Assumption \ref{assumption2019}, for any $\epsilon^* > 0$, there exists a $\delta^* < \delta$ such that for $\|\theta - \theta_0\| < \delta^*$,
+Then the right hand side of \eqref{eq:KLBound} converges to $0$.
+
+We turn to the case $tn \to \infty$. 
+
+Fix a $t_0 \in [0,1)$, we claim that
+\begin{align}
+    \int_{\Theta} \exp\left\{ -tn D_{1-t_0} \left( \theta_0 \| \theta \right) \right\} \pi(\theta) \, \mathrm d \theta= (1+o(1))\pi(\theta_0)
+    \left( 
+        \frac{2\pi}{(1-t_0) tn}
+    \right)^{p/2}
+    | I (\theta_0) |^{-1/2}. 
+    \label{eq:fort0}
+\end{align}
+In fact, Assumption \ref{assumption2019} implies that
 \begin{align*}
-D_{1-t_0} (\theta_0 || \theta) \geq (1-\epsilon^*) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0).
+    &\int_{\Theta} \exp\left\{ -tn D_{1-t_0} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    \\
+    \geq
+    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_{1-t_0} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    \\
+    =
+    &(1+o(1))\pi(\theta_0)\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp \left\{ - \frac{tn(1-t_0)}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta- \theta_0) \right\}   \, \mathrm d \theta
+    \\
+    =
+    &(1+o(1))\pi(\theta_0) (tn)^{-p/2} \int_{ \left\{ \vartheta: \|\vartheta\|\leq (tn)^{1/4} \right\}} \exp \left\{ - \frac{1-t_0}{2} \vartheta^\top I(\theta_0) \vartheta \right\} \, \mathrm d \vartheta
+    \\
+    =
+    &(1+o(1))\pi(\theta_0)
+    \left( 
+        \frac{2\pi}{(1-t_0) tn}
+    \right)^{p/2}
+    |I(\theta_0)|^{-1/2}
+    .
 \end{align*}
-We choose $\delta^*$ small enough such that $\pi(\theta) \leq (1+\epsilon^*) \pi(\theta_0) $ for $\|\theta - \theta_0\| < \delta^*$.
+To show the other direction, fix an $\epsilon \in (0, 1)$.
+From Assumption \ref{assumption2019}, there exists a $\delta$ such that for $\|\theta - \theta_0\| < \delta$,
+\begin{align*}
+D_{1-t_0} (\theta_0 || \theta) \geq (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0).
+\end{align*}
+We choose $\delta$ small enough such that $\pi(\theta) \leq (1+\epsilon) \pi(\theta_0) $ for $\|\theta - \theta_0\| < \delta$.
+Also by Assumption \ref{assumption2019}, there exists a $\epsilon^* >0$ such that $D_{t_0} (\theta_0 \| \theta) \geq \epsilon^*$ for $\|\theta - \theta_0\|\geq \delta$.
 Thus,
 \begin{align*}
         &\int_{ \Theta } \exp\{-tn D_{1-t_0}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
         \\
         \leq &
-        (1+\epsilon^*) \pi(\theta_0)
-        \int_{ \left\{ \theta: \|\theta - \theta_0\| < \delta^* \right\}}
+        (1+\epsilon) \pi(\theta_0)
+        \int_{ \left\{ \theta: \|\theta - \theta_0\| < \delta \right\}}
         \exp\left\{ 
             -tn
-        (1-\epsilon^*) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+        (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
         \right\}
         \, \mathrm d \theta
-        \\
-        &
         +
-        \int_{ \left\{ \theta: \|\theta - \theta_0\| \geq \delta^* \right\}} \exp\{-tn D_{1-t_0}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
-\end{align*}
-The first term satisfies
-\begin{align*}
-    &
-        (1+\epsilon^*) \pi(\theta_0)
-        \int_{ \left\{ \theta: \|\theta - \theta_0\| < \delta^* \right\}}
-        \exp\left\{ 
-            -tn
-        (1-\epsilon^*) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
-        \right\}
-        \, \mathrm d \theta
+        \exp\left\{ -tn \epsilon^* \right\}
         \\
         \leq &
-        (1+\epsilon^*) \pi(\theta_0)
+        (1+\epsilon) \pi(\theta_0)
         \int_{\Theta}
         \exp\left\{ 
             -tn
-        (1-\epsilon^*) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+        (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
         \right\}
         \, \mathrm d \theta
+        +
+        \exp\left\{ -tn \epsilon^* \right\}
         \\
         = &
-        (1+\epsilon^*) (1-\epsilon^*)^{-p/2} (1-t_0)^{-p/2} \pi(\theta_0) (2\pi)^{p/2} (tn)^{-p/2} |I(\theta_0)|^{-1/2}
+        (1+\epsilon) (1-\epsilon)^{-p/2}  \pi(\theta_0) \left( \frac{2\pi}{(1-t_0) tn } \right)^{p/2} |I(\theta_0)|^{-1/2}
+        +
+        \exp\left\{ -tn \epsilon^* \right\}
+        \\
+        = &
+        (1+o(1))
+        (1+\epsilon) (1-\epsilon)^{-p/2}  \pi(\theta_0) \left( \frac{2\pi}{(1-t_0) tn } \right)^{p/2} |I(\theta_0)|^{-1/2}
         .
 \end{align*}
-As for the second term, break the integral regison into $\left\{ \theta: \delta^* \leq \|\theta - \theta_0 \| \leq \delta \right\}$ and $\left\{ \theta: \|\theta- \theta_0\|> \delta \right\}$.
-%By Assumption \ref{assumption2019},
-Since $\left\{ \theta: \delta^* \leq \|\theta - \theta_0 \| \leq \delta \right\}$ is compact and $D_{1-t_0}(\theta_0 \| \theta)$ is continuous in $\theta$, $D_{1-t_0}(\theta_0 \| \theta)$ can be lower bounded by a positive number in this region.
-By Assumption \ref{assumption2019},
-$D_{1-t_0}\left( \theta_0 \| \theta \right) \geq \epsilon$ for $\|\theta - \theta_0\| \geq \delta$.
-Hence there is a $\epsilon^\dagger > 0$ such that $D_{1-t_0} (\theta_0 \| \theta)\geq \epsilon^\dagger$ for $\|\theta- \theta_0\|\geq \delta^*$.
-It follows that
+Note that $\epsilon$ can be arbitrarily small. 
+Hence \eqref{eq:fort0} holds.
+
+For any $t_0 \in (0,1)$,
+since $t < t_0$ for sufficiently large $n$, we have
 \begin{align*}
-        \int_{ \left\{ \theta: \|\theta - \theta_0\| \geq \delta^* \right\}} \exp\{-tn D_{1-t_0}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
-        \leq
-        \exp\{-tn \epsilon^\dagger\}.
-\end{align*}
-Combine these bounds and note that $\epsilon^*$ and $t_0$ can be arbitrarily small, we have
-\begin{align*}  
     \limsup_{n \to \infty}
-    (tn)^{p/2}
-    \int_{\Theta} \exp\left\{ -tn D_{1-t} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
-    \leq
-    \pi(\theta_0) (2\pi)^{p/2} |I(\theta_0)|^{-1/2}.
+    \log
+        \frac{
+            \int_{\Theta} \exp \{-tn D_{1-t}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+        }{
+            \int_{\Theta} \exp \{-tn D_{1}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+        }
+        \leq&
+    \lim_{n \to \infty}
+\log
+        \frac{
+            \int_{\Theta} \exp \{-tn D_{1-t_0}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+        }{
+            \int_{\Theta} \exp \{-tn D_{1}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+        }
+        \\
+ = &
+ -\frac{p}{2}\log(1-t_0).
 \end{align*}
+where the last equality follows from \eqref{eq:fort0}.
+Since $t_0$ is arbitrary, the right hand side of \eqref{eq:KLBound} converges to $0$.
+This completes the proof of \eqref{toProof:1}.
 
-On the other hand, 
-\begin{align*}
-    &\int_{\Theta} \exp\left\{ -tn D_1 (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
-    \\
-    \geq
-    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_1 (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0)\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp \left\{ - \frac{tn}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta- \theta_0) \right\}   \, \mathrm d \theta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0) (tn)^{-p/2} \int_{ \left\{ \vartheta: \|\vartheta\|\leq (tn)^{1/4} \right\}} \exp \left\{ - \frac{1}{2} \vartheta^\top I(\theta_0) \vartheta \right\} \, \mathrm d \vartheta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0) (tn)^{-p/2}
-    (2\pi)^{p/2} |I(\theta_0)|^{-1/2}
-    .
-\end{align*}
-Thus,
-\begin{align*}
-    P_{\theta_0}^n
-     D_1\left( 
-        w_n (\theta) \, \mathrm d \theta
-        \big\|
-        \pi_t (\theta | \BX^{n}) \, \mathrm d \theta
-    \right)
-    \leq
-    \log \frac{
-        \int_{\Theta} e^{-tn D_{1-t}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta
-    }
-    {
-    \int_{\Theta} e^{-tn D_{1}(\theta_0 \| \theta)} \pi (\theta) \, \mathrm d \theta
-}
-\to 0
-.
-\end{align*}
-This implies that
-\begin{align*}
-     D_1\left( 
-        w_n (\theta) \, \mathrm d \theta
-        \big\|
-        \pi_t (\theta | \BX^{n}) \, \mathrm d \theta
-    \right)
-    \xrightarrow{P_{\theta_0}^n} 0.
-\end{align*}
 
-(Let $V(\theta_0 \| \theta) = P_{\theta_0} \left( \log \left( p(X|\theta_0) / p(X | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2$ )
-
+\noindent\textbf{Proof of \eqref{toProof:2}:}
 We have
 \begin{align*}
     &
@@ -1487,20 +1530,97 @@ We have
     \\
     =&
         t^2 n
+           \frac{
     \int_{\Theta}
      V(\theta_0 \| \theta)
-    w_n (\theta) \, \mathrm d \theta
-    \\
-    \xrightarrow{??????} & 0.
+               \exp\{ -t n D_1\left( \theta_0 \| \theta \right) \} \pi(\theta)
+     \, \mathrm d \theta
+           }{
+               \int_{\Theta} \exp\{ -t n D_1\left( \theta_0 \| \theta \right) \} \pi(\theta) \, \mathrm d \theta
+           }
+           .
 \end{align*}
-
-Combining these with \eqref{eq:leiApp} yields
+If $tn $ tends to a positive constant, the above expression obviously tends to $0$.
+Now we suppose $tn \to \infty$.
+Choose $\epsilon \in (0,1)$ and $\delta$ such that  for $\|\theta- \theta_0\| \leq \delta$,
 \begin{align*}
-     \int_{\Theta} e^{-t R_n (\theta_0, \theta)} \pi (\theta) \, \mathrm d \theta  
-    =
-    (1+o_{P_{\theta_0}^n})
-    \int_\Theta e^{-tn D_1 \left( \theta_0 \| \theta \right)} \pi(\theta) \, \mathrm d \theta.
+    D_1(\theta_0 \| \theta) \geq  \frac{1-\epsilon}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta - \theta_0),
+    \quad
+    V(\theta_0 \| \theta) \leq C\|\theta - \theta_0\|^2
+    ,\quad
+    \pi(\theta) \leq (1+\epsilon) \pi(\theta_0)
+    .
 \end{align*}
+By Assumption \ref{assumption2019}, there exists a $\epsilon^* > 0$ such that $D_1(\theta_0 \|\theta) \geq \epsilon^*$ for $\|\theta - \theta_0\| \geq \delta$.
+Thus,
+\begin{align*}
+    &
+    \int_{\Theta}
+     V(\theta_0 \| \theta)
+               \exp\{ -t n D_1\left( \theta_0 \| \theta \right) \} \pi(\theta)
+     \, \mathrm d \theta
+     \\
+     \leq&
+    (1+\epsilon) \pi(\theta_0)
+     \int_{ \left\{ \theta: \|\theta- \theta_0\| \leq \delta \right\}}
+     C\|\theta - \theta_0\|^2
+     \exp\left\{ -t n (1-\epsilon) \frac{1}{2} \left( \theta - \theta_0 \right)^\top I(\theta_0) (\theta- \theta_0) \right\} 
+     \, \mathrm d \theta
+     \\
+     &+
+     \exp\left\{ -tn \epsilon^* \right\} \int_{\Theta} V(\theta_0 \| \theta) \pi(\theta) \, \mathrm d \theta.
+     \\
+     \leq&
+    (1+\epsilon) \pi(\theta_0)
+    (tn)^{-p/2 - 1}
+     \int_{ \mathbb R^p}
+     C\|\vartheta \|^2
+     \exp\left\{ - (1-\epsilon) \frac{1}{2}  \vartheta^\top I(\theta_0) \vartheta \right\} 
+     \, \mathrm d \vartheta
+     \\
+     &+
+     \exp\left\{ -tn \epsilon^* \right\} \int_{\Theta} V(\theta_0 \| \theta) \pi(\theta) \, \mathrm d \theta
+     \\
+     =&
+     O\left( (tn)^{ - p/2 - 1 }\right)
+     .
+\end{align*}
+The last inequality, combined with \eqref{eq:fort0}, yields
+\begin{align*}
+    &
+    P_{\theta_0}^n
+    \left( 
+    \int_{\Theta}
+    \left[   t R_n(\theta_0, \theta) - tn D_1 (\theta_0 \| \theta )  \right]
+    w_n (\theta) \, \mathrm d \theta
+    \right)^2
+    =
+    t^2 n
+    \frac{
+        O\left( 
+         (tn)^{-p/2-1}
+    \right)
+}
+{
+    \pi(\theta_0)
+    \left( 
+        {2\pi}
+    \right)^{p/2}
+    \left( 
+    { tn}
+\right)^{-p/2}
+    | I (\theta_0) |^{-1/2}. 
+}
+\to 0
+    .
+\end{align*}
+Hence \eqref{toProof:2} holds.
+This completes the proof.
+
+\end{proof}
+
+
+
 
 
 
