@@ -481,20 +481,18 @@ For $t>0$, we say $L_t(\cdot;\BX^{n})$ is $\sqrt{n}$-consistent if for every $M_
     Likewise, the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ is a key assumption of the following theorem.
 
     \begin{proposition}
-        Suppose that Assumption~\ref{Assumption1} holds, $L_{t}(\cdot;\BX^{n})$, $L_{t}^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
+        Suppose that Assumption~\ref{Assumption1} holds, $L_{1}(\cdot;\BX^{n})$, $L_{1}^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
         Then,
 \begin{align*}
-    2 \log \text{BF}_t (\BX^{n})
+    2 \log \text{BF}_1 (\BX^{n})
     =&
-    t \left( 
         \Delta_{n,\theta_0}^\top  I(\theta_0)\Delta_{n,\theta_0}
             -
             \Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
-        \right)
     -(p-p_0) \log n
     \\
     &+
-    (p-p_0) \log \left( \frac{2\pi}{t} \right)
+    (p-p_0) \log \left( {2\pi} \right)
    +
    2 \log
        \frac{
@@ -508,7 +506,6 @@ For $t>0$, we say $L_t(\cdot;\BX^{n})$ is $\sqrt{n}$-consistent if for every $M_
 \label{prop:expansion}
     \end{proposition}
 
-Now we focus on the case $t=1$ which is the Bayes factor.
 It can be seen that the Lindley's paradox does not only exist when using improper priors.
 Once we have the asymptotic distribution of Bayes factor, the constant can be chosen accordingly.
 If a statistic does not have Wilks phenomenon, it can not be directly used as a test statistic.
@@ -543,7 +540,9 @@ $
 |\Sigma_{\xi}(\nu)|= |I_{\xi | \nu} (\nu,\xi_0)|^{-1}
 $.
 
-A more desirable property is that the scale should not rely on nuisance parameters.
+\begin{example}
+    An example. 
+\end{example}
 
 
 
@@ -618,15 +617,24 @@ See, e.g., \cite{Erven2014}.
 
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $a,b>0$ are fixed numbers, $L_{a+b}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L_{a+b}^{(0)}(\cdot;\BX^{n})$ and $L_b^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$. Then for $\{\theta_n\}$ such that $\sqrt{n}(\theta_n-\theta_0)\to \eta$, 
+        Suppose that Assumption~\ref{Assumption1} holds, $a,b>0$ are fixed numbers, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
+        Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
+        Let $\chi^2(p-p_0,\delta)$ denote a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\delta=\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta$,  $\BI_{p_0}$ denote the $p_0$ dimensional identity matrix.
+``$\rightsquigarrow$'' means weak convergence.
+        Then 
+        \begin{enumerate}
+            \item 
+                If
+$L_{a+b}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L_{a+b}^{(0)}(\cdot;\BX^{n})$ and $L_b^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, 
         $$
         2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow} 
         {a}\chi^2(p-p_0,\delta)
 -{(p-p_0)}\log (1+\frac{a}{b})
-        ,
+.
         $$
-        where $\chi^2(p-p_0,\delta)$ is a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\delta=\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta$,  $\BI_{p_0}$ is the $p_0$ dimensional identity matrix,
-``$\rightsquigarrow$'' means weak convergence.
+    \item
+        if
+        \end{enumerate}
     \end{theorem}
 
     \begin{proof}[\textbf{Proof of Theorem~\ref{Thm:maintheorem}}]
@@ -751,122 +759,10 @@ It is known that, under certain regular conditions,~\eqref{eq:likelihoodPower} i
 In this view, $\Lambda_{a,b}$ enjoys good frequentist properties.
 
 
-\section{$\sqrt{n}$-consistency of power posterior}
- The $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ is a key assumption of Theorem \ref{Thm:maintheorem}.
-Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$.
- First we consider the exponential family of distributions.
-\begin{proposition}\label{exponentialCon}
-    Suppose $p(X|\theta)=\exp\big[\theta^\top  T(X)-A(\theta)\big]$, $\Theta$ is an open subset of $\mathbb{R}^p$, $\theta_0$ is an interior point of $\Theta$, 
-    $$I_{\theta_0}=\frac{\partial^2}{\partial \theta \partial \theta^\top } A(\theta_0)>0.$$
-    Then $L_{t}(\cdot;\BX^{n})$ is consistent for $t>0$.
-\end{proposition}
-
-Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t(\cdot;\BX^{n})$ for all $t>0$ under full-rank exponential family models.
-If the full model and the null model both belong to the full-rank exponential family, then Assumption~\ref{Assumption1} is satisfied and 
-%In this case, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF can be used as frequentist test.
-hence the conclusion of Theorem~\ref{Thm:maintheorem} holds.
-However,
-for any test methodology, the success in the full-rank exponential family models is just a minimal requirement 
-since the LRT is also easy to implement and enjoys good asymptotic properties in such cases.
-We would like to consider more general models.
-
-
-For general models, the likelihood function may not be concave.
-This often makes it hard to implement the LRT.
-For some models, a more serious problem may occur, that is, the likelihood may be unbounded and hence the LRT can not be defined.
-This problem may occur even if the likelihood function has good local analytical properties, such as location-scale mixture models.  See \cite{Cam1990Maximum} for more examples.
-A natural question is whether the fractional integrated likelihood $L_t(\Theta;\BX^{n})$ is always well defined.
-The following theorem shows that $L_t(\Theta;\BX^{n})$ is always well defined for $t\leq 1$ and is not well defined for some model for $t>1$.
-%For more general models, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
-%For more general models, however, the $\sqrt{n}$-consistency of $L_t$ is more complicated.
-\begin{proposition}
-    If $t\leq 1$, $L_t(\Theta;\BX^{n})< +\infty$ $P_{\theta_0}^n$-a.s. for any models. If $t> 1$, $L_t(\Theta;\BX^{n}) = +\infty$ for some models.
-    \label{exprop}
-\end{proposition}
-
-
-%It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
-
-Because of the bad behavior of $L_t(\Theta;\BX^{n})$ for $t>1$, we shall only consider $L_t(\Theta;\BX^{n})$ for $t\leq 1$.
-For $t=1$, the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution which is a well studied problem; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
-A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
-This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
-For example, Theorem 3.1 of \cite{Kleijn2012The} assumes that for every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
-\begin{equation}\label{eq:testSeq}
-    P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
-\end{equation}
-This condition is satisfied when the parameter space is compact and the model is suitably continuous; see Theorem 3.2 of~\cite{Kleijn2012The}.
-However, if the parameter space is not compact, one may have to manually construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
-
-%\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
-    %Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    %Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
-%\end{proposition}
-
-
-%The consistency of $L_t$ for $t>1$ can be proved under conditions similar to Assumption~\ref{Assumption2}.
-%However, the requirement on the sequence $\{\phi_n\}$ lacks statistical interpretation for $t>1$.
 
 
 
-The consistency of $L_t(\cdot;\BX^{n})$ for $0<t<1$ is different from $t=1$.
-\cite{kar10563} considered the Hellinger consistency of $L_{1/2}(\cdot;\BX^{n})$.
-They derived the consistency of $L_{1/2}(\cdot;\BX^{n})$ under simple conditions.
-%They only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
-Recently,~\cite{Bha2016} further developed the idea of~\cite{kar10563} and derived a general bounds for the consistency of $L_t(\cdot;\BX^{n})$ for $0<t<1$.
-However, their result can not yield the $\sqrt{n}$-consistency for parametric models.
-We shall prove the $\sqrt{n}$-consistency of $L_{t}(\cdot;\BX^{n})$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
-
- For two parameters $\theta_1$ and $\theta_2$, the $\alpha$ order R\'{e}nyi divergence ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
-$$
-D_{\alpha}(\theta_1||\theta_2)=-\frac{1}{1-\alpha}\log \rho_{\alpha}(\theta_1,\theta_2),
-$$
-where
-$
-\rho_{\alpha}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(X|\theta_1)^{\alpha} p(X|\theta_2)^{1-\alpha} \, d \mu
-$ is the so-called Hellinger integral.
-The following assumption is needed for our $\sqrt{n}$-consistency result.
-\begin{assumption}\label{Assumption4}
-    For some $\alpha\in(0,1)$, there exist positive constants $\delta$, $\epsilon$ and $C$ such that,
-     $D_{\alpha}(\theta||\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
-\end{assumption}
-\begin{remark}
-    A remarkable property of R\'{e}nyi divergence is the equivalence of all $D_{\alpha}$: If $0<\alpha<\beta<1$, then
-    $$
-    \frac{\alpha}{1-\alpha}\frac{1-\beta}{\beta} D_{\beta}(\theta_1||\theta_2)
-    \leq D_{\alpha}(\theta_1||\theta_2)\leq D_{\beta}(\theta_1||\theta_2).
-    $$
-    See, e.g.,~\cite{Erven2014}.
-    As a result, if Assumption~\ref{Assumption4} holds for some $\alpha\in(0,1)$, then it will hold for every $\alpha\in(0,1)$.
-\end{remark}
-To appreciate Assumption~\ref{Assumption4},
-   suppose, for example, that $D_{\alpha}(\theta||\theta_0)$ is twice continuously differentiable in $\theta$.
-   Since $\theta=\theta_0$ is a minimum point of  $D_{\alpha}(\theta||\theta_0)$, the first order derivative of $D_{\alpha}(\theta||\theta)$ at $\theta=\theta_0$ is zero and the second order derivative at $\theta=\theta_0$ is positive semidefinite.
-By Taylor theorem, in a small neighbourhood of $\theta_0$,
-   $$
-   D_{\alpha}(\theta||\theta_0)=\frac{1}{2}(\theta-\theta_0)^\top  \frac{\partial^2}{\partial \theta \partial \theta^\top } D_{\alpha}(\theta||\theta_0)\Big|_{\theta=\theta^*}  (\theta-\theta_0),
-   $$
-   where $\theta^*$ is between $\theta_0$ and $\theta$.
-   If we further assume the second order derivative is positive definite at $\theta=\theta_0$, then in a small neighbourhood of $\theta_0$, there is a positive constant $C$ such that $D_{\alpha}(\theta||\theta_0)\geq C\|\theta-\theta_0\|^2$.
-Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
-%It is often straightforward to verify Assumption~\ref{Assumption4}.
-%Compared with Assumption~\ref{Assumption2},
-%%%%%%%%%%%%%%% Here we haven't consider the second condition. It can be done through a minimax lower bound argument.
-\begin{proposition}\label{Theoremless1}
-    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
-    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t(\cdot;\BX^{n})$ is consistent.
-\end{proposition}
-Note that if the conditions of Theorem~\ref{Thm:maintheorem} are satisfied, the asymptotic power of $\Lambda_{a,b}$ is independent of $a,b$.
-Hence specific choices of $a,b$ are not crucial provided $L_{a+b}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L^{(0)}_{a+b}(\cdot;\BX^{n})$ and $L^{(0)}_b(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent.
-For some models, it is more convenient to verify Assumption~\ref{Assumption4} than to directly construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
-In such cases, it can be recommended to use the generalized FBF with $a+b< 1$.
-%By Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, one can .
-
-
-
-
-\section{The test statistic}
-
+\section{General integrated likelihood ratio test}
 
  Being treated as frequentist test statistics, the PBF and FBF are both integrated type statistics.
  We generalize the PBF and FBF and propose the following integrated likelihood ratio test statistic
@@ -1022,6 +918,120 @@ For normal distributions, the convergence in total variation implies the converg
 Hence the mean and covariance parameters of $\pi_n^{\dagger}(h;\BX^{n})$ are bounded in probability.
     Then a dominating function $T(h)$ exists and thus~\eqref{Assump31} holds.
 
+
+\section{$\sqrt{n}$-consistency of power posterior}
+ The $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ is a key assumption of Theorem \ref{Thm:maintheorem}.
+Hence we would like to give sufficient conditions for the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$.
+ First we consider the exponential family of distributions.
+\begin{proposition}\label{exponentialCon}
+    Suppose $p(X|\theta)=\exp\big[\theta^\top  T(X)-A(\theta)\big]$, $\Theta$ is an open subset of $\mathbb{R}^p$, $\theta_0$ is an interior point of $\Theta$, 
+    $$I_{\theta_0}=\frac{\partial^2}{\partial \theta \partial \theta^\top } A(\theta_0)>0.$$
+    Then $L_{t}(\cdot;\BX^{n})$ is consistent for $t>0$.
+\end{proposition}
+
+Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t(\cdot;\BX^{n})$ for all $t>0$ under full-rank exponential family models.
+If the full model and the null model both belong to the full-rank exponential family, then Assumption~\ref{Assumption1} is satisfied and 
+%In this case, Theorem~\ref{Thm:maintheorem} implies that the generalized FBF can be used as frequentist test.
+hence the conclusion of Theorem~\ref{Thm:maintheorem} holds.
+However,
+for any test methodology, the success in the full-rank exponential family models is just a minimal requirement 
+since the LRT is also easy to implement and enjoys good asymptotic properties in such cases.
+We would like to consider more general models.
+
+
+For general models, the likelihood function may not be concave.
+This often makes it hard to implement the LRT.
+For some models, a more serious problem may occur, that is, the likelihood may be unbounded and hence the LRT can not be defined.
+This problem may occur even if the likelihood function has good local analytical properties, such as location-scale mixture models.  See \cite{Cam1990Maximum} for more examples.
+A natural question is whether the fractional integrated likelihood $L_t(\Theta;\BX^{n})$ is always well defined.
+The following theorem shows that $L_t(\Theta;\BX^{n})$ is always well defined for $t\leq 1$ and is not well defined for some model for $t>1$.
+%For more general models, however, the $\sqrt{n}$-consistency of $L_t$ needs further conditions.
+%For more general models, however, the $\sqrt{n}$-consistency of $L_t$ is more complicated.
+\begin{proposition}
+    If $t\leq 1$, $L_t(\Theta;\BX^{n})< +\infty$ $P_{\theta_0}^n$-a.s. for any models. If $t> 1$, $L_t(\Theta;\BX^{n}) = +\infty$ for some models.
+    \label{exprop}
+\end{proposition}
+
+
+%It turns out that the behavior of $L_t$ for $t>1$ and $t\leq 1$ are different.
+
+Because of the bad behavior of $L_t(\Theta;\BX^{n})$ for $t>1$, we shall only consider $L_t(\Theta;\BX^{n})$ for $t\leq 1$.
+For $t=1$, the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ is equivalent to the $\sqrt{n}$-consistency of the posterior distribution which is a well studied problem; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
+A popular and convenient way of establishing the consistency of posterior is through the condition that suitable test sequences exist.
+This approach is adopted by~\cite{ghosal2000},~\cite{vaart2007convergence} and~\cite{Kleijn2012The}.
+For example, Theorem 3.1 of \cite{Kleijn2012The} assumes that for every $\epsilon>0$, there exists a sequence of tests $\phi_n$ such that
+\begin{equation}\label{eq:testSeq}
+    P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
+\end{equation}
+This condition is satisfied when the parameter space is compact and the model is suitably continuous; see Theorem 3.2 of~\cite{Kleijn2012The}.
+However, if the parameter space is not compact, one may have to manually construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
+
+%\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
+    %Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    %Under Assumptions \ref{Assumption1} and~\ref{Assumption2}, $L_1$ is consistent.
+%\end{proposition}
+
+
+%The consistency of $L_t$ for $t>1$ can be proved under conditions similar to Assumption~\ref{Assumption2}.
+%However, the requirement on the sequence $\{\phi_n\}$ lacks statistical interpretation for $t>1$.
+
+
+
+The consistency of $L_t(\cdot;\BX^{n})$ for $0<t<1$ is different from $t=1$.
+\cite{kar10563} considered the Hellinger consistency of $L_{1/2}(\cdot;\BX^{n})$.
+They derived the consistency of $L_{1/2}(\cdot;\BX^{n})$ under simple conditions.
+%They only consider $t=1/2$ and didn't consider the $\sqrt{n}$-convergence result.
+Recently,~\cite{Bha2016} further developed the idea of~\cite{kar10563} and derived a general bounds for the consistency of $L_t(\cdot;\BX^{n})$ for $0<t<1$.
+However, their result can not yield the $\sqrt{n}$-consistency for parametric models.
+We shall prove the $\sqrt{n}$-consistency of $L_{t}(\cdot;\BX^{n})$ for $0<t<1$ under certain conditions on the R\'{e}nyi divergence between distributions in the family $\{P_\theta:\theta\in\Theta\}$.
+
+ For two parameters $\theta_1$ and $\theta_2$, the $\alpha$ order R\'{e}nyi divergence ($0<\alpha<1$) of $P_{\theta_1}$ from $P_{\theta_2}$ is defined to be
+$$
+D_{\alpha}(\theta_1||\theta_2)=-\frac{1}{1-\alpha}\log \rho_{\alpha}(\theta_1,\theta_2),
+$$
+where
+$
+\rho_{\alpha}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(X|\theta_1)^{\alpha} p(X|\theta_2)^{1-\alpha} \, d \mu
+$ is the so-called Hellinger integral.
+The following assumption is needed for our $\sqrt{n}$-consistency result.
+\begin{assumption}\label{Assumption4}
+    For some $\alpha\in(0,1)$, there exist positive constants $\delta$, $\epsilon$ and $C$ such that,
+     $D_{\alpha}(\theta||\theta_0)  \geq  C \|\theta-\theta_0\|^2$ for $\|\theta-\theta_0\|\leq \delta$ and $D_{\alpha}(\theta||\theta_0) \geq \epsilon$ for $\|\theta-\theta_0\|>\delta$.
+\end{assumption}
+\begin{remark}
+    A remarkable property of R\'{e}nyi divergence is the equivalence of all $D_{\alpha}$: If $0<\alpha<\beta<1$, then
+    $$
+    \frac{\alpha}{1-\alpha}\frac{1-\beta}{\beta} D_{\beta}(\theta_1||\theta_2)
+    \leq D_{\alpha}(\theta_1||\theta_2)\leq D_{\beta}(\theta_1||\theta_2).
+    $$
+    See, e.g.,~\cite{Erven2014}.
+    As a result, if Assumption~\ref{Assumption4} holds for some $\alpha\in(0,1)$, then it will hold for every $\alpha\in(0,1)$.
+\end{remark}
+To appreciate Assumption~\ref{Assumption4},
+   suppose, for example, that $D_{\alpha}(\theta||\theta_0)$ is twice continuously differentiable in $\theta$.
+   Since $\theta=\theta_0$ is a minimum point of  $D_{\alpha}(\theta||\theta_0)$, the first order derivative of $D_{\alpha}(\theta||\theta)$ at $\theta=\theta_0$ is zero and the second order derivative at $\theta=\theta_0$ is positive semidefinite.
+By Taylor theorem, in a small neighbourhood of $\theta_0$,
+   $$
+   D_{\alpha}(\theta||\theta_0)=\frac{1}{2}(\theta-\theta_0)^\top  \frac{\partial^2}{\partial \theta \partial \theta^\top } D_{\alpha}(\theta||\theta_0)\Big|_{\theta=\theta^*}  (\theta-\theta_0),
+   $$
+   where $\theta^*$ is between $\theta_0$ and $\theta$.
+   If we further assume the second order derivative is positive definite at $\theta=\theta_0$, then in a small neighbourhood of $\theta_0$, there is a positive constant $C$ such that $D_{\alpha}(\theta||\theta_0)\geq C\|\theta-\theta_0\|^2$.
+Thus, Assumption~\ref{Assumption4} is a fairly weak condition.
+%It is often straightforward to verify Assumption~\ref{Assumption4}.
+%Compared with Assumption~\ref{Assumption2},
+%%%%%%%%%%%%%%% Here we haven't consider the second condition. It can be done through a minimax lower bound argument.
+\begin{proposition}\label{Theoremless1}
+    Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
+    Under Assumptions \ref{Assumption1} and~\ref{Assumption4}, for fixed $t\in(0,1)$, $L_t(\cdot;\BX^{n})$ is consistent.
+\end{proposition}
+Note that if the conditions of Theorem~\ref{Thm:maintheorem} are satisfied, the asymptotic power of $\Lambda_{a,b}$ is independent of $a,b$.
+Hence specific choices of $a,b$ are not crucial provided $L_{a+b}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L^{(0)}_{a+b}(\cdot;\BX^{n})$ and $L^{(0)}_b(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent.
+For some models, it is more convenient to verify Assumption~\ref{Assumption4} than to directly construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
+In such cases, it can be recommended to use the generalized FBF with $a+b< 1$.
+%By Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, one can .
+
+
+
 \section{Normal mixture model}
 In this section, we apply the ILRT methodology to the testing the component number of normal mixture model.
 Normal mixture model is a highly irregular model.
@@ -1101,7 +1111,9 @@ In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asympto
 %This illustrates the superiority of the ILRT over the LRT.
 
 
-
+\section{Heteroscedastic regression model}
+\cite{Li2000},
+\cite{Crisp1994}.
 
 
 
@@ -1169,104 +1181,83 @@ This work was supported by the National Natural Science Foundation of China unde
     \section{Proofs in Section 2}
 
     \begin{proof}[\textbf{Proof of Proposition \ref{prop:expansion}}]
-        For any fixed $M>0$, we have
-\begin{align*}
-&\log \int_{\left\{ \theta: \|\theta - \theta_0\| \leq M/\sqrt n \right\}}
-\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
-\, \mathrm d \theta
-    \\
-    =
-    &\log \int_{\{h:\|h\|\leq M\}}\exp\left[ - t R_n(\theta_0,\theta_0+n^{-1/2}h)\right] \, \mathrm d h
-    -\frac{p}{2}\log n+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1),
-    \\
-    =&\log \int_{\{h:\|h\|\leq M\}}\exp\left[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I_{\theta_0}(h-\Delta_{n,\theta_0})\right] \, \mathrm dh
-    \\
-    & +
-    \frac{t}{2}\Delta_{n,\theta_0}^\top  I_{\theta_0}\Delta_{n,\theta_0}
-    -\frac{p}{2}\log n+\log \pi(\theta_0)+o_{P^n_{\theta_0}}(1),
-\end{align*}
-where the first equality follows from the continuity of $\pi(\theta)$ at $\theta_0$ and the coordinate transformation $h=\sqrt{n}(\theta-\theta_0)$;
-and the second equality follows from the uniform expansion given by Assumption~\ref{Assumption1}.
-This equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
-Since $\Delta_{n,\theta_0}$ is bounded in probability, we have
-        $$
-            \begin{aligned}
-            &\log \int_{\{h:\|h\|\leq M_n\}}\exp\left[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I_{\theta_0}(h-\Delta_{n,\theta_0})\right] \, \mathrm dh
-                \\
-                =&
-                \log \int_{\mathbb{R}^p}\exp\left[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I_{\theta_0}(h-\Delta_{n,\theta_0})\right] \, \mathrm dh+o_{P^n_{\theta_0}}(1)
-                \\
-                =&
-                \frac{p}{2}\log\left(\frac{2\pi}{t}\right)-\frac{1}{2}\log |I_{\theta_0}|
-+o_{P^n_{\theta_0}}(1).
-            \end{aligned}
-        $$
-        Thus,
+From Proposition \ref{prop:2019rock1}, we have
 $$
-\begin{aligned}
-    &\log \int_{\Theta}
-\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
+    \int_{\Theta}
+    \exp\left\{-R_n(\theta_0, \theta) \right\} \pi(\theta)
 \, \mathrm d \theta
-\\
-    =&
-\log \int_{\left\{ \theta: \|\theta - \theta_0\| \leq M/\sqrt n \right\}}
-\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
-\, \mathrm d \theta
-    +o_{P^n_{\theta_0}}(1)\\
     =
-    &
-        \frac{p}{2}\log\left(\frac{2\pi}{t n}\right)
-        +
-        \log 
-        \left( 
-        |I_{\theta_0}|^{-\frac{1}{2}} \pi(\theta_0)
-        \right)
-     +
-    \frac{t}{2}\Delta_{n,\theta_0}^\top  I_{\theta_0}\Delta_{n,\theta_0}
-    +o_{P^n_{\theta_0}}(1).
-\end{aligned}
+    (1+o_{P^n_{\theta_0}}(1))
+    \pi(\theta_0)
+    \left(\frac{2\pi}{ n}\right)^{{p}/{2}}
+    |I(\theta_0)|^{-{1}/{2}} 
+    \exp
+    \left\{ 
+        \frac{1}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+\right\}
+,
 $$
-Similarly, we have
+and
 \begin{equation*}
-\begin{split}
-    &\log \int_{\tilde \Theta}
-    \exp\left[-t R_n\left(\nu_0, \nu \right)\right] \pi_0(\nu)
+    \int_{\tilde \Theta}
+    \exp\left\{- R_n\left(\nu_0, \nu \right)\right\} \pi_0(\nu)
 \, \mathrm d \nu
-\\
-    =&
-\frac{p_0}{2}\log\left(\frac{2\pi}{tn}\right) + \log \left( |I_{\theta_0}^{(0)}|^{-\frac{1}{2}} \pi_0(\nu_0)\right)
-             +
-             \frac{t}{2}\Delta_{n,\theta_0}^{{(0)}\top} I^{(0)}_{\theta_0}\Delta^{(0)}_{n,\theta_0}
-            +o_{P^n_{\theta_0}}(1).
-\end{split}
+    =
+    (1+o_{P^n_{\theta_0}}(1))
+    \pi_0(\nu_0)
+    \left(\frac{2\pi}{ n}\right)^{{p_0}/{2}}
+     |I_{\theta_0}^{(0)}|^{-{1}/{2}} 
+     \exp\left\{ 
+         \frac{1}{2}\Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
+     \right\}
+     .
 \end{equation*}
 It follows that
 \begin{align*}
-    \log \text{BF}_t (\BX^{n})
+    \log \text{BF}_1 (\BX^{n})
     =&
     \log
     \int_{\Theta}
-\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
+\exp[- R_n(\theta_0, \theta)] \pi(\theta)
 \, \mathrm d \theta
 -
     \log \int_{\tilde \Theta}
-    \exp\left[-t R_n\left(\nu_0, \nu \right)\right] \pi_0(\nu)
+    \exp\left[- R_n\left(\nu_0, \nu \right)\right] \pi_0(\nu)
 \, \mathrm d \nu
     \\
     =&
-   {\frac{p-p_0}{2}} \log \left( \frac{2\pi}{tn} \right)
+   {\frac{p-p_0}{2}} \log \left( \frac{2\pi}{n} \right)
 +
-        \frac t 2 \left( 
-    \Delta_{n,\theta_0}^\top  I_{\theta_0}\Delta_{n,\theta_0}
+        \frac 1 2 \left( 
+            \Delta_{n,\theta_0}^\top  I(\theta_0)  \Delta_{n,\theta_0}
             -
-             \Delta_{n,\theta_0}^{{(0)}\top} I^{(0)}_{\theta_0}\Delta^{(0)}_{n,\theta_0}
+            \Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
         \right)
-   +
+        \\
+   &+
    \log
        \frac{
-   |I_{\theta_0}|^{-\frac 1 2}\pi(\theta_0) 
+           |I(\theta_0)|^{-\frac 1 2}\pi(\theta_0) 
    }{
-    |I_{\theta_0}^{(0)}|^{-\frac 1 2}\pi_0(\nu_0)
+       |I_\nu(\theta_0)|^{-\frac 1 2}\pi_0(\nu_0)
+}
+    +o_{P^n_{\theta_0}}(1)
+    \\
+    =&
+   {\frac{p-p_0}{2}} \log \left( \frac{2\pi}{n} \right)
++
+        \frac 1 2 \left( 
+            \Delta_{n,\theta_0}^\top  I(\theta_0)  \Delta_{n,\theta_0}
+            -
+            \Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
+        \right)
+        \\
+   &+
+   \log
+       \frac{
+           |I_{\xi | \nu}(\theta_0)|^{-\frac 1 2}\pi(\theta_0) 
+   }{
+    \pi_0(\nu_0)
 }
     +o_{P^n_{\theta_0}}(1)
     .
@@ -1275,22 +1266,96 @@ By the mutual contiguity of $P_{\theta_0}^n$ and $P^n_{\theta_n}$, the term $o_{
           
     \end{proof}
 
+
 \begin{proposition}
-    Suppose that Assumptions \ref{Assumption1}, \ref{assumption2019} hold, $\pi(\theta)$ is countinuous at $\theta_0$ with $\pi(\theta_0) > 0 $, $t \to 0$, $tn \to \infty$.
-    Suppose
-    $\int_{\Theta} V(\theta_0 \| \theta) \pi(\theta) \, \mathrm d \theta  < \infty$
-where $V(\theta_0 \| \theta) = P_{\theta_0} \left( \log \left( p(X|\theta_0) / p(X | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2$.
-    Then
-\begin{align*}
-     \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+    Suppose that Assumption~\ref{Assumption1} holds, $t\in (0,+\infty)$ is fixed,  $L_{t}(\cdot;\BX^{n})$ is $\sqrt{n}$-consistent, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$.
+        Then we have
+$$
+    \int_{\Theta}
+    \exp\left\{-t R_n(\theta_0, \theta) \right\} \pi(\theta)
+\, \mathrm d \theta
     =
-    (1+o_{P_{\theta_0}^n})
-    \int_\Theta \exp \{-tn D_1 \left( \theta_0 \| \theta \right)\} \pi(\theta) \, \mathrm d \theta.
-\end{align*}
-    \label{prop:tto0}
+    (1+o_{P^n_{\theta_0}}(1))
+    \pi(\theta_0)
+    \left(\frac{2\pi}{t n}\right)^{{p}/{2}}
+    |I(\theta_0)|^{-{1}/{2}} 
+    \exp
+    \left\{ 
+        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+\right\}
+    .
+$$
+    \label{prop:2019rock1}
 \end{proposition}
 \begin{proof}
-    
+        For any fixed $M>0$, we have
+\begin{align*}
+& \int_{\left\{ \theta: \|\theta - \theta_0\| \leq M/\sqrt n \right\}}
+\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
+\, \mathrm d \theta
+    \\
+    =
+    &
+    (1+o_{P^n_{\theta_0}}(1))
+    n^{-p/2} \pi(\theta_0)
+    \int_{\{h:\|h\|\leq M\}}\exp\left[ - t R_n(\theta_0,\theta_0+n^{-1/2}h)\right] \, \mathrm d h
+    ,
+    \\
+    =&
+    (1+o_{P^n_{\theta_0}}(1))
+    n^{-p/2}\pi(\theta_0)
+    \exp\left\{ 
+        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+    \right\}
+    \int_{\{h:\|h\|\leq M\}}\exp\left[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right] \, \mathrm dh
+,
+\end{align*}
+where the first equality follows from the continuity of $\pi(\theta)$ at $\theta_0$ and the coordinate transformation $h=\sqrt{n}(\theta-\theta_0)$;
+and the second equality follows from the uniform expansion given by Assumption~\ref{Assumption1}.
+This equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
+Since $\Delta_{n,\theta_0}$ is bounded in probability, we have
+        $$
+            \begin{aligned}
+                & \int_{\{h:\|h\|\leq M_n\}}\exp\left[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right] \, \mathrm dh
+                \\
+                =&
+                (1+o_{P^n_{\theta_0}}(1))
+                \int_{\mathbb{R}^p}\exp\left[ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right] \, \mathrm dh
+                \\
+                =&
+                (1+o_{P^n_{\theta_0}}(1))
+                \left(\frac{2\pi}{t}\right)^{{p}/{2}} |I({\theta_0})|^{-{1}/{2}}
+.
+            \end{aligned}
+        $$
+        Thus,
+$$
+\begin{aligned}
+     \int_{\Theta}
+\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
+\, \mathrm d \theta
+    =&
+    (1+o_{P^n_{\theta_0}}(1))
+\int_{\left\{ \theta: \|\theta - \theta_0\| \leq M/\sqrt n \right\}}
+\exp[-t R_n(\theta_0, \theta)] \pi(\theta)
+\, \mathrm d \theta
+    \\
+    =
+    &
+    (1+o_{P^n_{\theta_0}}(1))
+    \pi(\theta_0)
+    \left(\frac{2\pi}{t n}\right)^{{p}/{2}}
+    |I(\theta_0)|^{-{1}/{2}} 
+    \exp
+    \left\{ 
+        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+\right\}
+    .
+\end{aligned}
+$$
+This completes the proof.
+\end{proof}
+
     Let $R_n (\theta, \theta' )= \log \left\{ p(\BX^{n}|\theta)/ p(\BX^{n}|\theta') \right\}$ denote the log-likelihood ratio between $p(\BX^{n} | \theta )$ and $ p(\BX^{n} | \theta' )$.
        Let
        \begin{align*}
@@ -1313,7 +1378,7 @@ where $V(\theta_0 \| \theta) = P_{\theta_0} \left( \log \left( p(X|\theta_0) / p
                \exp \{ -t n D_1\left( \theta_0 \| \theta \right) \} \pi(\theta) \, \mathrm d \theta
            }.
        \end{align*}
-We have
+       The following equality will play an important role in the proofs of the next two propositions.
 \begin{equation}\label{eq:leiApp}
     \begin{aligned}
      D_1\left( 
@@ -1336,7 +1401,33 @@ We have
     .
     \end{aligned}
 \end{equation}
-To prove the proposition, we only need to proof
+
+
+\begin{proposition}
+    Suppose that Assumptions \ref{Assumption1}, \ref{assumption2019} hold, $\pi(\theta)$ is countinuous at $\theta_0$ with $\pi(\theta_0) > 0 $.
+    Suppose
+    $\int_{\Theta} V(\theta_0 \| \theta) \pi(\theta) \, \mathrm d \theta  < \infty$
+where $V(\theta_0 \| \theta) = P_{\theta_0} \left( \log \left( p(X|\theta_0) / p(X | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2$.
+Then the following assertion holds.
+\begin{enumerate}[(a)]
+        \item 
+            if $t \to 0$, $tn \to \infty$, then
+\begin{align*}
+     \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+     = (1+o_{P_{\theta_0}^n}(1))\pi(\theta_0) \left( \frac{2\pi}{tn} \right)^{p/2} |I(\theta_0)|^{-1/2}.
+\end{align*}
+        \item
+            if $tn \to c \in (0,+\infty)$, then
+\begin{align*}
+     \int_{\Theta} \exp \{-t R_n (\theta_0, \theta)\} \pi (\theta) \, \mathrm d \theta  
+     \xrightarrow{P_{\theta_0}^n}
+    \int_\Theta \exp \{-c D_1 \left( \theta_0 \| \theta \right)\} \pi(\theta) \, \mathrm d \theta.
+\end{align*}
+    \end{enumerate}
+    \label{prop:tto0}
+\end{proposition}
+\begin{proof}
+    In view of \eqref{eq:leiApp} and Lemma \ref{lemma:2019}, to prove the proposition, it suffices to prove
 \begin{align}
     P_{\theta_0}^n D_1 \left( w_n (\theta)\, \mathrm d \theta \| \pi_t (\theta| \BX^n) \, \mathrm d \theta \right) \to 0
     \label{toProof:1}
@@ -1349,6 +1440,7 @@ and
     w_n (\theta) \, \mathrm d \theta
     \right)^2
     \to 0
+    .
     \label{toProof:2}
 \end{align}
 
@@ -1407,83 +1499,6 @@ then the dominated convergence theorem implies that
 Then the right hand side of \eqref{eq:KLBound} converges to $0$.
 
 We turn to the case $tn \to \infty$. 
-
-Fix a $t_0 \in [0,1)$, we claim that
-\begin{align}
-    \int_{\Theta} \exp\left\{ -tn D_{1-t_0} \left( \theta_0 \| \theta \right) \right\} \pi(\theta) \, \mathrm d \theta= (1+o(1))\pi(\theta_0)
-    \left( 
-        \frac{2\pi}{(1-t_0) tn}
-    \right)^{p/2}
-    | I (\theta_0) |^{-1/2}. 
-    \label{eq:fort0}
-\end{align}
-In fact, Assumption \ref{assumption2019} implies that
-\begin{align*}
-    &\int_{\Theta} \exp\left\{ -tn D_{1-t_0} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
-    \\
-    \geq
-    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_{1-t_0} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0)\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp \left\{ - \frac{tn(1-t_0)}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta- \theta_0) \right\}   \, \mathrm d \theta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0) (tn)^{-p/2} \int_{ \left\{ \vartheta: \|\vartheta\|\leq (tn)^{1/4} \right\}} \exp \left\{ - \frac{1-t_0}{2} \vartheta^\top I(\theta_0) \vartheta \right\} \, \mathrm d \vartheta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0)
-    \left( 
-        \frac{2\pi}{(1-t_0) tn}
-    \right)^{p/2}
-    |I(\theta_0)|^{-1/2}
-    .
-\end{align*}
-To show the other direction, fix an $\epsilon \in (0, 1)$.
-From Assumption \ref{assumption2019}, there exists a $\delta$ such that for $\|\theta - \theta_0\| < \delta$,
-\begin{align*}
-D_{1-t_0} (\theta_0 || \theta) \geq (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0).
-\end{align*}
-We choose $\delta$ small enough such that $\pi(\theta) \leq (1+\epsilon) \pi(\theta_0) $ for $\|\theta - \theta_0\| < \delta$.
-Also by Assumption \ref{assumption2019}, there exists a $\epsilon^* >0$ such that $D_{t_0} (\theta_0 \| \theta) \geq \epsilon^*$ for $\|\theta - \theta_0\|\geq \delta$.
-Thus,
-\begin{align*}
-        &\int_{ \Theta } \exp\{-tn D_{1-t_0}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
-        \\
-        \leq &
-        (1+\epsilon) \pi(\theta_0)
-        \int_{ \left\{ \theta: \|\theta - \theta_0\| < \delta \right\}}
-        \exp\left\{ 
-            -tn
-        (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
-        \right\}
-        \, \mathrm d \theta
-        +
-        \exp\left\{ -tn \epsilon^* \right\}
-        \\
-        \leq &
-        (1+\epsilon) \pi(\theta_0)
-        \int_{\Theta}
-        \exp\left\{ 
-            -tn
-        (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
-        \right\}
-        \, \mathrm d \theta
-        +
-        \exp\left\{ -tn \epsilon^* \right\}
-        \\
-        = &
-        (1+\epsilon) (1-\epsilon)^{-p/2}  \pi(\theta_0) \left( \frac{2\pi}{(1-t_0) tn } \right)^{p/2} |I(\theta_0)|^{-1/2}
-        +
-        \exp\left\{ -tn \epsilon^* \right\}
-        \\
-        = &
-        (1+o(1))
-        (1+\epsilon) (1-\epsilon)^{-p/2}  \pi(\theta_0) \left( \frac{2\pi}{(1-t_0) tn } \right)^{p/2} |I(\theta_0)|^{-1/2}
-        .
-\end{align*}
-Note that $\epsilon$ can be arbitrarily small. 
-Hence \eqref{eq:fort0} holds.
-
 For any $t_0 \in (0,1)$,
 since $t < t_0$ for sufficiently large $n$, we have
 \begin{align*}
@@ -1618,6 +1633,90 @@ Hence \eqref{toProof:2} holds.
 This completes the proof.
 
 \end{proof}
+
+\begin{lemma}
+    Suppose that Assumptions \ref{Assumption1}, \ref{assumption2019} hold, $\pi(\theta)$ is countinuous at $\theta_0$ with $\pi(\theta_0) > 0 $, as $n \to \infty$, $t \to 0$, $tn \to \infty$.
+    Then for any fixed $t_0 \in [0,1)$, 
+\begin{align}
+    \int_{\Theta} \exp\left\{ -tn D_{1-t_0} \left( \theta_0 \| \theta \right) \right\} \pi(\theta) \, \mathrm d \theta= (1+o(1))\pi(\theta_0)
+    \left( 
+        \frac{2\pi}{(1-t_0) tn}
+    \right)^{p/2}
+    | I (\theta_0) |^{-1/2}. 
+    \label{eq:fort0}
+\end{align}
+    \label{lemma:2019}
+\end{lemma}
+\begin{proof}
+Assumption \ref{assumption2019} implies that
+\begin{align*}
+    &\int_{\Theta} \exp\left\{ -tn D_{1-t_0} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    \\
+    \geq
+    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_{1-t_0} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    \\
+    =
+    &(1+o(1))\pi(\theta_0)\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp \left\{ - \frac{tn(1-t_0)}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta- \theta_0) \right\}   \, \mathrm d \theta
+    \\
+    =
+    &(1+o(1))\pi(\theta_0) (tn)^{-p/2} \int_{ \left\{ \vartheta: \|\vartheta\|\leq (tn)^{1/4} \right\}} \exp \left\{ - \frac{1-t_0}{2} \vartheta^\top I(\theta_0) \vartheta \right\} \, \mathrm d \vartheta
+    \\
+    =
+    &(1+o(1))\pi(\theta_0)
+    \left( 
+        \frac{2\pi}{(1-t_0) tn}
+    \right)^{p/2}
+    |I(\theta_0)|^{-1/2}
+    .
+\end{align*}
+To show the other direction, fix an $\epsilon \in (0, 1)$.
+From Assumption \ref{assumption2019}, there exists a $\delta$ such that for $\|\theta - \theta_0\| < \delta$,
+\begin{align*}
+D_{1-t_0} (\theta_0 || \theta) \geq (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0).
+\end{align*}
+We choose $\delta$ small enough such that $\pi(\theta) \leq (1+\epsilon) \pi(\theta_0) $ for $\|\theta - \theta_0\| < \delta$.
+Also by Assumption \ref{assumption2019}, there exists a $\epsilon^* >0$ such that $D_{t_0} (\theta_0 \| \theta) \geq \epsilon^*$ for $\|\theta - \theta_0\|\geq \delta$.
+Thus,
+\begin{align*}
+        &\int_{ \Theta } \exp\{-tn D_{1-t_0}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
+        \\
+        \leq &
+        (1+\epsilon) \pi(\theta_0)
+        \int_{ \left\{ \theta: \|\theta - \theta_0\| < \delta \right\}}
+        \exp\left\{ 
+            -tn
+        (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+        \right\}
+        \, \mathrm d \theta
+        +
+        \exp\left\{ -tn \epsilon^* \right\}
+        \\
+        \leq &
+        (1+\epsilon) \pi(\theta_0)
+        \int_{\Theta}
+        \exp\left\{ 
+            -tn
+        (1-\epsilon) \frac{1-t_0}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+        \right\}
+        \, \mathrm d \theta
+        +
+        \exp\left\{ -tn \epsilon^* \right\}
+        \\
+        = &
+        (1+\epsilon) (1-\epsilon)^{-p/2}  \pi(\theta_0) \left( \frac{2\pi}{(1-t_0) tn } \right)^{p/2} |I(\theta_0)|^{-1/2}
+        +
+        \exp\left\{ -tn \epsilon^* \right\}
+        \\
+        = &
+        (1+o(1))
+        (1+\epsilon) (1-\epsilon)^{-p/2}  \pi(\theta_0) \left( \frac{2\pi}{(1-t_0) tn } \right)^{p/2} |I(\theta_0)|^{-1/2}
+        .
+\end{align*}
+Note that $\epsilon$ can be arbitrarily small. 
+Hence \eqref{eq:fort0} holds.
+    
+\end{proof}
+
 
 
 

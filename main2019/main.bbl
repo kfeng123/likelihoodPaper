@@ -27,6 +27,12 @@ Chen, J. (2017).
 \newblock Information-theoretic asymptotics of bayes methods.
 \newblock {\em IEEE Transactions on Information Theory}, 36(3):453--471.
 
+\bibitem[\protect\astroncite{Crisp and Burridge}{1994}]{Crisp1994}
+Crisp, A. and Burridge, J. (1994).
+\newblock A note on nonregular likelihood functions in heteroscedastic
+  regression models.
+\newblock {\em Biometrika}, 81(3):585--587.
+
 \bibitem[\protect\astroncite{Ghosal et~al.}{2000}]{ghosal2000}
 Ghosal, S., Ghosh, J.~K., and van~der Vaart, A.~W. (2000).
 \newblock Convergence rates of posterior distributions.
@@ -66,6 +72,11 @@ Kleijn, B. and Vaart, A. (2012).
 Le~Cam, L. (1990).
 \newblock Maximum likelihood: An introduction.
 \newblock {\em International Statistical Review}, 58(2):153--171.
+
+\bibitem[\protect\astroncite{Li and Chan}{2000}]{Li2000}
+Li, K.-H. and Chan, N.~N. (2000).
+\newblock Degeneracy in heteroscedastic regression models.
+\newblock {\em Journal of Multivariate Analysis}, 74(2):282--295.
 
 \bibitem[\protect\astroncite{Li and Turner}{2016}]{NIPS2016_6208}
 Li, Y. and Turner, R.~E. (2016).
