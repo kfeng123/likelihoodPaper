@@ -4,46 +4,45 @@ The top-level auxiliary file: main.aux
 The style file: apa.bst
 Database file #1: mybibfile.bib
 Warning--I didn't find a database entry for "Gelfand1994"
-Warning--I didn't find a database entry for ""
-You've used 26 entries,
+You've used 27 entries,
             1940 wiz_defined-function locations,
-            658 strings with 7697 characters,
-and the built_in function-call counts, 10107 in all, are:
-= -- 1007
-> -- 338
-< -- 22
-+ -- 113
-- -- 105
-* -- 917
-:= -- 1732
-add.period$ -- 81
-call.type$ -- 26
-change.case$ -- 179
-chr.to.int$ -- 26
-cite$ -- 26
-duplicate$ -- 375
-empty$ -- 742
-format.name$ -- 159
-if$ -- 1970
+            666 strings with 7804 characters,
+and the built_in function-call counts, 10397 in all, are:
+= -- 1036
+> -- 345
+< -- 23
++ -- 115
+- -- 107
+* -- 937
+:= -- 1786
+add.period$ -- 85
+call.type$ -- 27
+change.case$ -- 184
+chr.to.int$ -- 27
+cite$ -- 27
+duplicate$ -- 389
+empty$ -- 765
+format.name$ -- 162
+if$ -- 2028
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 28
-newline$ -- 134
-num.names$ -- 80
-pop$ -- 124
+missing$ -- 30
+newline$ -- 139
+num.names$ -- 83
+pop$ -- 130
 preamble$ -- 1
-purify$ -- 180
+purify$ -- 186
 quote$ -- 0
-skip$ -- 294
+skip$ -- 304
 stack$ -- 0
-substring$ -- 802
-swap$ -- 63
+substring$ -- 814
+swap$ -- 65
 text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 152
+type$ -- 156
 warning$ -- 0
-while$ -- 88
+while$ -- 90
 width$ -- 0
-write$ -- 341
-(There were 2 warnings)
+write$ -- 354
+(There was 1 warning)

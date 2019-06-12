@@ -330,9 +330,48 @@ All technical proofs are in Appendix.
 
 
 
+Uniformly most powerful Bayesian tests.
+
+\cite{clarke1990information} considered use Bayes factor for hypothesis testing.
+\cite{Gelfand1994} gave.
+
+We avoid the use of the maximum likelihood estimator.
+This allows us to apply the methods to the case where the MLE does not exist.
 
 
-\section{Bayes factor and its variants}
+Our work is not purely of theoretical interest.
+It also has implication on the choice of prior and Bayesian methods.
+As \cite{clarke1990information} noted, Bayes' Consistency holds under a hypothesis that is much weaker than the conditions for the consistency of the MLE.
+
+The most remarkable property of LRT is the Wilks phenomenon. That is, the asymptotic distribution of the LRT statistic is free of parameters.
+
+One advantage of the Bayes factor over the LRT is that the Bayes factor is always well defined.
+
+sensitive to outliers as FBF paper discused.
+
+
+Motivations
+\begin{itemize}
+    \item 
+        Applicable to moderately complex models, espcially when the likelihood is unbounded.
+    \item
+        Give guidines to the choice of the threshold of the Bayes factors.
+    \item
+        Computation is easy for some cases.
+\end{itemize}
+
+
+For $t>0$ and sets $\mathcal A\subset \Theta$, $\mathcal A_0\subset \tilde{\Theta}_0$,
+\begin{align*}
+ &L_t(\mathcal A;\BX^{n})=\int_{\mathcal A}\big[p_n(\BX^{n}|\theta)\big]^t \pi(\theta)\, d\theta,
+\quad
+ L_t^{(0)}(\mathcal A_0;\BX^{n})=\int_{\mathcal A_0}\big[p_n(\BX^{n}|\nu,\xi_0)\big]^t \pi_0(\nu)\, d\nu.
+\end{align*}
+They proposed three ways to set $b$: (a) $b=m_0/n$; (b) $b= n^{-1}\max \left\{ m_0, \sqrt n \right\}$; (c) $b=n^{-1} \max\left\{ m_0, \log n \right\}$.
+Here $m_0$ is the minimal training sample size.
+
+
+\section{Wilks phenomenon of Bayes factors}
 
 
 Let $\BX^{n}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) observations taking values in some space $(\mathcal{X};\mathscr{A})$.
@@ -367,49 +406,18 @@ In Bayesian hypothesis testing framework, a central tool is the Bayes factor
     \frac{\int_{\Theta} p_n(\BX^{n}|\theta)\pi(\theta)\, d\theta}{\int_{\tilde{\Theta}_0}p_n(\BX^{n}|\nu,\xi_0)\pi_0(\nu)\, d\nu},
 \end{equation*}
 where $\tilde{\Theta}_0=\{\nu: (\nu^\top ,\xi_0^\top )^\top \in \Theta_0\}$ and $\pi(\theta)$ and $\pi_0(\nu)$ are the prior densities of parameters under the alternative and the  null hypotheses, respectively.
-It is known that Bayes factor is very sensitive to the choice of prior distribution.
-Intrinsic prior.
-DB prior.
-For $t>0$ and sets $\mathcal A\subset \Theta$, $\mathcal A_0\subset \tilde{\Theta}_0$,
-\begin{align*}
- &L_t(\mathcal A;\BX^{n})=\int_{\mathcal A}\big[p_n(\BX^{n}|\theta)\big]^t \pi(\theta)\, d\theta,
-\quad
- L_t^{(0)}(\mathcal A_0;\BX^{n})=\int_{\mathcal A_0}\big[p_n(\BX^{n}|\nu,\xi_0)\big]^t \pi_0(\nu)\, d\nu.
-\end{align*}
-They proposed three ways to set $b$: (a) $b=m_0/n$; (b) $b= n^{-1}\max \left\{ m_0, \sqrt n \right\}$; (c) $b=n^{-1} \max\left\{ m_0, \log n \right\}$.
-Here $m_0$ is the minimal training sample size.
+Conventionally, the null hypothesis is rejected if $\text{BF}(\BX^n)$ is larger than certain threshold.
+The choice of threshold is mostly empirical in the literature.
+For example, \cite{Jeffreys1961} suggested that the evidence against the null hypothesis is \emph{decisive} if $\text{BF}(\BX^n)>100$ while \cite{Robert1995Bayes} suggested that the evidence is \emph{very strong} if $\text{BF}(\BX^n) > 150$.
+Unfortunately, these choices of threshold  are not theoretically justified.
+In this paper, we treat the Bayes factor as a frequentist test statistic.
+Then the choice of threshold is no longer a problem and the threshold is chosen to control the type I error rate.
 
 
-
-Uniformly most powerful Bayesian tests.
-
-\cite{clarke1990information} considered use Bayes factor for hypothesis testing.
-\cite{Gelfand1994} gave.
-
-We avoid the use of the maximum likelihood estimator.
-This allows us to apply the methods to the case where the MLE does not exist.
-
-
-Our work is not purely of theoretical interest.
-It also has implication on the choice of prior and Bayesian methods.
-As \cite{clarke1990information} noted, Bayes' Consistency holds under a hypothesis that is much weaker than the conditions for the consistency of the MLE.
-
-The most remarkable property of LRT is the Wilks phenomenon. That is, the asymptotic distribution of the LRT statistic is free of parameters.
-
-
-\section{Asymptotic distributions of Bayes factors}
-
-The asymptotic null distribution of a test statistic does not depend on the unknown parameters.
-The lack of Wilks phenomenon will introduce additional complexity to estimator the unknown parameters under the null hypothesis.
-These methods lack frequentist justification, we shall thoroughly investigate the frequentist asymptotic behavior of these methods.
-Such investigation has at least two usage:
-\begin{itemize}
-    \item 
-        Use Bayesian methods as frequentist methods.
-        It has some advantages over LRT.
-    \item
-        Assessment of Bayesian methods.
-\end{itemize}
+\cite{Wilks1938The} proved that under certain conditions, the asymptotic null distribution of the LRT statistic is free of nuisance parameters $\nu$.
+In this paper we say a test statistic has Wilks phenomenon if the asymptotic null distribution of the test statistic does not depend on the nuisance parameters $\nu$.
+The Wilks phenomenon is desirable since it allows us to determine the critical value according to the asymptotic null distribution and the lack of Wilks phenomenon will often introduce additional complexity to estimate the nuisance parameters $\nu$ under the null hypothesis.
+We shall investigate the asymptotic distribution of Bayes factor.
 
 
 We make the following assumption which is adapted from~\cite{Kleijn2012The} and is satisfied by many common models. 
@@ -447,9 +455,8 @@ For every $M>0$,
 Let
 $\BJ=(\BI_{p_0},\mathbf{0}_{p_0\times(p-p_0)})^\top $,
 $\tilde\BJ=(\mathbf {0}_{ (p- p_0) \times p_0 },\BI_{(p-p_0)})^\top $.
-If $I(\theta)$ exists, define
+If $I(\theta)$ exists, let $I_{\nu}(\theta)=\BJ^\top I(\theta) \BJ$ be the Fisher information matrix for the null model and define
 \begin{align*}
-    I_{\nu}(\theta)=\BJ^\top I(\theta) \BJ,
     \quad
     I_{\xi|\nu}(\theta) = 
     \tilde \BJ ^\top  I(\theta) \tilde \BJ
@@ -460,7 +467,6 @@ If $I(\theta)$ exists, define
     .
 \end{align*}
 We note that $|I(\theta)| = |I_{\nu}(\theta)|\cdot |I_{\xi | \nu}(\theta )|$.
-
 $$
 \dot{\ell}_{\theta_0}^{(0)}(X)= \BJ^\top \dot \ell_{\theta_0}(X)
 \quad 
@@ -617,23 +623,49 @@ See, e.g., \cite{Erven2014}.
 
 
     \begin{theorem}\label{Thm:maintheorem}
-        Suppose that Assumption~\ref{Assumption1} holds, $a,b>0$ are fixed numbers, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
+        Suppose that Assumption~\ref{Assumption1} holds, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$.
         Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
         Let $\chi^2(p-p_0,\delta)$ denote a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\delta=\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta$,  $\BI_{p_0}$ denote the $p_0$ dimensional identity matrix.
 ``$\rightsquigarrow$'' means weak convergence.
-        Then 
+Then the following claims hold.
         \begin{enumerate}
             \item 
-                If
-$L_{a+b}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L_{a+b}^{(0)}(\cdot;\BX^{n})$ and $L_b^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent, 
+                Suppose $a>b>0$ are fixed numbers,
+                $L_{a}(\cdot;\BX^{n})$, $L_b(\cdot;\BX^{n})$, $L_{a}^{(0)}(\cdot;\BX^{n})$ and $L_b^{(0)}(\cdot;\BX^{n})$ are $\sqrt{n}$-consistent.
+                Then
         $$
-        2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow} 
-        {a}\chi^2(p-p_0,\delta)
--{(p-p_0)}\log (1+\frac{a}{b})
+        2\log \Lambda_{a,b}
++{(p-p_0)}\log \left(\frac{a}{b}\right)
+        \overset{P^n_{\theta_n}}{\rightsquigarrow} 
+        (a-b)\chi^2(p-p_0,\delta)
 .
         $$
     \item
-        if
+        Suppose $a>b>0$, $a$ is fixed and $b\to 0$ as $n \to \infty$.
+        Then if $b/n \to b^* \in (0,+\infty)$,
+\begin{align*}
+    2\log \Lambda_{a,b}\overset{P^n_{\theta_n}}{\rightsquigarrow}
+    &
+     a \chi^2 (p-p_0, \delta)
+     +
+    2\log\left( \frac{
+            \left|I_{\xi| \nu} (\theta_0)\right|^{-\frac 1 2}
+    \pi(\theta_0)}{\pi_0(\nu_0)} \right)
+    +{(p-p_0)} \log \left( \frac{2\pi}{an} \right)
+    \\
+    &
+    -2\log \int_{\Theta} \exp\left\{ -b^* D_1\left( \theta_0 \| \theta \right)\right\} \pi(\theta) \, \mathrm d \theta 
+    +
+    2\log \int_{\tilde \Theta_0} \exp\left\{ -b^* D_1\left( \theta_0 \| \nu, \xi_0 \right)\right\} \pi_0(\nu) \, \mathrm d \nu.
+\end{align*}
+        if $b/n \to \infty$,
+\begin{align*}
+    2\log \Lambda_{a,b}
+    +
+    {(p-p_0)}\log \left(\frac{a}{b}\right)
+    \overset{P^n_{\theta_n}}{\rightsquigarrow}
+        a \chi^2(p-p_0,\delta)
+\end{align*}
         \end{enumerate}
     \end{theorem}
 
@@ -642,31 +674,45 @@ $$
 \begin{aligned}
 \log \Lambda_{a,b}
     =&
-    \log L_{a+b}(\Theta;\BX^{n})-
-    \log L_b(\Theta;\BX^{n})
+    \log\int_{\Theta}
+    \exp\left\{-a R_n(\theta_0\| \theta) \right\} \pi(\theta)
+\, \mathrm d \theta
+-
+    \log\int_{\Theta}
+    \exp\left\{-b R_n(\theta_0\| \theta) \right\} \pi(\theta)
+\, \mathrm d \theta
     \\
-    &-
-    \log L^{(0)}_{a+b}(\tilde{\Theta}_0;\BX^{n})+
-    \log L^{(0)}_b(\tilde{\Theta}_0;\BX^{n})\\
-    =&
-    -\frac{p-p_0}{2}\log (1+\frac{a}{b})
-    +
-    \frac{a}{2}\Big(
-    \Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
-    -
-    \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
-    \Big)
-    \\
-    &+o_{P^n_{\theta_n}}(1).
+    &
+    -\log\int_{\tilde \Theta_0}
+    \exp\left\{-a R_n(\theta_0\| \nu, \xi_0) \right\} \pi_0(\nu)
+\, \mathrm d \nu
++\log\int_{\tilde \Theta_0}
+    \exp\left\{-b R_n(\theta_0\| \nu, \xi_0) \right\} \pi_0(\nu)
+\, \mathrm d \nu
+.
 \end{aligned}
 $$
-It can be seen that $I_{\theta_0}^{(0)}= \BJ^\top  I_{\theta_0}\BJ$ and $\Delta_{n,\theta_0}^{(0)}=(\BJ^\top  I_{\theta_0}\BJ)^{-1} \BJ^\top  I_{\theta_0} \Delta_{n,\theta_0}$.
+If $a$ and $b$ are fixed, Proposition \ref{prop:2019rock1} implies that
+        \begin{align*}
+\log \Lambda_{a,b}
+    =&
+    -\frac{p-p_0}{2}\log \left(\frac{a}{b}\right)
+    +
+    \frac{a-b}{2}\Big(
+        \Delta_{n,\theta_0}^\top  I(\theta_0) \Delta_{n,\theta_0}
+    -
+    \Delta_{n,\theta_0}^{{(0)}T} I_{\nu}(\theta_0) \Delta^{(0)}_{n,\theta_0}
+    \Big)
+    +o_{P^n_{\theta_n}}(1).
+        \end{align*}
+It can be seen that $\Delta_{n,\theta_0}^{(0)}=(\BJ^\top  I_{\theta_0}\BJ)^{-1} \BJ^\top  I_{\theta_0} \Delta_{n,\theta_0}$.
 Then
 \begin{equation*}
     \begin{split}
-            &\Delta_{n,\theta_0}^\top  I_{\theta_0} \Delta_{n,\theta_0}
-            -
-            \Delta_{n,\theta_0}^{{(0)}T} I^{(0)}_{\theta_0} \Delta^{(0)}_{n,\theta_0}
+        &
+        \Delta_{n,\theta_0}^\top  I(\theta_0) \Delta_{n,\theta_0}
+    -
+    \Delta_{n,\theta_0}^{{(0)}T} I_{\nu}(\theta_0) \Delta^{(0)}_{n,\theta_0}
             \\
             =&
             \Delta_{n,\theta_0}^\top  I_{\theta_0}^{1/2}\big(

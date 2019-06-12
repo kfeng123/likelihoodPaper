@@ -50,6 +50,11 @@ Jeffreys, H. (1931).
 \newblock {\em Scientific Inference}.
 \newblock Cambridge University Press, Cambridge, 1 edition.
 
+\bibitem[\protect\astroncite{Jeffreys}{1961}]{Jeffreys1961}
+Jeffreys, H. (1961).
+\newblock {\em Theory of probability}.
+\newblock Third edition. Clarendon Press, Oxford.
+
 \bibitem[\protect\astroncite{Kass and Raftery}{1995}]{Robert1995Bayes}
 Kass, R.~E. and Raftery, A.~E. (1995).
 \newblock Bayes factors.
