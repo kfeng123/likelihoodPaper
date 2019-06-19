@@ -33,6 +33,12 @@ Crisp, A. and Burridge, J. (1994).
   regression models.
 \newblock {\em Biometrika}, 81(3):585--587.
 
+\bibitem[\protect\astroncite{Fang et~al.}{1990}]{Fang1990}
+Fang, K.~T., Kotz, S., and Ng, K.~W. (1990).
+\newblock {\em Symmetric multivariate and related distributions}, volume~36 of
+  {\em Monographs on Statistics and Applied Probability}.
+\newblock Chapman and Hall, Ltd., London.
+
 \bibitem[\protect\astroncite{Ghosal et~al.}{2000}]{ghosal2000}
 Ghosal, S., Ghosh, J.~K., and van~der Vaart, A.~W. (2000).
 \newblock Convergence rates of posterior distributions.
