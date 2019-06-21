@@ -6,6 +6,19 @@ Aitkin, M. (1991).
 \newblock {\em Journal of the Royal Statistical Society: Series B
   (Methodological)}, 53(1):111--128.
 
+\bibitem[\protect\astroncite{Bayarri and García-Donato}{2008}]{Bayarri2008Gen}
+Bayarri, M.~J. and García-Donato, G. (2008).
+\newblock Generalization of jeffreys divergence-based priors for bayesian
+  hypothesis testing.
+\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
+  Methodology)}, 70(5):981--1003.
+
+\bibitem[\protect\astroncite{Berger and Pericchi}{1996}]{intrisicBayesFactor}
+Berger, J.~O. and Pericchi, L.~R. (1996).
+\newblock The intrinsic bayes factor for model selection and prediction.
+\newblock {\em Journal of the American Statistical Association},
+  91(433):109--122.
+
 \bibitem[\protect\astroncite{Bhattacharya et~al.}{2019}]{Bha2016}
 Bhattacharya, A., Pati, D., and Yang, Y. (2019).
 \newblock Bayesian fractional posteriors.
@@ -33,11 +46,21 @@ Crisp, A. and Burridge, J. (1994).
   regression models.
 \newblock {\em Biometrika}, 81(3):585--587.
 
+\bibitem[\protect\astroncite{De~Santis and Spezzaferri}{1997}]{santis1997Alt}
+De~Santis, F. and Spezzaferri, F. (1997).
+\newblock Alternative bayes factors for model selection.
+\newblock {\em Canadian Journal of Statistics}, 25(4):503--515.
+
 \bibitem[\protect\astroncite{Fang et~al.}{1990}]{Fang1990}
 Fang, K.~T., Kotz, S., and Ng, K.~W. (1990).
 \newblock {\em Symmetric multivariate and related distributions}, volume~36 of
   {\em Monographs on Statistics and Applied Probability}.
 \newblock Chapman and Hall, Ltd., London.
+
+\bibitem[\protect\astroncite{Friel and Wyse}{2012}]{Friel2012}
+Friel, N. and Wyse, J. (2012).
+\newblock Estimating the evidence - a review.
+\newblock {\em Statistica Neerlandica}, 66(3):288--308.
 
 \bibitem[\protect\astroncite{Ghosal et~al.}{2000}]{ghosal2000}
 Ghosal, S., Ghosh, J.~K., and van~der Vaart, A.~W. (2000).
@@ -74,10 +97,10 @@ Kass, R.~E. and Wasserman, L. (1995).
 \newblock {\em Journal of the American Statistical Association},
   90(431):928--934.
 
-\bibitem[\protect\astroncite{Kleijn and Vaart}{2012}]{Kleijn2012The}
-Kleijn, B. and Vaart, A. (2012).
-\newblock The bernstein-von-mises theorem under misspecification.
-\newblock {\em Electron. J. Stat.}, 6(1):354--381.
+\bibitem[\protect\astroncite{Kleijn and van~der Vaart}{2012}]{Kleijn2012The}
+Kleijn, B. J.~K. and van~der Vaart, A.~W. (2012).
+\newblock The {B}ernstein-{V}on-{M}ises theorem under misspecification.
+\newblock {\em Electronic Journal of Statistics}, 6:354--381.
 
 \bibitem[\protect\astroncite{Le~Cam}{1990}]{Cam1990Maximum}
 Le~Cam, L. (1990).
@@ -113,6 +136,18 @@ O'Hagan, A. (1995).
 {Pati}, D., {Bhattacharya}, A., and {Yang}, Y. (2017).
 \newblock {On Statistical Optimality of Variational Bayes}.
 \newblock {\em ArXiv e-prints}.
+
+\bibitem[\protect\astroncite{Perez}{2002}]{Perez2002}
+Perez, J.~M. (2002).
+\newblock Expected-posterior prior distributions for model selection.
+\newblock {\em Biometrika}, 89(3):491--512.
+
+\bibitem[\protect\astroncite{Shafer}{1982}]{Shafer1982}
+Shafer, G. (1982).
+\newblock Lindley's paradox.
+\newblock {\em Journal of the American Statistical Association},
+  77(378):325--351.
+\newblock With discussion and with a reply by the author.
 
 \bibitem[\protect\astroncite{Shen and Wasserman}{2001}]{Shen2001Rates}
 Shen, X. and Wasserman, L. (2001).
