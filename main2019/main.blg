@@ -6,43 +6,43 @@ Database file #1: mybibfile.bib
 Warning--I didn't find a database entry for "Gelfand1994"
 You've used 34 entries,
             1940 wiz_defined-function locations,
-            721 strings with 8847 characters,
-and the built_in function-call counts, 13106 in all, are:
-= -- 1305
-> -- 429
-< -- 30
-+ -- 143
-- -- 133
-* -- 1190
-:= -- 2246
-add.period$ -- 107
+            730 strings with 9133 characters,
+and the built_in function-call counts, 13659 in all, are:
+= -- 1365
+> -- 452
+< -- 31
++ -- 149
+- -- 141
+* -- 1242
+:= -- 2313
+add.period$ -- 108
 call.type$ -- 34
-change.case$ -- 231
+change.case$ -- 234
 chr.to.int$ -- 34
 cite$ -- 34
-duplicate$ -- 488
-empty$ -- 969
-format.name$ -- 203
-if$ -- 2557
+duplicate$ -- 511
+empty$ -- 1010
+format.name$ -- 207
+if$ -- 2689
 int.to.chr$ -- 1
 int.to.str$ -- 0
 missing$ -- 38
 newline$ -- 175
-num.names$ -- 104
-pop$ -- 161
+num.names$ -- 106
+pop$ -- 167
 preamble$ -- 1
-purify$ -- 234
+purify$ -- 237
 quote$ -- 0
-skip$ -- 379
+skip$ -- 398
 stack$ -- 0
-substring$ -- 1041
-swap$ -- 81
-text.length$ -- 2
+substring$ -- 1110
+swap$ -- 99
+text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 196
 warning$ -- 0
-while$ -- 113
+while$ -- 120
 width$ -- 0
-write$ -- 447
+write$ -- 452
 (There was 1 warning)
