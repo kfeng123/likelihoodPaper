@@ -3,46 +3,49 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apa.bst
 Database file #1: mybibfile.bib
-Warning--I didn't find a database entry for "Gelfand1994"
-You've used 34 entries,
+Repeated entry---line 741 of file mybibfile.bib
+ : @article{Fienberg2012
+ :                      ,
+I'm skipping whatever remains of this entry
+You've used 35 entries,
             1940 wiz_defined-function locations,
-            730 strings with 9133 characters,
-and the built_in function-call counts, 13659 in all, are:
-= -- 1365
-> -- 452
-< -- 31
-+ -- 149
-- -- 141
-* -- 1242
-:= -- 2313
-add.period$ -- 108
-call.type$ -- 34
-change.case$ -- 234
-chr.to.int$ -- 34
-cite$ -- 34
-duplicate$ -- 511
-empty$ -- 1010
-format.name$ -- 207
-if$ -- 2689
+            734 strings with 9240 characters,
+and the built_in function-call counts, 14075 in all, are:
+= -- 1408
+> -- 465
+< -- 32
++ -- 153
+- -- 145
+* -- 1282
+:= -- 2382
+add.period$ -- 111
+call.type$ -- 35
+change.case$ -- 241
+chr.to.int$ -- 35
+cite$ -- 35
+duplicate$ -- 525
+empty$ -- 1041
+format.name$ -- 214
+if$ -- 2770
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 38
-newline$ -- 175
-num.names$ -- 106
-pop$ -- 167
+missing$ -- 39
+newline$ -- 180
+num.names$ -- 109
+pop$ -- 171
 preamble$ -- 1
-purify$ -- 237
+purify$ -- 244
 quote$ -- 0
-skip$ -- 398
+skip$ -- 409
 stack$ -- 0
-substring$ -- 1110
-swap$ -- 99
+substring$ -- 1150
+swap$ -- 101
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 196
+type$ -- 202
 warning$ -- 0
-while$ -- 120
+while$ -- 124
 width$ -- 0
-write$ -- 452
-(There was 1 warning)
+write$ -- 465
+(There was 1 error message)

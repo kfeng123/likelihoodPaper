@@ -51,6 +51,11 @@ Fang, K.~T., Kotz, S., and Ng, K.~W. (1990).
   {\em Monographs on Statistics and Applied Probability}.
 \newblock Chapman and Hall, Ltd., London.
 
+\bibitem[\protect\astroncite{Fienberg and Rinaldo}{2012}]{Fienberg2012}
+Fienberg, S.~E. and Rinaldo, A. (2012).
+\newblock Maximum likelihood estimation in log-linear models.
+\newblock {\em The Annals of Statistics}, 40(2):996--1023.
+
 \bibitem[\protect\astroncite{Friel and Wyse}{2012}]{Friel2012}
 Friel, N. and Wyse, J. (2012).
 \newblock Estimating the evidence - a review.
