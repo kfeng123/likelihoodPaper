@@ -467,9 +467,9 @@ where
 $\tilde\BJ=(\mathbf {0}_{ (p- p_0) \times p_0 },\BI_{(p-p_0)})^\top $.
 It can be seen that $|I(\theta)| = |I_{\nu}(\theta)|\cdot |I_{\xi | \nu}(\theta )|$.
 Let $\chi^2(p-p_0,\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta )$ denote a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta$.
-The following proposition gives the asymptotic distribution of Bayes factor.
+The following theorem gives the asymptotic distribution of Bayes factor.
 
-    \begin{proposition}
+    \begin{theorem}
         Suppose that Assumption~\ref{Assumption1} holds, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$, $\pi(\theta |\BX^{n})$, $\pi_0(\nu|\BX^{n})$ are $\sqrt{n}$-consistent.
         Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
         Then 
@@ -490,12 +490,12 @@ The following proposition gives the asymptotic distribution of Bayes factor.
 \end{align*}
 where ``$\overset{P^n_{\theta_n}}{\rightsquigarrow}$'' means the weak convergence when $\BX^n$ is from $P_{\theta_n}^n$.
 \label{prop:expansion}
-    \end{proposition}
+    \end{theorem}
 %It can be seen that the Lindley's paradox does not only exist when using improper priors.
-    Proposition \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depend on the nuisance parameters and the priors.
+    Theorem \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depend on the nuisance parameters and the priors.
     Hence the Bayes factor does not have Wilks phenomenon for general priors.
 Nevertheless, the dependence of the asymptotic null distribution on the nuisance parameters can be cancelled by a class of priors.
-In fact, Proposition \ref{prop:expansion} implies that the asymptotic null distribution of $\textrm{BF}_t (\BX^n)$ is free of the nuisance parameter $\nu$ if and only if
+In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribution of $\textrm{BF}_t (\BX^n)$ is free of the nuisance parameter $\nu$ if and only if
 \begin{align}\label{eq:shouldConst}
        \frac{
            \left|I_{\xi|\nu}(\nu, \xi_0)\right|^{-\frac 1 2}\pi(\theta_0) 
@@ -564,7 +564,7 @@ $
     In fact, \cite{Fractional1995} proposed three ways to set $b$, the first one is $b=m_0/n$ for a fixed $m_0$, the second one is $b=n^{-1/2}$ and the third one is $b=\log ( n) /n$.
     It can be seen that their first choice belongs to our setting (c) and their last two choices belong to our setting (b).
     In what follows, we shall derive the asymptotic distribution of $\Lambda_{a,b}(\BX^n)$ in these three settings.
-Like Proposition \ref{prop:expansion}, the $\sqrt{n}$-consistency of power posterior will play an important role.
+Like Theorem \ref{prop:expansion}, the $\sqrt{n}$-consistency of power posterior will play an important role.
 Suppose $t>0$ is fixed as $n \to \infty$, 
 we say $\pi_t(\theta | \BX^n)$ is $\sqrt n$-consistent if for sufficiently large $n$, $\int_{\Theta} \left[ p_n (\BX^n | \theta) \right]^t \pi (\theta) \, \mathrm d \theta < \infty$, and for every $M_n \to \infty$,
 \begin{align*}
@@ -719,7 +719,7 @@ Note that in Theorem \ref{Thm:maintheorem}, the second and the third settings re
 Hence in frequentist perspective, it is preferred to use a fixed $b$.
 
 %\section{$\sqrt{n}$-consistency of power posterior} \label{sec:consistency}
-In Proposition \ref{prop:expansion} and Theorem \ref{Thm:maintheorem},
+In Theorem \ref{prop:expansion} and Theorem \ref{Thm:maintheorem},
 a key assumption is the $\sqrt{n}$-consistency of the power posterior distribution, which enables us to not assume the existence and the consistency of the MLE.
 We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $\pi_t(\theta|\BX^{n})$.
 In our definition of the $\sqrt{n}$-consistency of $\pi_t(\theta| \BX^n)$, we assume the finiteness of $L_t(\BX^n)$.
@@ -1083,9 +1083,9 @@ In fact,~\cite{HALL2005158} showed that in this problem, the LRT has trivial pow
 For this irregular problem, Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1} cannot be directly applied.
 This is because the second part is Assumption~\ref{Assumption4} is violated due to loss of identifiability.
 However, this does not mean that the proposed methodology is not applicable.
-In fact, the following theorem shows that $\Lambda_{a,b}(\BX^n)$ has the desirable asymptotic properties.
+In fact, the following proposition shows that $\Lambda_{a,b}(\BX^n)$ has the desirable asymptotic properties.
 
-\begin{theorem}
+\begin{proposition}
     Suppose $\pi(\omega,\xi)=\pi_{\omega}(\omega) \pi_{\xi}(\xi)$, $\pi_\xi(\xi)$ is positive and continuous at $\xi=0$,
     $\pi_\omega(\omega)\sim \text{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
     Suppose $ 0 < b < a < 1 $.
@@ -1103,8 +1103,8 @@ In fact, the following theorem shows that $\Lambda_{a,b}(\BX^n)$ has the desirab
     \end{equation*}
 \end{enumerate}
     \label{mixtureThm}
-\end{theorem}
-Theorem~\ref{mixtureThm} shows that the test based on $\Lambda_{a,b}(\BX^n)$ has nontrivial power if $\omega \xi $ is of order $n^{-1/2}$. 
+\end{proposition}
+Proposition~\ref{mixtureThm} shows that the test based on $\Lambda_{a,b}(\BX^n)$ has nontrivial power if $\omega \xi $ is of order $n^{-1/2}$. 
 In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asymptotically if $\omega \xi=\gamma(n^{-1}\log \log n)^{1/2}$ with $|\gamma|< 1$.
 %To have a nontrivial power, 
 %This illustrates the superiority of the ILRT over the LRT.
@@ -1469,7 +1469,7 @@ Then the conclusion follows from Lemma \ref{prop:lowerBoud}.
 \section{Proofs in Section 2}
 
 
-    \begin{proof}[\textbf{Proof of Proposition \ref{prop:expansion}}]
+    \begin{proof}[\textbf{Proof of Theorem \ref{prop:expansion}}]
 From Lemma \ref{prop:2019rock1}, we have
 $$
     \int_{\Theta}
@@ -2755,10 +2755,10 @@ If $\sqrt{n}((\xi,\sigma^2)-(0,1))^\top \to (\eta_1,\eta_2)^\top  $, then $\sqrt
 \end{proof}
 
 
-To prove Theorem~\ref{mixtureThm}, the following result is useful.
+To prove Proposition~\ref{mixtureThm}, the following result is useful.
 
 \begin{proposition}\label{lastProp}
-    Suppose the conditions of Theorem~\ref{mixtureThm} holds.
+    Suppose the conditions of Proposition~\ref{mixtureThm} holds.
     Let $A(M_n)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$.
     Let $0<t<1$ be a constant.
     If $M_n \geq \sqrt{{\log n}/(2(t\wedge (1-t)))}$, then
@@ -2822,7 +2822,7 @@ This completes the proof.
 \end{proof}
 
 
-\begin{proof}[\textbf{Proof of Theorem~\ref{mixtureThm}}]
+\begin{proof}[\textbf{Proof of Proposition~\ref{mixtureThm}}]
 We have
 \begin{equation*}
     \sum_{i=1}^n \log \frac{p(X_i|\omega,\xi)}{ p(X_i|0,0)}
