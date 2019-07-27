@@ -97,25 +97,25 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 
 
 \begin{abstract}
- The likelihood ratio test is the most widely used method in parametric hypotheses testing.
-%A key property of the likelihood ratio test statistic is the Wilks phenomenon, that is, the asymptotic null distribution is free of nuisance parameters, which allows to determine the critical value from the asymptotic distribution.
-However, the likelihood ratio test can not be used for some moderately complex models, for example, the models with unbounded likelihood functions.
-Bayes factor and its variants have been extensively studied in Bayesian hypotheses testing framework and have been shown to have good performance in a wealth of complex testing problems.
+ %The likelihood ratio test is the most widely used method in parametric hypotheses testing.
+%%A key property of the likelihood ratio test statistic is the Wilks phenomenon, that is, the asymptotic null distribution is free of nuisance parameters, which allows to determine the critical value from the asymptotic distribution.
+ %However, the likelihood ratio test can not be used for some complex models. %, for example, the models with unbounded likelihood functions.
+In Bayesian hypotheses testing framework, Bayes factor and its variants have been extensively studied and have been shown to have good performance in a wealth of complex testing problems.
 %The Bayes factor can be applied to complex problems, even if the likelihood functions are unbounded.
 %The good performance of Bayes factor in complex models motivates us to use Bayes factors as frequentist test statistics.
-The good performance of Bayes factor in complex models
- motivates us to investigate the frequentist properties of the various Bayes factors and use them to construct frequentist tests.
+%The good performance of Bayes factor in complex models
+This motivates us to use Bayes factors to construct frequentist tests.
 %Motivated by the good performance of Bayes factor in complex models, we investigate the Wilks phenomenon of various Bayes factors and propose to use Bayes factors to construct frequentist test statistics.
-We investigate the Wilks phenomenon of the Bayes factor and a class of variants of it named generalized fractional Bayes factor.
-It shows that the classical Bayes factor has Wilks phenomenon only for a restricted class of prior distributions %, and some popular objective priors do not yield Bayes factors with Wilks phenomenon.
-while the generalized fractional Bayes factor has Wilks phenomenon for general priors.
+In this paper, we investigate the asymptotic distribution of the Bayes factor and a class of its variants named generalized fractional Bayes factor.
+It shows that the classical Bayes factor has Wilks phenomenon only for a restricted class of priors while the generalized fractional Bayes factor has Wilks phenomenon for general priors.
 Frequentist tests based on Bayes factors are constructed using the Wilks phenomenon.
-Extension to the general integrated likelihood ratio test is also considered.
+We also extend the result to the general integrated likelihood ratio test.
 For regular models, the proposed tests have the same asymptotic local power as the likelihood ratio test.
-However, our theoretical results do not require the existence of the maximum likeihood estimate.
-In particular, our methodology can be applied when the likelihood is unbounded.
-Hence the proposed methodology has a wider application scope than the likelihood ratio test.
-We use three examples to illustrate the behavior of the proposed methodology.
+However, %our theoretical results do not require the existence of the maximum likelihood estimate.
+the proposed methodology has a wider application scope than the likelihood ratio test.
+In particular, our methodology can be applied even if the likelihood function is unbounded.
+%Hence the proposed methodology has a wider application scope than the likelihood ratio test.
+We use three examples to illustrate the proposed methodology.
 In these examples, the likelihood ratio test may not be well defined or have undesirable behavior while the proposed tests have good performance.
 \end{abstract}
 
@@ -210,7 +210,7 @@ On the Bayesian side, the conventional tool for hypothesis testing is Bayes fact
 Bayes factor has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
 A delightful feature of the Bayes factor over the LRTS is that Bayes factor is well defined for any model provided the prior distributions are proper.
 Hence Bayes factor methodology is often used for complex models.
-The universal applicability motivates us to use the Bayes factor as a test statistic and construct a frequentist test.
+The universal applicability of the Bayes factor motivates us to use the Bayes factor as a test statistic and construct a frequentist test.
 Note that the historical development of Bayes factor is almost orthogonal to frequentist test.
 A main reason is that the Bayes factor methodology does not intend to control the frequentist type I error rate and hence does not form a frequentist test.
 %, and hence can not be directly treated as a frequentist test.
@@ -225,14 +225,13 @@ We prove that the test so constructed has the same asymptotic local power as the
 Our theoretical results does not require that the MLE exists or the likelihood is bounded.
 Hence theoretically, the test based on Bayes factor has a wider application scope than the LRT.
 In practice, however, the test based on Bayes factor may be difficult to implement.
-In fact, the required priors may be complicated for complex models.
+In fact, the priors which ensure the Wilks phenomenon of Bayes factor are often complicated.
 Also, it is known that the computation of Bayes factor is highly nontrivial.
 Fortunately, these problems can be solved by some variants of Bayes factor.
 
 In Bayesian literature, several variants of Bayes factor have been proposed to reduce its sensitivity to priors.
 Two important variants of Bayes factor are the posterior Bayes factor \citep{Aitkin1991Posterior} and the fractional Bayes factor \citep{Fractional1995}.
-Motivated by these methods,
-we consider a class of statistics named generalized fractional Bayes factor which includes the posterior Bayes factor and fractional Bayes factor.
+We consider a class of statistics named generalized fractional Bayes factor which includes theses two variants of Bayes factor.
 We prove that the Wilks phenomenon of the generalized fractional Bayes factor holds for any reasonable prior.
 Also, the computation of the generalized fractional Bayes factor is straightforward provided sampling from the power posterior distribution is easy.
 Hence compared with Bayes factor, the generalized fractional Bayes factor is more suitable for constructing frequentist tests.
@@ -269,15 +268,15 @@ Hence compared with Bayes factor, the generalized fractional Bayes factor is mor
 %ILRT also includes methods that are produced by approximation computation.
 
 
-In another view point,
+In another viewpoint,
 the generalized fractional Bayes factor is the ratio of the expectations of the power likelihood with respect to power posterior distributions.
 Hence the generalized fractional Bayes factor can be regarded as an integrated likelihood ratio test.
 For some complex models, the power posterior is intractable.
 In this case, 
 a feasible strategy is to approximate the posterior distribution by simple form distributions by variational inference; see~\cite{blei2017} and the references therein.
 Motivated by variantional inference, we consider the general integrated likelihood ratio test statistic which uses the expectations of the power likelihood with respect to general weight functions.
-We prove that if the behavior of the weight functions is similar to the power posterior, then the general integrated likelihood ratio test also has Wilks phenomenon.
-In particurlay, we show that the weight functions obtained by a variational method satisfies our requirements for the weight functions.
+We prove that if the behavior of the weight functions is close to the power posterior, then the general integrated likelihood ratio test also has Wilks phenomenon.
+In particular, we show that the weight functions obtained by a variational method satisfies our requirements for the weight functions.
 
 
 %For some irregular problems, the behavior of likelihood is complicated.
@@ -285,11 +284,11 @@ In particurlay, we show that the weight functions obtained by a variational meth
 %To illustrate this point,
 We use three examples to illustrate the good properties of the proposed methodology.
 The first example is the full-rank exponential family.
-We show that the condiitions of our general theory is satisfied by the full-rank exponential family.
+We show that the conditions of our general theory is satisfied by the full-rank exponential family.
 Hence the proposed methodology can be used in common regular models.
 In the second and the third examples, we consider testing the homogeneity in two submodels of the normal mixture model.
 The LRT has bad behavior in these two examples.
-In fact, for the first submodel, the likelihood is unbounded and thus the LRT is not be defined.
+In fact, for the first submodel, the likelihood is unbounded and thus the LRT is not defined.
 For the second submodel, %the power behavior of the LRT is unsatisfactory.
 ~\cite{HALL2005158} showed that the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 %We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
@@ -341,7 +340,7 @@ Suppose that the possible distribution $P_\theta$ of $X_i$ has a density $p(x|\t
 Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{n}$.
 Let $p_{n}(\Bx^{n}|\theta)=\prod_{i=1}^n p(x_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
 The parameter $\theta$ takes its values in $\Theta$, an open subset of $\mathbb{R}^{p}$.
-Suppose $\theta=(\nu^\top ,\xi^\top )^\top $, where $\nu$ is a $p_0$ dimensional subvector and $\xi$ is a $p-p_0$ dimensional subvector and ``$\top$'' means transpose of a matrix.
+Suppose $\theta=(\nu^\top ,\xi^\top )^\top $, where $\nu$ is a $p_0$ dimensional subvector and $\xi$ is a $p-p_0$ dimensional subvector and ``$\top$'' means the transpose of a matrix.
  We would like to test the hypotheses
 \begin{equation*}
     H:\theta\in\Theta_0\quad \text{v.s.}\quad K:\theta\in\Theta\backslash \Theta_0,
@@ -439,8 +438,8 @@ Then  Assumption \ref{Assumption1} implies that
 
 Note that Assumption \ref{Assumption1} imposes no condition on the likelihood function when $\theta$ is deviated from $\theta_0$.
 In contrast, in the theory of the LRT, it is assumed that the MLE exists and is consistent; see, e.g., \cite{Wilks1938The} and \cite{van2000asymptotic}, Theorem 16.7.
-This condition essentially assumes that the likelihood value is negligible when $\theta$ is deviated from $\theta_0$, and is not true for some important models.
-In particular, the consistency of the MLE requires that the likelihood function is bounded.
+The existence and consistency of the MLE require that the likelihood value is negligible when $\theta$ is deviated from $\theta_0$, which is not true for some important models.
+%In particular, the consistency of the MLE requires that the likelihood function is bounded.
 Hence we will not assume this strong condition.
 Instead, we shall utilize the $\sqrt n$-consistency of the posterior density $\pi(\theta | \BX^n) = p_n (\BX^n | \theta) \pi (\theta ) / \int_{\Theta} p_n (\BX^n | \theta) \pi (\theta) \, \mathrm d \theta $.
 We say $\pi(\theta | \BX^n)$ is $\sqrt n$-consistent if for sufficiently large $n$, $\int_{\Theta} p_n (\BX^n | \theta) \pi (\theta) \, \mathrm d \theta < \infty$, and for every $M_n \to \infty$,
@@ -505,7 +504,7 @@ In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribut
 \equiv c
 \end{align}
 for some constant $c$ and for any $\nu \in \tilde \Theta$.
-Unfortunately, simple examples show that \eqref{eq:shouldConst} does not hold for many popular objective priors for bayes factor, including intrinsic priors \citep{intrisicBayesFactor}, fractional intrinsic priors \citep{santis1997Alt}, divergence-based priors \citep{Bayarri2008Gen}, expected-posterior priors \citep{Perez2002}.
+Unfortunately, simple examples show that \eqref{eq:shouldConst} does not hold for many popular objective priors for Bayes factor, including intrinsic priors \citep{intrisicBayesFactor}, fractional intrinsic priors \citep{santis1997Alt}, divergence-based priors \citep{Bayarri2008Gen}, expected-posterior priors \citep{Perez2002}.
 Nevertheless, \eqref{eq:shouldConst} holds for a large class of priors.
 For instance, the left hand side of \eqref{eq:shouldConst} is equal to $1$ if $\pi_0(\nu) = |I_{\nu}(\nu, \xi_0)|^{1/2}$ and $\pi(\theta) = | I (\theta)|^{1/2}$, that is, $\pi_0(\nu)$ and $\pi(\theta)$ are the Jeffrey's priors under the null and the alternative hypotheses, respectively.
 In general, \eqref{eq:shouldConst} is constant provided $\pi(\theta) = \pi (\xi |\nu) \pi(\nu)$ satisfies
@@ -712,14 +711,14 @@ By Theorem~\ref{Thm:maintheorem}, the resulting test has asymptotic local power
 \Pr \left( \chi^2(p-p_0,\delta)> \chi^2_{\alpha}(p-p_0) \right).
 \end{equation}
 It is known that, under certain regular conditions,~\eqref{eq:likelihoodPower} is also the asymptotic local power of the likelihood ratio test. 
-In this view, $\Lambda_{a,b}$ enjoys good frequentist properties.
+In this view, $\Lambda_{a,b} (\BX^n)$ enjoys good frequentist properties.
 \cite{Fractional1995} argued that when robustness is no concern, it is natural to set $b$ as small as possible since it makes maximal possible use of the data for model comparison.
 However, Theorem \ref{Thm:maintheorem} implies that the frequentist test power of $\Lambda_{a,b}(\BX^n)$ is in fact independent of the choice of $b$.
 Note that in Theorem \ref{Thm:maintheorem}, the second and the third settings require more assumptions than the first setting.
-Hence in frequentist perspective, it is preferred to use a fixed $b$.
+Hence in frequentist perspective, it is preferred to use fixed $b$.
 
 %\section{$\sqrt{n}$-consistency of power posterior} \label{sec:consistency}
-In Theorem \ref{prop:expansion} and Theorem \ref{Thm:maintheorem},
+In both Theorem \ref{prop:expansion} and Theorem \ref{Thm:maintheorem},
 a key assumption is the $\sqrt{n}$-consistency of the power posterior distribution, which enables us to not assume the existence and the consistency of the MLE.
 We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $\pi_t(\theta|\BX^{n})$.
 In our definition of the $\sqrt{n}$-consistency of $\pi_t(\theta| \BX^n)$, we assume the finiteness of $L_t(\BX^n)$.
@@ -990,7 +989,7 @@ To apply (a) of Theorem \ref{Thm:maintheorem},
 we need to verify Assumption \ref{Assumption1} and the $\sqrt n$-consistency of power posterior.
 %In fact, we show that for full-rank exponential family, the expansion in Assumption \ref{Assumption1} naturally holds and $\pi_t(\theta | \BX^n)$ is $\sqrt n$-consistent for any $t>0$.
 \begin{proposition}\label{exponentialCon}
-    Suppose data are from the exponential family descrived above.
+    Suppose data are from the exponential family described above.
     Suppose the prior density $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0) > 0$, and there exists a $c^* > 0$ such that
     \begin{align*}
         \int_{\Theta} 
@@ -1122,15 +1121,15 @@ Using the Wilks phenomenon, these statistics can be used to construct the freque
 We also apply the proposed methodology to three examples.
 These examples show that the proposed method can have good behavior even if the LRT is not defined or has poor properties.
 The integrated likelihood ratio test is easy to implement provided sampling from weight functions is convenient.
-If the weight functions are power posterior densities, then Markov chain Monte Carlo (MCMC) methods can be used to sample from weight functions.
+If the weight functions are power posterior densities, then MCMC methods can be used to sample from weight functions.
 Furthermore, if MCMC is not efficient, one can use approximation methods, such as variational inference, and the resulting test procedure is still valid.
 Thus, the proposed methodology can be recommended when the classical LRT is not well defined or not easy to implement.
 %The integral can smooth the likelihood.
 %Hence it can be expected that the ILRT method can have better properties than the LRT when the likelihood has complicated behavior.
 %The success of the ILRT methodology in our examples verifies this point.
 
-It is interesting to apply the proposed methodology to specific complex testing problems.
-We leave it for future research.
+%It is interesting to apply the proposed methodology to specific complex testing problems.
+%We leave it for future research.
 
 
 %Our work is not purely of theoretical interest.
