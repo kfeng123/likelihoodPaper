@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  3 OCT 2019 22:26
-=======
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  27 JUL 2019 18:58
->>>>>>> 74a62073ed42a68b798606595aea6004062ed186
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2018.10.15)  4 OCT 2019 21:29
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -570,16 +566,16 @@ Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
  [6]
 LaTeX Font Info:    Font shape `OMS/cmr/m/it' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 594.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 593.
  [7] [8] [9] [10] [11] [12] [13]
 <figure/newnewPP.png, id=346, 569.7285pt x 346.896pt>
 File: figure/newnewPP.png Graphic file (type png)
 
 <use figure/newnewPP.png>
-Package pdftex.def Info: figure/newnewPP.png used on input line 1043.
+Package pdftex.def Info: figure/newnewPP.png used on input line 1042.
 (pdftex.def)             Requested size: 422.77664pt x 257.41888pt.
  [14] [15 <./figure/newnewPP.png>] [16] [17] [18]
-Overfull \hbox (9.5417pt too wide) detected at line 1502
+Overfull \hbox (9.5417pt too wide) detected at line 1501
 [][] [] [] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^W
 \OT1/cmr/m/n/10.95 ) d\OML/cmm/m/it/10.95 ^^W \OT1/cmr/m/n/10.95 = (1 + \OML/cm
 m/m/it/10.95 o[]\OT1/cmr/m/n/10.95 (1))\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10
@@ -592,24 +588,20 @@ ML/cmm/m/it/10.95 I[]\OMS/cmsy/m/n/10.95 j[] [] [] \OML/cmm/m/it/10.95 :
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
  [36] [37])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3600.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 3599.
  [38]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 3600.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 3599.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3600.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3600.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 3599.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 3599.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: 259F03A9C9ADD385CAE0F219C9BAAD7C;588.
-
-
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
-
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3600.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 3599.
  ) 
 Here is how much of TeX's memory you used:
  9027 strings out of 493029
- 126875 string characters out of 6136234
+ 126875 string characters out of 6136233
  247651 words of memory out of 5000000
  12273 multiletter control sequences out of 15000+600000
  17471 words of font info for 67 fonts, out of 8000000 for 9000
@@ -634,11 +626,7 @@ dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/f
 onts/type1/public/amsfonts/symbols/msam10.pfb></usr/share/texlive/texmf-dist/fo
 nts/type1/public/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/public/rsfs/rsfs10.pfb>
-<<<<<<< HEAD
-Output written on main.pdf (38 pages, 436900 bytes).
-=======
-Output written on main.pdf (38 pages, 435703 bytes).
->>>>>>> 74a62073ed42a68b798606595aea6004062ed186
+Output written on main.pdf (38 pages, 435872 bytes).
 PDF statistics:
  687 PDF objects out of 1000 (max. 8388607)
  618 compressed objects within 7 object streams
