@@ -854,7 +854,7 @@ Let $h=\sqrt{n}(\theta-\theta_0)$ be the local parameter and $\pi_t (h;\BX^{n}) 
 %Theorem 2.1 of \cite{Kleijn2012The},
 If $\pi_1(\theta;\BX^{n})$ is exactly the posterior density of $\theta$, then Bernstein-von Mises theorem asserts that under certain conditions,
 $
-            \|\pi_1(h;\BX^{n})-\phi(h;\Delta_{n,\theta_0},I_{\theta_0}^{-1})\|
+            \|\pi_1(h;\BX^{n})-\phi(h;\Delta_{n,\theta_0},I(\theta_0)^{-1})\|
 $
 converges to $0$ in $P_{\theta_0}^n$ probability,
 where for two densities $q_1(h)$ and $q_2(h)$, $\|q_1(h)-q_2(h)\|=\int |q_1(h)-q_2(h)|\, \mathrm d h$ is their total variation distance and $\phi(h; \mu ,\Sigma)$ is the density function of a normal random variable with mean $\mu$ and variance matrix $\Sigma$ evaluated at $h$.
@@ -1023,7 +1023,7 @@ Suppose $X_1,\ldots,X_n$ are iid distributed as a mixture of normal distribution
     p(X|\omega,\xi,\sigma^2)=\frac{1-\omega}{\sqrt{2\pi}}\exp\left\{-\frac{1}{2}X^2\right\}
     +\frac{\omega}{\sqrt{2\pi}\sigma}\exp\left\{ -\frac{1}{2\sigma^2}(X-\xi)^2 \right\},
 \end{equation*}
-where $0\leq \omega \leq 1$, $\mu\in \mathbb{R}$ and $\sigma^2\in \mathbb{R}^+$.
+where $0\leq \omega \leq 1$, $\xi\in \mathbb{R}$ and $\sigma^2\in \mathbb{R}^+$.
 We shall consider two hypothesis testing problems for this model.
 
 First, we assume $\omega=1/2$ is known and consider testing the hypotheses
