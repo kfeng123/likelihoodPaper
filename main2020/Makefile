@@ -1,0 +1,8 @@
+MAIN_TEX = main
+COMPILE_COMMAND = pdflatex
+
+all: 
+	$(COMPILE_COMMAND) $(MAIN_TEX)
+	bibtex $(MAIN_TEX)
+	$(COMPILE_COMMAND) $(MAIN_TEX)
+	$(COMPILE_COMMAND) $(MAIN_TEX)

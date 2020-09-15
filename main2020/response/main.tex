@@ -1,0 +1,337 @@
+\documentclass[11pt]{article}
+ 
+\newcommand\CG[1]{\textcolor{red}{#1}}
+
+\usepackage{lineno,hyperref}
+
+\usepackage[margin=1 in]{geometry}
+\renewcommand{\baselinestretch}{1.25}
+
+\usepackage{authblk}
+\usepackage{galois} % composition function \comp
+\usepackage{bm}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{mathrsfs}
+\usepackage{amsthm}
+\usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{booktabs}
+\usepackage[page,title]{appendix}
+%\renewcommand\appendixname{haha}
+\usepackage{enumerate}
+\usepackage{changepage}
+\usepackage{datetime}
+\newdate{date}{7}{15}{2020}
+
+%%%%%%%%%%%%%%  Notations %%%%%%%%%%
+\DeclareMathOperator{\mytr}{tr}
+\DeclareMathOperator{\mydiag}{diag}
+\DeclareMathOperator{\myrank}{Rank}
+\DeclareMathOperator{\myP}{P}
+\DeclareMathOperator{\myE}{E}
+\DeclareMathOperator{\myVar}{Var}
+\DeclareMathOperator*{\argmax}{arg\,max}
+\DeclareMathOperator*{\argmin}{arg\,min}
+
+
+\newcommand{\Ba}{\mathbf{a}}    \newcommand{\Bb}{\mathbf{b}}    \newcommand{\Bc}{\mathbf{c}}    \newcommand{\Bd}{\mathbf{d}}    \newcommand{\Be}{\mathbf{e}}    \newcommand{\Bf}{\mathbf{f}}    \newcommand{\Bg}{\mathbf{g}}    \newcommand{\Bh}{\mathbf{h}}    \newcommand{\Bi}{\mathbf{i}}    \newcommand{\Bj}{\mathbf{j}}    \newcommand{\Bk}{\mathbf{k}}    \newcommand{\Bl}{\mathbf{l}}
+\newcommand{\Bm}{\mathbf{m}}    \newcommand{\Bn}{\mathbf{n}}    \newcommand{\Bo}{\mathbf{o}}    \newcommand{\Bp}{\mathbf{p}}    \newcommand{\Bq}{\mathbf{q}}    \newcommand{\Br}{\mathbf{r}}    \newcommand{\Bs}{\mathbf{s}}    \newcommand{\Bt}{\mathbf{t}}    \newcommand{\Bu}{\mathbf{u}}    \newcommand{\Bv}{\mathbf{v}}    \newcommand{\Bw}{\mathbf{w}}    \newcommand{\Bx}{\mathbf{x}}
+\newcommand{\By}{\mathbf{y}}    \newcommand{\Bz}{\mathbf{z}}    
+\newcommand{\bA}{\mathbf{A}}    \newcommand{\bB}{\mathbf{B}}    \newcommand{\bC}{\mathbf{C}}    \newcommand{\bD}{\mathbf{D}}    \newcommand{\bE}{\mathbf{E}}    \newcommand{\bF}{\mathbf{F}}    \newcommand{\bG}{\mathbf{G}}    \newcommand{\bH}{\mathbf{H}}    \newcommand{\bI}{\mathbf{I}}    \newcommand{\bJ}{\mathbf{J}}    \newcommand{\bK}{\mathbf{K}}    \newcommand{\bL}{\mathbf{L}}
+\newcommand{\bM}{\mathbf{M}}    \newcommand{\bN}{\mathbf{N}}    \newcommand{\bO}{\mathbf{O}}    \newcommand{\bP}{\mathbf{P}}    \newcommand{\bQ}{\mathbf{Q}}    \newcommand{\bR}{\mathbf{R}}    \newcommand{\bS}{\mathbf{S}}    \newcommand{\bT}{\mathbf{T}}    \newcommand{\bU}{\mathbf{U}}    \newcommand{\bV}{\mathbf{V}}    \newcommand{\bW}{\mathbf{W}}    \newcommand{\bX}{\mathbf{X}}
+\newcommand{\bY}{\mathbf{Y}}    \newcommand{\bZ}{\mathbf{Z}}    
+
+\newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
+
+ \def\balpha{\bfsym \alpha}
+ \def\bbeta{\bfsym \beta}
+ \def\bgamma{\bfsym \gamma}             \def\bGamma{\bfsym \Gamma}
+ \def\bdelta{\bfsym {\delta}}           \def\bDelta {\bfsym {\Delta}}
+ \def\bfeta{\bfsym {\eta}}              \def\bfEta {\bfsym {\Eta}}
+ \def\bmu{\bfsym {\mu}}                 \def\bMu {\bfsym {\Mu}}
+ \def\bnu{\bfsym {\nu}}
+ \def\btheta{\bfsym {\theta}}           \def\bTheta {\bfsym {\Theta}}
+ \def\beps{\bfsym \varepsilon}          \def\bepsilon{\bfsym \varepsilon}
+ \def\bsigma{\bfsym \sigma}             \def\bSigma{\bfsym \Sigma}
+ \def\blambda {\bfsym {\lambda}}        \def\bLambda {\bfsym {\Lambda}}
+ \def\bomega {\bfsym {\omega}}          \def\bOmega {\bfsym {\Omega}}
+ \def\brho   {\bfsym {\rho}}
+ \def\btau{\bfsym {\tau}}
+ \def\bxi{\bfsym {\xi}}
+ \def\bzeta{\bfsym {\zeta}}
+% May add more in future.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+
+\theoremstyle{plain}
+\newtheorem{theorem}{\quad\quad Theorem}
+\newtheorem{proposition}{\quad\quad Proposition}
+\newtheorem{corollary}{\quad\quad Corollary}
+\newtheorem{lemma}{\quad\quad Lemma}
+\newtheorem{example}{Example}
+\newtheorem{assumption}{\quad\quad Assumption}
+\newtheorem{condition}{\quad\quad Condition}
+
+\theoremstyle{definition}
+\newtheorem{remark}{\quad\quad Remark}
+\theoremstyle{remark}
+
+
+
+\title{Response to Reviewers\\
+    ``
+    On the Wilks phenomenon of Bayes factors and the integrated likelihood ratio test
+    ''
+}
+
+
+
+\author[1]{Rui Wang}
+\author[1,2]{Xingzhong Xu}
+\affil[1]{
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
+    100081,China
+}
+
+\affil[2]{
+Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
+}
+
+
+
+\begin{document}
+\maketitle
+
+We thank the AE and both reviewers for their helpful comments and critiques.
+Over the past six months, we have carefully revised our paper according to comments made by the AE and the reviewers, pushed forward our theoretical results as far as we can.
+Now our theoretical results are much deeper than the original paper. 
+Below we respond to each reviewer in turn.
+
+\section{Response to reviewer 1}
+
+
+\textbf{Major comments:}
+
+\textbf{1.
+    (Literature review) The paper proposes to use the Bayes factor as a test statistic for a significance test of the composite null hypothesis. I can hardly believe this idea is new. The paper does not mention any papers on this idea. I suggest to review the literature of significance test using Bayes factors or related issues. I also suggest to review the literature of large sample properties of Bayes factor, and to compare the results of this paper with existing results in the literature.
+}
+
+
+\textbf{Answers:}
+
+\textbf{
+    2.
+    (numerical examples: simulation studies and real applications) The paper does not have any numerical study. I suggest to include extensive simulation studies comparing existing significance tests such as the likelihood ratio test (LRT). If the Bayes factors in the paper are used in hypothesis testing, is there anything that the user needs to be careful about? Please include in simulation study examples in which LRT fails and examples with wide applications.
+}
+
+
+\textbf{Answers:}
+
+
+\textbf{
+    3. (Choice of $a$ and $b$) According to Theorem $2$, there are many $a$ and $b$ such that $\Delta_{a,b}$ satisfies the Wilks phenomenon.
+    In actual testing problem, what values of $a$ and $b$ would you suggest to use?
+}
+
+\textbf{Answers:}
+
+
+
+
+
+\textbf{
+    4. The paper discusses the fractional Bayes factor, the posterior Bayes factor and the integrated Bayes factor, but does not discuss the intrinsic Bayes factor. I suggest to include some discussion on the intrinsic Bayes factor. Can you get similar asymptotic results for the intrinsic Bayes factor?
+}
+
+\textbf{Answers:}
+
+
+\textbf{
+    5. The paper gives one example (mixtures of normals) for which the LRT fails. One example for the argument for the Bayes factor as the test statistic is weak. Please give more examples and numerical examples.
+}
+
+\textbf{Answers:}
+
+
+\textbf{Minor comments:}
+
+\textbf{
+1. 
+P. 3. L. 19. variantional $\rightarrow$ variational
+}
+
+\textbf{Answers:}
+
+The correction has been made.
+
+\textbf{
+2. Assumption 1. The term ``inner point'' is used but ``interior point'' is more standard term.
+Also here $\Theta$ and $\tilde \Theta$ is assumed open and ``interior point'' assumption is not necessary.
+}
+
+\textbf{Answers:}
+The correction has been made.
+We drop the condition of ``interior point''.
+
+\textbf{
+    3. P. 5. L. 36. means $\rightarrow$ mean
+}
+
+\textbf{Answers:}
+
+The correction has been made.
+
+
+
+\textbf{
+4.
+Equation (1).
+It is stated that null distribution of $\textbf{BF}_t(X_t)$ is free of the nuisance parameter if and only if $\frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu)} \equiv c$ for some constant $c$. But the formula in Theorem $1$ is slightly different.
+It should be
+\begin{align*}
+\frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu_0)} \equiv c
+\end{align*}
+for some constant $c$.
+If this is the case, the subsequence discussion needs to be modified.
+}
+
+\textbf{Answers:}
+
+
+\textbf{
+5.
+Please include some discussion on Assumptions $2$ and $3$.
+Please explain conditions in these assumptions.
+}
+
+
+\textbf{Answers:}
+
+
+
+\textbf{
+6.
+P. 18. L. 44.
+It is said ``This equality holds for every $M>0$ and hence also for some $M_n \to \infty$.''
+Please prove this statement.
+}
+
+
+\textbf{Answers:}
+
+
+
+\textbf{
+7.
+P. 24. L. 4.
+A typo.
+$L_t (\Theta ; \bX_n) \leq L_1^{1/t}(\Theta ; \bX_n) \rightarrow  L_t (\Theta ; \bX_n) \leq L_1^{t}(\Theta ; \bX_n) $.
+}
+
+
+\textbf{Answers:}
+
+
+
+\textbf{
+7.
+P. 25.
+In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t (\theta | \bX_n)$.
+}
+
+
+\textbf{Answers:}
+
+
+
+
+\section{Response to reviewer 2}
+\textbf{
+    1.
+    Some related reference is missing such as Zhou and Guan (2018) JASA paper “On the Null Distribution of Bayes Factors in Linear Regression”.
+    In this paper, they showed by considering the Bayes factor as a test statistics (like this submitted paper), they derived the null distribution of the Bayes factor for linear models, which is a weighted sum of chi-squared random variables.
+    Even though this work is restricted to linear models under simple assumptions, it is worth to cite.
+    Also, I believe that you can find more references that consider a Bayes factors as a test statistics in frequentist settings.
+}
+
+\textbf{Answers:}
+
+
+
+\textbf{
+    2.
+    On page 4, ``The prior $\pi(\theta)$ and $\pi_0 (\nu)$ may be improper\dots''.
+    This is wrong in general.
+    If they are improper, we cannot calculate the Bayes factor.
+    Of course, I understand that even when the priors are improper, the fractional Bayes factor, introduced later, circumvents this issue.
+    But, I think that it would be better to briefly note this point at the place of the sentence ``The prior $\pi(\theta)$ and $\pi_0 (\nu)$ may be improper\dots'', to avoid a confusion.
+}
+
+\textbf{Answers:}
+
+
+
+\textbf{
+    3. On line 31 on page 6, what is $f$?
+}
+
+\textbf{Answers:}
+
+
+
+
+\textbf{
+    4. On line 38 on page 6, you may want to note an extra weakness of the traditional approach.
+    When the prior density is proportional to a function of the determinant of the Fisher information, its prior normalizing constant is difficult to evaluate, and the normalizing constant is critical for the Bayes factor.
+    Although you noted ``\dots Fisher information matrix has a complicated form\dots undesirable\dots'', it would be better to be more specific.
+}
+
+\textbf{Answers:}
+
+
+
+
+\textbf{
+    5. This theoretical work is investigated under assumed that the posterior achieves $\sqrt n$-consistency (or the posterior contraction rate is n −1/2 ).
+    In many practical statistical models, the optimal posterior contraction rate would be slower than $n^{-1/2}$.
+    These examples include high-dimensional sparse problem like $(\log p /n)^{1/2}$ or nonparametric function estimation $n^{-\beta / (2\beta + p)}$, where $\beta$ is a smoothing factor for the true function.
+    Under these interesting models, can you extend this result to more general models?
+}
+
+\textbf{Answers:}
+
+
+
+\textbf{
+    6. You proposed theoretical results on asymptotic null distribution of Bayes factor which is a linear transformation of a chi-square distribution.
+    But, you have not considered any simulation works to examine finite sample behavior of the approximated distribution.
+    In practice, the accuracy of the asymptotic null distribution with finite samples is of interest.
+    You may want to show that this asymptotic null distribution is useful in practice, especially for complicated and practical models.
+    The examples you considered (without simulation studies) are too simple and far from a practical point of view.
+}
+
+\textbf{Answers:}
+
+
+\textbf{
+    7. This paper is lack of tuning parameter selection which will be critical in the hypothesis testing result.
+    Theoretically, it can satisfy some simple conditions, but in practice how to choose the tuning parameters $a$ and $b$ is very important.
+}
+
+\textbf{Answers:}
+
+
+
+
+\section{List of major changes}
+
+
+
+
+\bibliographystyle{apalike}
+\bibliography{mybibfile}
+
+\end{document}

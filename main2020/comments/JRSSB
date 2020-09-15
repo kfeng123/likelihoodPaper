@@ -1,0 +1,44 @@
+Dear Prof. Xu
+
+Your manuscript ID JRSS-SB-Jul-19-0331 entitled 'On the Wilks phenomenon of Bayes factors and the integrated likelihood ratio test' which you submitted to the Journal of the Royal Statistical Society, has now been reviewed.  The comments of the referees are included at the bottom of this letter.
+
+I found your manuscript quite interesting to read.  However, I agree with the very major concerns of the referees & AE in terms of the methods aspects of the work not being sufficient well developed & the literature review & motivation relative to previous related work needing improvement.  Therefore, I am rejecting the manuscript (at least in its current form). However, if you can undertake the very substantial rewriting that the reports indicate then I would be willing to reconsider a resubmission.
+
+To resubmit a new version of your manuscript, log onto https://mc.manuscriptcentral.com/jrss and enter your Author Centre, where you will find your manuscript title listed under 'Manuscripts with Decisions'.  Under 'Actions', click on 'Create a Resubmission'.  Your manuscript will now have a different number to denote a  resubmission of a previously rejected paper.  Please DO NOT upload your revised manuscript as a new submission.
+
+You will be unable to make changes on the originally submitted version of the manuscript on the site.  Instead, please revise your manuscript and save it on your computer.
+
+Once the new manuscript has been completed, you can upload it and submit it through your Author Centre.
+
+When submitting your new manuscript, you will be able to respond to the comments made by the referees in the space provided.  You can use this space to document any changes you make to the original manuscript. To expedite the processing of the new manuscript, please be as specific as possible in your response to the referees.
+
+IMPORTANT:  Your original files will be available to you to reuse when you upload your new manuscript.  Please therefore delete any redundant files before completing the submission.
+
+I am sorry that I cannot give you any strong encouragement about the prospects for your manuscript at the moment, but thank you for considering the Journal of the Royal Statistical Society.
+
+
+Yours sincerely,
+
+
+
+Prof. David Dunson
+Joint Editor, Journal of the Royal Statistical Society
+E-mail: dunson@duke.edu
+
+Reviewers' Comments to Author:
+
+Associate Editor
+Comments to the Author:
+I have enjoyed reading this paper. Introducing the generalized fractional Bayes factor \Lambda_{a,b} with a \ne b is a neat idea and ties together several previous proposals as special cases. The derivation of the Wilks phenomenon is a very neat result. I found the mixture model example quite intriguing and wished it was expounded on some more with empirical studies.  
+
+The paper has been reviewed by two expert referees. While both reviewers found the paper interesting, they have raised some serious concerns. In particular, I agree with their concern that the paper lacks concrete applications (and even a simulation study) for the methodology to be taken up seriously. They have also pointed out gaps in the literature review; in particular, the usage of the Bayes factor (or its variants) as a test statistic. One of the reviewers has mentioned a recent article in JASA in his report which is very relevant.
+
+I would like to add a couple of items to this. First, the fractional posterior is a special case of a Gibbs posterior, and \sqrt{n} consistency of Gibbs posteriors has been around in the literature for a while; see, for example, the paper "An MCMC approach to classical estimation" by Chernozhukov and Hong as a representative example. This is particularly not surprising for the fractional posterior since roughly speaking, it keeps the center of the posterior unaffected for large n and reduces the variance by a scale factor depending on the fractional power - hence the classical Bernstein--von Mises phenomenon should go through for the fractional posterior under the same conditions as the exact posterior. I found the integrability condition in Proposition 2 to be somewhat strong in this regard.
+
+The paper doesn't discuss recent advances in the frequentist literature. I would point out the article "Generalized likelihood ratio statistics and Wilks phenomenon" by Fan et al. as an example; this has been cited many times and the authors need to check what is there beyond the usual LRT. Also take a look at the paper "Geometric Understanding of Likelihood Ratio Statistics" by Fan et al. which among other things provides a Bayesian argument for the derivation of the classical Wilk's phenomenon.
+
+Upon careful consideration of the comment by the reviewers, I, unfortunately, have to reject the current version. That said, I shall be willing to consider a significantly revised version that empirically demonstrates the applicability of the method to two or more concrete and interesting applications, clarifies choices of tuning parameters for practical usage, and provides a comparison with reasonable competitors. These don't have to be so-called "high-dimensional" examples; there are plenty of interesting examples in low-dimensional settings where the LRT cannot be applied. The mixture model setup could be a good starting point. Beyond Gaussian mixtures, you may also consider discrete examples like mixtures of Binomials (of course, motivated by some practical example). The literature review also needs to be updated in light of the AE and reviewer comments.
+
+This is certainly a good amount of work, and the revised version would need to go through the review process.
+
+
