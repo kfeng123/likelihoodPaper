@@ -1570,7 +1570,7 @@ We have
 \omega^2 (p_2 - p_0)^2 (p_2 - p_1)^2
 ,
 (1-\omega)^2 (p_1 - p_0)^2 (p_2 - p_1)^2
-    )\leq M_n n^{-1/2}\}.
+    )\leq M_n n^{-1}\}.
     \end{align*}
     Let $0<t<1$ be a constant.
     If $M_n \geq \log n$, then
@@ -1728,7 +1728,7 @@ Thus,
 \omega^2 (p_2 - p_0)^2 (p_2 - p_1)^2
 ,
 (1-\omega)^2 (p_1 - p_0)^2 (p_2 - p_1)^2
-    )\leq M_n n^{-1/2}\}.
+    )\leq M_n n^{-1}\}.
     \end{align*}
     Let $0<t<1$ be a constant.
     Then
@@ -1740,6 +1740,64 @@ Thus,
 \begin{proof}
      
 \end{proof}
+
+\begin{align*}
+    p(x | \omega, p_1, p_2 ) 
+    =
+    (1- \omega) {k \choose x} (1- p_1)^{k-x} p_1^{x}
+    + \omega {k \choose x} (1- p_2)^{k-x} p_2^{x}.
+\end{align*}
+Then
+\begin{align*}
+    \frac
+    {
+    p(x | \omega, p_1, p_2 ) 
+}{
+    p(x | 0, p_0, 0 ) 
+    }
+    =
+    (1- \omega)  \frac{(1- p_1)^{k-x} p_1^{x}}{(1- p_0)^{k-x} p_0^{x}}
+    + \omega  \frac{(1- p_2)^{k-x} p_2^{x}}{(1- p_0)^{k-x} p_0^{x}}.
+\end{align*}
+Note that as $t \to 0$, uniformly for $j=0 ,\dots, k$,
+\begin{align*}
+    (1+t)^j = 1 + jt + \frac{j(j-1)}{2} t^2 + O(t^3),
+    \quad
+    \log(1+t) = t - \frac{1}{2}t^2 + O(t^3),
+    \quad
+    \frac{1}{1-t} = 1 + t + t^2 + O(t^3)
+    .
+\end{align*}
+
+For $p \in (0,1)$,
+\begin{align*}
+    &(1-p_1)^{k-x} p_1^x -
+    (1-p_0)^{k-x} p_0^x 
+    \\
+    =&
+    (1-p_0 -( p_1 - p_0))^{k-x} (p_0 + p_1 - p_0)^x -
+    (1-p_0)^{k-x} p_0^x 
+    \\
+    =&
+      -
+    (1-p_0)^{k-x} p_0^x 
+    \\
+\end{align*}
+Note that
+\begin{align*}
+&(1-p_0 -( p_1 - p_0))^{k-x} 
+\\
+= &
+    (1-p_0)^{k-x} -(k-x)(1-p_0)^{k-x-1}( p_1 - p_0) +\frac{(k-x)(k-x-1)}{2} (1-p_0)^{k-x-2}(p_1 - p_0)^2 
+    + O(|p_1 - p_0|^3).
+\end{align*}
+Note that
+\begin{align*}
+(p_0 + p_1 - p_0)^x
+=
+p_0^x + x p_0^{x-1} (p_1 - p_0) + \frac{x(x-1)}{2} p_0^{x-2}(p_1 - p_0)^2  
++ O(|p_1 - p_0|^3)
+\end{align*}
 
 
 
