@@ -1615,21 +1615,84 @@ We have
 \\
 =&
 \frac{1}{4} \| \BA \gamma \|^2
-,
+.
 \end{align*}
-where
+
+Note that for $x > 0$,
 \begin{align*}
-    \gamma = 
+    &(1-\omega) (1-p_1)^{k-x} p_1^{x} + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x 
+    \\
+    =&
     \begin{pmatrix}
-        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
-        (1-\omega) p_1^{k-1} + \omega p_2^{k-1} - p_0^{k-1} \\
+        0&  \cdots & 0 & {k-x \choose 0} & {k-x \choose 1} (-1) & \cdots & {k-x \choose k-x } (-1)^{k-x}
+    \end{pmatrix}
+    \begin{pmatrix}
+        (1-\omega) p_1 + \omega p_2 - p_0 \\
+        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
         \vdots
         \\
-        (1-\omega) p_1 + \omega p_2 - p_0 \\
-    \end{pmatrix}
-    ,
+        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
+    \end{pmatrix}.
 \end{align*}
-and $\BA$ is a $(k+1) \times k$ lower triangular matrix and $(\BA)_{i,j} = (-1)^{i-j} {i-1 \choose j-1}$ for $1\leq j \leq i \leq k $ or $ 1 \leq j< i = k + 1$.
+And 
+\begin{align*}
+    &(1-\omega) (1-p_1)^{k}  + \omega (1-p_2)^{k}  - (1-p_0)^{k} 
+    \\
+    =&
+    \begin{pmatrix}
+        {k \choose 1} (-1) & \cdots & {k \choose k } (-1)^{k}
+    \end{pmatrix}
+    \begin{pmatrix}
+        (1-\omega) p_1 + \omega p_2 - p_0 \\
+        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
+        \vdots
+        \\
+        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
+    \end{pmatrix}.
+\end{align*}
+Hence
+\begin{align*}
+    \begin{pmatrix}
+ &(1-\omega) (1-p_1)^{k} p_1^{x} + \omega (1-p_2)^{k} p_2^x - (1-p_0)^{k} p_0^x     
+ \\
+ &\vdots
+ \\
+ &(1-\omega) (1-p_1)^{k-x} p_1^{x} + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x     
+    \end{pmatrix}
+    =&
+    \BA
+    \begin{pmatrix}
+        (1-\omega) p_1 + \omega p_2 - p_0 \\
+        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
+        \vdots
+        \\
+        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
+    \end{pmatrix},
+\end{align*}
+where $\BA$ is a $(k+1) \times k$ matrix with $(\BA)_{i,j} ={ k -i + 1 \choose j - i + 1 }(-1)^{j-i + 1} $ for $j \geq i - 1$ and $(\BA)_{i,j} = 0$ otherwise.
+Then
+\begin{align*}
+    &
+    \sum_{x=0}^k \frac{{k \choose x}}{(1-p_0)^{k-x} p_0^x}
+    \left(
+        (1-\omega ) (1-p_1)^{k-x} p_1^x + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x
+    \right)^2
+    \\
+    =&
+    \|
+    \BD^{1/2}
+    \BA
+    \begin{pmatrix}
+        (1-\omega) p_1 + \omega p_2 - p_0 \\
+        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
+        \vdots
+        \\
+        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
+    \end{pmatrix}
+    \|^2
+    .
+\end{align*}
+
 Note that $\BA$ has rank $k$, hence for $k\geq 2$,
 \begin{align*}
 \sum_{x=0}^k \left(\sqrt{p( x |\omega,p_1, p_2) }-\sqrt{p( x |0, p_0 ,0)}\right)^2  
@@ -1776,12 +1839,7 @@ For $p \in (0,1)$,
     \\
     =&
     (1-p_0 -( p_1 - p_0))^{k-x} (p_0 + p_1 - p_0)^x -
-    (1-p_0)^{k-x} p_0^x 
-    \\
-    =&
-      -
-    (1-p_0)^{k-x} p_0^x 
-    \\
+    (1-p_0)^{k-x} p_0^x .
 \end{align*}
 Note that
 \begin{align*}
@@ -1791,13 +1849,197 @@ Note that
     (1-p_0)^{k-x} -(k-x)(1-p_0)^{k-x-1}( p_1 - p_0) +\frac{(k-x)(k-x-1)}{2} (1-p_0)^{k-x-2}(p_1 - p_0)^2 
     + O(|p_1 - p_0|^3).
 \end{align*}
-Note that
+And
 \begin{align*}
 (p_0 + p_1 - p_0)^x
 =
 p_0^x + x p_0^{x-1} (p_1 - p_0) + \frac{x(x-1)}{2} p_0^{x-2}(p_1 - p_0)^2  
-+ O(|p_1 - p_0|^3)
++ O(|p_1 - p_0|^3).
 \end{align*}
+Hence
+\begin{align*}
+    &
+    (1-p_0 -( p_1 - p_0))^{k-x} (p_0 + p_1 - p_0)^x 
+    \\
+=&
+\left(
+    (1-p_0)^{k-x} -(k-x)(1-p_0)^{k-x-1}( p_1 - p_0) +\frac{(k-x)(k-x-1)}{2} (1-p_0)^{k-x-2}(p_1 - p_0)^2 
+\right)
+\\
+&
+\left(
+p_0^x + x p_0^{x-1} (p_1 - p_0) + \frac{x(x-1)}{2} p_0^{x-2}(p_1 - p_0)^2  
+\right)
++ O(|p_1 - p_0|^3)
+\\
+=&
+    (1-p_0)^{k-x}p_0^x
+    + \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right)(1-p_0)^{k-x} p_0^x ( p_1 - p_0) 
+    \\
+    &
+    + \left(\frac{x(x-1)}{2 p_0^2 } + \frac{(k-x)(k-x-1)}{2(1-p_0)^2} - \frac{x(k-x)}{p_0 (1- p_0 )} \right)(1-p_0)^{k-x} p_0^x ( p_1 - p_0)^2
+    + O(|p_1 - p_0|^3).
+\end{align*}
+Thus, uniformly for $x = 0, 1,\dots , k$ and $p_1 \in (0,1)$,
+\begin{align*}
+    &\frac{(1-p_1)^{k-x} p_1^x}
+    {(1-p_0)^{k-x} p_0^x }
+    \\
+    =&
+     1 + 
+    \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) ( p_1 - p_0) 
+    \\
+    &
+    + \left(\frac{x(x-1)}{2 p_0^2 } + \frac{(k-x)(k-x-1)}{2(1-p_0)^2} - \frac{x(k-x)}{p_0 (1- p_0 )} \right) ( p_1 - p_0)^2
+    + O(|p_1 - p_0|^3).
+\end{align*}
+Thus, uniformly for $x = 0, 1,\dots , k$ and $p_1, p_2 \in (0,1)$,
+\begin{align*}
+    & 
+    \frac{p(x|\omega, p_1 , p_2)}{p(x|0, p_0, 0)}
+    \\
+    =&
+     1 + 
+     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
+    + \left(\frac{x(x-1)}{2 p_0^2 } + \frac{(k-x)(k-x-1)}{2(1-p_0)^2} - \frac{x(k-x)}{p_0 (1- p_0 )} \right) \left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
+    \\
+    &
+    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3)
+    \\
+    =&
+     1 + 
+     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
++ \frac{1}{2}
+\left(
+    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
+    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
+\right)
+\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
+    \\
+    &
+    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3).
+\end{align*}
+
+We have, uniformly for $x = 0, 1,\dots , k$ and $p_1, p_2 \in (0,1)$,
+\begin{align*}
+    & 
+    \log \frac{p(x|\omega, p_1 , p_2)}{p(x|0, p_0, 0)}
+    \\
+    =&
+     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
++ \frac{1}{2}
+\left(
+    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
+    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
+\right)
+\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
+    \\
+    &
+    -\frac{1}{2}
+    \Bigg(
+     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
++ \frac{1}{2}
+\left(
+    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
+    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
+\right)
+\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
+\Bigg)^2
+    \\
+    &
+    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3)
+    \\
+    =&
+     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
++ \frac{1}{2}
+\left(
+    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
+    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
+\right)
+\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
+    \\
+    &
+    -\frac{1}{2}
+    \Bigg(
+     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+\Bigg)^2
+    \\
+    &
+    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3).
+\end{align*}
+Thus,
+\begin{align*}
+    & 
+    \sum_{i=1}^n \log \frac{p( X_i |\omega, p_1 , p_2)}{p( X_i |0, p_0, 0)}
+    \\
+    =&
+    \sum_{i=1}^n \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
++ \frac{1}{2}
+\sum_{i=1}^n \left(
+    \left(\frac{X_i}{ p_0 } - \frac{k-X_i}{1- p_0 } \right)^2 
+    -\frac{X_i}{p_0^2} - \frac{k-X_i}{(1-p_0)^2}
+\right)
+\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
+    \\
+    &
+    -\frac{1}{2}
+    \sum_{i=1}^n
+    \Bigg(
+     \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+\Bigg)^2
+    \\
+    &
+    + O((1-\omega) n |p_1 - p_0|^3 + \omega  n |p_2 - p_0|^3).
+\end{align*}
+
+Note that
+\begin{align*}
+    \myE \left(\frac{X_1}{p_0} -  \frac{k-X_1}{1-p_0} \right) = 0,
+    \quad
+    \myVar \left(\frac{X_1}{p_0} -  \frac{k-X_1}{1-p_0} \right) = \frac{k}{p_0 (1-p_0)}.
+\end{align*}
+Thus,
+\begin{align*}
+    & 
+    \sum_{i=1}^n \log \frac{p( X_i |\omega, p_1 , p_2)}{p( X_i |0, p_0, 0)}
+    \\
+    =&
+    \sum_{i=1}^n \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    \\
+    &
+    -\frac{1}{2}
+    \sum_{i=1}^n
+     \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right)^2 \left((1-\omega) p_1 + \omega p_2 - p_0 \right)^2
+    \\
+    &
+    +
+    O_p\left( (1-\omega)\sqrt{n} ( p_1 - p_0)^2 + \omega \sqrt{n} (p_2 - p_0)^2 \right)
+    + O((1-\omega) n |p_1 - p_0|^3 + \omega  n |p_2 - p_0|^3)
+    \\
+    =&
+    \frac{1}{\sqrt n}\sum_{i=1}^n \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \sqrt{n} \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
+    - \frac{k }{2 p_0 (1-p_0)}
+    n
+     \left((1-\omega) p_1 + \omega p_2 - p_0 \right)^2
+    \\
+    &
+    +
+    O_p\left( (1-\omega)\sqrt{n} ( p_1 - p_0)^2 + \omega \sqrt{n} (p_2 - p_0)^2 \right)
+    + O((1-\omega) n |p_1 - p_0|^3 + \omega  n |p_2 - p_0|^3).
+\end{align*}
+
 
 
 
