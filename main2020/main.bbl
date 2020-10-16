@@ -34,6 +34,13 @@ Chen, J. (2017).
 \newblock On finite mixture models.
 \newblock {\em Statistical Theory and Related Fields}, 1(1):15--27.
 
+\bibitem[\protect\astroncite{Chernoff and Lander}{1995}]{Chernoff1995}
+Chernoff, H. and Lander, E. (1995).
+\newblock Asymptotic distribution of the likelihood ratio test that a mixture
+  of two binomials is a single binomial.
+\newblock {\em Journal of Statistical Planning and Inference}, 43(1-2):19 --
+  40.
+
 \bibitem[\protect\astroncite{{Clarke} and
   {Barron}}{1990}]{clarke1990information}
 {Clarke}, B.~S. and {Barron}, A.~R. (1990).
@@ -118,12 +125,6 @@ Li, Y. and Turner, R.~E. (2016).
 \newblock In Lee, D.~D., Sugiyama, M., Luxburg, U.~V., Guyon, I., and Garnett,
   R., editors, {\em Advances in Neural Information Processing Systems 29},
   pages 1073--1081. Curran Associates, Inc.
-
-\bibitem[\protect\astroncite{Liu and Shao}{2004}]{LIU200461}
-Liu, X. and Shao, Y. (2004).
-\newblock Asymptotics for the likelihood ratio test in a two-component normal
-  mixture model.
-\newblock {\em Journal of Statistical Planning and Inference}, 123(1):61 -- 81.
 
 \bibitem[\protect\astroncite{O'Hagan}{1995}]{Fractional1995}
 O'Hagan, A. (1995).

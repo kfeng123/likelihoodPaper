@@ -266,7 +266,7 @@ the generalized fractional Bayes factor is the ratio of the expectations of the 
 Hence the generalized fractional Bayes factor can be regarded as an integrated likelihood ratio test.
 For some complex models, the power posterior is intractable.
 In this case, 
-a feasible strategy is to approximate the posterior distribution by simple form distributions by variational inference; see~\cite{blei2017} and the references therein.
+a feasible strategy is to approximate the posterior distribution by simple form distributions using variational inference; see~\cite{blei2017} and the references therein.
 Motivated by variational inference, we consider the general integrated likelihood ratio test statistic which uses the expectations of the power likelihood with respect to general weight functions.
 We prove that if the behavior of the weight functions is close to the power posterior, then the general integrated likelihood ratio test also has Wilks phenomenon.
 In particular, we show that the weight functions obtained by a variational method satisfies our requirements for the weight functions.
@@ -365,9 +365,9 @@ Conventionally, the null hypothesis is rejected if $\text{BF}(\BX^n)$ is larger 
 The choice of threshold is mostly empirical in the literature.
 For example, \cite{Jeffreys1961} suggested that the evidence against the null hypothesis is \emph{decisive} if $\text{BF}(\BX^n)>100$ while \cite{Robert1995Bayes} suggested that the evidence is \emph{very strong} if $\text{BF}(\BX^n) > 150$.
 Unfortunately, these choices of threshold  are not theoretically justified.
-Worse still, for improper priors, these choices of threshold suffer from the Lindley paradox, that is, the resulting test procedure largely depends on the arbitrary constants in priors densities; see, e.g., \cite{Shafer1982}.
+Worse still, for improper priors, these choices of threshold suffer from the Lindley paradox, that is, the resulting test procedure depends heavily on the arbitrary constants in prior densities; see, e.g., \cite{Shafer1982}.
 
-In this paper, we treat the Bayes factor as a frequentist test statistic and the threshold is chosen to control the type I error rate.
+In this paper, the Bayes factor is treated as a frequentist test statistic and the threshold is chosen to control the type I error rate.
 To achieve this, we need to investigate the asymptotic distribution of Bayes factor.
 We make the following assumption which is adapted from~\cite{Kleijn2012The}.
 
@@ -484,7 +484,7 @@ where ``$\overset{P^n_{\theta_n}}{\rightsquigarrow}$'' means the weak convergenc
 \label{prop:expansion}
     \end{theorem}
 %It can be seen that the Lindley's paradox does not only exist when using improper priors.
-    Theorem \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depend on the nuisance parameters and the priors.
+    Theorem \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depends on the nuisance parameters and the priors.
     Hence the Bayes factor does not have Wilks phenomenon for general priors.
 Nevertheless, the dependency of the asymptotic null distribution on the nuisance parameters can be cancelled by a class of priors.
 In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribution of $\textrm{BF} (\BX^n)$ is free of the nuisance parameter $\nu$ if and only if
@@ -502,9 +502,9 @@ for some constant $c$ and for any $\nu \in \tilde \Theta$.
 Unfortunately, simple examples show that \eqref{eq:shouldConst} does not hold for many popular objective priors for Bayes factor, including intrinsic priors \citep{intrisicBayesFactor}, fractional intrinsic priors \citep{santis1997Alt}, divergence-based priors \citep{Bayarri2008Gen}, expected-posterior priors \citep{Perez2002}.
 Nevertheless, \eqref{eq:shouldConst} holds for a large class of priors.
 For instance, the left hand side of \eqref{eq:shouldConst} is equal to $1$ if $\pi_0(\nu) = |I_{\nu}(\nu, \xi_0)|^{1/2}$ and $\pi(\theta) = | I (\theta)|^{1/2}$, that is, $\pi_0(\nu)$ and $\pi(\theta)$ are the Jeffreys priors under the null and the alternative hypotheses, respectively.
-In general, \eqref{eq:shouldConst} is constant provided $\pi(\theta) = \pi (\xi |\nu) \pi(\nu)$ satisfies
+In general, \eqref{eq:shouldConst} is satisfied if $\pi(\theta) = \pi (\xi |\nu) \pi(\nu)$ and
 \begin{align}\label{eq:shouldConst2}
-    \pi(\nu) = \pi_0 (\nu), \quad \pi(\xi_0 | \nu) \propto |I_{\xi | \nu} (\nu,\xi_0)|^{1/2}.
+    \pi(\nu) = \pi_0 (\nu), \quad \pi(\xi_0 | \nu) = c |I_{\xi | \nu} (\nu,\xi_0)|^{1/2}.
 \end{align}
 A class of priors satisfying \eqref{eq:shouldConst2} is the unit information priors proposed by \cite{Kass1995}, which is defined as
 \begin{align*}
@@ -513,7 +513,8 @@ A class of priors satisfying \eqref{eq:shouldConst2} is the unit information pri
 where $\Sigma_{\xi}(\nu)$ satisfies
 $
 |\Sigma_{\xi}(\nu)|= |I_{\xi | \nu} (\nu,\xi_0)|^{-1}
-$.
+$ 
+and $f$ is a probability density function.
 
 We have seen that with carefully chosen priors, Bayes factor has Wilks phenomenon.
 In this case, Bayes factor can be treated as a frequentist statistic and the critical value is determined by the asymptotic distribution.
@@ -533,7 +534,7 @@ We define $L_t^{(0)}(\BX^{n})$ and $\pi_{0, t} (\nu | \BX^n)$ in a similar way.
 For $t > 0$, let $\text{BF}_t (\BX^n) = L_t(\BX^n)/ L_t^{(0)} (\BX^n)$.
 Then $\text{BF}_1(\BX^n)$ is the usual Bayes factor.
 It can be expected that $\text{BF}_t (\BX^n)$ depends on the nuisance parameters and the priors in the same way for different values of $t>0$.
-Hence the ratio of $\text{BF}_t (\BX^n)$ for two different $t$ may cancel the dependence on the nuisance parameters and the priors.
+Hence the ratio of $\text{BF}_t (\BX^n)$ for two different $t$ may cancel the dependency on the nuisance parameters and the priors.
 For $a>b>0$, let
 $
 \Lambda_{a,b} (\BX^n) =
@@ -625,10 +626,10 @@ We shall make the following two assumptions in the second and third settings.
 \begin{theorem}\label{Thm:maintheorem}
     Suppose that Assumption~\ref{Assumption1} holds.
 Suppose $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0 (\nu_0)> 0$.
-    Suppose $a>b>0$ and $a$ is fixed as $n\to \infty$,
+Suppose $a>b>0$ and $a$ is fixed as $n\to \infty$.
     Suppose $\pi_a( \theta | \BX^n)$ and $\pi_{0, a}(\nu | \BX^n)$ are $\sqrt n$-consistent.
     Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
-Then the following assertions hold.
+Then the following assertions hold:
 \begin{enumerate}[(a)]
         \item 
             Suppose $b$ is fixed  as $n\to \infty$,
@@ -717,7 +718,7 @@ a key assumption is the $\sqrt{n}$-consistency of the power posterior distributi
 We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $\pi_t(\theta|\BX^{n})$.
 In our definition of the $\sqrt{n}$-consistency of $\pi_t(\theta| \BX^n)$, we assume the finiteness of $L_t(\BX^n)$.
 It is known that this requirement is naturally satisfied if $t=1$ and the prior is proper.
-In fact, the following proposition shows that when the prior is proper, $L_t(\BX^n)$ is always finite for $t\leq 1$ and is not always finite for $t>1$.
+In fact, the following proposition shows that when the prior is proper, $L_t(\BX^n)$ is always finite for $t\leq 1$ but it is not always finite for $t>1$.
 \begin{proposition}
     Suppose the prior density $\pi(\theta)$ is proper.
     If $t\leq 1$, for any model $\{P_{\theta}, \theta \in \Theta \}$ and any $n$, $L_t(\BX^{n})< +\infty$ $P_{\theta_0}^n$-a.s..
@@ -725,7 +726,7 @@ In fact, the following proposition shows that when the prior is proper, $L_t(\BX
     \label{exprop}
 \end{proposition}
 The above proposition implies that the behavior of $L_t(\BX^{n})$ for $t>1$ may be undesirable.
-For this reason shall only consider the $\sqrt n$-consistency of $\pi_t(\theta | \BX^{n})$ for $t\leq 1$.
+For this reason we shall only consider the $\sqrt n$-consistency of $\pi_t(\theta | \BX^{n})$ for $t\leq 1$.
 For $t=1$, the $\sqrt{n}$-consistency of $\pi_1(\theta | \BX^{n})$ is the $\sqrt{n}$-consistency of the posterior distribution.
 For the case where the prior distribution is proper,
 the consistency rate of the posterior has been well studied in the literature; see, e.g.,~\cite{ghosal2000},~\cite{Shen2001Rates},~\cite{vaart2007convergence}.
@@ -958,16 +959,16 @@ Hence the mean and covariance parameters of $\pi_b^{\dagger}(h;\BX^{n})$ are bou
 
 
 
-    \section{Examples}
+\section{Examples}
 
 \subsection{Full-rank exponential family}
 Exponential family possesses many desirable properties and includes many regular models.
 In this section, we apply the generalized fractional Bayes factor to the testing problem in the full-rank exponential family.
 Suppose 
 \begin{align*}
-    p(X|\theta)
-    =\exp \left\{ \theta^\top  T(X)-A(\theta) \right\}
-    =\exp \left\{ \nu^\top  T_1(X) + \xi^\top T_2 (X) -A(\theta) \right\}
+    p(x|\theta)
+    =\exp \left\{ \theta^\top  T(x)-A(\theta) \right\}
+    =\exp \left\{ \nu^\top  T_1(x) + \xi^\top T_2 (x) -A(\theta) \right\}
     .
 \end{align*}
 We would like to test
@@ -1010,7 +1011,7 @@ Normal mixture model is a highly irregular model.
 Due to partial loss of identifiability, the LRT has undesirable behavior.
 For example, if the component variances are totally unknown, the likelihood is unbounded and thus the LRT is not defined \citep{Cam1990Maximum}.
 See~\cite{chenjiahua2017} for a review of the testing problems for mixture models.
-Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that Bayes methods may have better behavior than LRT.
+Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that Bayes methods may have better behavior than the LRT.
 For example, for unknown variances case, the generalized fractional Bayes factor is at least well defined if the priors are proper.
 
 Suppose $X_1,\ldots,X_n$ are iid distributed as a mixture of normal distributions
@@ -1060,8 +1061,8 @@ This example shows that even when the LRT fails, the generalized fractional Baye
 Thus, the proposed methodology has a wider application scope than the LRT.
 
 
-In the above example, we assume $\omega=1/2$ is known.
-If $\omega$ is unknown, then the mixture model suffers from loss of identifiability and the behavior of the likelihood is fairly complicated.
+In the above example, $\omega=1/2$ is known.
+If $\omega$ is an unknown parameter, then the mixture model suffers from loss of identifiability and the behavior of the likelihood is fairly complicated.
 For simplicity, we assume $\sigma^2=1$ is known and consider testing the hypotheses
 \begin{equation}
     H:\omega \xi=0
@@ -1081,7 +1082,7 @@ In fact, the following proposition shows that $\Lambda_{a,b}(\BX^n)$ has the des
 \begin{proposition}
     Suppose $\pi(\omega,\xi)=\pi_{\omega}(\omega) \pi_{\xi}(\xi)$, $\pi_\xi(\xi)$ is proper and is continuous at $0$ with $\pi_\xi (0) > 0$,
     $\pi_\omega(\omega)\sim \text{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
-    Suppose $ 0 < b < a < 1 $.
+    Suppose $ 0 < b < a < 1 $ are fixed.
     Then,
     \begin{enumerate}[(i)]
         \item
@@ -1105,951 +1106,46 @@ In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asympto
 
 
 \subsection{Binomial mixture model}\label{sec:binomial_mixture}
-In this section, we consider binomial mixture model.
-
+In this section, we apply the generalized fractional Bayes factor to testing the component number of binomial mixture model.
 Suppose $X_1, \dots, X_n$ are iid distributed as a mixture of binomial distributions
 \begin{align*}
-    p(x | \omega, p_1, p_2 ) 
+    p(x | \omega, \xi ) 
     =
-    (1- \omega) {k \choose x} (1- p_1)^{k-x} p_1^{x}
-    + \omega {k \choose x} (1- p_2)^{k-x} p_2^{x},
+    (1- \omega) {k \choose x} \frac{1}{2^k}
+    + \omega {k \choose x} (1- \xi)^{k-x} \xi^{x},
 \end{align*}
-where  $0< \omega, p_1, p_2 < 1$ are unknown parameters and $k \geq 3$ is known.
+where $\omega \in [0,1]$, $ \xi \in (0,1)$ are unknown parameters and $k \geq 2$ is known.
 We consider testing the hypotheses
 \begin{align*}
-    H: p_2 - p_1  = 0
+    H: \xi  = \frac 1 2
     \quad
     \text{vs.}
     \quad
-    K: p_2 - p_1  \neq 0.
+    K: \xi  \neq \frac 1 2.
 \end{align*}
-
-To facilitate the derivation, we reparameterize the model as $u = p_1, \xi= p_2 - p_1$.
-Then $\theta = (\omega, u, \xi)^\top$, $\Theta = \{(\omega, u, \xi)^\top :   \xi \in (-u, 1-u), u\in (0,1) , \omega \in (0, 1) \}$, and
-\begin{align*}
-    p(x| \omega, u, \xi) = 
-{k \choose y} (1- u)^{k-x} u^{x}
-\left[
-1 + \omega 
-\left(
-    {\left(1-\frac{\xi}{1-u}\right)^{k-x} \left(1+ \frac \xi u \right)^x}
--1
-\right)
-\right].
-\end{align*}
-The hypotheses of interest becomes
-\begin{align*}
-    H: \xi  = 0
-    \quad
-    \text{vs.}
-    \quad
-    K: \xi  \neq 0.
-\end{align*}
-
-Let $\theta_0 = (\omega_0, u_0, 0)^\top$.
-
-Let $M > 0$ be a fixed constant.
-Let $h = (h_1, h_2, h_3)^\top \in \mathbb R^3$ such that $\|h\| \leq M$.
-Then for sufficiently large $n$, $\theta_0 + n^{-1/2}h \in \Theta$.
-We have
-\begin{align*}
-    \log
-    \frac
-    {p(x | \theta_0 + n^{-1/2} h )} 
-    {p(x | \theta_0)} 
-    =&
-    (k-x)
-    \log\left(
-        1-\frac{n^{-1/2} h_2}{1-u_0}
-    \right)
-    +
-    x
-    \log
-    \left(
-        1+\frac{n^{-1/2} h_2}{u_0}
-    \right)
-    \\
-    &
-    +
-    \log\left[
-        1+ 
-        (\omega_0 + n^{-1/2} h_1 )
-        \left(
-            \left(
-                1- \frac{n^{-1/2} h_3}{1-u_0 - n^{-1/2} h_2}
-            \right)^{k-x}
-            \left(
-                1+ \frac{n^{-1/2} h_3}{u_0 + n^{-1/2} h_2}
-            \right)^{x}
-            -1
-        \right)
-    \right].
-\end{align*}
-Note that as $t \to 0$, uniformly for $j=0 ,\dots, k$,
-\begin{align*}
-    (1+t)^j = 1 + jt + \frac{j(j-1)}{2} t^2 + O(t^3),
-    \quad
-    \log(1+t) = t - \frac{1}{2}t^2 + O(t^3),
-    \quad
-    \frac{1}{1-t} = 1 + t + t^2 + O(t^3)
-    .
-\end{align*}
-Then uniformly for $x = 0, \dots, k$,
-\begin{align*}
-    (k-x)
-    \log\left(
-        1-\frac{n^{-1/2} h_2}{1-u_0}
-    \right)
-    =-\frac{(k-x) h_2}{1-u_0}n^{-1/2} - \frac{(k-x) h_2^2}{2(1-u_0)^2}n^{-1}
-    +O(n^{-3/2}),
-\end{align*}
-\begin{align*}
-    x
-    \log\left(
-        1+\frac{n^{-1/2} h_2}{u_0}
-    \right)
-    =\frac{x h_2}{u_0}n^{-1/2} - \frac{x h_2^2}{2 u_0^2} n^{-1}
-    +O(n^{-3/2}).
-\end{align*}
-\begin{align*}
-    \frac{n^{-1/2}h_3}{1-u_0 - n^{-1/2} h_2 }
-    =\frac{h_3}{1-u_0} n^{-1/2}
-    +\frac{h_2 h_3}{(1-u_0)^2} n^{-1} +O(n^{-3/2}).
-\end{align*}
-\begin{align*}
-    \left(
-        1-\frac{n^{-1/2}h_3}{1-u_0 - n^{-1/2} h_2 }
-    \right)^{k-x}
-    =&
-    \left(
-    1-
-        \frac{h_3}{1-u_0} n^{-1/2}
-    -\frac{h_2 h_3}{(1-u_0)^2} n^{-1} +O(n^{-3/2})
-    \right)^{k-x}
-    \\
-    =&
-    1-
-    \frac{(k-x) h_3}{1-u_0} n^{-1/2}
-    -\frac{(k-x) h_2 h_3}{(1-u_0)^2} n^{-1} 
-    +\frac{(k-x) (k-x-1) h_3^2}{ 2 (1-u_0)^2} n^{-1}
-    +O(n^{-3/2})
-    \\
-    =&
-    1-
-    \frac{(k-x) h_3}{1-u_0} n^{-1/2}
-    +\left( 
-    \frac{(k-x) (k-x-1) h_3^2}{ 2 (1-u_0)^2}
-        - \frac{(k-x) h_2 h_3}{(1-u_0)^2}  
-\right)n^{-1}
-    +O(n^{-3/2})
-    .
-\end{align*}
-\begin{align*}
-    \frac{n^{-1/2}h_3}{u_0 + n^{-1/2} h_2}
-=
-\frac{h_3}{u_0} n^{-1/2} - \frac{h_2 h_3}{u_0^2} n^{-1} + O(n^{-3/2}).
-\end{align*}
-\begin{align*}
-    \left(
-        1+\frac{n^{-1/2}h_3}{u_0 + n^{-1/2} h_2}
-    \right)^x
-=&
-    \left(
-        1+
-\frac{h_3}{u_0} n^{-1/2} - \frac{h_2 h_3}{u_0^2} n^{-1} + O(n^{-3/2})
-    \right)^x
-    \\
-=&
-1+
-\frac{x h_3}{u_0} n^{-1/2} - \frac{x h_2 h_3}{u_0^2} n^{-1} 
-+\frac{x(x-1)h_3^2}{2 u_0^2} n^{-1}
-+O(n^{-3/2})
-    \\
-=&
-1+
-\frac{x h_3}{u_0} n^{-1/2}
-+
-\left(
-\frac{x(x-1)h_3^2}{2 u_0^2}
-- \frac{x h_2 h_3}{u_0^2} 
-\right)
-n^{-1}
-+O(n^{-3/2}).
-\end{align*}
-Thus,
-\begin{align*}
-    &
-    \left(
-        1-\frac{n^{-1/2}h_3}{1-u_0 - n^{-1/2} h_2 }
-    \right)^{k-x}
-    \left(
-        1+\frac{n^{-1/2}h_3}{u_0 + n^{-1/2} h_2}
-    \right)^x
-    \\
-    =&
-    \left(
-    1
-    -
-    \frac{(k-x) h_3}{1-u_0} n^{-1/2}
-    +\left( 
-    \frac{(k-x) (k-x-1) h_3^2}{ 2 (1-u_0)^2}
-        - \frac{(k-x) h_2 h_3}{(1-u_0)^2}  
-\right)n^{-1}
-\right)
-\\
-&
-    \left(
-1
-+
-\frac{x h_3}{u_0} n^{-1/2}
-+
-\left(
-\frac{x(x-1)h_3^2}{2 u_0^2}
-- \frac{x h_2 h_3}{u_0^2} 
-\right)
-n^{-1}
-\right)
-+O(n^{-3/2})
-\\
-=&
-1
-+
-\left(
-\frac{x }{u_0} 
-    -
-    \frac{k-x}{1-u_0}
-\right)
-    h_3 n^{-1/2}
-    \\
-    &+
-\left(
-    \frac{(k-x) (k-x-1) h_3^2}{ 2 (1-u_0)^2}
-        - \frac{(k-x) h_2 h_3}{(1-u_0)^2}  
-        +
-\frac{x(x-1)h_3^2}{2 u_0^2}
-- \frac{x h_2 h_3}{u_0^2} 
--
-\frac{x (k-x) h_3^2 }{(1-u_0) u_0} 
-\right)
-n^{-1}
-    +O(n^{-3/2})
-\\
-=&
-1
-+
-\frac{x- u_0 k}{u_0 (1- u_0)}
-    h_3 n^{-1/2}
-    \\
-    &+
-\left(
-    \frac{
-(x- u_0 k)^2 +(2u_0 - 1)x - k u_0^2  
-}{2u_0^2 (1-u_0)^2}
-h_3^2
-+
-    \frac{(2u_0 - 1)x - k u_0^2 }{u_0^2 (1-u_0)^2}
-h_2 h_3
-\right)
-n^{-1}
-    +O(n^{-3/2})
-.
-\end{align*}
-Thus,
-\begin{align*}
-    &
-        (\omega_0 + n^{-1/2} h_1 )
-        \left(
-            \left(
-                1- \frac{n^{-1/2} h_3}{1-u_0 - n^{-1/2} h_2}
-            \right)^{k-x}
-            \left(
-                1+ \frac{n^{-1/2} h_3}{u_0 + n^{-1/2} h_2}
-            \right)^{x}
-            -1
-        \right)
-        \\
-        =&
-        \omega_0
-\frac{x- u_0 k}{u_0 (1- u_0)}
-    h_3 n^{-1/2}
-    \\
-    &+
-\left(
-        \omega_0
-    \frac{
-(x- u_0 k)^2 +(2u_0 - 1)x - k u_0^2  
-}{2u_0^2 (1-u_0)^2}
-h_3^2
-+
-        \omega_0
-    \frac{(2u_0 - 1)x - k u_0^2 }{u_0^2 (1-u_0)^2}
-h_2 h_3
-+
-\frac{x- u_0 k}{u_0 (1- u_0)}
-    h_1 h_3 
-\right)
-n^{-1}
-\\
-&
-    +O(n^{-3/2})
-    .
-\end{align*}
-Thus,
-\begin{align*}
-    &
-    \log\left[
-        1+ 
-        (\omega_0 + n^{-1/2} h_1 )
-        \left(
-            \left(
-                1- \frac{n^{-1/2} h_3}{1-u_0 - n^{-1/2} h_2}
-            \right)^{k-x}
-            \left(
-                1+ \frac{n^{-1/2} h_3}{u_0 + n^{-1/2} h_2}
-            \right)^{x}
-            -1
-        \right)
-    \right]
-    \\
-=&
-        \omega_0
-\frac{x- u_0 k}{u_0 (1- u_0)}
-    h_3 n^{-1/2}
-    \\
-    &+
-\left(
-        \omega_0
-        \frac{(1-\omega_0) (x- u_0 k)^2 +(2u_0 - 1)x - k u_0^2  }{2u_0^2 (1-u_0)^2}
-h_3^2
-+
-        \omega_0
-    \frac{(2u_0 - 1)x - k u_0^2 }{u_0^2 (1-u_0)^2}
-h_2 h_3
-+
-\frac{x- u_0 k}{u_0 (1- u_0)}
-    h_1 h_3 
-\right)
-n^{-1}
-\\
-&
-+O(n^{-3/2})
-    .
-\end{align*}
-Thus,
-\begin{align*}
-    &
-    \log
-    \frac
-    {p(x | \theta_0 + n^{-1/2} h )} 
-    {p(x | \theta_0)} 
-    \\
-    =&
-    \frac{x- u_0 k}{u_0 (1- u_0)} (h_2 + \omega_0 h_3) n^{-1/2}
-    \\
-    &+
-\Bigg(
-    \frac{(2u_0 -1) x - k u_0^2  }{2u_0^2 (1-u_0)^2}
-    h_2^2
-    +
-        \omega_0
-        \frac{(1-\omega_0) (x- u_0 k)^2 +(2u_0 - 1)x - k u_0^2  }{2u_0^2 (1-u_0)^2}
-h_3^2
-\\
-&
-+
-        \omega_0
-    \frac{(2u_0 - 1)x - k u_0^2 }{u_0^2 (1-u_0)^2}
-h_2 h_3
-+
-\frac{x- u_0 k}{u_0 (1- u_0)}
-    h_1 h_3 
-\Bigg)
-n^{-1}
-\\
-&
-+O(n^{-3/2}),
-\end{align*}
-where the $O(\cdot)$ term is uniform for $x = 0, \dots, k$.
-
-Thus,
-\begin{align*}
-    R_n(\theta_0 \| \theta_0 + n^{-1/2}h) 
-    =&
-    -\frac{\bar \BX- u_0 k }{u_0 (1- u_0)} (h_2 + \omega_0 h_3) n^{1/2}
-    \\
-    &-
-\Bigg(
-    \frac{(2u_0 -1) \bar \BX - k u_0^2  }{2u_0^2 (1-u_0)^2}
-    h_2^2
-    +
-        \omega_0
-        \frac{(1-\omega_0)  \frac{1}{n}\sum_{i=1}^n (\BX_i- u_0 k )^2 +(2u_0 - 1)\bar \BX - k u_0^2  }{2u_0^2 (1-u_0)^2}
-h_3^2
-\\
-&
-+
-        \omega_0
-    \frac{(2u_0 - 1) \bar \BX - k u_0^2 }{u_0^2 (1-u_0)^2}
-h_2 h_3
-+
-\frac{\bar \BX- u_0 k }{u_0 (1- u_0)}
-    h_1 h_3 
-\Bigg)
-+O(n^{-1/2})
-\\
-    =&
-    -\frac{ h_2 + \omega_0 h_3 }{u_0 (1- u_0)}  n^{1/2}  (\bar \BX- u_0 k)
-    \\
-    &+
-    \frac{k
-(
-    h_2
-    +
-        \omega_0
-h_3
-)^2
-    }{2 u_0 (1-u_0)}
-+O(n^{-1/2})
-,
-\end{align*}
-
-
-
-
-
-Let $\theta_0 = (0, u_0, 0)^\top$.
-We have
-\begin{align*}
-    \log
-    \frac
-    {p(x | \theta )} 
-    {p(x | \theta_0)} 
-    =&
-    (k-x)
-    \log\left(
-        1-\frac{u-u_0}{1-u_0}
-    \right)
-    +
-    x
-    \log
-    \left(
-        1+\frac{u-u_0}{u_0}
-    \right)
-    \\
-    &
-    +
-    \log\left[
-        1+ 
-        \omega
-        \left\{
-            \left(
-                1- \frac{\xi}{1-u}
-            \right)^{k-x}
-            \left(
-                1+ \frac{\xi}{u}
-            \right)^{x}
-            -1
-        \right\}
-    \right].
-\end{align*}
-
-
-
-
-
+This problem naturally arises in gene linkage analysis when the trait of interest is heterogeneous \cite{Risch1989,CHIANO1995}.
+The LRT for this problem also has nonstandard behavior.
+In fact, \cite{Chernoff1995} proved that the asymptotic distribution of the LRT is related to the supremum of a Gaussian process.
+The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phenomenon.
 \begin{proposition}
-    Let 
-    \begin{align*}
-    A(M_n)=\{(\omega, p_1, p_2): \max(
-&\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-,
-\left(  p_2 - p_0 + (1-\omega) (p_1 - p_2)  \right)^2
-,
-\\
-&
-\omega^2 (p_2 - p_0)^2 (p_2 - p_1)^2
-,
-(1-\omega)^2 (p_1 - p_0)^2 (p_2 - p_1)^2
-    )\leq M_n n^{-1}\}.
-    \end{align*}
-    Let $0<t<1$ be a constant.
-    If $M_n \geq \log n$, then
+    Suppose $\pi(\omega,\xi)=\pi_{\omega}(\omega) \pi_{\xi}(\xi)$, $\pi_\xi(\xi)$ is proper and is continuous at $1/2$ with $\pi_\xi (1/2) > 0$,
+    $\pi_\omega(\omega)\sim \text{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
+    Suppose $ 0 < b < a < 1 $ are fixed.
+    Then,
+    \begin{enumerate}[(i)]
+        \item
+    under the null hypothesis,
     \begin{equation*}
-        P^n_{\theta_0} \int_{A(M_n)^\complement}  \left\{\prod_{i=1}^n \frac{p(X_i|\omega, p_1, p_2 )}{p(X_i| 0, p_0, 0)}\right\}^t \pi(\omega,p_1, p_2)\, \mathrm  d\omega \mathrm d p_1 \mathrm d p_2 =
+        \frac{2}{a-b}\log \Lambda_{a,b} (\BX^n) + \frac{1}{a-b} \log \left(\frac a b \right) \overset{P^n_{\theta_0}}{\rightsquigarrow}\chi^2(1);
     \end{equation*}
-\end{proposition}
-\begin{proof}
-    It can be seen that 
-\begin{equation*}
-    \begin{split}
-        &P^n_{\theta_0} \int_{A(M_n)^\complement} \left\{\prod_{i=1}^n \frac{p(X_i|\omega, p_1,p_2)}{p(X_i|0, p_0,0)}\right\}^t \pi(\omega, p_1, p_2)\, \mathrm d\omega \mathrm d p_1 \mathrm d p_2
-    \\
-    =&
-    \int_{A(M_n)^\complement} \left( \int p( x |\omega, p_1, p_2)^t p( x |0, p_0, 0)^{1-t}\, \mathrm d \mu (x) \right)^n \pi(\omega, p_1, p_2)\, \mathrm d\omega \mathrm d p_1 \mathrm d p_2.
-    \end{split}
-\end{equation*}
-Note that
-\begin{align*}
-    \sum_{x=0}^k p( x |\omega, p_1, p_2)^t p( x |0, p_0, 0)^{1-t}
-    \leq&  \left( \sum_{x=0}^k \sqrt{p( x |\omega, p_1, p_2) p( x |0, p_0, 0)} \right)^{2(t\wedge (1-t))}
-    \\
-    = & \left\{1-\frac{1}{2} \sum_{x=0}^k \left(\sqrt{p( x |\omega, p_1, p_2) }-\sqrt{p( x |0, p_0,0)}\right)^2 \right\}^{2(t\wedge (1-t))}
-\\
-\leq & \exp \left\{ -(t\wedge (1-t)) \sum_{x=0}^k \left(\sqrt{p( x |\omega,p_1, p_2) }-\sqrt{p( x |0, p_0 ,0)}\right)^2 \right\}
-.
-\end{align*}
-We have
-\begin{align*}
-\sum_{x=0}^k \left(\sqrt{p( x |\omega,p_1, p_2) }-\sqrt{p( x |0, p_0 ,0)}\right)^2 
-=&
-\sum_{x=0}^k \left(\frac{{p( x |\omega,p_1, p_2) }-{p( x |0, p_0 ,0)}}{\sqrt{p( x |\omega,p_1, p_2) }+\sqrt{p( x |0, p_0 ,0)}}\right)^2 
-\\
-\geq&
-\frac{1}{4}
-\sum_{x=0}^k \left({p( x |\omega,p_1, p_2) }-{p( x |0, p_0 ,0)}\right)^2 
-\\
-\geq&
-\frac{1}{4}
-\sum_{x=0}^k
-\left((1-\omega) (1-p_1)^{k-x} p_1^{x} + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x \right)^2 
-\\
-=&
-\frac{1}{4} \| \BA \gamma \|^2
-.
-\end{align*}
-
-Note that for $x > 0$,
-\begin{align*}
-    &(1-\omega) (1-p_1)^{k-x} p_1^{x} + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x 
-    \\
-    =&
-    \begin{pmatrix}
-        0&  \cdots & 0 & {k-x \choose 0} & {k-x \choose 1} (-1) & \cdots & {k-x \choose k-x } (-1)^{k-x}
-    \end{pmatrix}
-    \begin{pmatrix}
-        (1-\omega) p_1 + \omega p_2 - p_0 \\
-        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
-        \vdots
-        \\
-        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
-    \end{pmatrix}.
-\end{align*}
-And 
-\begin{align*}
-    &(1-\omega) (1-p_1)^{k}  + \omega (1-p_2)^{k}  - (1-p_0)^{k} 
-    \\
-    =&
-    \begin{pmatrix}
-        {k \choose 1} (-1) & \cdots & {k \choose k } (-1)^{k}
-    \end{pmatrix}
-    \begin{pmatrix}
-        (1-\omega) p_1 + \omega p_2 - p_0 \\
-        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
-        \vdots
-        \\
-        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
-    \end{pmatrix}.
-\end{align*}
-Hence
-\begin{align*}
-    \begin{pmatrix}
- &(1-\omega) (1-p_1)^{k} p_1^{x} + \omega (1-p_2)^{k} p_2^x - (1-p_0)^{k} p_0^x     
- \\
- &\vdots
- \\
- &(1-\omega) (1-p_1)^{k-x} p_1^{x} + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x     
-    \end{pmatrix}
-    =&
-    \BA
-    \begin{pmatrix}
-        (1-\omega) p_1 + \omega p_2 - p_0 \\
-        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
-        \vdots
-        \\
-        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
-    \end{pmatrix},
-\end{align*}
-where $\BA$ is a $(k+1) \times k$ matrix with $(\BA)_{i,j} ={ k -i + 1 \choose j - i + 1 }(-1)^{j-i + 1} $ for $j \geq i - 1$ and $(\BA)_{i,j} = 0$ otherwise.
-Then
-\begin{align*}
-    &
-    \sum_{x=0}^k \frac{{k \choose x}}{(1-p_0)^{k-x} p_0^x}
-    \left(
-        (1-\omega ) (1-p_1)^{k-x} p_1^x + \omega (1-p_2)^{k-x} p_2^x - (1-p_0)^{k-x} p_0^x
-    \right)^2
-    \\
-    =&
-    \|
-    \BD^{1/2}
-    \BA
-    \begin{pmatrix}
-        (1-\omega) p_1 + \omega p_2 - p_0 \\
-        (1-\omega) p_1^{2} + \omega p_2^{2} - p_0^{2} \\
-        \vdots
-        \\
-        (1-\omega) p_1^k + \omega p_2^k - p_0^k \\
-    \end{pmatrix}
-    \|^2
-    .
-\end{align*}
-
-Note that $\BA$ has rank $k$, hence for $k\geq 2$,
-\begin{align*}
-\sum_{x=0}^k \left(\sqrt{p( x |\omega,p_1, p_2) }-\sqrt{p( x |0, p_0 ,0)}\right)^2  
-\gtrsim
-&
- \|\gamma\|^2
-\\
-\geq
-&
- \left( (1-\omega) p_1 + \omega p_2 - p_0 \right)^2
- +\left( (1-\omega) p_1^2 + \omega p_2^2 - p_0^2 \right)^2.
-\end{align*}
-Note that
-\begin{align*}
- &\left( (1-\omega) p_1 + \omega p_2 - p_0 \right)^2
- +\left( (1-\omega) p_1^2 + \omega p_2^2 - p_0^2 \right)^2
- \\
-=&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+\left(  p_1^2 - p_0^2  + \omega (p_2^2 - p_1^2) \right)^2
- \\
-=&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+
-(p_1 + p_0)^2
-\left(  p_1 - p_0  + \omega \frac{p_2^2 - p_1^2}{p_1 + p_0} \right)^2
- \\
-=&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+
-(p_1 + p_0)^2
-\left(  p_1 - p_0 + \omega (p_2 - p_1) + \omega \frac{(p_2 - p_0)(p_2 - p_1)}{p_1 + p_0} \right)^2
- \\
-\gtrsim&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+
-\left(  p_1 - p_0 + \omega (p_2 - p_1) + \omega \frac{(p_2 - p_0)(p_2 - p_1)}{p_1 + p_0} \right)^2
- \\
-\gtrsim&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+
-\left(   \omega \frac{(p_2 - p_0)(p_2 - p_1)}{p_1 + p_0} \right)^2
- \\
-\gtrsim&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+
-\omega^2 (p_2 - p_0)^2 (p_2 - p_1)^2
- .
-\end{align*}
-Similarly,
-\begin{align*}
- &\left( (1-\omega) p_1 + \omega p_2 - p_0 \right)^2
- +\left( (1-\omega) p_1^2 + \omega p_2^2 - p_0^2 \right)^2
- \\
-=&
-\left(  p_2 - p_0 + (1-\omega) (p_1 - p_2)  \right)^2
-+\left(  p_2^2 - p_0^2  + (1-\omega) (p_1^2 - p_2^2) \right)^2
- \\
-\gtrsim&
-\left(  p_2 - p_0 + (1-\omega) (p_1 - p_2)  \right)^2
-+
-(1-\omega)^2 (p_1 - p_0)^2 (p_2 - p_1)^2
- .
-\end{align*}
-Thus,
-\begin{align*}
- &\left( (1-\omega) p_1 + \omega p_2 - p_0 \right)^2
- +\left( (1-\omega) p_1^2 + \omega p_2^2 - p_0^2 \right)^2
- \\
-\gtrsim&
-\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-+
-\left(  p_2 - p_0 + (1-\omega) (p_1 - p_2)  \right)^2
-+
-\\
-&
-\omega^2 (p_2 - p_0)^2 (p_2 - p_1)^2
-+
-(1-\omega)^2 (p_1 - p_0)^2 (p_2 - p_1)^2
- .
-\end{align*}
-
-
-\end{proof}
-
-\begin{proposition}
-    Let 
-    \begin{align*}
-    A(M_n)=\{(\omega, p_1, p_2): \max(
-&\left(  p_1 - p_0 + \omega (p_2 - p_1)  \right)^2
-,
-\left(  p_2 - p_0 + (1-\omega) (p_1 - p_2)  \right)^2
-,
-\\
-&
-\omega^2 (p_2 - p_0)^2 (p_2 - p_1)^2
-,
-(1-\omega)^2 (p_1 - p_0)^2 (p_2 - p_1)^2
-    )\leq M_n n^{-1}\}.
-    \end{align*}
-    Let $0<t<1$ be a constant.
-    Then
+\item
+    suppose for some $s<1/4$, $\omega \geq n^{-s}$ for large $n$, $\sqrt{n}\omega (\xi - 1/2) \to \eta$, then
     \begin{equation*}
-        \int_{A(\log n )} \left\{\prod_{i=1}^n \frac{p(X_i|\omega, p_1, p_2 )}{p(X_i| 0, p_0, 0)}\right\}^t \pi(\omega,p_1, p_2)\, \mathrm  d\omega \mathrm d p_1 \mathrm d p_2 =
-         .
+        \frac{2}{a-b} \log \Lambda_{a,b} (\BX^n) + \frac{1}{a-b} \log \left(\frac a b \right) \overset{P^n_{\theta_n}}{\rightsquigarrow}  \chi^2(1, 4 k \eta^2).
     \end{equation*}
+\end{enumerate}
+    \label{mixtureThm_binom}
 \end{proposition}
-\begin{proof}
-     
-\end{proof}
-
-\begin{align*}
-    p(x | \omega, p_1, p_2 ) 
-    =
-    (1- \omega) {k \choose x} (1- p_1)^{k-x} p_1^{x}
-    + \omega {k \choose x} (1- p_2)^{k-x} p_2^{x}.
-\end{align*}
-Then
-\begin{align*}
-    \frac
-    {
-    p(x | \omega, p_1, p_2 ) 
-}{
-    p(x | 0, p_0, 0 ) 
-    }
-    =
-    (1- \omega)  \frac{(1- p_1)^{k-x} p_1^{x}}{(1- p_0)^{k-x} p_0^{x}}
-    + \omega  \frac{(1- p_2)^{k-x} p_2^{x}}{(1- p_0)^{k-x} p_0^{x}}.
-\end{align*}
-Note that as $t \to 0$, uniformly for $j=0 ,\dots, k$,
-\begin{align*}
-    (1+t)^j = 1 + jt + \frac{j(j-1)}{2} t^2 + O(t^3),
-    \quad
-    \log(1+t) = t - \frac{1}{2}t^2 + O(t^3),
-    \quad
-    \frac{1}{1-t} = 1 + t + t^2 + O(t^3)
-    .
-\end{align*}
-
-For $p \in (0,1)$,
-\begin{align*}
-    &(1-p_1)^{k-x} p_1^x -
-    (1-p_0)^{k-x} p_0^x 
-    \\
-    =&
-    (1-p_0 -( p_1 - p_0))^{k-x} (p_0 + p_1 - p_0)^x -
-    (1-p_0)^{k-x} p_0^x .
-\end{align*}
-Note that
-\begin{align*}
-&(1-p_0 -( p_1 - p_0))^{k-x} 
-\\
-= &
-    (1-p_0)^{k-x} -(k-x)(1-p_0)^{k-x-1}( p_1 - p_0) +\frac{(k-x)(k-x-1)}{2} (1-p_0)^{k-x-2}(p_1 - p_0)^2 
-    + O(|p_1 - p_0|^3).
-\end{align*}
-And
-\begin{align*}
-(p_0 + p_1 - p_0)^x
-=
-p_0^x + x p_0^{x-1} (p_1 - p_0) + \frac{x(x-1)}{2} p_0^{x-2}(p_1 - p_0)^2  
-+ O(|p_1 - p_0|^3).
-\end{align*}
-Hence
-\begin{align*}
-    &
-    (1-p_0 -( p_1 - p_0))^{k-x} (p_0 + p_1 - p_0)^x 
-    \\
-=&
-\left(
-    (1-p_0)^{k-x} -(k-x)(1-p_0)^{k-x-1}( p_1 - p_0) +\frac{(k-x)(k-x-1)}{2} (1-p_0)^{k-x-2}(p_1 - p_0)^2 
-\right)
-\\
-&
-\left(
-p_0^x + x p_0^{x-1} (p_1 - p_0) + \frac{x(x-1)}{2} p_0^{x-2}(p_1 - p_0)^2  
-\right)
-+ O(|p_1 - p_0|^3)
-\\
-=&
-    (1-p_0)^{k-x}p_0^x
-    + \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right)(1-p_0)^{k-x} p_0^x ( p_1 - p_0) 
-    \\
-    &
-    + \left(\frac{x(x-1)}{2 p_0^2 } + \frac{(k-x)(k-x-1)}{2(1-p_0)^2} - \frac{x(k-x)}{p_0 (1- p_0 )} \right)(1-p_0)^{k-x} p_0^x ( p_1 - p_0)^2
-    + O(|p_1 - p_0|^3).
-\end{align*}
-Thus, uniformly for $x = 0, 1,\dots , k$ and $p_1 \in (0,1)$,
-\begin{align*}
-    &\frac{(1-p_1)^{k-x} p_1^x}
-    {(1-p_0)^{k-x} p_0^x }
-    \\
-    =&
-     1 + 
-    \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) ( p_1 - p_0) 
-    \\
-    &
-    + \left(\frac{x(x-1)}{2 p_0^2 } + \frac{(k-x)(k-x-1)}{2(1-p_0)^2} - \frac{x(k-x)}{p_0 (1- p_0 )} \right) ( p_1 - p_0)^2
-    + O(|p_1 - p_0|^3).
-\end{align*}
-Thus, uniformly for $x = 0, 1,\dots , k$ and $p_1, p_2 \in (0,1)$,
-\begin{align*}
-    & 
-    \frac{p(x|\omega, p_1 , p_2)}{p(x|0, p_0, 0)}
-    \\
-    =&
-     1 + 
-     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-    + \left(\frac{x(x-1)}{2 p_0^2 } + \frac{(k-x)(k-x-1)}{2(1-p_0)^2} - \frac{x(k-x)}{p_0 (1- p_0 )} \right) \left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
-    \\
-    &
-    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3)
-    \\
-    =&
-     1 + 
-     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-+ \frac{1}{2}
-\left(
-    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
-    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
-\right)
-\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
-    \\
-    &
-    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3).
-\end{align*}
-
-We have, uniformly for $x = 0, 1,\dots , k$ and $p_1, p_2 \in (0,1)$,
-\begin{align*}
-    & 
-    \log \frac{p(x|\omega, p_1 , p_2)}{p(x|0, p_0, 0)}
-    \\
-    =&
-     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-+ \frac{1}{2}
-\left(
-    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
-    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
-\right)
-\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
-    \\
-    &
-    -\frac{1}{2}
-    \Bigg(
-     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-+ \frac{1}{2}
-\left(
-    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
-    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
-\right)
-\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
-\Bigg)^2
-    \\
-    &
-    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3)
-    \\
-    =&
-     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-+ \frac{1}{2}
-\left(
-    \left(\frac{x}{ p_0 } - \frac{k-x}{1- p_0 } \right)^2 
-    -\frac{x}{p_0^2} - \frac{k-x}{(1-p_0)^2}
-\right)
-\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
-    \\
-    &
-    -\frac{1}{2}
-    \Bigg(
-     \left(\frac{x}{p_0} -  \frac{k-x}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-\Bigg)^2
-    \\
-    &
-    + O((1-\omega)|p_1 - p_0|^3 + \omega |p_2 - p_0|^3).
-\end{align*}
-Thus,
-\begin{align*}
-    & 
-    \sum_{i=1}^n \log \frac{p( X_i |\omega, p_1 , p_2)}{p( X_i |0, p_0, 0)}
-    \\
-    =&
-    \sum_{i=1}^n \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-+ \frac{1}{2}
-\sum_{i=1}^n \left(
-    \left(\frac{X_i}{ p_0 } - \frac{k-X_i}{1- p_0 } \right)^2 
-    -\frac{X_i}{p_0^2} - \frac{k-X_i}{(1-p_0)^2}
-\right)
-\left((1-\omega)( p_1 - p_0)^2 + \omega (p_2 - p_0)^2 \right)
-    \\
-    &
-    -\frac{1}{2}
-    \sum_{i=1}^n
-    \Bigg(
-     \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-\Bigg)^2
-    \\
-    &
-    + O((1-\omega) n |p_1 - p_0|^3 + \omega  n |p_2 - p_0|^3).
-\end{align*}
-
-Note that
-\begin{align*}
-    \myE \left(\frac{X_1}{p_0} -  \frac{k-X_1}{1-p_0} \right) = 0,
-    \quad
-    \myVar \left(\frac{X_1}{p_0} -  \frac{k-X_1}{1-p_0} \right) = \frac{k}{p_0 (1-p_0)}.
-\end{align*}
-Thus,
-\begin{align*}
-    & 
-    \sum_{i=1}^n \log \frac{p( X_i |\omega, p_1 , p_2)}{p( X_i |0, p_0, 0)}
-    \\
-    =&
-    \sum_{i=1}^n \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    \\
-    &
-    -\frac{1}{2}
-    \sum_{i=1}^n
-     \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right)^2 \left((1-\omega) p_1 + \omega p_2 - p_0 \right)^2
-    \\
-    &
-    +
-    O_p\left( (1-\omega)\sqrt{n} ( p_1 - p_0)^2 + \omega \sqrt{n} (p_2 - p_0)^2 \right)
-    + O((1-\omega) n |p_1 - p_0|^3 + \omega  n |p_2 - p_0|^3)
-    \\
-    =&
-    \frac{1}{\sqrt n}\sum_{i=1}^n \left(\frac{X_i}{p_0} -  \frac{k-X_i}{1-p_0} \right) \sqrt{n} \left((1-\omega) p_1 + \omega p_2 - p_0 \right)
-    - \frac{k }{2 p_0 (1-p_0)}
-    n
-     \left((1-\omega) p_1 + \omega p_2 - p_0 \right)^2
-    \\
-    &
-    +
-    O_p\left( (1-\omega)\sqrt{n} ( p_1 - p_0)^2 + \omega \sqrt{n} (p_2 - p_0)^2 \right)
-    + O((1-\omega) n |p_1 - p_0|^3 + \omega  n |p_2 - p_0|^3).
-\end{align*}
-
-
-
-
-
-
-
-
-
-
-
 
 %\section{Heteroscedastic regression model}
 %\cite{Li2000},
@@ -3698,13 +2794,13 @@ If $\sqrt{n}((\xi,\sigma^2)-(0,1))^\top \to (\eta_1,\eta_2)^\top  $, then $\sqrt
 
 To prove Proposition~\ref{mixtureThm}, the following result is useful.
 
-{\color{red} there seems an error here}
 
 \begin{proposition}\label{lastProp}
-    Suppose the conditions of Proposition~\ref{mixtureThm} holds.
+    Suppose the conditions of Proposition~\ref{mixtureThm} hold.
     Let $A(M_n)=\{(\omega, \xi): \omega \big( 2\Phi(|\xi|/2)-1\big)\leq M_n n^{-1/2}\}$.
     Let $0<t<1$ be a constant.
-    If $M_n \geq \sqrt{{\log n}/(2(t\wedge (1-t)))}$, then
+    %If $M_n / \sqrt{{\log n}/(2(t\wedge (1-t)))} \to \infty$, then
+    If $M_n \geq \sqrt{{\log n}/(t\wedge (1-t))}$, then
     \begin{equation*}
         P^n_{\theta_0} \int_{A(M_n)^\complement} \left\{\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\right\}^t \pi(\omega,\xi)\, \mathrm  d\omega \mathrm d \xi =o(n^{-1/2}).
     \end{equation*}
@@ -3745,18 +2841,10 @@ The last display implies that
     \\
     \leq
     &
-    \int_{A(M_n)^\complement} \exp \left\{ -(t\wedge (1-t)) M_n^2 \right\}
-    \pi_{\omega}(\omega) \pi_\xi(\xi)\, \mathrm d\omega \mathrm d\xi
+    \exp \left\{ -(t\wedge (1-t)) M_n^2 \right\}
 \\
-    \leq
-    &
-    n^{-1/2}
-    \int_{A(M_n)^\complement} 
-\pi_{\omega}(\omega) \pi_\xi(\xi)\, \mathrm d\omega \mathrm d\xi
-\\
-=&{\color{red}o(n^{-1/2})}.
+=&o(n^{-1/2}).
 \end{align*}
-{\color{red} Seems should be O() instead of o().}
 This completes the proof.
 
 \end{proof}
@@ -3773,11 +2861,11 @@ $
 Y_i=\big(\exp(\xi X_i -\xi^2/2)-1\big)/\xi
 $ if $\xi \neq 0$ and $Y_i=X_i$ if $\xi =0$.
 
-Let $r>1/2$ and $s< 1/4$.
+Let $r>1$ and $ 0 < s< 1/4$ be two fixed real numbers.
 On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
 we have $|\xi| = O\big((\log n)^{r}/n^{1/2-s}\big)$.
 It is known that $\max_{1\leq i \leq n}|X_i|=O_{P_{\theta_0}^n}(\sqrt{\log n})$.
-On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i\leq n}|\xi X_i-\xi^2/2|\leq |\xi| \max_{1\leq i\leq n}|X_i|+\xi^2/2=O_{P_{\theta_0}^n} (|\xi|(\log n)^{1/2})$.
+On $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have $\max_{1\leq i\leq n}|\xi X_i-\xi^2/2|= O_{P_{\theta_0}^n} (|\xi|(\log n)^{1/2})$.
 Then uniformly for $ (\omega, \xi) \in A((\log n)^r)\cap \{\omega\geq n^{-s}\}$ and $i=1,\ldots, n$, 
 \begin{align*}
 Y_i&=\xi^{-1}\Big(\xi X_i-\xi^2/2 +\frac{1}{2}(\xi X_i-\xi^2/2)^2+O_{P^n_{\theta_0}} \big(|\xi|^3 (\log n)^{3/2}\big)\Big) 
@@ -3795,7 +2883,7 @@ Then by Taylor expansion, uniformly for $ (\omega, \xi) \in A((\log n)^r)\cap \{
     \\
     =& \omega \xi\sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 \xi^2 \sum_{i=1}^n Y_i^2+o_{P^n_{\theta_0}}(1).
 \end{align*}
-Note that
+Note that uniformly on $ A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
 \begin{align*}
     \omega \xi\sum_{i=1}^n Y_i
     =&
@@ -3808,7 +2896,8 @@ Note that
 =&
 \omega \xi\sum_{i=1}^n X_i + o_{P^n_{\theta_0}}(1).
 \end{align*}
-On the other hand, $\omega^2 \xi^2 \sum_{i=1}^n Y_i^2=n\omega^2 \xi^2 +o_{P^n_{\theta_0}}(1)$.
+Similarly, it is not hard to see that uniformly on $ A((\log n)^r)\cap \{\omega\geq n^{-s}\}$, we have
+$\omega^2 \xi^2 \sum_{i=1}^n Y_i^2=n\omega^2 \xi^2 +o_{P^n_{\theta_0}}(1)$.
 Then uniformly on $A((\log n)^r)\cap \{\omega\geq n^{-s}\}$,
 \begin{equation}\label{eq:mixtureaiya1}
     \sum_{i=1}^n \log \frac{p(X_i|\omega,\xi)}{ p(X_i|0,0)}
@@ -3889,20 +2978,24 @@ Thus,
 \end{align*}
 
 
-Now we consider the event $A((\log n)^r)\cap \{\omega\leq n^{-s}\} $. By Theorem 2 of \cite{LIU200461}, we have 
-\begin{equation*}
-    \sup_{\omega\in [0,1], \xi \in \mathbb{R}}
-    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p(X_i|0,0)\big)
-    =O_{P^n_{\theta_0}}(\log \log n).
-\end{equation*}
-Thus,
+Now we consider the event $A((\log n)^r)\cap \{\omega\leq n^{-s}\} $.
+%By Theorem 2 of \cite{LIU200461}, we have 
+%\begin{equation*}
+%    \sup_{\omega\in [0,1], \xi \in \mathbb{R}}
+%    \sum_{i=1}^n \big(\log p(X_i|\omega,\xi)-\log p(X_i|0,0)\big)
+%    =O_{P^n_{\theta_0}}(\log \log n).
+%\end{equation*}
+%Thus,
+We have
 \begin{align*}
-    & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \left\{\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\right\}^t \pi(\omega,\xi)\, \mathrm d\omega \mathrm d\xi
+    & P_{\theta_0}^n \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \left\{\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\right\}^t \pi(\omega,\xi)\, \mathrm d\omega \mathrm d\xi
+    \\
+    \leq & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \pi(\omega,\xi)\, \mathrm d\omega \mathrm d\xi
     \\
     %=&\int_\Theta \exp\big\{
         %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
     %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
-    =&\exp\left\{O_{P^n_{\theta_0}}(\log\log n)\right\}
+    =&
     \Pi\left(\omega(2\Phi(|\xi|/2)-1)\leq (\log n)^r n^{-1/2}, \omega\leq n^{-s}\right).
 \end{align*}
 We break the probability into two parts: 
@@ -3919,16 +3012,19 @@ We break the probability into two parts:
 \end{align*}
 The first probability satisfies
 \begin{align*}
-    & \Pi\left(\omega(2\Phi(|\xi|/2)-1)
+     \Pi\left(\omega(2\Phi(|\xi|/2)-1)
     \leq  (\log n)^r n^{-1/2}, \omega\leq  2(\log n)^r n^{-1/2}\right)
-    \\
     \leq &
     \Pi\left( \omega\leq  2(\log n)^r n^{-1/2}\right)
     \\
     \lesssim  &
     \int_{0}^{2(\log n)^r n^{-1/2}} w^{\alpha_1-1}\, \mathrm d\omega
     \\
-    \lesssim & \left(\frac{(\log n)^r}{\sqrt{n}}\right)^{\alpha_1}.
+    \lesssim & \left(\frac{(\log n)^r}{\sqrt{n}}\right)^{\alpha_1}
+    \\
+    = & 
+    o(n^{-1/2})
+    .
 \end{align*}
 Next we deal with the second probability.
 On the event of the second probability, we have
@@ -3969,20 +3065,18 @@ There exits $\epsilon>0$ and $M>0$ such that $\pi_{\xi}(\xi)\leq M$ for $\xi\in 
     \\
     \lesssim &
      \Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}
-     +\frac{(\log n)^r}{\sqrt{n}}\Bigg(\Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1-1}\vee \Big(\frac{1}{n^{s}}\Big)^{\alpha_1-1}\Bigg)
+     +\frac{(\log n)^r}{n^{1/2 + (\alpha_1 - 1) s }}
      \\
-    \lesssim &
-    \Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}\vee \frac{(\log n)^r}{n^{1/2+s(\alpha_1-1)}}.
+     = & 
+    o(n^{-1/2})
+     .
 \end{align*}
 It follows that
 \begin{align*}
     & \int_{A( (\log n)^r )\cap \{\omega\leq n^{-s}\}} \left\{\prod_{i=1}^n \frac{p(X_i|\omega,\xi)}{p(X_i|0,0)}\right\}^t \pi(\omega,\xi)\, \mathrm d\omega \mathrm d\xi
-    \\
-    %=&\int_\Theta \exp\big\{
-        %\omega \xi \sum_{i=1}^n Y_i -\frac{1}{2} \omega^2 n \big(\exp(\xi^2)-1\big)
-    %\big\} \pi(\omega,\xi)\, d\omega d\xi\\
-    =&\exp\big\{O_{P^2_{\theta_0}}(\log(\log n))\big\}
-    \Bigg(\Big(\frac{(\log n)^r}{\sqrt{n}}\Big)^{\alpha_1}\vee \frac{(\log n)^r}{n^{1/2+s(\alpha_1-1)}}\Bigg)=o_{P^n_{\theta_0}}(n^{-1/2}).
+    =
+    o_{P^n_{\theta_0}}(n^{-1/2})
+    .
 \end{align*}
 Combine these arguments and Proposition~\ref{lastProp}, we have
 \begin{align*}
@@ -4014,7 +3108,7 @@ As a result,
 \end{equation*}
 Note that~\eqref{eq:mixtureaiya1} implies that
 \begin{equation*}
-        \left(n^{-1/2}\sum_{i=1}^n X_i,\log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\top 
+    \left(\frac{1}{\sqrt n}\sum_{i=1}^n X_i,\log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\top 
         \overset{P^n_{\theta_0}}{\rightsquigarrow}
         \mathcal{N}_2\left(
     \begin{pmatrix}
@@ -4030,7 +3124,7 @@ Note that~\eqref{eq:mixtureaiya1} implies that
 \end{equation*}
 By Le Cam's third lemma~\citep[Example 6.7]{van2000asymptotic}, we have
 \begin{equation*}
-    \sum_{i=1}^n X_i
+    \frac{1}{\sqrt n}\sum_{i=1}^n X_i
     \overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(\eta,1).
 \end{equation*}
 This proves the conclusion of (ii).
@@ -4538,6 +3632,310 @@ This proves the conclusion of (ii).
 %\endbibitem
 %
 %\end{thebibliography}
+
+\begin{proof}[\textbf{Proof of Proposition \ref{mixtureThm_binom}}]
+
+    Let $0< s < 1/4$ be a fixed number.
+    We break the parameter space into three parts:
+    \begin{align*}
+        \Theta
+        =
+        &
+        A_1 
+        \cup
+        A_2
+        \cup
+        A_3
+    ,
+    \end{align*}
+    where
+    \begin{align*}
+         A_1 =& 
+        \{(\omega, \xi) \in \Theta:
+            \omega | \xi - 1/2 | > {(\log n)^2}/{ \sqrt n}
+        \} ,
+    \\
+    A_2 = &
+        \{(\omega, \xi) \in \Theta:
+            \omega | \xi - 1/2 | \leq {(\log n)^2}/{ \sqrt n}, 
+            \omega \leq n^{-s}
+        \},
+    \\
+    A_3 = &
+        \{(\omega, \xi) \in \Theta:
+            \omega | \xi - 1/2 | \leq {(\log n)^2}/{ \sqrt n}, 
+            \omega > n^{-s}
+        \}.
+    \end{align*}
+    First we prove that the integral of the likelihood ratio over the first two regions is negligible.
+    It can be seen that 
+\begin{equation*}
+    \begin{split}
+        P^n_{\theta_0} \int_{A_1} \left\{\prod_{i=1}^n \frac{p(X_i|\omega, \xi)}{p(X_i|0, 1/2 )}\right\}^t \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+    =&
+    \int_{A_1} \left( \sum_{x=0}^k p( x |\omega, \xi)^t p( x |0, 1/2 )^{1-t} \right)^n \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi.
+    \end{split}
+\end{equation*}
+Note that
+\begin{align*}
+    \sum_{x=0}^k p( x |\omega, \xi)^t p( x |0, 1/2  )^{1-t}
+    \leq&  \left( \sum_{x=0}^k \sqrt{p( x |\omega, \xi) p( x |0, 1/2 )} \right)^{2(t\wedge (1-t))}
+    \\
+    = & \left\{1-\frac{1}{2} \sum_{x=0}^k \left(\sqrt{p( x |\omega, \xi) }-\sqrt{p( x |0, 1/2  )}\right)^2 \right\}^{2(t\wedge (1-t))}
+\\
+\leq & \exp \left\{ -(t\wedge (1-t)) \sum_{x=0}^k \left(\sqrt{p( x |\omega,\xi) }-\sqrt{p( x |0, 1/2  )}\right)^2 \right\}
+.
+\end{align*}
+But
+\begin{align*}
+    \sum_{x=0}^k \left(\sqrt{p( x |\omega, \xi) }-\sqrt{p( x |0, 1/2  )}\right)^2 
+=&
+\sum_{x=0}^k \left(\frac{{p( x |\omega,\xi) }-{p( x |0, 1/2  )}}{\sqrt{p( x |\omega, \xi) }+\sqrt{p( x |0, 1/2  )}}\right)^2 
+\\
+\geq&
+\frac{1}{4}
+ \left({p( k |\omega, \xi) }-{p( k |0, 1/2 )}\right)^2 
+\\
+\gtrsim&
+\omega^2
+\left( p - 1/2 \right)^2 
+.
+\end{align*}
+Then there is a $c>0$ such that
+\begin{equation*}
+    \begin{split}
+        P^n_{\theta_0} \int_{A_1} \left\{\prod_{i=1}^n \frac{p(X_i|\omega, \xi)}{p(X_i|0, 1/2 )}\right\}^t \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+    \leq &
+    \int_{A_1} 
+    \exp\{ - c n \omega^2 \left( \xi - 1/2 \right)^2 \}
+    \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+    \\
+    \leq &
+    \exp\{ - c (\log n)^2 \}
+    \\
+    = &
+    o(n^{-1/2})
+    .
+    \end{split}
+\end{equation*}
+For $A_2$, we have
+\begin{equation*}
+    \begin{split}
+        &
+        P^n_{\theta_0} \int_{A_2} \left\{\prod_{i=1}^n \frac{p(X_i|\omega, \xi)}{p(X_i|0, 1/2 )}\right\}^t \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+        \\
+    \leq&
+    \int_{A_2}  \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+    \\
+    =&
+    \int_{A_2\cap\{\omega\leq  (\log n)^3 / \sqrt n\}}  \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+    +
+    \int_{A_2\cap\{\omega>  (\log n)^3 / \sqrt n\}}  \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+    .
+    \\
+    \leq&
+    \int_{0}^{ \frac{ (\log n)^3}{\sqrt n}} \pi_\omega(\omega)  \, \mathrm d\omega
+    +
+    \int_{\frac{(\log n)^3}{\sqrt n}}^{n^{-s}} \pi_\omega(\omega)  \, \mathrm d\omega
+    \int_{\frac 1 2 - \frac{(\log n)^2}{\omega \sqrt n}}^{\frac 1 2 + \frac{(\log n)^2}{\omega \sqrt n}}
+    \pi_\xi (\xi)\, \mathrm d \xi
+    \\
+    \lesssim &
+    \int_{0}^{ \frac{ (\log n)^3}{\sqrt n}} \omega^{\alpha_1 - 1 } \, \mathrm d\omega
+    +
+\frac{(\log n)^2}{ \sqrt n}
+\int_{0}^{n^{-s}} \frac{1}{\omega} \pi_\omega(\omega)  \, \mathrm d\omega
+    \\
+    \lesssim &
+    \left({ \frac{ (\log n)^3}{\sqrt n}}\right)^{\alpha_1}
+    +
+    \frac{(\log n)^2}{ n^{1/2+(\alpha_1 - 1)s}}
+    \\
+    =& o(n^{-1/2})
+    .
+    \end{split}
+\end{equation*}
+
+Now we deal with the integral on $A_3$.
+From Taylor's theorem,
+\begin{align*}
+    \omega (2^k{(1-\xi)^{k-x} \xi^x} - 1)
+    =&
+     2 \left(2x - k \right) \omega ( \xi - 1/2 ) 
+    + 2 \left((2x-k)^2 - k \right) \omega ( \xi - 1/2 )^2
+    + O( \omega |\xi - 1/2 |^3).
+\end{align*}
+Thus, there is an $\epsilon > 0$ such that for $\omega |\xi - 1/2 | \leq \epsilon $ and $x = 0, 1, \dots, k$,
+\begin{align*}
+    \log \frac{p(x|\omega, \xi)}{p(x|0, 1/2 )}
+    =&
+    \log \left( 1 + 
+        \omega (2^k{(1-\xi)^{k-x} \xi^x} - 1)
+    \right)
+    \\
+    =&
+        \omega (2^k{(1-\xi)^{k-x} \xi^x} - 1)
+        -\frac{1}{2}
+        \left(\omega (2^k{(1-\xi)^{k-x} \xi^x} - 1)\right)^2
+        +O(\omega^3 | \xi - 1/2 |^3 )
+    \\
+    =&
+     2 \left(2x - k \right) \omega ( \xi - 1/2 ) 
+    - 2 \left(2x - k \right)^2 \omega^2 ( \xi - 1/2 )^2
+    \\
+    &
+    + 2 \left((2x-k)^2 - k \right) \omega ( \xi - 1/2 )^2
+        +
+        O(\omega | \xi - 1/2 |^3 )
+        .
+\end{align*}
+Thus, for $\omega |\xi - 1/2 | \leq \epsilon $,
+\begin{align*}
+    \sum_{i=1}^n \log \frac{p( X_i |\omega, \xi )}{p( X_i |0, 1/2 )}
+    =&
+    2 \sum_{i=1}^n \left(2 X_i - k \right) \omega ( \xi - 1/2 ) 
+    - 2 \sum_{i=1}^n \left(2 X_i - k \right)^2 \omega^2 ( \xi - 1/2 )^2
+    \\
+    &
+    + 2 \sum_{i=1}^n \left((2 X_i - k)^2 - k \right) \omega ( \xi - 1/2 )^2
+        +
+        O( n \omega | \xi - 1/2 |^3 )
+        \\
+    =&
+    \frac{2}{\sqrt n}  \sum_{i=1}^n \left(2 X_i - k \right)
+     \sqrt n \omega ( \xi - 1/2 ) 
+     - 2 k \left( \sqrt n \omega ( \xi - 1/2 )\right)^2
+    \\
+    &
+        +
+     \sqrt n \omega ( \xi - 1/2 )^2 O_{P_{\theta_0}^n}(1)
+        +
+        O( n \omega | \xi - 1/2 |^3 ).
+\end{align*}
+Thus, uniformly on $A_3$,
+for $\omega |\xi - 1/2 | = O(n^{-1/2})$ and $|\xi- 1/2| = o(n^{-1/4})$,
+\begin{align}
+    \sum_{i=1}^n \log \frac{p( X_i |\omega, \xi )}{p( X_i |0, 1/2 )}
+    =&
+    \frac{2}{\sqrt n}  \sum_{i=1}^n \left(2 X_i - k \right)
+     \sqrt n \omega ( \xi - 1/2 ) 
+     - 2 k \left( \sqrt n \omega ( \xi - 1/2 )\right)^2
+     +
+     o_{P_{\theta_0}^n}(1).
+     \label{eq:2020binom}
+\end{align}
+
+Then
+\begin{align*}
+    &
+\int_{A_3} \left\{\prod_{i=1}^n \frac{p(X_i|\omega, \xi)}{p(X_i|0, 1/2 )}\right\}^t \pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+\\
+=&
+\left(1+o_{P_{\theta_0}^n}(1)\right)
+\int_{A_3} 
+\exp\left\{
+    \frac{2t}{\sqrt n}  \sum_{i=1}^n \left(2 X_i - k \right)
+     \sqrt n \omega ( \xi - 1/2 ) 
+     - 2 t k \left( \sqrt n \omega ( \xi - 1/2 )\right)^2
+\right\}
+\pi(\omega, \xi)\, \mathrm d\omega \mathrm d \xi
+\\
+=&
+\left(1+o_{P_{\theta_0}^n}(1)\right)
+\pi_\xi(1/2)
+\frac{\sqrt{2\pi}}
+{
+2 \sqrt{tkn}
+}
+\exp\left\{
+\frac{t}{2kn} \left( \sum_{i=1}^n (2X_i - k)\right)^2
+\right\}
+\\
+&
+\int_{n^{-s}}^1
+\frac{1}{\omega}
+\pi_\omega (\omega)\, \mathrm d\omega
+\int_{\frac 1 2 - \frac{(\log n)^2}{\omega \sqrt n}}^{\frac 1 2 + \frac{(\log n)^2}{\omega \sqrt n}}
+\frac{2\omega \sqrt{tkn}}{\sqrt{2\pi}}
+\exp\left\{
+    -2tk n \omega^2 \left( \xi - 1/2 - \frac{1}{2k n \omega } \sum_{i=1}^n (2X_i - k) \right)^2
+\right\}
+\, \mathrm d \xi
+\\
+=&
+\left(1+o_{P_{\theta_0}^n}(1)\right)
+\pi_\xi(1/2)
+\frac{\sqrt{2\pi}}
+{
+2 \sqrt{tkn}
+}
+\exp\left\{
+\frac{t}{2kn} \left( \sum_{i=1}^n (2X_i - k)\right)^2
+\right\}
+\\
+&
+\int_{n^{-s}}^1
+\frac{1}{\omega}
+\pi_\omega (\omega)\, \mathrm d\omega
+    \int_{-2\sqrt{tk} (\log n)^2 - \frac{\sqrt t}{\sqrt{kn}} \sum_{i=1}^n (2X_i - k)}^{2\sqrt{tk} (\log n)^2 - \frac{\sqrt t}{\sqrt{kn}} \sum_{i=1}^n (2X_i - k)} \frac{1}{\sqrt{2\pi}} \exp\{ - \xi^2/2\} \, \mathrm d \xi
+\\
+=&
+\left(1+o_{P_{\theta_0}^n}(1)\right)
+\frac{\sqrt{2\pi}\pi_\xi(1/2)}
+{
+2 \sqrt{tkn}
+}
+\exp\left\{
+\frac{t}{2kn} \left( \sum_{i=1}^n (2X_i - k)\right)^2
+\right\}
+\int_{0}^1
+\frac{1}{\omega}
+\pi_\omega (\omega)\, \mathrm d\omega
+.
+\end{align*}
+Thus,
+\begin{align*}
+    2\log \Lambda_{a,b} (\BX^n)
+    =
+    -\log(a/b) + \frac{a-b}{kn} \left( \sum_{i=1}^n (2X_i - k)\right)^2 + o_{P_{\theta_0}^n}(1).
+\end{align*}
+Then the conclusion (i) follows from the fact $\left( \sum_{i=1}^n (2X_i - k)\right)^2/(kn)$ weakly converges to $\chi^2(1)$ under $P_{\theta_0}^n$.
+
+Now we prove (ii).
+Suppose $\theta_n = (\omega, \xi) \in A_3$ and $\sqrt n \omega (\xi - 1/2) \to \eta$.
+Then it follows from~\eqref{eq:2020binom} and Le Cam's first lemma~\citep[Theorem 6.4]{van2000asymptotic} that
+$P^n_{\theta_n}$ and $P^n_{\theta_0}$ are mutually contiguous.
+As a result,
+\begin{align*}
+    2\log \Lambda_{a,b} (\BX^n)
+    =
+    -\log(a/b) + \frac{a-b}{kn} \left( \sum_{i=1}^n (2X_i - k)\right)^2 + o_{P_{\theta_n}^n}(1).
+\end{align*}
+Note that~\eqref{eq:2020binom} implies that
+\begin{equation*}
+    \left(\frac{1}{\sqrt{kn}}\sum_{i=1}^n (2X_i-k), \log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\top 
+        \overset{P^n_{\theta_0}}{\rightsquigarrow}
+        \mathcal{N}_2\left(
+    \begin{pmatrix}
+        0\\
+        -2k\eta^2
+    \end{pmatrix}
+    ,
+    \begin{pmatrix}
+        1 & 2 \sqrt k \eta\\
+        2 \sqrt k \eta & 4k \eta^2
+    \end{pmatrix}
+\right).
+\end{equation*}
+By Le Cam's third lemma~\citep[Example 6.7]{van2000asymptotic}, we have
+\begin{equation*}
+    \frac{1}{\sqrt{kn}}\sum_{i=1}^n (2X_i - k)
+    \overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(2 \sqrt k \eta,1).
+\end{equation*}
+This proves the conclusion (ii).
+
+
+\end{proof}
 
 
 \end{document}
