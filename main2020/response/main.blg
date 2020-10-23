@@ -3,46 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
 Database file #1: mybibfile.bib
-Warning--I didn't find a database entry for "Held2018"
-You've used 0 entries,
+You've used 21 entries,
             1935 wiz_defined-function locations,
-            473 strings with 3685 characters,
-and the built_in function-call counts, 17 in all, are:
-= -- 0
-> -- 0
-< -- 0
-+ -- 0
-- -- 0
-* -- 0
-:= -- 7
-add.period$ -- 0
-call.type$ -- 0
-change.case$ -- 0
-chr.to.int$ -- 0
-cite$ -- 0
-duplicate$ -- 0
-empty$ -- 1
-format.name$ -- 0
-if$ -- 1
+            637 strings with 7348 characters,
+and the built_in function-call counts, 8635 in all, are:
+= -- 871
+> -- 299
+< -- 16
++ -- 109
+- -- 95
+* -- 766
+:= -- 1472
+add.period$ -- 66
+call.type$ -- 21
+change.case$ -- 152
+chr.to.int$ -- 21
+cite$ -- 21
+duplicate$ -- 303
+empty$ -- 635
+format.name$ -- 140
+if$ -- 1690
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 0
-newline$ -- 3
-num.names$ -- 0
-pop$ -- 0
+missing$ -- 21
+newline$ -- 110
+num.names$ -- 65
+pop$ -- 102
 preamble$ -- 1
-purify$ -- 0
+purify$ -- 152
 quote$ -- 0
-skip$ -- 1
+skip$ -- 234
 stack$ -- 0
-substring$ -- 0
-swap$ -- 0
-text.length$ -- 0
+substring$ -- 762
+swap$ -- 28
+text.length$ -- 1
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 0
+type$ -- 126
 warning$ -- 0
-while$ -- 0
+while$ -- 77
 width$ -- 0
-write$ -- 2
-(There was 1 warning)
+write$ -- 278

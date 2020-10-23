@@ -178,6 +178,7 @@ The Likelihood ratio test plays a dominant role in parametric hypotheses testing
 The fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test if the null and the alternative hypotheses are both simple.
 For composite hypotheses, the unknown parameters in the likelihood ratio test statistic (LRTS) are estimated by the maximum likelihood estimate (MLE).
 In a celebrated paper, \citep{Wilks1938The} proved that the asymptotic null distribution of the LRTS is free of nuisance parameters for regular models.
+Since then, this property has been studied extensively; see, e.g., \cite{Hogg1956On}, \cite{Fan2000}, \cite{Fan2001}.
 With this important property, one can determine the critical value of the LRTS using its asymptotic null distribution.
 In this paper, we say a test statistic has Wilks phenomenon if its asymptotic null distribution does not depend on the nuisance parameters.
 Although the LRT is very successful in many specific problems,
@@ -202,7 +203,7 @@ In fact, this methodology dates back at least to \cite{Good1967}, and has been c
 \cite{Good1992} gave a review for some early literature using this idea.
 See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea.
 %Bayes factor consistency.
-However, to the best of our knowledge, the idea has not been systematically studied for general models.
+However, to the best of our knowledge, the idea has been mostly used for specific models and has not been systematically studied with full mathematical rigour for general models.
 One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}.
 In fact, our Theorem \ref{prop:expansion} implies that the dependence of the distribution of the Bayes factor on the prior density does not vanish even if the sample size tends to infinity.
 As a result, the Bayes factor does not have Wilks phenomenon in general, which hinders its application in frequentist hypothesis testing.
@@ -304,7 +305,7 @@ There are still relatively few researches on the asymptotic distribution of the 
 \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
 %Although the idea has a long history, most existing work only considered specific models.
 %To the best of our knowledge, there is no mathematically rigorous work on the asymptotic distribution of the Bayes factor and its variants.
-In this work, in order to use the Bayes factor to construct frequentist tests, we gives a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
+In this work, in order to use the Bayes factor to construct frequentist tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
 Thess results fill a theoretical gap in the literature and are interesting in their own right.
 
 
@@ -459,7 +460,7 @@ The following theorem gives the asymptotic distribution of Bayes factor.
         Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
         Then 
 \begin{align*}
-    2 \log \textrm{BF} (\BX^{n})
+    2 \log \text{BF} (\BX^{n})
     +(p-p_0) \log \left( \frac{n}{2\pi} \right)
 \overset{P^n_{\theta_n}}{\rightsquigarrow}
     &
@@ -476,12 +477,26 @@ The following theorem gives the asymptotic distribution of Bayes factor.
 where ``$\overset{P^n_{\theta_n}}{\rightsquigarrow}$'' means the weak convergence when $\BX^n$ is from $P_{\theta_n}^n$.
 \label{prop:expansion}
     \end{theorem}
+
+\begin{remark}
+\cite{clarke1990information} derived the asymptotic null distribution of
+$$
+\frac{
+    {\int_{\Theta} p_n(\BX^{n}|\theta) \pi(\theta)\, \mathrm d\theta}
+}
+{p_n(\BX^{n}|\theta_0)}
+    ,
+$$
+which can be regarded as the Bayes factor for the point null hypothesis, i.e., $p_0 = 0$.
+Theorem \ref{prop:expansion} extends their result and gives the asymptotic distribution of the general Bayes factor under both the null hypothesis and the local alternative hypothesis.
+\cite{clarke1990information} imposed some conditions on the likelihood around the true parameter, which may not be easy to verify for some moderately complex models.
+In comparison, Theorem \ref{prop:expansion} only assumes the likelihood can be expanded in a $n^{-1/2}$ neighborhood of the true parameter, which is satisfied by most regular models.
+\end{remark}
 %It can be seen that the Lindley's paradox does not only exist when using improper priors.
     Theorem \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depends on the nuisance parameters and the priors.
     Hence the Bayes factor does not have Wilks phenomenon for general priors.
 Nevertheless, the dependency of the asymptotic null distribution on the nuisance parameters can be cancelled by a class of priors.
 In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribution of $\textrm{BF} (\BX^n)$ is free of the nuisance parameter $\nu$ if and only if
-{\color{red}
 \begin{align}\label{eq:shouldConst}
        \frac{
            \left|I_{\xi|\nu}(\nu, \xi_0)\right|^{-\frac 1 2}\pi(\theta_0) 
@@ -490,7 +505,6 @@ In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribut
 }
 \equiv c
 \end{align}
-}
 for some constant $c$ and for any $\nu \in \tilde \Theta$.
 Unfortunately, simple examples show that \eqref{eq:shouldConst} does not hold for many popular objective priors for Bayes factor, including intrinsic priors \citep{intrisicBayesFactor}, fractional intrinsic priors \citep{santis1997Alt}, divergence-based priors \citep{Bayarri2008Gen}, expected-posterior priors \citep{Perez2002}.
 Nevertheless, \eqref{eq:shouldConst} holds for a large class of priors.
@@ -501,7 +515,8 @@ In general, \eqref{eq:shouldConst} is satisfied if $\pi(\theta) = \pi (\xi |\nu)
 \end{align}
 A class of priors satisfying \eqref{eq:shouldConst2} is the unit information priors proposed by \cite{Kass1995}, which is defined as
 \begin{align*}
-    \pi(\nu) = \pi_0 (\nu), \quad \pi(\xi | \nu) = |\Sigma_\xi(\nu)|^{-1/2} f\left((\xi - \xi_0)^\top \Sigma_\xi(\nu)^{-1} ( \xi - \xi_0)\right),
+    \pi(\nu) = \pi_0 (\nu), \quad \pi(\xi | \nu) = |\Sigma_\xi(\nu)|^{-1/2} f
+    \left((\xi - \xi_0)^\top \Sigma_\xi(\nu)^{-1} ( \xi - \xi_0)\right),
 \end{align*}
 where $\Sigma_{\xi}(\nu)$ satisfies
 $
@@ -514,9 +529,11 @@ In this case, Bayes factor can be treated as a frequentist statistic and the cri
 However, this approach still has some weaknesses.
 First, the Wilks phenomenon of Bayes factor holds only for a restricted class of priors. % must satisfy \eqref{eq:shouldConst2}.
 As we have already pointed out, many popular objective priors do not satisfy \eqref{eq:shouldConst2}.
-Also, for some models, Fisher information matrix has a complicated form.
-In this case, priors satisfying \eqref{eq:shouldConst2} may be undesirable.
-Second, the computation of Bayes factor is a difficult problem in general; see \cite{Friel2012} for a review on the computation of Bayes factor.
+Second,
+in order to construct priors satisfying \eqref{eq:shouldConst2}, the determinant of the Fisher information matrix should be evaluated, which is a difficult task for many models.
+Hence it may not be easy to construct priors satisfying \eqref{eq:shouldConst2}, especially for complex models.
+%In this case, priors satisfying \eqref{eq:shouldConst2} may be hard to construct.
+Third, the computation of Bayes factor is a difficult problem in general; see \cite{Friel2012} for a review on the computation of the Bayes factor.
 
 Now we turn to the variants of Bayes factor.
 We denote by
@@ -567,12 +584,12 @@ D_{t}(\theta_1||\theta_2)=-\frac{1}{1-t}\log \rho_{t}(\theta_1,\theta_2),
 $$
 where
 $
-\rho_{t}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(X|\theta_1)^{t} p(X|\theta_2)^{1-t} \, \mathrm d \mu
+\rho_{t}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(x|\theta_1)^{t} p(x|\theta_2)^{1-t} \, \mathrm d \mu (x)
 $ is the so-called Hellinger integral.
-Let $D_1(\theta_1 \| \theta_2) = \int_{\mathcal X} \log \left( p(X | \theta_0) / p( X | \theta) \right) p(X |\theta_0) \, \mathrm d \mu$ be the Kullback-Leibler divergence between $P_{\theta_1}$ and $P_{\theta_2}$.
+Let $D_1(\theta_1 \| \theta_2) = \int_{\mathcal X} \log \left( p(x | \theta_0) / p( x | \theta) \right) p( x |\theta_0) \, \mathrm d \mu (x)$ be the Kullback-Leibler divergence between $P_{\theta_1}$ and $P_{\theta_2}$.
 It is known that $\lim_{t \uparrow 1} D_t(\theta_1 \| \theta_2) = D_1 (\theta_1 \| \theta_2)$; see, e.g., \cite{Erven2014}, Theorem $5$.
 Let 
- $V(\theta_0 \| \theta) = P_{\theta_0} \left( \log \left( p(X|\theta_0) / p(X | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2$.
+$V(\theta_0 \| \theta) = \int_{\mathcal X} \left( \log \left( p(x|\theta_0) / p(x | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2  p( x |\theta_0) \, \mathrm d \mu (x)$.
 We shall make the following two assumptions in the second and third settings.
 \begin{assumption}
     For any fixed $t \in (0,1]$,
@@ -590,10 +607,19 @@ We shall make the following two assumptions in the second and third settings.
         V(\theta_0 \| \theta ) = O\left( \|\theta - \theta_0\|^2 \right)
         .
     \end{align*}
-    See, e.g., \cite{Erven2014}, Section III. H.
     \end{itemize}
     \label{assumption2019}
 \end{assumption}
+    The first condition in Assumption \ref{assumption2019} avoids infinite Kullback-Leibler divergence.
+    %between $P_{\theta_0}$ and $P_{\theta}$ are finite
+    %The negation of the second condition in Assumption \ref{assumption2019} is:
+    %for every $$
+    %assumes that the distribution $P_\theta$ is deviated from.
+If the second condition in Assumption \ref{assumption2019} does not hold, then there is a $\delta>0$ and a sequence of parameters $\{\theta_n\}$ such that $\|\theta_n - \theta_0\| \geq \delta$ and $D_t(\theta_0 \| \theta_n ) \to 0  $.
+In this case, the model will suffer from loss of identifiability.
+Hence the second condition assumes that the model is identifiable in a reasonable sense.
+The third condition in Assumption \ref{assumption2019} assumes that $D_t(\theta_0 \| \theta)$ has a reasonable Taylor approximation around $\theta =\theta_0$; see, e.g., \cite{Erven2014}, Section III. H.
+
 \begin{assumption}
     There exist $t^* \in (0,1)$, $c^*, c^\dagger > 0$, $t_0^* \in (0,1)$, $c_0^*, c_0^\dagger > 0$ such that
     \begin{align*}
@@ -608,6 +634,23 @@ We shall make the following two assumptions in the second and third settings.
     \end{align*}
     \label{assumption:prior}
 \end{assumption}
+    Assumption \ref{assumption:prior} assumes that the tail of the prior density is not too thick.
+    %The condition
+        %$\int_{\Theta} \exp\left\{ -c^* D_{1-t^*}(\theta_0 \| \theta) \right\} \pi (\theta) \, \mathrm d \theta < \infty$
+        %is obviously satisfied for proper priors.
+    To appreciate  the conditions,
+    suppose $P_\theta$ is the  normal distribution $ \mathcal N( \theta, 1 )$ and $\theta_0 = 0$.
+    Then the first two conditions of Assumption \ref{assumption:prior} becomes
+        %$\int_{\Theta} V(\theta_0 \|\theta) \exp\left\{ -c^\dagger D_{1}(\theta_0 \| \theta) \right\} \pi (\theta) \, \mathrm d \theta < \infty$ becomes
+    \begin{align*}
+        \int_{\Theta} \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty,
+        \quad
+        \int_{\Theta}  \theta^2 \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty.
+    \end{align*}
+    The above condition is satisfied for $\pi(\theta) \equiv 1$.
+    This implies that Assumption \ref{assumption:prior} is weak and it allows improper priors.
+
+    We have the following theorem.
 
 
 
@@ -708,7 +751,10 @@ Hence in frequentist perspective, it is preferred to use fixed $b$.
 %\section{$\sqrt{n}$-consistency of power posterior} \label{sec:consistency}
 In both Theorem \ref{prop:expansion} and Theorem \ref{Thm:maintheorem},
 a key assumption is the $\sqrt{n}$-consistency of the power posterior distribution, which enables us to not assume the existence and the consistency of the MLE.
-We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $\pi_t(\theta|\BX^{n})$.
+Here we remark that the power posterior is a special case of the so-called Gibbs posterior; see, e.g., \cite{Chernozhukov2003}, \cite{Jiang2008} and \cite{Alquier2016}.
+The $\sqrt{n}$-consistency of the Gibbs posterior has been considered in \cite{Chernozhukov2003}.
+However, they imposed certain conditions on the likelihood and only bounded likelihood can satisfy their conditions.
+We would like to give sufficient conditions for the $\sqrt{n}$-consistency of $\pi_t(\theta|\BX^{n})$ without the requirement that the likelihood is bounded.
 In our definition of the $\sqrt{n}$-consistency of $\pi_t(\theta| \BX^n)$, we assume the finiteness of $L_t(\BX^n)$.
 It is known that this requirement is naturally satisfied if $t=1$ and the prior is proper.
 In fact, the following proposition shows that when the prior is proper, $L_t(\BX^n)$ is always finite for $t\leq 1$ but it is not always finite for $t>1$.
@@ -771,14 +817,21 @@ We shall prove the $\sqrt{n}$-consistency of $\pi_{t}(\theta | \BX^{n})$ for $0<
     Suppose Assumptions \ref{Assumption1} and~\ref{Assumption4} hold and $t\in(0,1)$ is a fixed number.
     Suppose $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$.
     Suppose there exists a $c^* > 0$ such that
-    \begin{align*}
+    \begin{align}\label{condition:inte}
     \int_{\Theta } 
     \exp \left\{  - c^* D_{1-t}(\theta_0||\theta)  \right\} \pi(\theta) \, \mathrm d \theta
 < \infty.
-    \end{align*}
+    \end{align}
 Then $\pi_t(\theta | \BX^{n})$ is $\sqrt n$-consistent.
 \end{proposition}
-Note that Assumption~\ref{Assumption4} is a weaker version Assumption \ref{assumption2019}.
+\begin{remark}
+    Most existing results on the consistency of posterior requires that $\phi(\theta)$ is proper.
+    Since improper priors are often used for Bayes factor, existing results are not suitable for our purpose.
+    It can be seen that the integrability condition \eqref{condition:inte}
+    is satisfied for any proper priors.
+    Furthermore, it also allows improper priors provided the tail probability of the prior density is not too thick. 
+\end{remark}
+Note that Proposition \ref{Theoremless1} assumes Assumption~\ref{Assumption4} which is weaker than Assumption \ref{assumption2019}.
 In fact, Assumption~\ref{assumption2019} requires the exact form of the local expansion of $D_t(\theta_0 \| \theta)$ 
 while Assumption \ref{Assumption4} only assumes $D_t(\theta_0 \| \theta)$ has certain lower bound.
 For the normal mixture model in Section \ref{sec:mixture}, it is relatively simple to verify Assumption \ref{Assumption4} compared with Assumption \ref{assumption2019}.
@@ -1331,8 +1384,13 @@ Thus, the proposed methodology can be recommended when the classical LRT is not 
 %\end{itemize}
 
 
-
-
+The proposed method is quite universal. 
+However, when applied to irregular models, one needs to be careful about the freedom of the asymptotic chi-squared distribution.
+For example, in Proposition 5 and Proposition 6, the freedom of the asymptotic chi-squared distribution is $1$ instead of $p-p_0 = 2$.
+This phenomenon is essentially caused by the loss of identifiability of the mixture models.
+In general, when the model has a loss of identifiability, the degree of freedom of the asymptotic chi-squred distribution may be less than $p-p_0$.
+In this case, if the true degree of freedom is not easy to obtain, the user can simply use $p-p_0$ as the degree of freedom, and the resulting test can still preserve the test level.
+Of course, this simple strategy may lead to decreased power.
 
 \section*{Acknowledgements}
 This work was supported by the National Natural Science Foundation of China under Grant No. 11471035.
@@ -1384,6 +1442,31 @@ This work was supported by the National Natural Science Foundation of China unde
 \begin{proof}
     Assumption \ref{Assumption1} implies that $P_{\theta_0}^n$ and $P_{\theta_n}^n$ are mutually contiguous. 
     Then the conclusion follows from Le Cam's first lemma~\citep[Lemma 6.4]{van2000asymptotic}.
+\end{proof}
+
+\begin{lemma}
+    Let $T_{m,n}$, $m = 1, 2,\dots$, $n = 1, 2,\dots$, be random variables such that for fixed $m$, $T_{m,n}$ converges in probability to $0$ as $n \to \infty$.
+    Then there exists a sequence $\{h(n)\}$ such that $h(n) \to \infty$ and $T_{h(n), n}$ converges in probability to $0$ as $n \to \infty$.
+    \label{lemma:MN}
+\end{lemma}
+\begin{proof}
+    For random variables $X$ and $Y$, let $\rho (X, Y) = \inf\{\epsilon \geq 0: \Pr (|X - Y| > \epsilon) \leq \epsilon\}$.
+    It is known that $\rho$ is a metric which metrizes convergence in probability; see, e.g., \cite{dudleyProbability}, Theorem 9.2.2.
+    Then for any fixed $m$, $\lim_{n\to \infty}\rho (T_{m,n}, 0) = 0$, hence there is a positive integer $g(m)$ such that 
+    \begin{align*}
+        \sup_{n \geq g(m)} \rho (T_{m,n}, 0) \leq 1/2^m.
+    \end{align*}
+    Without loss of generality, we can assume $g(m)$ is increasing in $m$, since otherwise we can sequentially replace $g(m)$ with $\max(g(1), \dots, g(m)) + 1$.
+    %Then $\rho (T_{m, g(m)}, 0) \to 0$ as $m \to \infty$.
+    Let $h(n) = \max_m \{m: g(m) \leq n\} $.
+    Then $h(n) \to \infty$ as $n \to \infty$, and by the definition of $h$, we have $g(h(n)) \leq n$.
+    Consequently,
+    $$\rho(T_{h(n), n}, 0)  \leq  \sup_{n' \geq g(h(n))}\rho(T_{h(n), n'}, 0) \leq 1/2^{h(n)}.$$
+    It follows that $\lim_{n \to \infty}\rho(T_{h(n), n}, 0) = 0$, which implies that $T_{h(n), n}$ converges in probability to $0$ as $n\to \infty$.
+    This completes the proof.
+    %In fact, for any given $m_0$, if $n \geq g(m_0)$, we have $h(n) \geq m_0$ by definition of $h$.
+    %Consequently, $\rho(T_{h(n), n}, 0) \leq $.
+
 \end{proof}
 
     \begin{lemma}
@@ -1581,7 +1664,10 @@ This completes the proof.
 \end{align*}
 where the first equality follows from the continuity of $\pi(\theta)$ at $\theta_0$ and the coordinate transformation $h=\sqrt{n}(\theta-\theta_0)$;
 and the second equality follows from the uniform expansion given by Assumption~\ref{Assumption1}.
-This equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
+Note that for every fixed $M > 0$, the term $o_{P_{\theta_0}^n}(1)$ converges in probability to $0$ as $n \to \infty$.
+Hence by Lemma \ref{lemma:MN}, this term also converges in probability to $0$ for some $M_n \to \infty$.
+%Hence the above equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
+Therefore the above equality still holds if we replace $M$ by $M_n$.
 Since $\Delta_{n,\theta_0}$ is bounded in probability, we have
         $$
             \begin{aligned}
@@ -2176,12 +2262,12 @@ Then
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{exprop}}]
 
-Note that $L_1(\Theta;\BX^{n})$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral
+Note that $L_1(\BX^{n})$ is well defined $P_{\theta_0}^n$-a.s.\ since it has finite integral
 $$
-\int_{\mathcal{X}^n} L_1(\Theta;\BX^{n}) \, \mathrm d \mu^n=
-\int_{\Theta}\Big(\int_{\mathcal{X}^n} p_n(\BX^{n}|\theta) \, \mathrm d \mu^n \Big) \, \pi(\theta)\, \mathrm d \theta=1.
+\int_{\mathcal{X}^n} L_1(\Bx^{n}) \, \mathrm d \mu^n (\Bx^n)=
+\int_{\Theta}\Big(\int_{\mathcal{X}^n} p_n(\Bx^{n}|\theta) \, \mathrm d \mu^n (\Bx^n) \Big) \, \pi(\theta)\, \mathrm d \theta=1.
 $$
-For $0<t<1$, by H\"older's inequality, we have $L_{t}(\Theta;\BX^{n})\leq L_1^{1/t}(\Theta;\BX^{n})$. This proves the first part of the proposition. 
+For $0<t<1$, by H\"older's inequality, we have $L_{t}(\BX^{n})\leq L_1^{t}(\BX^{n})$. This proves the first part of the proposition. 
 
 We turn to the second part of the proposition.
 The following observation is critical in our proof.
@@ -2214,7 +2300,7 @@ Let $\pi(\theta)$ be any proper prior density which is continuous and positive.
 Then
 $$
     \begin{aligned}
-        L_t(\Theta;\BX^{n})=&
+        L_t(\BX^{n})=&
         \left( \frac{\Gamma(p/2)}{2\pi^{p/2} \Gamma(\gamma)} \right)^{tn}
     \int_{-\infty}^{+\infty}
     \left(\prod_{i=1}^n \|X_i-\theta\|\right)^{t(\gamma-p)}
@@ -2275,8 +2361,8 @@ Note that
 It follows that $
 \int_{A_i} \left[  p(X_i | \theta) \right]^t \, \mathrm d \theta
 $ is finite if and only if $t(\gamma-p) + p > 0$, or equivalently, $\gamma > p (t-1)/t$.
-Thus, $L_t(\theta; \BX^n)$ is finite if and only if $ \gamma > p(t-1)/t$.
-If $t>1$, $ p(t-1)/t > 0$, then $L_t(\theta; \BX^n) = + \infty$ provided $\gamma \in (0, p(t-1)/t]$.
+Thus, $L_t(\BX^n)$ is finite if and only if $ \gamma > p(t-1)/t$.
+If $t>1$, $ p(t-1)/t > 0$, then $L_t(\BX^n) = + \infty$ provided $\gamma \in (0, p(t-1)/t]$.
 This completes the proof.
 \end{proof}
 
@@ -2286,7 +2372,7 @@ This completes the proof.
     Without loss of generality, we assume ${M_n}/{\sqrt{n}}\to 0$.
     Note that
     \begin{align*}
-        \int_{ \left\{ \theta: \|\theta -\theta_0\|\geq M_n /\sqrt n \right\}}\pi\left( \theta |  \BX^n \right)  \, \mathrm d \theta
+        \int_{ \left\{ \theta: \|\theta -\theta_0\|\geq M_n /\sqrt n \right\}} \pi_t\left( \theta |  \BX^n \right)  \, \mathrm d \theta
         =
         \frac{
             \int_{ \left\{ \theta: \|\theta -\theta_0\|\geq M_n /\sqrt n \right\}}
@@ -2365,7 +2451,7 @@ Hence
     \pi(\theta) \, \mathrm d \theta
     =o_{P^n_{\theta_0}}\left( n^{-p/2} \right).
 \end{equation}
-Then the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ follows from \eqref{deadline2:1} and \eqref{Prop4:eq2}.
+Then the $\sqrt{n}$-consistency of $\pi_t(\theta;\BX^{n})$ follows from \eqref{deadline2:1} and \eqref{Prop4:eq2}.
 
 
 
@@ -2411,7 +2497,7 @@ Then the $\sqrt{n}$-consistency of $L_t(\cdot;\BX^{n})$ follows from \eqref{dead
     %So we only need to consider $\int_{\|h\|\leq M} \exp\big[h^\top  I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^\top  I_{\theta_0}h\big]\pi_n (h;\BX^{n}) \, dh$.
     %By central limit theorem, $\Delta_{n,\theta_0}$ weakly converges to a normal distribution.
 where the first equality follows from Assumption~\ref{Assumption1} and the second equality follows from \eqref{vonMisesResults}.
-This is true for every $M>0$ and hence also for some $M_n\to \infty$.
+This is true for every $M>0$ and hence by Lemma \ref{lemma:MN} it is also true for some $M_n\to \infty$.
 
 Now we prove that for any $M_n\to +\infty$,
 \begin{equation}\label{eq:4}

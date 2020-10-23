@@ -3,57 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apa.bst
 Database file #1: mybibfile.bib
-Warning--I didn't find a database entry for "Good1967"
-Warning--I didn't find a database entry for "Good1992"
-Warning--I didn't find a database entry for "Aerts2004"
-Warning--I didn't find a database entry for "zhou2018On"
-Warning--I didn't find a database entry for "Wang2020"
-Warning--I didn't find a database entry for "berger2003approximations"
-Warning--I didn't find a database entry for "moreno2010"
-Warning--I didn't find a database entry for "WangMin2016"
-Warning--I didn't find a database entry for "Chatterjee2017"
-Warning--I didn't find a database entry for "Gelfand1994"
-Warning--I didn't find a database entry for "Risch1989"
-Warning--I didn't find a database entry for "CHIANO1995"
-You've used 36 entries,
+You've used 55 entries,
             1940 wiz_defined-function locations,
-            763 strings with 9642 characters,
-and the built_in function-call counts, 14472 in all, are:
-= -- 1447
-> -- 478
-< -- 33
-+ -- 157
-- -- 149
-* -- 1320
-:= -- 2449
-add.period$ -- 114
-call.type$ -- 36
-change.case$ -- 248
-chr.to.int$ -- 36
-cite$ -- 36
-duplicate$ -- 539
-empty$ -- 1071
-format.name$ -- 221
-if$ -- 2849
+            863 strings with 12165 characters,
+and the built_in function-call counts, 22095 in all, are:
+= -- 2212
+> -- 736
+< -- 45
++ -- 249
+- -- 231
+* -- 2030
+:= -- 3746
+add.period$ -- 172
+call.type$ -- 55
+change.case$ -- 383
+chr.to.int$ -- 55
+cite$ -- 55
+duplicate$ -- 803
+empty$ -- 1629
+format.name$ -- 338
+if$ -- 4315
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 40
-newline$ -- 185
-num.names$ -- 112
-pop$ -- 175
+missing$ -- 60
+newline$ -- 281
+num.names$ -- 169
+pop$ -- 269
 preamble$ -- 1
-purify$ -- 251
+purify$ -- 387
 quote$ -- 0
-skip$ -- 420
+skip$ -- 621
 stack$ -- 0
-substring$ -- 1183
-swap$ -- 103
+substring$ -- 1867
+swap$ -- 141
 text.length$ -- 5
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 208
+type$ -- 320
 warning$ -- 0
-while$ -- 127
+while$ -- 195
 width$ -- 0
-write$ -- 478
-(There were 12 warnings)
+write$ -- 724

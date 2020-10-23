@@ -70,7 +70,7 @@
 \newtheorem{theorem}{\quad\quad Theorem}
 \newtheorem{proposition}{\quad\quad Proposition}
 \newtheorem{corollary}{\quad\quad Corollary}
-\newtheorem{lemma}{\quad\quad Lemma}
+\newtheorem*{lemma}{\quad\quad Lemma}
 \newtheorem{example}{Example}
 \newtheorem{assumption}{\quad\quad Assumption}
 \newtheorem{condition}{\quad\quad Condition}
@@ -104,13 +104,50 @@ Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 10008
 
 \begin{document}
 \maketitle
+We are grateful to the AE for informing us a number of useful relevant papers and helpful comments.
+He/she even provided us an example, namely binomial mixture model, which is very suitable for illustrating the advantages of the proposed method over the LRT.
+We thank both reviewers for their valuable and helpful comments and critiques.
+We have carefully revised our paper according to the comments and critiques and have made extensive modifications on the original manuscript.
+Now the paper is much improved.
+Below we respond to the AE and each reviewer in turn.
 
-We thank the AE and both reviewers for their helpful comments and critiques.
-Over the past ten months, we have carefully revised our paper according to comments made by the AE and the reviewers.
-Below we respond to each reviewer in turn.
+\section{Response to the AE}
+\textbf{
+    First, the fractional posterior is a special case of a Gibbs posterior, and $\sqrt{n}$ consistency of Gibbs posteriors has been around in the literature for a while; see, for example, the paper "An MCMC approach to classical estimation" by Chernozhukov and Hong as a representative example. This is particularly not surprising for the fractional posterior since roughly speaking, it keeps the center of the posterior unaffected for large n and reduces the variance by a scale
+    factor depending on the fractional power - hence the classical Bernstein--von Mises phenomenon should go through for the fractional posterior under the same conditions as the exact posterior. I found the integrability condition in Proposition 2 to be somewhat strong in this regard.
+}
+
+\textbf{Answers:}
+We thank the AE for informing the literatures on the Gibbs posterior.
+The fact that the fractional posterior is a special case of a Gibbs posterior is interesting, and we mention this connection in the revised paper.
+I found that the results of \cite{Chernozhukov2003} require certain conditions on the likelihood and only bounded likelihood can satisfy their conditions.
+Since we would like to include the unbounded likelihood case, we can not use the $\sqrt{n}$ consistency result in their paper.
+We note that the assumptions of \cite{Chernozhukov2003} (that is, compact parameter space and continuous prior density) implies that the prior distribution is proper.
+In fact, we found that most existing results on the consistency of posterior require that the prior is proper.
+Since improper priors are often used for Bayes factor, existing results are not suitable for our purpose.
+The integrability condition in Proposition 2 is
+\begin{align*}
+    \int_{\Theta} \exp\{ - c^* D_{1-t}(\theta_0 \| \theta )\} \pi(\theta) \, \mathrm d \theta < \infty.
+\end{align*}
+Note that if $\pi(\theta)$ is proper, then
+\begin{align*}
+    \int_{\Theta} \exp\{ - c^* D_{1-t}(\theta_0 \| \theta )\} \pi(\theta) \, \mathrm d \theta <
+    \int_{\Theta} \pi(\theta) \, \mathrm d \theta < \infty.
+\end{align*}
+Hence the integrability condition is satisfied for any proper priors.
+Furthermore, it also allows improper priors provided the tail probability of the prior density is not too thick.
+Hence our integrability condition is very weak.
+In the revised paper, we add a remark on this condition.
+
+
+\textbf{
+    The paper doesn't discuss recent advances in the frequentist literature. I would point out the article "Generalized likelihood ratio statistics and Wilks phenomenon" by Fan et al. as an example; this has been cited many times and the authors need to check what is there beyond the usual LRT. Also take a look at the paper "Geometric Understanding of Likelihood Ratio Statistics" by Fan et al. which among other things provides a Bayesian argument for the derivation of the classical Wilk's phenomenon.
+}
+
+\textbf{Answers:}
+We thank the AE for informing us these references, which help us to improve the literature review of the paper.
 
 \section{Response to reviewer 1}
-
 
 \textbf{Major comments:}
 
@@ -119,47 +156,82 @@ Below we respond to each reviewer in turn.
 }
 
 \textbf{Answers:}
+Following the reviewer's suggestions, we improved the literature review in the revised paper.
+The idea of using the Bayes factor as a test statistic is definitely not a new one, and we point out this point explicitly in the revised paper.
+We add the following comment in the revised paper:
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+The idea is not new.                                                                                      
+In fact, this methodology dates back at least to \cite{Good1967}, and has been considered by many
+researchers since then.
+\cite{Good1992} gave a review for some early literature using this idea.                                  
+See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea. 
+However, to the best of our knowledge, the idea has been mostly used for specific models and has not been 
+systematically studied with full mathematical rigour for general models.                                  
+One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor        
+depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
+}
+\end{adjustwidth}
 
-We agree that literature review is lack.
-We thank.
+Following the reviewer's suggestion, we also comment on the literature of large sample properties of Bayes factor, as follow:
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+        In this work, we treat the Bayes factor and its variants as frequentist test statistics.
+        Hence a closely related area of research is the frequentist properties of the Bayes factor.
+        Most existing results in this area focus on the consistency of the Bayes factor; see \cite{berger2003approximations}, \cite{moreno2010},      \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
+        There are still relatively few researches on the asymptotic distribution of the Bayes factor.
+        \cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
+        \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
+        In this work, in order to use the Bayes factor to construct frequentist tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
+        Thess results fill a theoretical gap in the literature and are interesting in their own right.
+}
+\end{adjustwidth}
 
-a. Bayesian viewpoint of frequentist test. A lot of work.
-Many work on calibration of $p$-value to Bayes factor.
-For example, test based Bayes factor
-See \cite{Held2018} for a review of this area.
-
-b. significance test using Bayes factors. Not many. Bayesian-motivated.
-Existing work on the frequentist viewpoint of Bayes factor.
-Specific model. Linear model (yongtao guan)
-Posterior predictive p-value.
-
-c. large sample properties of Bayes factors.
-Consistency of Bayes factor.
-
-Using the Bayes factor as a frequentist test is of interest in history.
-Good 1967: My aim is to arrive at reasonably general-purpose initial distributions and significance tests, but the same strategy could be applied in any given concrete problem in which there is additional background evidence.
-Uniformly most powerful Bayesian tests.
-
-The naive Bayes factor is not black box.
-The proposed method is a black box method. universal method.
-
-Using Bayes factor as a frequentist test statistic is definitely not a new idea.
-But it is a good thing that it is not new.
-And we do not claim we propose it.
-In fact, this topic has been considered by many researchers.
-However, this idea has not been explored deeply.
-Most existing work focus on the consistency of the Bayes factor for specific models.
-To the best of our knowledge, the Wilks phenomenon of the Bayes factor has not been systematically explored.
-Also the asymptotic power, the variants of the Bayes factor.
-They have not been investigated in full rigor of mathematics.
+We add a remark below Theorem $1$ which gives a comparison of Theorem $1$ and the result in \cite{clarke1990information}:
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+            \cite{clarke1990information} 
+            derived the asymptotic null distribution of 
+            $$
+            \frac{
+                    {\int_{\Theta} p_n(\bX^{n}\theta) \pi(\theta)\, \mathrm d\theta}
+            }
+            {p_n(\bX^{n}\theta_0)}
+            ,
+            $$
+            which can be regarded as the Bayes factor for the point null hypothesis, i.e., $p_0 = 0$.
+            Theorem 1 extends their result and gives the asymptotic distribution of the general Bayes factor under both the null       hypothesis and the local alternative hypothesis.
+            \cite{clarke1990information} imposed some conditions on the likelihood around the true parameter, which may not be easy to verify for some    moderately complex models.
+            In comparison, Theorem 1 only assumes the likelihood can be expanded in a $n^{-1/2}$ neighborhood of the true parameter,   which is satisfied by most regular models.
+}
+\end{adjustwidth}
 
 \textbf{
     2.
     (numerical examples: simulation studies and real applications) The paper does not have any numerical study. I suggest to include extensive simulation studies comparing existing significance tests such as the likelihood ratio test (LRT). If the Bayes factors in the paper are used in hypothesis testing, is there anything that the user needs to be careful about? Please include in simulation study examples in which LRT fails and examples with wide applications.
 }
 
-
 \textbf{Answers:}
+We follow the reviewer's suggestion.
+In the revised paper, we add simulations to examine the performance of the proposed method and compare it with the LRT.
+The simulation examples include two hard problem, that is, normal mixture model and binomial mixture model.
+For these models, researchers have proved that the LRT has irregular behavior.
+The testing problem for binomial mixture model has applications in genetics.
+Numerical results show that the proposed method outperforms the LRT in terms of both test level and test power.
+
+In the revised paper, we also discussed that the users needs to be careful about the degree of freedom when they deal with irregular models, as follows:
+
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+The proposed method is quite universal. 
+However, when applied to irregular models, one needs to be careful about the freedom of the asymptotic chi-squared distribution.
+For example, in Proposition 5 and Proposition 6, the freedom of the asymptotic chi-squared distribution is $1$ instead of $p-p_0 = 2$.
+This phenomenon is essentially caused by the loss of identifiability of the mixture models.
+In general, when the model has a loss of identifiability, the degree of freedom of the asymptotic chi-squred distribution may be less than $p-p_0$.
+In this case, if the true degree of freedom is not easy to obtain, the user can simply use $p-p_0$ as the degree of freedom, and the resulting test can still preserve the test level.
+Of course, this simple strategy may lead to decreased power.
+}
+\end{adjustwidth}
 
 
 \textbf{
@@ -169,23 +241,35 @@ They have not been investigated in full rigor of mathematics.
 
 \textbf{Answers:}
 
-
-
-
+Our results imply that the choice of $a$ and $b$ does not affect the Wilks phenomenon and asymptotic power provided $a$ and $b$ are fixed and $0<b<a<1$.
+In the simulation studies of the revised paper, the default value is $a=2/3$ and $b= 1/3$.
+we also add a simulation to examine the effect of $a$ and $b$ on the finite sample performance of the test procedure.
+It turns out that the proposed methdod is not sensitive to the choice $a$ and $b$.
+In practice, if there is no practical evidence for the choice of $a$ and $b$, one can simply choose $a = 2/3$ and $b = 1/3$.
 
 \textbf{
     4. The paper discusses the fractional Bayes factor, the posterior Bayes factor and the integrated Bayes factor, but does not discuss the intrinsic Bayes factor. I suggest to include some discussion on the intrinsic Bayes factor. Can you get similar asymptotic results for the intrinsic Bayes factor?
 }
 
 \textbf{Answers:}
-
+The asymptotic behavior of the intrinsic Bayes factor is relatively simple.
+In the asymptotic sense, the intrinsic Bayes factor is equivalent to the Bayes factor with intrinsic priors; see, e.g., \cite{intrisicBayesFactor} and \cite{Moreno1998An}.
+Simple examples show that the Bayes factor with intrinsic  priors does not have Wilks phenomenon.
+Hence intrinsic Bayes factor can not be directly used as a frequentist test statistic.
+This point is made clear in our paper.
 
 \textbf{
     5. The paper gives one example (mixtures of normals) for which the LRT fails. One example for the argument for the Bayes factor as the test statistic is weak. Please give more examples and numerical examples.
 }
 
 \textbf{Answers:}
-
+We follow the reviewer's suggestion.
+In the revised paper, we add an example of binomial mixture model.
+This model is useful in genetics.
+It is known that the LRT for this model has complicated behavior.
+We proved that the proposed method has Wilks phenomenon in this problem.
+We also conduct simulations to examine the performance of the proposed method.
+It turns out that the proposed method outperforms the LRT in terms of both test level and test power.
 
 \textbf{Minor comments:}
 
@@ -195,7 +279,6 @@ P. 3. L. 19. variantional $\rightarrow$ variational
 }
 
 \textbf{Answers:}
-
 The correction has been made.
 
 \textbf{
@@ -212,7 +295,6 @@ We drop the condition of ``interior point''.
 }
 
 \textbf{Answers:}
-
 The correction has been made.
 
 
@@ -220,7 +302,7 @@ The correction has been made.
 \textbf{
 4.
 Equation (1).
-It is stated that null distribution of $\textbf{BF}_t(X_t)$ is free of the nuisance parameter if and only if $\frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu)} \equiv c$ for some constant $c$. But the formula in Theorem $1$ is slightly different.
+It is stated that null distribution of $\textbf{BF}_t(X_n)$ is free of the nuisance parameter if and only if $\frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu)} \equiv c$ for some constant $c$. But the formula in Theorem $1$ is slightly different.
 It should be
 \begin{align*}
 \frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu_0)} \equiv c
@@ -230,6 +312,22 @@ If this is the case, the subsequence discussion needs to be modified.
 }
 
 \textbf{Answers:}
+This problem is a little bit brain twisting.
+But I think our original statement is correct.
+In the paper, under the null hypothesis, we assume the true parameter is $\theta_0 = (\nu_0^\top, \xi_0^\top)^\top$.
+Here $\xi_0$ is specified by the null hypothesis ($H: \xi = \xi_0$).
+But $\nu_0$ is an unknown nuisance parameter.
+Hence according to Theorem 1, to make the null distribution of $\text{BF}(\bX^n)$ free of the nuisance parameter $\nu_0$, one should require that
+\begin{align*}
+     \frac{\left| I_{\xi | \nu} (\nu_0, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu_0)} \equiv c
+\end{align*}
+for any nuisance parameter $\nu_0$.
+But the above statement is equivalent to say that
+\begin{align*}
+     \frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu)} \equiv c
+\end{align*}
+for any nuisance parameter $\nu$.
+
 
 
 \textbf{
@@ -238,10 +336,41 @@ Please include some discussion on Assumptions $2$ and $3$.
 Please explain conditions in these assumptions.
 }
 
-
 \textbf{Answers:}
+We follow the reviewer's suggestion.
+In the revised paper, we add the following comment bellow Assumption 2:
 
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+            The first condition in Assumption 2 avoids infinite Kullback-Leibler divergence.
+                %between $P_{\theta_0}$ and $P_{\theta}$ are finite
+                %The negation of the second condition in Assumption \ref{assumption2019} is:
+                %for every $
+                %assumes that the distribution $P_\theta$ is deviated from.
+            If the second condition in Assumption 2 does not hold, then there is a $\delta>0$ and a sequence of parameters             $\{\theta_n\}$ such that $\|\theta_n - \theta_0\| \geq \delta$ and $D_t(\theta_0 \| \theta_n ) \to 0  $.
+            In this case, the model will suffer from loss of identifiability.
+            Hence the second condition assumes that the model is identifiable in a reasonable sense.
+            The third condition in Assumption 2 assumes that $D_t(\theta_0 \| \theta)$ has a reasonable Taylor approximation around    $\theta =\theta_0$; see, e.g., \cite{Erven2014}, Section III. H.
+    }
+\end{adjustwidth}
 
+We add the following comment bellow Assumption 3:
+
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+        Assumption 3 assumes that the tail of the prior density is not too thick.
+            To appreciate  the conditions,
+            suppose $P_\theta$ is the  normal distribution $ \mathcal N( \theta, 1  )$ and $\theta_0 = 0$.
+            Then the first two conditions of Assumption 3 becomes
+            \begin{align*}
+                    \int_{\Theta} \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty,
+                    \quad
+                    \int_{\Theta}  \theta^2 \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty.
+            \end{align*}
+            The above condition is satisfied for $\pi(\theta) \equiv 1$.
+            This implies that Assumption 3 is weak and it allows improper priors.
+    }
+\end{adjustwidth}
 
 \textbf{
 6.
@@ -250,10 +379,44 @@ It is said ``This equality holds for every $M>0$ and hence also for some $M_n \t
 Please prove this statement.
 }
 
-
 \textbf{Answers:}
 
+We have obtained that for any fixed $M>0$, 
+    \begin{align*}
+    & \int_{\left\{ \theta: \|\theta - \theta_0\| \leq M/\sqrt n \right\} }
+    \exp \left\{-t R_n(\theta_0\| \theta) \right\} \pi(\theta)
+    \, \mathrm d \theta
+        \\
+        =&
+        (1+o_{P^n_{\theta_0}}(1))
+        n^{-p/2}\pi(\theta_0)
+        \exp\left\{ 
+                \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+        \right\}
+        \\
+        &
+        \cdot
+        \int_{\{h:\|h\|\leq M\}}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
+        .
+\end{align*}
+We claim that this equality holds for every $M>0$ and hence also for some $M_n \to \infty$.
 
+%In essence, this fact follows from the fact that convergence in probability is metrizable.
+In essence, this claim follows from a result in mathematical analysis and the fact that convergence in probability is metrizable.
+To make the proof more readable, we add a lemma in the revised paper (Lemma 2 in the revised paper).
+\begin{lemma}
+        Let $T_{m,n}$, $m = 1, 2,\dots$, $n = 1, 2,\dots$, be random variables such that for fixed $m$, $T_{m,n}$ converges in probability to $0$ as $n \to \infty$.
+        Then there exists a sequence $\{h(n)\}$ such that $h(n) \to \infty$ and $T_{h(n), n}$ converges in probability to $0$ as $n \to \infty$.
+        \label{lemma:MN}
+\end{lemma}
+Using this lemma, we can prove our claim as follow:
+
+Note that for every fixed $M > 0$, the term $o_{P_{\theta_0}^n}(1)$ in the above equality converges in probability to $0$ as $n \to \infty$.
+Hence by Lemma \ref{lemma:MN}, this term also converges in probability to $0$ for some $M_n \to \infty$.
+%Hence the above equality holds for every $M>0$ and hence also for some $M_n\to \infty$.
+Therefore the above equality still holds if we replace $M$ by $M_n$.
+
+In the revised paper, we also simplify some other proofs to improve the readability of the paper.
 
 \textbf{
 7.
@@ -264,20 +427,19 @@ $L_t (\Theta ; \bX_n) \leq L_1^{1/t}(\Theta ; \bX_n) \rightarrow  L_t (\Theta ; 
 
 
 \textbf{Answers:}
-
-
+The correction has been made.
 
 \textbf{
-7.
+8.
 P. 25.
 In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t (\theta | \bX_n)$.
 }
 
-
 \textbf{Answers:}
-
-
-
+The correction has been made.
+During the revision of the paper, we also corrected many other typos and mistakes.
+We are sorry for such typos and mistakes.
+%We have made much efforts to reduce typos and mistakes of the revised paper.
 
 \section{Response to reviewer 2}
 \textbf{
@@ -289,8 +451,35 @@ In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t
 }
 
 \textbf{Answers:}
-
-
+We thank the reviewer for informing us this useful paper.
+In the revised paper, we reviewed the literature that consider a Bayes factors as a frequentist test statistic, and add the following comment in the revised paper:
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+        \dots
+%The idea is not new.                                                                                      
+In fact, this methodology dates back at least to \cite{Good1967}, and has been considered by many
+researchers since then.
+\cite{Good1992} gave a review for some early literature using this idea.                                  
+See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea. 
+However, to the best of our knowledge, the idea has been mostly used for specific models and has not been 
+systematically studied with full mathematical rigour for general models.                                  
+One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor        
+depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
+}
+\end{adjustwidth}
+Following another reviewer's suggestion, we also comment on the literature of large sample properties of Bayes factor, as follow:
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+        In this work, we treat the Bayes factor and its variants as frequentist test statistics.
+        Hence a closely related area of research is the frequentist properties of the Bayes factor.
+        Most existing results in this area focus on the consistency of the Bayes factor; see \cite{berger2003approximations}, \cite{moreno2010},      \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
+        There are still relatively few researches on the asymptotic distribution of the Bayes factor.
+        \cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
+        \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
+        In this work, in order to use the Bayes factor to construct frequentist tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
+        Thess results fill a theoretical gap in the literature and are interesting in their own right.
+}
+\end{adjustwidth}
 
 \textbf{
     2.
@@ -302,17 +491,21 @@ In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t
 }
 
 \textbf{Answers:}
-
-
+A direct method to compute the Bayes factor is to sample parameters from the prior and then use the sampled parameters to calculate the average of the likelihood.
+If the priors are improper, then one can not sample from the prior and the direct method can not be used.
+In this case, the Bayes factor may be computed by some other indirect methods (although it may be a difficult problem).
+See, \cite{Friel2012} for a review of the computation of the Bayes factor.
+In fact, it is a common practice to use improper prior for certain parameters.
+For example, for Bayes factor of linear model, popular choice of the prior for the variance parameter is improper; see, e.g., \cite{Liang2008Mixtures}.
+Therefore, although the computation of the Bayes factor is difficult, we think that it is not exact to say ``we cannot calculate the Bayes factor''.
 
 \textbf{
     3. On line 31 on page 6, what is $f$?
 }
 
 \textbf{Answers:}
-
-
-
+Here $f$ is a probability density function.
+We are sorry that we did not explain the meaning of $f$ in the original paper.
 
 \textbf{
     4. On line 38 on page 6, you may want to note an extra weakness of the traditional approach.
@@ -321,6 +514,17 @@ In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t
 }
 
 \textbf{Answers:}
+%We thank the reviewer for this advice.
+We agree that the original statement is not specific enough.
+Following the reviewer's suggestion, we the following comment to the revised paper:
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+        Second, 
+        in order to construct priors satisfying (2), the determinant of the Fisher information matrix should be evaluated, which is a difficult task for many models.
+        Hence it may not be easy to construct priors satisfying (2), especially for complex models.
+}
+\end{adjustwidth}
+
 
 
 
@@ -333,8 +537,14 @@ In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t
 }
 
 \textbf{Answers:}
-
-
+In this paper, we systematically investigate the low-dimensional parametric models.
+It is possible to investigate the case for certain high-diensional problem, as we have done in \cite{Wang2020}.
+It is also possible to investigate specific irregular models as we have done in the mixture examples.
+%In the mixture examples, we only use the fact that the posterior contraction rate can achieve $ (\log n)^\alpha /\sqrt n$ for some $\alpha > 0$.
+We believe the methodology can also be applied to nonparametric problem with a suitable modification.
+However, it is hard to provide a general theory for these problems.
+The application of the proposed method to challenging models is an interesting problem, but it is definitely beyond the scope of the current paper.
+We would like to report further applications in the future.
 
 \textbf{
     6. You proposed theoretical results on asymptotic null distribution of Bayes factor which is a linear transformation of a chi-square distribution.
@@ -345,7 +555,30 @@ In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t
 }
 
 \textbf{Answers:}
+We follow the reviewer's suggestion.
+In the revised paper, we conduct simulations to examine the finite sample performance of the proposed method.
+The simulation results show that the empirical size of the proposed method is very close to the nominal test level.
+This indicates that our asymptotic results are useful.
 
+In the revised paper, we consider four examples, including exponential family models, two normal mixture models and a newly added example of the binomial mixture model which arises in genetics.
+It is known that the LRT for these problems has nonstandard behavior for these models.
+For these models, we prove that the generalized FBF has Wilks phenomenon.
+We also conduct simulation studies which show that the proposed method outperforms the LRT in terms of both test level and test power.
+
+It is relatively simple to apply the proposed method to the examples.
+However, we would like to point out that the normal mixture models and the binomial mixture model are irregular models and the LRT for these models are not very simple to use.
+Take the second normal mixture model in the paper as an example.
+For this model, the asymptotic distribution of the LRT is a difficult problem.
+\cite{bickel1993} studied this problem, but they did not fully solve it.
+\cite{LIU200461} gave the asymptotic null distribution of the LRT.
+\cite{HALL2005158} derived the asymptotic power of the LRT.
+According to the result of \cite{HALL2005158}, the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis.
+For this irregualar model, the generalized FBF still has Wilks phenomenon and has better performance than the LRT.
+We think these examples illustrate the wide application scope of the proposed method.
+
+It is interesing to use the proposed method to solve more complex problems.
+But it is difficult to seriously investigate more problems within limited space.
+Hence we would like to leave it for future work.
 
 \textbf{
     7. This paper is lack of tuning parameter selection which will be critical in the hypothesis testing result.
@@ -353,11 +586,33 @@ In the integral of the displayed formula. $\pi(\theta | \bX_n) \rightarrow \pi_t
 }
 
 \textbf{Answers:}
+This question is asked by both reviewers.
+Our Answer is as follow:
+
+Our results imply that the choice of $a$ and $b$ does not affect the Wilks phenomenon and asymptotic power provided $a$ and $b$ are fixed and $0<b<a<1$.
+In the simulation studies of the revised paper, the default value is $a=2/3$ and $b= 1/3$.
+we also add a simulation to examine the effect of $a$ and $b$ on the finite sample performance of the test procedure.
+It turns out that the proposed methdod is not sensitive to the choice $a$ and $b$.
+In practice, if there is no practical evidence for the choice of $a$ and $b$, one can simply choose $a = 2/3$ and $b = 1/3$.
 
 
 
 
 \section{List of major changes}
+\begin{itemize}
+    \item 
+We add an example of binomial mixture model.
+It is known that the LRT for this model has complicated behavior.
+We proved that the proposed method has Wilks phenomenon in this problem.
+    \item
+        We add simulations studies for the normal mixture model and the binomial mixture model.
+    \item
+        The literature review is much improved.
+    \item
+        We add many remarks to explain our results and assumptions.
+    \item
+        We modify and simplify some of the theoretical proofs.
+\end{itemize}
 
 
 
