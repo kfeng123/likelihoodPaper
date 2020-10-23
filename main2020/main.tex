@@ -115,7 +115,7 @@ However, %our theoretical results do not require the existence of the maximum li
 the proposed methodology has a wider application scope than the likelihood ratio test.
 In particular, our methodology can be applied even if the likelihood function is unbounded.
 %Hence the proposed methodology has a wider application scope than the likelihood ratio test.
-We use three examples to illustrate the proposed methodology.
+We use four examples to illustrate the proposed methodology.
 In these examples, the likelihood ratio test may not be well defined or have undesirable behavior while the proposed tests have good performance.
 \end{abstract}
 
@@ -147,10 +147,9 @@ posterior Bayes factor.
 
 
 
-\section{Introduction}
+\section{Introduction} 
 
 %Suppose we are interested in  testing the hypotheses $H_0:\theta\in \Theta_0$ vs. $H_1:\theta\in \Theta$ for a subset $\Theta_0$ of $\Theta$.
-
 
 % Where \cite{gelfand1993bayesian} derived the null distribution of PBF.
 % However, they didn't explicitly give the conditions needed. In fact, their proof relies on Laplace approximation, which assumes the existence of maximum likelihood estimator (MLE). 
@@ -162,13 +161,11 @@ posterior Bayes factor.
 
 %Both PBF and FBF is a special case of the general ILRT.
 
-
 %Based on the proof of Bernstein-von Mises theorem (See~\cite{van2000asymptotic} and~\cite{Kleijn2012The}), we give the proof of the Wilks phenomenon and local power of ILRT under fairly weak assumptions.
-
 
 %Bayesian hypothesis testing is very different from point estimation in that the data can not yanmo prior.
 
-
+%Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absence of a well-formulated subjective prior; see, e.g., \cite{Lindley1982}.
 
 %%%%%% LRT %%%%%%%%%%%%%
 %For example, by Neyman-Pearson lemma, it's the most powerful test in simple null and simple alternative case \citep{Lehmann}.
@@ -176,10 +173,8 @@ posterior Bayes factor.
 %Nevertheless, the LRT is asymptotic optimal in the sense of Bahadur efficiency \citep{MR0315820}.
 %However, even in some widely used models, likelihood may be unbounded. See~\cite{Cam1990Maximum} for some examples.
 %In this case, LRT does not exist. Another weakness of LRT occurs when the likelihood is not concave in parameters. In this case, numerical algorithms for maximizing likelihood may trap in local maxima. 
-%
+
 The Likelihood ratio test plays a dominant role in parametric hypotheses testing.
-%Likelihood inference plays a dominant role in parametric statistic inference.
-%On the one hand, the maximum likelihood estimation is asymptotically optimal in a great variety of problems.
 The fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test if the null and the alternative hypotheses are both simple.
 For composite hypotheses, the unknown parameters in the likelihood ratio test statistic (LRTS) are estimated by the maximum likelihood estimate (MLE).
 In a celebrated paper, \citep{Wilks1938The} proved that the asymptotic null distribution of the LRTS is free of nuisance parameters for regular models.
@@ -197,22 +192,33 @@ Hence the LRT is not always well defined.
 Worse still, in some problems the likelihood functions are unbounded with probability $1$ and hence the LRT is not defined; see, e.g.,~\cite{Cam1990Maximum}.
 In fact, the unbounded likelihood occurs not only in artificial models, but also in some widely used models, such as the mixture models with unknown component location and scale parameters~\citep{chenjiahua2017}.
 
-%However, for some moderately complex problems, some difficulties may arise when using the LRT.
-
 On the Bayesian side, the conventional tool for hypothesis testing is Bayes factor \citep{scientificInference}.
 Bayes factor has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
 A delightful feature of the Bayes factor over the LRTS is that Bayes factor is well defined for any model provided the prior distributions are proper.
 Hence Bayes factor methodology is often used for complex models.
 The universal applicability of the Bayes factor motivates us to use the Bayes factor as a test statistic and construct a frequentist test.
-Note that the historical development of Bayes factor is almost orthogonal to frequentist test.
-A main reason is that the Bayes factor methodology does not intend to control the frequentist type I error rate and hence does not form a frequentist test.
+The idea is not new.
+In fact, this methodology dates back at least to \cite{Good1967}, and has been considered by many researchers since then.
+\cite{Good1992} gave a review for some early literature using this idea.
+See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea.
+%Bayes factor consistency.
+However, to the best of our knowledge, the idea has not been systematically studied for general models.
+One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}.
+In fact, our Theorem \ref{prop:expansion} implies that the dependence of the distribution of the Bayes factor on the prior density does not vanish even if the sample size tends to infinity.
+As a result, the Bayes factor does not have Wilks phenomenon in general, which hinders its application in frequentist hypothesis testing.
+%k, and can not be directly used to construct frequentist test.
+%A main reason is that the Bayes factor methodology does not intend to control the frequentist type I error rate and hence does not form a frequentist test.
 %, and hence can not be directly treated as a frequentist test.
 %In fact, it is known that Bayes factor is sensitive to the choice of prior distribution. 
-In fact,
-as shown by~\cite{clarke1990information},
-the asymptotic distribution of Bayes factor depends on the prior density at the true parameter.
-As a result, the Bayes factor does not have Wilks phenomenon in general.
-%Thus, the measures $\Pi$ and $\Pi^{(0)}$ considered in this paper will depend on data.
+%In fact, as shown by~\cite{clarke1990information},
+%the asymptotic distribution of Bayes factor depends on the prior density at the true parameter.
+%the Bayes factor for point null hypothesis, and applied the result to construct frequentist tests.
+%\cite{Johnson2013a}.
+%posterior predictive p value.
+%\cite{clarke1990information} investigated the asymptotic distribution of the Bayes factor and constructed significance test for point null hypothesis.
+%On the other hand, there is relatively few work which Bayes factor from a frequentist viewpoint.
+%Note that the historical development of Bayes factor is almost orthogonal to frequentist test.
+%However, this idea is not fully developed.
 Nevertheless, we shall show that if the priors are carefully chosen, the Bayes factor indeed has Wilks phenomenon and can be used to construct a frequentist test.
 We prove that the test so constructed has the same asymptotic local power as the LRT.
 Our theoretical results does not require that the MLE exists or the likelihood is bounded.
@@ -269,13 +275,13 @@ In this case,
 a feasible strategy is to approximate the posterior distribution by simple form distributions using variational inference; see~\cite{blei2017} and the references therein.
 Motivated by variational inference, we consider the general integrated likelihood ratio test statistic which uses the expectations of the power likelihood with respect to general weight functions.
 We prove that if the behavior of the weight functions is close to the power posterior, then the general integrated likelihood ratio test also has Wilks phenomenon.
-In particular, we show that the weight functions obtained by a variational method satisfies our requirements for the weight functions.
+In particular, we show that the weight functions obtained by a variational method satisfy our requirements for the weight functions.
 
 
 %For some irregular problems, the behavior of likelihood is complicated.
 %Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that ILRT may have better behavior than the LRT.
 %To illustrate this point,
-We use three examples to illustrate the good properties of the proposed methodology.
+We use four examples to illustrate the good properties of the proposed methodology.
 The first example is the full-rank exponential family.
 We show that the conditions of our general theory is satisfied by the full-rank exponential family.
 Hence the proposed methodology can be used in common regular models.
@@ -286,11 +292,28 @@ For the second submodel, %the power behavior of the LRT is unsatisfactory.
 ~\cite{HALL2005158} showed that the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 %We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
 We prove that the proposed methodology has good asymptotic power behavior for both submodels.
+In the fourth example, we consider a testing problem for the binomial mixture model.
+This problem arises in genetics.
+For this problem, the LRT has a nonstandard behavior, while the proposed methodology still has Wilks phenomenon.
+
+In this work, we treat the Bayes factor and its variants as frequentist test statistics.
+Hence a closely related area of research is the frequentist properties of the Bayes factor.
+Most existing results in this area focus on the consistency of the Bayes factor; see \cite{berger2003approximations}, \cite{moreno2010}, \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
+There are still relatively few researches on the asymptotic distribution of the Bayes factor.
+\cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
+\cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
+%Although the idea has a long history, most existing work only considered specific models.
+%To the best of our knowledge, there is no mathematically rigorous work on the asymptotic distribution of the Bayes factor and its variants.
+In this work, in order to use the Bayes factor to construct frequentist tests, we gives a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
+Thess results fill a theoretical gap in the literature and are interesting in their own right.
+
 
 The paper is organized as follow.
-In Section 2, we investigated the Wilks phenomenon of the Bayes factor and the generalized Bayes factor and use the Wilks phenomenon to construct frequentist tests.
-In Section 3, we use three examples to illustrate the behavior of the proposed methodology.
-Section 4 concludes the paper.
+In Section \ref{sec:wilks}, we investigate the Wilks phenomenon of the Bayes factor and the generalized Bayes factor and use the Wilks phenomenon to construct frequentist tests.
+In Section \ref{sec:ilrt}, the methodology is extended to the integrated likelihood ratio test with general weight functions.
+Section \ref{sec:examples} stuidies four testing problems to illustrate the behavior of the proposed methodology.
+Section \ref{sec:simu} reports simulation results to illustrate the finite sample behavior of the proposed method.
+Section \ref{sec:conclusion} concludes the paper.
 All technical proofs are in Appendix.
 
 %\cite{clarke1990information} considered use Bayes factor for hypothesis testing.
@@ -299,34 +322,12 @@ All technical proofs are in Appendix.
 %We avoid the use of the maximum likelihood estimator.
 %This allows us to apply the methods to the case where the MLE does not exist.
 
-
-
-
 %The Wilks phenomenon is desirable since it allows us to determine the critical value according to the asymptotic null distribution.
-%The lack of Wilks phenomenon will often introduce additional complexity to estimate the nuisance parameters $\nu$ under the null hypothesis.
-%
 
-%Difficulties:
-%\begin{itemize}
-%    \item 
-%        Threshold
-%    \item
-%        Computation
-%    \item
-%        Choice of Prior
-%\end{itemize}
-
-
-%LRT essentially require the MLE.
-%For Bayes factor, we need not estimate any parameter.
 
 %The recently developed theory of the consistency rate of the posterior allows us to rigorously proof the asymptotic distribution of Bayes factors.
 
-
-
-
-\section{Wilks phenomenon of Bayes factors}
-
+\section{Wilks phenomenon of Bayes factors} \label{sec:wilks}
 
 Let $\BX^{n}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) observations taking values in a standard measurable space $(\mathcal{X};\mathscr{A})$.
 Suppose that the possible distribution $P_\theta$ of $X_i$ has a density $p(x|\theta)$ with respect to $\mu$, a $\sigma$-finite measure on $\mathcal{X}$.
@@ -344,16 +345,8 @@ where the null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defi
 \end{equation*}
 If the null hypothesis is true, we denote by $\theta_0=(\nu_0^\top ,\xi_0^\top )^\top $ the true parameter which generates the data.
 
-%The conventional Bayes factor is defined as
-%\begin{equation*}
-  %\frac{\int_{\Theta} p_n(\BX^{n}|\theta)\pi(\theta)\, d\theta}
-    %{\int_{\tilde{\Theta}_0}p_n(\BX^{n}|\nu,\xi_0)\pi_0(\nu)\, d\nu},
-%\end{equation*}
-%where $\tilde{\Theta}_0=\{\nu: (\nu^\top ,\xi^\top )^\top \in \Theta_0\}$.
-%However, Bayes factor is sensitive to the specification of prior, which may cause difficulties in the absence of a well-formulated subjective prior; see, e.g., \cite{Lindley1982}.
 %The frequency property of Bayes factor is not satisfactory.
 %To overcome this weakness, several robust alternatives to Bayes factor have been proposed.
-%To deal with this problem,
 In Bayesian hypothesis testing framework, a fundamental tool is Bayes factor
 \begin{equation*}
     \text{BF}(\BX^{n})=
@@ -798,7 +791,7 @@ Thus, it can be recommended to use $\Lambda_{a,b}(\BX^n)$ with fixed $0< b< a< 1
 
 
 
-\section{Integrated likelihood ratio test}
+\section{Integrated likelihood ratio test} \label{sec:ilrt}
 
 It is known that the computation of Bayes factor is not trivial even if it is easy to sample from the posterior distribution.
 Surprisingly, if $b$ and $a-b$ are comparable, $\Lambda_{a,b}(\BX^n)$ can be easily computed by sampling from the power posterior distribution.
@@ -959,7 +952,7 @@ Hence the mean and covariance parameters of $\pi_b^{\dagger}(h;\BX^{n})$ are bou
 
 
 
-\section{Examples}
+    \section{Examples} \label{sec:examples}
 
 \subsection{Full-rank exponential family}
 Exponential family possesses many desirable properties and includes many regular models.
@@ -1022,13 +1015,14 @@ Suppose $X_1,\ldots,X_n$ are iid distributed as a mixture of normal distribution
 where $0\leq \omega \leq 1$, $\xi\in \mathbb{R}$ and $\sigma^2\in \mathbb{R}^+$.
 We shall consider two hypothesis testing problems for this model.
 
-First, we assume $\omega=1/2$ is known and consider testing the hypotheses
+For the first problem, we assume $\omega=1/2$ is known and consider testing the hypotheses
 \begin{equation}
     H: \xi=0,\sigma=1\quad \text{vs.} \quad K: \xi\neq 0 \text{ or } \sigma \neq 1.
     \label{mixturehy1}
 \end{equation}
 That is, we would like to test if the data are from a standard normal population or from a mixture of two normal populations with equal proportion.
-For this testing problem, the likelihood function is unbounded under the alternative hypothesis.
+For this problem, the full parameter space is $\Theta = \{(\xi, \sigma^2): \xi \in \mathbb R, \, \sigma^2 \in \mathbb R^+ \}$.
+It can be seen that the likelihood function is unbounded under the alternative hypothesis.
 In fact, if we take $\xi=X_1$ and let $\sigma^2\to 0$, then the likelihood tends to infinity.
 See Figure~\ref{myFigure1}.
 Thus, the LRT can not be defined.
@@ -1061,21 +1055,26 @@ This example shows that even when the LRT fails, the generalized fractional Baye
 Thus, the proposed methodology has a wider application scope than the LRT.
 
 
-In the above example, $\omega=1/2$ is known.
+We have assumed that $\omega=1/2$ is known in the first problem.
 If $\omega$ is an unknown parameter, then the mixture model suffers from loss of identifiability and the behavior of the likelihood is fairly complicated.
-For simplicity, we assume $\sigma^2=1$ is known and consider testing the hypotheses
+We would also like to examine the performance of the proposed method in this setting.
+Hence for the second problem, we consider the case that $\omega$ is an unknown parameter.
+In this setting, we assume $\sigma^2=1$ is known for simplisity.
+Then the full parameter space is $\Theta = \{(\omega, \xi): \omega \in [0,1] ,\, \xi \in \mathbb R \}$.
+We would like to test whether the data are from a standard normal population.
+That is, the hypotheses of interest are
 \begin{equation}
     H:\omega \xi=0
     \quad \text{vs.}\quad
     K:\omega \xi \neq 0.
     \label{newHy}
 \end{equation}
-It can be seen that this is equivalent to testing if the data are from a standard normal population or from a mixture of two normal populations.
 %There has been considerable literature considering the testing problem in this case. See~\cite{chenjiahua2017} for a review.
-Although the LRT exists in this problem, its asymptotic behavior is complicated and its power behavior is not satisfactory.
-In fact,~\cite{HALL2005158} showed that in this problem, the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis. 
+For this problem, the LRT is indeed well defined.
+However, the asymptotic behavior of the LRT is very complicated and its power behavior is not satisfactory.
+In fact, it is shown by~\cite{HALL2005158} that the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 For this irregular problem, Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1} cannot be directly applied.
-This is because the second part is Assumption~\ref{Assumption4} is violated due to loss of identifiability.
+This is because the second part in Assumption~\ref{Assumption4} is violated due to loss of identifiability.
 However, this does not mean that the proposed methodology is not applicable.
 In fact, the following proposition shows that $\Lambda_{a,b}(\BX^n)$ has the desirable asymptotic properties.
 
@@ -1100,9 +1099,6 @@ In fact, the following proposition shows that $\Lambda_{a,b}(\BX^n)$ has the des
 \end{proposition}
 Proposition~\ref{mixtureThm} shows that the test based on $\Lambda_{a,b}(\BX^n)$ has nontrivial power if $\omega \xi $ is of order $n^{-1/2}$. 
 In comparison,~\cite{HALL2005158} showed that the LRT has  trivial power asymptotically if $\omega \xi=\gamma(n^{-1}\log \log n)^{1/2}$ with $|\gamma|< 1$.
-%To have a nontrivial power, 
-%This illustrates the superiority of the ILRT over the LRT.
-
 
 
 \subsection{Binomial mixture model}\label{sec:binomial_mixture}
@@ -1115,16 +1111,17 @@ Suppose $X_1, \dots, X_n$ are iid distributed as a mixture of binomial distribut
     + \omega {k \choose x} (1- \xi)^{k-x} \xi^{x},
 \end{align*}
 where $\omega \in [0,1]$, $ \xi \in (0,1)$ are unknown parameters and $k \geq 2$ is known.
-We consider testing the hypotheses
-\begin{align*}
-    H: \xi  = \frac 1 2
+We would like to test whether the true distribution is simply a binomial distribution with parameters $k$ and $1/2$.
+Formally, the hypotheses of interest are
+\begin{align}\label{Hy:binomial}
+    H: \omega(\xi - \frac 1 2) = 0
     \quad
     \text{vs.}
     \quad
-    K: \xi  \neq \frac 1 2.
-\end{align*}
+    K: \omega(\xi  - \frac 1 2) \neq 0.
+\end{align}
 This problem naturally arises in gene linkage analysis when the trait of interest is heterogeneous \cite{Risch1989,CHIANO1995}.
-The LRT for this problem also has nonstandard behavior.
+Similar to the problem \eqref{newHy}, the LRT for this problem is well defined but its behavior is nonstandard.
 In fact, \cite{Chernoff1995} proved that the asymptotic distribution of the LRT is related to the supremum of a Gaussian process.
 The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phenomenon.
 \begin{proposition}
@@ -1147,13 +1144,155 @@ The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phen
     \label{mixtureThm_binom}
 \end{proposition}
 
+\section{Simulation studies} \label{sec:simu}
+In this section, we carry out simulations to examine the empirical size and power of the generalized FBF for the testing problems \eqref{newHy} and \eqref{Hy:binomial}.
+For comparison, we also carry out simulations for the LRT.
+In all simulations, the nominal significant level is $\alpha = 0.05$ and results are obtained from $10000$ independent replications.
+
+%Now we examine the performance of the generalized FBF by simulations.
+%For comparison, we also carry out simulations for the LRT.
+First we consider the testing problem \eqref{newHy} for normal mixture model.
+For the generalized FBF, we take $a = 2/3$, $b = 1/3$,  $\pi_\omega(\omega)\sim \text{Beta}(2, 2)$, $\pi_\xi(\xi) = 1_{(0,1)}(\xi)$.
+The critical value of the generalized FBF is determined by its Wilks phenomenon as described in Proposition \ref{mixtureThm_binom}.
+For the LRT, \cite{LIU200461} proved that, under the null hypothesis,
+\begin{align*}
+    \lim_{n\to \infty}  \Pr \{ 2\lambda_n - \log \log n + \log(2\pi^2) \leq x \} =  \exp(-e^{-x/2}), \quad x \in \mathbb R,
+\end{align*}
+where $\lambda_n$ is the log LRT statistic.
+Hence in simulations, the critical value of the LRT is determined by $2\lambda_n > \log \log n - \log (2\pi^2) - 2\log(-\log(1-\alpha))$.
+The simulation results are listed in Table \ref{normal_table1}.
+It can be seen that the empirical size of the generalized FBF is close to the nominal significant level, although it is a little conservative.
+In comparison, the LRT is too conservative.
+Also, the generalized FBF has consistently better power performance that the LRT.
+\begin{table*}[ht]
+    \caption{Empirical size and power of the LRT and the generalized FBF for normal mixture model.}
+    \label{normal_table1}
+    %\footnotesize
+    \small
+    \centering
+    \begin{tabular}{cccccccccccc}
+        \toprule
+         & & \multicolumn{5}{c}{generalized FBF} &\multicolumn{5}{c}{LRT}\\
+        \cmidrule(r){3-7}\cmidrule(r){8-12}
+        n & $\omega$ 
+        & size & $\xi= 0.5$& $\xi= 1$ & $\xi= 1.5$ & $\xi= 2$
+        & size & $\xi= 0.5$& $\xi= 1$ & $\xi= 1.5$ & $\xi= 2$
+        \\ 
+        \midrule
+        50 &0.25& 0.0450& 0.1473& 0.4800& 0.8212 &0.9634& 0.0382  & 0.1226& 0.4356 & 0.8041 & 0.9638 \\
+        &0.50   &       & 0.4024& 0.9351& 0.9989 &1.0000&         &0.3479 & 0.9128 & 0.9979 & 1.0000 \\
+        &0.75 &         &0.7163 & 0.9984& 1.0000 &1.0000&         &0.6597 & 0.9974 & 1.0000 & 1.0000 \\
+        \midrule
+        100 &0.25 &0.0457& 0.2488& 0.7527& 0.9791 &0.9995& 0.0387 & 0.1987& 0.7015 & 0.9747 & 0.9994\\
+        &0.50   &       & 0.6890& 0.9986& 1.0000 &1.0000&       & 0.6125 & 0.9971 & 1.0000 & 1.0000\\
+        &0.75   &       & 0.9544& 1.0000& 1.0000 &1.0000&       & 0.9292& 1.0000& 1.0000 & 1.0000\\
+        \bottomrule
+
+    \end{tabular}
+
+\end{table*}
+
+Now we consider the testing problem \eqref{Hy:binomial} for binomial mixture model.
+For the generalized FBF, we take $a = 2/3$, $b = 1/3$,  $\pi_\omega(\omega)\sim \text{Beta}(2, 2)$, $\pi_\xi(\xi) = 1_{(0,1)}(\xi)$.
+The critical value of the LRT is determined by simulating a Gaussian process as described in \cite{Chernoff1995}.
+The simulation results are listed in Tables \ref{binomial_table1}-\ref{binomial_table2}.
+It can be seen that the empirical power of the generalized FBF increases as $n$, $k$ or $\omega |\xi - 1/2|$ increases.
+This coincides with the result (ii) of Proposition \ref{mixtureThm_binom}.
+While the generelized FBF has a reasonable performance in terms of the empirical size, its empirical power is consistently higher than the LRT.
+\begin{table*}[ht]
+    \caption{Empirical size and power of the LRT and the generalized FBF for binomial mixture model. $n=50$.}
+    \label{binomial_table1}
+    %\footnotesize
+    \small
+    \centering
+    \begin{tabular}{cccccccccccc}
+        \toprule
+         & & \multicolumn{5}{c}{generalized FBF} &\multicolumn{5}{c}{LRT}\\
+        \cmidrule(r){3-7}\cmidrule(r){8-12}
+        k & $\omega$ 
+        & size & $\xi= 0.6$& $\xi= 0.7$& $\xi= 0.8$& $\xi= 0.9$   
+        & size & $\xi= 0.6$& $\xi= 0.7$& $\xi= 0.8$& $\xi= 0.9$
+        \\ 
+        \midrule
+        4 &0.25 & 0.0486& 0.1086& 0.3250& 0.6415 & 0.8903 & 0.0421& 0.1042 & 0.2918 & 0.6200 &0.8992 \\
+        &0.50   &       & 0.2894& 0.8190& 0.9906 &0.9999&         &0.2382 & 0.7796 & 0.9880 & 0.9998\\
+        &0.75 &         &0.5455 & 0.9900& 1.0000 &1.0000&         &0.4842 & 0.9827 & 1.0000 & 1.0000 \\
+        \midrule
+        8 &0.25 & 0.0433& 0.1728& 0.5800& 0.9175 & 0.9939 & 0.0524& 0.1345 & 0.5294 & 0.9173 &0.9959\\
+        &0.50   &       & 0.4999& 0.9781& 0.9998 & 1.0000 &       & 0.4359 & 0.9637 & 0.9997 &1.0000\\
+        &0.75   &       & 0.8248& 0.9999& 1.0000 & 1.0000 &       & 0.7557 & 0.9999 & 1.0000 &1.0000\\
+        \bottomrule
+
+    \end{tabular}
+
+\end{table*}
+
+\begin{table*}[ht]
+    \caption{Empirical size and power of the LRT and the generalized FBF for binomial mixture model. $n=100$.}
+    \label{binomial_table2}
+    %\footnotesize
+    \small
+    \centering
+    \begin{tabular}{cccccccccccc}
+        \toprule
+         & & \multicolumn{5}{c}{generalized FBF} &\multicolumn{5}{c}{LRT}\\
+        \cmidrule(r){3-7}\cmidrule(r){8-12}
+        k & $\omega$ 
+        & size & $\xi= 0.6$& $\xi= 0.7$& $\xi= 0.8$& $\xi= 0.9$   
+        & size & $\xi= 0.6$& $\xi= 0.7$& $\xi= 0.8$& $\xi= 0.9$
+        \\ 
+        \midrule
+        4 &0.25 & 0.0496& 0.1730& 0.5597& 0.8952 & 0.9920 & 0.0449& 0.1480& 0.5154 & 0.8869 &0.9934 \\
+        &0.50   &       & 0.5124& 0.9801& 0.9999 & 1.0000 &       &0.4590 & 0.9705 & 0.9998 & 1.0000 \\
+        &0.75 &         &0.8413 & 1.0000& 1.0000 &1.0000&         &0.8064 & 1.0000 & 1.0000 & 1.0000 \\
+        \midrule
+        8 &0.25 & 0.0461& 0.3044& 0.8621& 0.9955 & 1.0000 & 0.0411& 0.2503 & 0.8221 & 0.9949 &1.0000\\
+        &0.50   &       & 0.7980& 0.9999& 1.0000 & 1.0000 &       & 0.7294 & 0.9996 & 1.0000 &1.0000\\
+        &0.75   &       & 0.9858& 1.0000& 1.0000 & 1.0000 &       & 0.9750 & 1.0000 & 1.0000 &1.0000\\
+        \bottomrule
+
+    \end{tabular}
+
+\end{table*}
+
+Our theoretical results imply that the asymptotic power of the generalized FBF is independent of the choice of $a$ and $b$.
+Now we examine the effect of $a$ and $b$ on the performance of the fractional FBF in the finite sample case.
+We conduct simulations for the testing problem \eqref{Hy:binomial}.
+As before, the priors are $\pi_\omega(\omega)\sim \text{Beta}(2, 2)$, $\pi_\xi(\xi) = 1_{(0,1)}(\xi)$.
+Compared with the simulations in Table \ref{binomial_table1}, we add the simulations for $a = 4/5$, $b = 1/5$ and $a = 3/5$, $b = 2/5$.
+The results are listed in Table \ref{binomial_table3}.
+It can be seen that the performance of the fractional FBF is not sensitive to the choice of $a$ and $b$.
+This coincides with our theoretical results.
+In practice, if there is no practical evidence for the choice of $a$ and $b$, one can simply choose $a = 2/3$ and $b = 1/3$.
+\begin{table*}[ht]
+    \caption{Empirical size and power of the generalized FBF with different choices of $a$ and $b$ for binomial mixture model. $n=50$, $k = 4$.}
+    \label{binomial_table3}
+    %\footnotesize
+    \small
+    \centering
+    \begin{tabular}{cccccccccccc}
+        \toprule
+        & \multicolumn{5}{c}{$a = 4/5$, $b = 1/5$} &\multicolumn{5}{c}{$a = 3/5$, $b = 2/5$}\\
+        \cmidrule(r){2-6}\cmidrule(r){7-11}
+         $\omega$ 
+        & size & $\xi= 0.6$& $\xi= 0.7$& $\xi= 0.8$& $\xi= 0.9$   
+        & size & $\xi= 0.6$& $\xi= 0.7$& $\xi= 0.8$& $\xi= 0.9$
+        \\ 
+        \midrule
+        0.25 & 0.0485  & 0.1140& 0.3361& 0.6585 & 0.8960 & 0.0498& 0.1134& 0.3258 & 0.6399 &0.8871 \\
+        0.50   &       & 0.2975& 0.8188& 0.9898 & 0.9999 &       &0.2901 & 0.8178 & 0.9903 & 0.9999 \\
+        0.75 &         &0.5503 & 0.9898& 1.0000 &1.0000&         &0.5459 & 0.9891 & 1.0000 & 1.0000 \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+
 %\section{Heteroscedastic regression model}
 %\cite{Li2000},
 %\cite{Crisp1994}.
 
 
 
-\section{Conclusion}
+\section{Conclusion} \label{sec:conclusion}
 In this paper, we investigated the Wilks phenomenon of the Bayes factor, the generalized fractional Bayes factor and more generally, the integrated likelihood ratio test.
 Using the Wilks phenomenon, these statistics can be used to construct the frequentist tests.
 We also apply the proposed methodology to three examples.
@@ -3132,506 +3271,6 @@ This proves the conclusion of (ii).
 %Now suppose
 \end{proof}
 
-\end{appendices}
-
-
-\bibliographystyle{apa}
-\bibliography{mybibfile}
-
-
-% webbibs loaded on 2018-07-21 16:32:00 (f0c84ddb441cdb67bd1fdb16ccc5fea5b1cac217)
-%\begin{thebibliography}{23}
-%% pybtex-1.20. Style name=ims, version=2.91, label_style=original, sorting_style=complex, cfg=None, language=None.
-%
-%
-%%b1 ###
-%\bibitem[\protect\astroncite{Aitkin}{1991}]{Aitkin1991Posterior}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Aitkin},~\bfnm{M.}\binits{M.}}
-%(\byear{1991}).
-%\btitle{Posterior bayes factors}.
-%\bnote{journal of the royal statistical society series b-methodological}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%Aitkin, M. (1991).
-%\newblock Posterior bayes factors. journal of the royal statistical society
-% series b-methodological.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b2 ###
-%\bibitem[\protect\astroncite{{Bhattacharya} et~al.}{2016}]{Bha2016}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Bhattacharya},~\bfnm{A.}\binits{A.}},
-%\bauthor{\bsnm{Pati},~\bfnm{D.}\binits{D.}} \AND
-%\bauthor{\bsnm{Yang},~\bfnm{Y.}\binits{Y.}}
-%(\byear{2016}).
-%\btitle{{Bayesian fractional posteriors}.}
-%\newblock{\em  ArXiv e-prints arXiv:1611.01125}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%{Bhattacharya}, A., {Pati}, D., and {Yang}, Y. (2016).
-%\newblock {Bayesian fractional posteriors}.
-%\newblock {\em ArXiv e-prints}.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b3 ###
-%\bibitem[\protect\astroncite{Blei et~al.}{2017}]{blei2017}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Blei},~\bfnm{D.~M.}\binits{D.~M.}},
-%\bauthor{\bsnm{Kucukelbir},~\bfnm{A.}\binits{A.}} \AND
-%\bauthor{\bsnm{McAuliffe},~\bfnm{J.~D.}\binits{J.~D.}}
-%(\byear{2017}).
-%\btitle{Variational inference: A review for statisticians}.
-%\newblock {\em arXiv e-prints arXiv:1601.00670}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%Blei, D.~M., Kucukelbir, A., and McAuliffe, J.~D. (2017).
-%\newblock Variational inference: A review for statisticians.
-%\newblock {\em arxiv}.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b4 ###
-%\bibitem[\protect\astroncite{{Bobkov} et~al.}{2016}]{2016arXiv160801805B}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Bobkov},~\bfnm{S.~G.}\binits{S.~G.}},
-%\bauthor{\bsnm{Chistyakov},~\bfnm{G.~P.}\binits{G.~P.}} \AND
-%\bauthor{\bsnm{G{\"{o}}tze},~\bfnm{F.}\binits{F.}}
-%(\byear{2016}).
-%\btitle{{R\'{e}nyi divergence and the central limit theorem}}.
-%\newblock{\em arXiv e-prints arXiv:1608.01805}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%{Bobkov}, S.~G., {Chistyakov}, G.~P., and {G{\"o}tze}, F. (2016).
-%\newblock {R\'{e}nyi divergence and the central limit theorem}.
-%\newblock {\em ArXiv e-prints}.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b5 ###
-%\bibitem[\protect\astroncite{Chen}{2017}]{chenjiahua2017}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Chen},~\bfnm{J.}\binits{J.}}
-%(\byear{2017}).
-%\btitle{On finite mixture models}.
-%\bjournal{Statistical Theory and Related Fields}
-%\bvolume{1}
-%\bpages{15--27}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Chen, J. (2017).
-%\newblock On finite mixture models.
-%\newblock {\em Statistical Theory and Related Fields}, 1(1):15--27.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 1
-%\endbibitem
-%
-%%b6 ###
-%\bibitem[\protect\astroncite{{Clarke} and
-% {Barron}}{1990}]{clarke1990information}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Clarke},~\bfnm{B.~S.}\binits{B.~S.}} \AND
-%\bauthor{\bsnm{Barron},~\bfnm{A.~R.}\binits{A.~R.}}
-%(\byear{1990}).
-%\btitle{Information-theoretic asymptotics of bayes methods}.
-%\bjournal{IEEE Transactions on Information Theory}
-%\bvolume{36}
-%\bpages{453--471}.
-%\end{barticle}
-%%
-%\OrigBibText
-%{Clarke}, B.~S. and {Barron}, A.~R. (1990).
-%\newblock Information-theoretic asymptotics of bayes methods.
-%\newblock {\em IEEE Transactions on Information Theory}, 36(3):453--471.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 3
-%\endbibitem
-%
-%%b7 ###
-%\bibitem[\protect\astroncite{Ghosal et~al.}{2000}]{ghosal2000}
-%\begin{barticle}[mr]
-%\bauthor{\bsnm{Ghosal},~\bfnm{Subhashis}\binits{S.}},
-%\bauthor{\bsnm{Ghosh},~\bfnm{Jayanta~K.}\binits{J.~K.}} \AND
-%\bauthor{\bsnm{van~der Vaart},~\bfnm{Aad~W.}\binits{A.~W.}}
-%(\byear{2000}).
-%\btitle{Convergence rates of posterior distributions}.
-%\bjournal{Ann. Statist.}
-%\bvolume{28}
-%\bpages{500--531}.
-%\bid{doi={10.1214/aos/1016218228}, issn={0090-5364}, mr={1790007}}
-%\end{barticle}
-%%
-%\OrigBibText
-%Ghosal, S., Ghosh, J.~K., and van~der Vaart, A.~W. (2000).
-%\newblock Convergence rates of posterior distributions.
-%\newblock {\em Ann. Statist.}, 28(2):500--531.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   url = https://doi.org/10.1214/aos/1016218228
-%%   number = 2
-%%   fjournal = The Annals of Statistics
-%\endbibitem
-%
-%%b8 ###
-%\bibitem[\protect\astroncite{Hall and Stewart}{2005}]{HALL2005158}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Hall},~\bfnm{P.}\binits{P.}} \AND
-%\bauthor{\bsnm{Stewart},~\bfnm{M.}\binits{M.}}
-%(\byear{2005}).
-%\btitle{Theoretical analysis of power in a two-component normal mixture model}.
-%\bjournal{J. Statist. Plann. Inference}
-%\bvolume{134}
-%\bpages{158--179}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Hall, P. and Stewart, M. (2005).
-%\newblock Theoretical analysis of power in a two-component normal mixture
-% model.
-%\newblock {\em Journal of Statistical Planning and Inference}, 134(1):158 --
-% 179.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 1
-%\endbibitem
-%
-%%b9 ###
-%\bibitem[\protect\astroncite{Jeffreys}{1931}]{scientificInference}
-%\begin{bbook}[auto:parserefs-M02]
-%\bauthor{\bsnm{Jeffreys},~\bfnm{H.}\binits{H.}}
-%(\byear{1931}).
-%\btitle{Scientific Inference},
-%\bedition{1 edition} ed.
-%\bpublisher{Cambridge Univ. Press},
-%\blocation{Cambridge}.
-%\end{bbook}
-%%
-%\OrigBibText
-%Jeffreys, H. (1931).
-%\newblock {\em Scientific Inference}.
-%\newblock Cambridge University Press, Cambridge, 1 edition.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b10 ###
-%\bibitem[\protect\astroncite{Kass and Raftery}{1995}]{Robert1995Bayes}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Kass},~\bfnm{R.~E.}\binits{R.~E.}} \AND
-%\bauthor{\bsnm{Raftery},~\bfnm{A.~E.}\binits{A.~E.}}
-%(\byear{1995}).
-%\btitle{Bayes factors}.
-%\bjournal{J. Amer. Statist. Assoc.}
-%\bvolume{90}
-%\bpages{773--795}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Kass, R.~E. and Raftery, A.~E. (1995).
-%\newblock Bayes factors.
-%\newblock {\em Journal of the American Statistical Association},
-% 90(430):773--795.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 430
-%\endbibitem
-%
-%%b11 ###
-%\bibitem[\protect\astroncite{Kleijn and Vaart}{2012}]{Kleijn2012The}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Kleijn},~\bfnm{B.}\binits{B.}} \AND
-%\bauthor{\bsnm{Vaart},~\bfnm{A.}\binits{A.}}
-%(\byear{2012}).
-%\btitle{The bernstein-von-mises theorem under misspecification}.
-%\bjournal{Electron. J. Stat.}
-%\bvolume{6}
-%\bpages{354--381}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Kleijn, B. and Vaart, A. (2012).
-%\newblock The bernstein-von-mises theorem under misspecification.
-%\newblock {\em Electron. J. Stat.}, 6(1):354--381.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 1
-%\endbibitem
-%
-%%b12 ###
-%\bibitem[\protect\astroncite{Le~Cam}{1990}]{Cam1990Maximum}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Le Cam},~\bfnm{L.}\binits{L.}}
-%(\byear{1990}).
-%\btitle{Maximum likelihood: An introduction}.
-%\bjournal{International Statistical Review}
-%\bvolume{58}
-%\bpages{153--171}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Le~Cam, L. (1990).
-%\newblock Maximum likelihood: An introduction.
-%\newblock {\em International Statistical Review}, 58(2):153--171.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 2
-%\endbibitem
-%
-%%b13 ###
-%\bibitem[\protect\astroncite{Li and Turner}{2016}]{NIPS2016_6208}
-%\begin{bincollection}[auto:parserefs-M02]
-%\bauthor{\bsnm{Li},~\bfnm{Y.}\binits{Y.}} \AND
-%\bauthor{\bsnm{Turner},~\bfnm{R.~E.}\binits{R.~E.}}
-%(\byear{2016}).
-%\btitle{R\'{e}nyi divergence variational inference}.
-%In \bbooktitle{Advances in Neural Information Processing Systems}
-%(\beditor{\bfnm{D.~D.}\binits{D.~D.}~\bsnm{Lee}},
-%\beditor{\bfnm{M.}\binits{M.}~\bsnm{Sugiyama}},
-%\beditor{\bfnm{U.~V.}\binits{U.~V.}~\bsnm{Luxburg}},
-%\beditor{\bfnm{I.}\binits{I.}~\bsnm{Guyon}} \AND
-%\beditor{\bfnm{R.}\binits{R.}~\bsnm{Garnett}}, eds.)
-%\bvolume{29}
-%\bpages{1073--1081}.
-%\bpublisher{Curran Associates, Inc.}
-%\end{bincollection}
-%%
-%\OrigBibText
-%Li, Y. and Turner, R.~E. (2016).
-%\newblock R\'{e}nyi divergence variational inference.
-%\newblock In Lee, D.~D., Sugiyama, M., Luxburg, U.~V., Guyon, I., and Garnett,
-% R., editors, {\em Advances in Neural Information Processing Systems 29},
-% pages 1073--1081. Curran Associates, Inc.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b14 ###
-%\bibitem[\protect\astroncite{Liu and Shao}{2004}]{LIU200461}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Liu},~\bfnm{X.}\binits{X.}} \AND
-%\bauthor{\bsnm{Shao},~\bfnm{Y.}\binits{Y.}}
-%(\byear{2004}).
-%\btitle{Asymptotics for the likelihood ratio test in a two-component normal mixture model}.
-%\bjournal{J. Statist. Plann. Inference}
-%\bvolume{123}
-%\bpages{61--81}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Liu, X. and Shao, Y. (2004).
-%\newblock Asymptotics for the likelihood ratio test in a two-component normal
-% mixture model.
-%\newblock {\em Journal of Statistical Planning and Inference}, 123(1):61 -- 81.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 1
-%\endbibitem
-%
-%%b15 ###
-%\bibitem[\protect\astroncite{O'Hagan}{1995}]{Fractional1995}
-%\begin{bunpublished}[auto:parserefs-M02]
-%\bauthor{\bsnm{O'Hagan},~\bfnm{A.}\binits{A.}}
-%(\byear{1995}).
-%\btitle{Fractional bayes factors for model comparison}.
-%\bnote{57:99--138}.
-%\end{bunpublished}
-%%
-%\OrigBibText
-%O'Hagan, A. (1995).
-%\newblock Fractional bayes factors for model comparison.
-%\newblock 57:99--138.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b16 ###
-%\bibitem[\protect\astroncite{{Pati} et~al.}{2017}]{pati2017}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Pati},~\bfnm{D.}\binits{D.}},
-%\bauthor{\bsnm{Bhattacharya},~\bfnm{A.}\binits{A.}} \AND
-%\bauthor{\bsnm{Yang},~\bfnm{Y.}\binits{Y.}}
-%(\byear{2017}).
-%\btitle{{On Statistical Optimality of Variational Bayes}}.
-%\newblock{\em arXiv e-prints arXiv:1712.08983}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%{Pati}, D., {Bhattacharya}, A., and {Yang}, Y. (2017).
-%\newblock {On Statistical Optimality of Variational Bayes}.
-%\newblock {\em ArXiv e-prints}.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b17 ###
-%\bibitem[\protect\astroncite{Shen and Wasserman}{2001}]{Shen2001Rates}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Shen},~\bfnm{X.}\binits{X.}} \AND
-%\bauthor{\bsnm{Wasserman},~\bfnm{L.}\binits{L.}}
-%(\byear{2001}).
-%\btitle{Rates of convergence of posterior distributions}.
-%\bjournal{Ann. Statist.}
-%\bvolume{29}
-%\bpages{687--714}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Shen, X. and Wasserman, L. (2001).
-%\newblock Rates of convergence of posterior distributions.
-%\newblock {\em Annals of Statistics}, 29(3):687--714.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 3
-%\endbibitem
-%
-%%b18 ###
-%\bibitem[\protect\astroncite{Vaart}{1998}]{van2000asymptotic}
-%\begin{bbook}[auto:parserefs-M02]
-%\bauthor{\bsnm{Vaart}} \AND
-%\bauthor{\bsnm{v d},~\bfnm{A.~W.}\binits{A.~W.}}
-%(\byear{1998}).
-%\btitle{Asymptotic Statistics}.
-%\bseries{Cambridge Series in Statistical and Probabilistic Mathematics}.
-%\bpublisher{Cambridge Univ. Press}.
-%\end{bbook}
-%%
-%\OrigBibText
-%Vaart, A. W. v.~d. (1998).
-%\newblock {\em Asymptotic Statistics}.
-%\newblock Cambridge Series in Statistical and Probabilistic Mathematics.
-% Cambridge University Press.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b19 ###
-%\bibitem[\protect\astroncite{van~der {Vaart} and
-% {Ghosal}}{2007}]{vaart2007convergence}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{van~der {Vaart}},~\bfnm{A.}\binits{A.}} \AND
-%\bauthor{\bsnm{Ghosal},~\bfnm{S.}\binits{S.}}
-%(\byear{2007}).
-%\btitle{Convergence rates of posterior distributions for noniid observations}.
-%\bjournal{Ann. Statist.}
-%\bvolume{35}
-%\bpages{192--223}.
-%\end{barticle}
-%%
-%\OrigBibText
-%van~der {Vaart}, A. and {Ghosal}, S. (2007).
-%\newblock Convergence rates of posterior distributions for noniid observations.
-%\newblock {\em Annals of Statistics}, 35(1):192--223.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 1
-%\endbibitem
-%
-%%b20 ###
-%\bibitem[\protect\astroncite{Walker and Hjort}{2001}]{kar10563}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Walker},~\bfnm{S.~G.}\binits{S.~G.}} \AND
-%\bauthor{\bsnm{Hjort},~\bfnm{N.~L.}\binits{N.~L.}}
-%(\byear{2001}).
-%\btitle{On bayesian consistency}.
-%\bjournal{Journal of the Royal Statistical Society: Series B (Statistical Methodology)}
-%\bvolume{63}
-%\bpages{811--821}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Walker, S.~G. and Hjort, N.~L. (2001).
-%\newblock On bayesian consistency.
-%\newblock {\em Journal of the Royal Statistical Society: Series B (Statistical
-% Methodology)}, 63(4):811--821.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 4
-%\endbibitem
-%
-%%b21 ###
-%\bibitem[\protect\astroncite{{Wang} and {Blei}}{2017}]{yixin2017}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Wang},~\bfnm{Y.}\binits{Y.}} \AND
-%\bauthor{\bsnm{Blei},~\bfnm{D.~M.}\binits{D.~M.}}
-%(\byear{2017}).
-%\btitle{{Frequentist Consistency of Variational Bayes}}.
-%\newblock {\em arXiv e-prints arXiv:1705.03439}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%{Wang}, Y. and {Blei}, D.~M. (2017).
-%\newblock {Frequentist Consistency of Variational Bayes}.
-%\newblock {\em ArXiv e-prints}.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%%b22 ###
-%\bibitem[\protect\astroncite{Wilks}{1938}]{Wilks1938The}
-%\begin{barticle}[auto:parserefs-M02]
-%\bauthor{\bsnm{Wilks},~\bfnm{S.~S.}\binits{S.~S.}}
-%(\byear{1938}).
-%\btitle{The large-sample distribution of the likelihood ratio for testing composite hypotheses}.
-%\bjournal{Annals of Mathematical Statistics}
-%\bvolume{9}
-%\bpages{60--62}.
-%\end{barticle}
-%%
-%\OrigBibText
-%Wilks, S.~S. (1938).
-%\newblock The large-sample distribution of the likelihood ratio for testing
-% composite hypotheses.
-%\newblock {\em Annals of Mathematical Statistics}, 9(1):60--62.
-%\endOrigBibText
-%\bptok{imsref}%
-%% NOT OUTPUTTED:
-%%   number = 1
-%\endbibitem
-%
-%%b23 ###
-%\bibitem[\protect\astroncite{{Yang} et~al.}{2017}]{yunyang2017}
-%\begin{bmisc}[auto:parserefs-M02]
-%\bauthor{\bsnm{Yang},~\bfnm{Y.}\binits{Y.}},
-%\bauthor{\bsnm{Pati},~\bfnm{D.}\binits{D.}} \AND
-%\bauthor{\bsnm{Bhattacharya},~\bfnm{A.}\binits{A.}}
-%(\byear{2017}).
-%\btitle{{$\alpha$-Variational Inference with Statistical Guarantees}}.
-%\newblock{\em arXiv e-prints arXiv:1710.03266}.
-%\end{bmisc}
-%%
-%\OrigBibText
-%{Yang}, Y., {Pati}, D., and {Bhattacharya}, A. (2017).
-%\newblock {$\alpha$-Variational Inference with Statistical Guarantees}.
-%\newblock {\em ArXiv e-prints}.
-%\endOrigBibText
-%\bptok{imsref}%
-%\endbibitem
-%
-%\end{thebibliography}
 
 \begin{proof}[\textbf{Proof of Proposition \ref{mixtureThm_binom}}]
 
@@ -3937,5 +3576,11 @@ This proves the conclusion (ii).
 
 \end{proof}
 
+
+\end{appendices}
+
+
+\bibliographystyle{apa}
+\bibliography{mybibfile}
 
 \end{document}
