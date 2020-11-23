@@ -44,6 +44,8 @@
 \newcommand{\BM}{\mathbf{M}}    \newcommand{\BN}{\mathbf{N}}    \newcommand{\BO}{\mathbf{O}}    \newcommand{\BP}{\mathbf{P}}    \newcommand{\BQ}{\mathbf{Q}}    \newcommand{\BR}{\mathbf{R}}    \newcommand{\BS}{\mathbf{S}}    \newcommand{\BT}{\mathbf{T}}    \newcommand{\BU}{\mathbf{U}}    \newcommand{\BV}{\mathbf{V}}    \newcommand{\BW}{\mathbf{W}}    \newcommand{\BX}{\mathbf{X}}
 \newcommand{\BY}{\mathbf{Y}}    \newcommand{\BZ}{\mathbf{Z}}    
 
+\newcommand{\myT}{\intercal}
+
 \newcommand{\bfsym}[1]{\ensuremath{\boldsymbol{#1}}}
 
 \def\balpha{\bfsym \alpha}
@@ -104,11 +106,11 @@ In Bayesian hypotheses testing framework, Bayes factor and its variants have bee
 %The Bayes factor can be applied to complex problems, even if the likelihood functions are unbounded.
 %The good performance of Bayes factor in complex models motivates us to use Bayes factors as frequentist test statistics.
 %The good performance of Bayes factor in complex models
-This motivates us to use Bayes factors to construct frequentist tests.
+This motivates us to use Bayes factors to construct significance tests.
 %Motivated by the good performance of Bayes factor in complex models, we investigate the Wilks phenomenon of various Bayes factors and propose to use Bayes factors to construct frequentist test statistics.
 In this paper, we investigate the asymptotic distribution of the Bayes factor and a class of its variants named generalized fractional Bayes factor.
 It shows that the classical Bayes factor has Wilks phenomenon only for a restricted class of priors while the generalized fractional Bayes factor has Wilks phenomenon for general priors.
-Frequentist tests based on Bayes factors are constructed using the Wilks phenomenon.
+Significance tests based on Bayes factors are constructed using the Wilks phenomenon.
 We also extend the result to the general integrated likelihood ratio test.
 For regular models, the proposed tests have the same asymptotic local power as the likelihood ratio test.
 However, %our theoretical results do not require the existence of the maximum likelihood estimate.
@@ -187,7 +189,7 @@ First, except for a rather restricted class of models, the explicit form of the 
 Unfortunately, if the likelihood function is not concave and has multiple local maxima,
 the numerical optimization procedure may be highly nontrivial and there is no universally applicable optimization method.
 Second, even for some fairly regular models,
-the MLE does not exist with a positive probability; see, e.g, \cite{Fienberg2012} and \cite{Rinaldo2013}.
+the MLE does not exist with a positive probability; see, e.g, \cite{Fienberg2012}, \cite{Rinaldo2013} and \cite{Candes2020The_phase}.
 Hence the LRT is not always well defined.
 %This may cause difficulty for practitioners.
 Worse still, in some problems the likelihood functions are unbounded with probability $1$ and hence the LRT is not defined; see, e.g.,~\cite{Cam1990Maximum}.
@@ -197,7 +199,7 @@ On the Bayesian side, the conventional tool for hypothesis testing is Bayes fact
 Bayes factor has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
 A delightful feature of the Bayes factor over the LRTS is that Bayes factor is well defined for any model provided the prior distributions are proper.
 Hence Bayes factor methodology is often used for complex models.
-The universal applicability of the Bayes factor motivates us to use the Bayes factor as a test statistic and construct a frequentist test.
+The universal applicability of the Bayes factor motivates us to use the Bayes factor as a test statistic and construct a significance test.
 The idea is not new.
 In fact, this methodology dates back at least to \cite{Good1967}, and has been considered by many researchers since then.
 \cite{Good1992} gave a review for some early literature using this idea.
@@ -206,21 +208,21 @@ See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent appl
 However, to the best of our knowledge, the idea has been mostly used for specific models and has not been systematically studied with full mathematical rigour for general models.
 One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}.
 In fact, our Theorem \ref{prop:expansion} implies that the dependence of the distribution of the Bayes factor on the prior density does not vanish even if the sample size tends to infinity.
-As a result, the Bayes factor does not have Wilks phenomenon in general, which hinders its application in frequentist hypothesis testing.
-%k, and can not be directly used to construct frequentist test.
-%A main reason is that the Bayes factor methodology does not intend to control the frequentist type I error rate and hence does not form a frequentist test.
-%, and hence can not be directly treated as a frequentist test.
+As a result, the Bayes factor does not have Wilks phenomenon in general, which hinders its application in significance testing.
+%k, and can not be directly used to construct significance test.
+%A main reason is that the Bayes factor methodology does not intend to control the frequentist type I error rate and hence does not form a significance test.
+%, and hence can not be directly treated as a significance test.
 %In fact, it is known that Bayes factor is sensitive to the choice of prior distribution. 
 %In fact, as shown by~\cite{clarke1990information},
 %the asymptotic distribution of Bayes factor depends on the prior density at the true parameter.
-%the Bayes factor for point null hypothesis, and applied the result to construct frequentist tests.
+%the Bayes factor for point null hypothesis, and applied the result to construct significance tests.
 %\cite{Johnson2013a}.
 %posterior predictive p value.
 %\cite{clarke1990information} investigated the asymptotic distribution of the Bayes factor and constructed significance test for point null hypothesis.
 %On the other hand, there is relatively few work which Bayes factor from a frequentist viewpoint.
-%Note that the historical development of Bayes factor is almost orthogonal to frequentist test.
+%Note that the historical development of Bayes factor is almost orthogonal to significance test.
 %However, this idea is not fully developed.
-Nevertheless, we shall show that if the priors are carefully chosen, the Bayes factor indeed has Wilks phenomenon and can be used to construct a frequentist test.
+Nevertheless, we shall show that if the priors are carefully chosen, the Bayes factor indeed has Wilks phenomenon and can be used to construct a significance test.
 We prove that the test so constructed has the same asymptotic local power as the LRT.
 Our theoretical results does not require that the MLE exists or the likelihood is bounded.
 Hence theoretically, the test based on Bayes factor has a wider application scope than the LRT.
@@ -234,13 +236,13 @@ Two important variants of Bayes factor are the posterior Bayes factor \citep{Ait
 We consider a class of statistics named generalized fractional Bayes factor which includes theses two variants of Bayes factor.
 We prove that the Wilks phenomenon of the generalized fractional Bayes factor holds for any reasonable prior.
 Also, the computation of the generalized fractional Bayes factor is straightforward provided sampling from the power posterior distribution is easy.
-Hence compared with Bayes factor, the generalized fractional Bayes factor is more suitable for constructing frequentist tests.
+Hence compared with Bayes factor, the generalized fractional Bayes factor is more suitable for constructing significance tests.
 %Our theoretical results show that the most favorable choice in the class of the generalized fractional Bayes factor may not be  the posterior Bayes factor and the fractional Bayes factor may not be.
 
 
 %In fact, the Bayes factor methodology rejects the null hypothesis when the Bayes factor exceeds certian threshold.
 
- %and hence does not produce valid frequentist test in general.
+ %and hence does not produce valid significance test in general.
 % does not intend to control the frequentist type I error rate,
 %Compared with other aspects of Bayesian inference, % such as point estimation and credible sets,
 %Bayes factor is developed on its own ground. % and thus has its own nature.
@@ -299,14 +301,14 @@ For this problem, the LRT has a nonstandard behavior, while the proposed methodo
 
 In this work, we treat the Bayes factor and its variants as frequentist test statistics.
 Hence a closely related area of research is the frequentist properties of the Bayes factor.
-Most existing results in this area focus on the consistency of the Bayes factor; see \cite{berger2003approximations}, \cite{moreno2010}, \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
+Most existing results in this area focus on the consistency of the Bayes factor, that is, as the sample size $n$ goes to infinity, the Bayes factor converges to $0$ under the null hypothesis, and converges to $+\infty$ under the alternative hypothesis; see \cite{berger2003approximations}, \cite{moreno2010}, \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
 There are still relatively few researches on the asymptotic distribution of the Bayes factor.
 \cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
 \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
 %Although the idea has a long history, most existing work only considered specific models.
 %To the best of our knowledge, there is no mathematically rigorous work on the asymptotic distribution of the Bayes factor and its variants.
-In this work, in order to use the Bayes factor to construct frequentist tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
-Thess results fill a theoretical gap in the literature and are interesting in their own right.
+In this work, in order to use the Bayes factor to construct significance tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
+Thess results are interesting in their own right.
 
 
 The paper is organized as follow.
@@ -331,20 +333,20 @@ All technical proofs are in Appendix.
 \section{Wilks phenomenon of Bayes factors} \label{sec:wilks}
 
 Let $\BX^{n}=(X_1,\ldots,X_n)$ be independent identically distributed (iid) observations taking values in a standard measurable space $(\mathcal{X};\mathscr{A})$.
-Suppose that the possible distribution $P_\theta$ of $X_i$ has a density $p(x|\theta)$ with respect to $\mu$, a $\sigma$-finite measure on $\mathcal{X}$.
+Suppose that the possible distribution $P_\theta$ of $X_i$ has a density $p(x|\theta)$ with respect to $\mu$, a $\sigma$-finite measure on $\mathscr{A}$. %$\mathcal{X}$.
 Denote by $P_{\theta}^{n}$ the joint distribution of $\BX^{n}$.
 Let $p_{n}(\Bx^{n}|\theta)=\prod_{i=1}^n p(x_i|\theta)$ denote the density of $P_{\theta}^n$ with respect to the $n$-fold product measure $\mu^n$.
 The parameter $\theta$ takes its values in $\Theta$, an open subset of $\mathbb{R}^{p}$.
-Suppose $\theta=(\nu^\top ,\xi^\top )^\top $, where $\nu$ is a $p_0$ dimensional subvector and $\xi$ is a $p-p_0$ dimensional subvector and ``$\top$'' means the transpose of a matrix.
+Suppose $\theta=(\nu^\myT ,\xi^\myT )^\myT $, where $\nu$ is a $p_0$ dimensional subvector and $\xi$ is a $p-p_0$ dimensional subvector and $\xi^\myT$ is the transpose of $\xi$.
  We would like to test the hypotheses
 \begin{equation*}
     H:\theta\in\Theta_0\quad \text{v.s.}\quad K:\theta\in\Theta\backslash \Theta_0,
 \end{equation*}
 where the null space $\Theta_0$ is a $p_0$-dimensional subspace of $\Theta$ defined as
 \begin{equation*}
-    \Theta_0=\{(\nu^\top ,\xi^\top )^\top :(\nu^\top ,\xi^\top )^\top \in\Theta, \, \xi=\xi_0\}.
+    \Theta_0=\{(\nu^\myT ,\xi^\myT )^\myT :(\nu^\myT ,\xi^\myT )^\myT \in\Theta, \, \xi=\xi_0\}.
 \end{equation*}
-If the null hypothesis is true, we denote by $\theta_0=(\nu_0^\top ,\xi_0^\top )^\top $ the true parameter which generates the data.
+If the null hypothesis is true, we denote by $\theta_0=(\nu_0^\myT ,\xi_0^\myT )^\myT $ the true parameter which generates the data.
 
 %The frequency property of Bayes factor is not satisfactory.
 %To overcome this weakness, several robust alternatives to Bayes factor have been proposed.
@@ -353,8 +355,11 @@ In Bayesian hypothesis testing framework, a fundamental tool is Bayes factor
     \text{BF}(\BX^{n})=
     \frac{\int_{\Theta} p_n(\BX^{n}|\theta)\pi(\theta)\, \mathrm d\theta}{\int_{\tilde{\Theta}_0}p_n(\BX^{n}|\nu,\xi_0)\pi_0(\nu)\, \mathrm d\nu},
 \end{equation*}
-where $\tilde{\Theta}_0=\{\nu: (\nu^\top ,\xi_0^\top )^\top \in \Theta_0\}$ and $\pi(\theta)$ and $\pi_0(\nu)$ are the prior densities of parameters under the alternative and the  null hypotheses, respectively.
-The priors $\pi(\theta)$ and $\pi_0 (\nu)$ may be improper, that is, $\int_{\Theta} \pi(\theta) \, \mathrm d \theta = + \infty$, $\int_{\tilde \Theta_0} \pi_0 (\nu) \, \mathrm d \nu  = + \infty$.
+where $\tilde{\Theta}_0=\{\nu: (\nu^\myT ,\xi_0^\myT )^\myT \in \Theta_0\}$, $\pi(\theta)$ and $\pi_0(\nu)$ are the prior densities of parameters under the alternative and the null hypotheses, respectively.
+In Bayesian literature, conventional Bayes factors often use improper priors for certain parameters, and consequently, $\pi(\theta)$ and $\pi_0 (\nu)$ may be improper, that is, $\int_{\Theta} \pi(\theta) \, \mathrm d \theta = + \infty$, $\int_{\tilde \Theta_0} \pi_0 (\nu) \, \mathrm d \nu  = + \infty$; see, e.g., \cite{berger2001Obj}, Section 2.1.
+%it is a common practice to use improper prior for certain parameters, in this case, $\int_{\Theta} \pi(\theta) \, \mathrm d \theta = + \infty$ or $\int_{\tilde \Theta_0} \pi_0 (\nu) \, \mathrm d \nu  = + \infty$.
+To accomodate these cases, throughout the paper, $\pi(\theta)$ and $\pi_0(\nu)$ are allowed to be improper unless otherwise stated.
+%The priors $\pi(\theta)$ and $\pi_0 (\nu)$ may be improper, that is, $\int_{\Theta} \pi(\theta) \, \mathrm d \theta = + \infty$, $\int_{\tilde \Theta_0} \pi_0 (\nu) \, \mathrm d \nu  = + \infty$.
 Conventionally, the null hypothesis is rejected if $\text{BF}(\BX^n)$ is larger than certain threshold.
 The choice of threshold is mostly empirical in the literature.
 For example, \cite{Jeffreys1961} suggested that the evidence against the null hypothesis is \emph{decisive} if $\text{BF}(\BX^n)>100$ while \cite{Robert1995Bayes} suggested that the evidence is \emph{very strong} if $\text{BF}(\BX^n) > 150$.
@@ -372,10 +377,10 @@ We make the following assumption which is adapted from~\cite{Kleijn2012The}.
             %|\log p(X|\theta_1)-\log p(X|\theta_2)|\leq m(X)\|\theta_1-\theta_2\|,
         %\end{equation*}
         %where $m(X)$ is a measurable function satisfying $P_{0}\exp[s m(X)]<\infty$ for some $s>0$.
-        %The Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^\top $ is positive-definite and as $\theta\to \theta_0$,
+        %The Fisher information matrix $I_{\theta_0}=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^\myT $ is positive-definite and as $\theta\to \theta_0$,
     %\begin{equation*}
         %P_{\theta_0} \log \frac{p(X|\theta)}{ p(X|\theta_0)}
-        %=-\frac{1}{2}(\theta-\theta_0)^\top  I_{\theta_0} (\theta-\theta_0)+o(\|\theta-\theta_0\|^2).
+        %=-\frac{1}{2}(\theta-\theta_0)^\myT  I_{\theta_0} (\theta-\theta_0)+o(\|\theta-\theta_0\|^2).
     %\end{equation*}
 \begin{assumption}\label{Assumption1}
     The parameter spaces $\Theta$ and $\tilde{\Theta}_0$ are open subsets of $\mathbb{R}^p$ and $\mathbb{R}^{p_0}$, respectively.
@@ -383,32 +388,40 @@ We make the following assumption which is adapted from~\cite{Kleijn2012The}.
     The derivative 
 $$\dot{\ell}_{\theta_0}(X)=\frac{\partial}{\partial \theta}\log p(X|\theta)\Big|_{\theta=\theta_0}$$
 exists $P_{\theta_0}$-a.s.\ and satisfies $P_{\theta_0}\dot{\ell}_{\theta_0}=\mathbf{0}_p$, where $P f$ means the expectation of $f(X)$ when $X$ has distribution $P$.
-The Fisher information matrix $I(\theta_0)=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^\top $ is positive-definite.
+The Fisher information matrix $I(\theta_0)=P_{\theta_0}\dot{\ell}_{\theta_0}\dot{\ell}_{\theta_0}^\myT $ is positive-definite.
 For every $M>0$,
     \begin{equation*}
         \sup_{\|h\|\leq M}\Big|
          %\log \frac{p_n(\BX^{n}|\theta_0+n^{-1/2}h)}{p_n(\BX^{n}|\theta_0)}
         R_n( \theta_0\|\theta_0 + n^{-1/2 }h )
-        +h^\top  I(\theta_0)\Delta_{n,\theta_0}-\frac{1}{2}h^\top  I(\theta_0) h
+        +h^\myT  I(\theta_0)\Delta_{n,\theta_0}-\frac{1}{2}h^\myT  I(\theta_0) h
          \Big|\xrightarrow{P^n_{\theta_0}}0,
     \end{equation*}
     where 
-    $R_n (\theta\| \theta' )= \log \left\{ p_n(\BX^{n}|\theta)/ p_n(\BX^{n}|\theta') \right\}$ is the log-likelihood ratio between $p_n(\BX^{n} | \theta )$ and $ p_n(\BX^{n} | \theta' )$,
-    and $\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I(\theta_0)^{-1}\dot{\ell}_{\theta_0}(X_i)$.
+    \begin{align*}
+        R_n (\theta\| \theta' )= \log \frac{ p_n(\BX^{n}|\theta)}{ p_n(\BX^{n}|\theta') }
+    \end{align*}
+    %\begin{align*}
+    %R_n (\theta\| \theta' )= \log \left\{ p_n(\BX^{n}|\theta)/ p_n(\BX^{n}|\theta') \right\}
+    %\end{align*}
+    is the log-likelihood ratio between $p_n(\BX^{n} | \theta )$ and $ p_n(\BX^{n} | \theta' )$,
+    and 
+    \begin{align*}
+    \Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n I(\theta_0)^{-1}\dot{\ell}_{\theta_0}(X_i).
+    \end{align*}
 \end{assumption}     
 
-
-Assumption \ref{Assumption1} assumes that the likelihood function $p_n (\BX^n | \theta)$ has good local behavior when $\theta$ is close to $\theta_0$.
+In Assumption \ref{Assumption1}, we assume that the likelihood function $p_n (\BX^n | \theta)$ has good local behavior when $\theta$ is close to $\theta_0$.
 Although Assumption \ref{Assumption1} is about the full likelihood function, it also implies the analogous assumption for the null likelihood function $p_n (\BX^n |\nu, \xi_0)$.
 Let 
 $\BI_{p_0}$ denote the $p_0$ dimensional identity matrix,
-$\BJ=(\BI_{p_0},\mathbf{0}_{p_0\times(p-p_0)})^\top $.
+$\BJ=(\BI_{p_0},\mathbf{0}_{p_0\times(p-p_0)})^\myT $.
 Define
 $$
-\dot{\ell}_{\theta_0}^{(0)}(X)= \BJ^\top \dot \ell_{\theta_0}(X)
+\dot{\ell}_{\theta_0}^{(0)}(X)= \BJ^\myT \dot \ell_{\theta_0}(X)
 ,
 \quad 
-I_\nu(\theta)=\BJ^\top I(\theta) \BJ,\quad 
+I_\nu(\theta)=\BJ^\myT I(\theta) \BJ,\quad 
 \Delta_{n,\theta_0}^{(0)}
 =\frac{1}{\sqrt{n}}\sum_{i=1}^n I_\nu(\theta_0)^{-1}\dot{\ell}^{(0)}_{\theta_0}(X_i)
 .
@@ -418,7 +431,7 @@ Then  Assumption \ref{Assumption1} implies that
         \sup_{\|h\|\leq M}\Big|
          %\log \frac{p_n(\BX^{n}|\theta_0+n^{-1/2}h)}{p_n(\BX^{n}|\theta_0)}
         R_n( \theta_0\|\nu_0 + n^{-1/2 }h, \xi_0 )
-        +h^\top  I_{\nu}(\theta_0)\Delta_{n,\theta_0}^{(0)}-\frac{1}{2}h^\top  I_\nu (\theta_0) h
+        +h^\myT  I_{\nu}(\theta_0)\Delta_{n,\theta_0}^{(0)}-\frac{1}{2}h^\myT  I_\nu (\theta_0) h
         \Big|\xrightarrow{P^n_{\theta_0}}0.
 \end{align*}
 
@@ -442,17 +455,17 @@ By local alternative hypothesis we mean that the true parameter is $\theta_n$ an
 Let
 \begin{align*}
     I_{\xi|\nu}(\theta) = 
-    \tilde \BJ ^\top  I(\theta) \tilde \BJ
+    \tilde \BJ ^\myT  I(\theta) \tilde \BJ
     -
-    \tilde \BJ ^\top  I(\theta) \BJ
-    (  \BJ ^\top  I(\theta) \BJ )^{-1}
-    \BJ ^\top  I(\theta) \tilde \BJ
+    \tilde \BJ ^\myT  I(\theta) \BJ
+    (  \BJ ^\myT  I(\theta) \BJ )^{-1}
+    \BJ ^\myT  I(\theta) \tilde \BJ
     ,
 \end{align*}
 where
-$\tilde\BJ=(\mathbf {0}_{ (p- p_0) \times p_0 },\BI_{(p-p_0)})^\top $.
+$\tilde\BJ=(\mathbf {0}_{ (p- p_0) \times p_0 },\BI_{(p-p_0)})^\myT $.
 It can be seen that $|I(\theta)| = |I_{\nu}(\theta)|\cdot |I_{\xi | \nu}(\theta )|$.
-Let $\chi^2(p-p_0,\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta )$ denote a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta$.
+Let $\chi^2(p-p_0,\eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta )$ denote a noncentral chi-squared random variable with $p-p_0$ degrees of freedom and noncentrality parameter $\eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta$.
 The following theorem gives the asymptotic distribution of Bayes factor.
 
     \begin{theorem}
@@ -460,11 +473,11 @@ The following theorem gives the asymptotic distribution of Bayes factor.
         Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
         Then 
 \begin{align*}
-    2 \log \text{BF} (\BX^{n})
+    2 \log \rm{BF} (\BX^{n})
     +(p-p_0) \log \left( \frac{n}{2\pi} \right)
 \overset{P^n_{\theta_n}}{\rightsquigarrow}
     &
-    \chi^2 (p-p_0, \eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta )
+    \chi^2 (p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta )
     +
    2 \log
        \frac{
@@ -492,11 +505,20 @@ Theorem \ref{prop:expansion} extends their result and gives the asymptotic distr
 \cite{clarke1990information} imposed some conditions on the likelihood around the true parameter, which may not be easy to verify for some moderately complex models.
 In comparison, Theorem \ref{prop:expansion} only assumes the likelihood can be expanded in a $n^{-1/2}$ neighborhood of the true parameter, which is satisfied by most regular models.
 \end{remark}
-%It can be seen that the Lindley's paradox does not only exist when using improper priors.
-    Theorem \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depends on the nuisance parameters and the priors.
+Suppose the null hypothesis is true.
+Then the true value of $\xi$, that is $\xi_0$, is known.
+However, the true value of $\nu$, say $\nu_0$, is unknown.
+That is, $\nu$ is the nuisance parameter.
+Theorem \ref{prop:expansion} implies that the asymptotic null distribution of the Bayes factor depends on the true value of the nuisance parameter $\nu$ as well as the priors.
     Hence the Bayes factor does not have Wilks phenomenon for general priors.
 Nevertheless, the dependency of the asymptotic null distribution on the nuisance parameters can be cancelled by a class of priors.
-In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribution of $\textrm{BF} (\BX^n)$ is free of the nuisance parameter $\nu$ if and only if
+In fact, Theorem \ref{prop:expansion} implies that the dependency of the asymptotic null distribution of $\textrm{BF} (\BX^n)$ on $\nu_0$ is through the quantity 
+$
+           \left|I_{\xi|\nu}(\nu_0, \xi_0)\right|^{- 1 / 2}\pi(\theta_0) 
+/
+    \pi_0(\nu_0)
+ $.
+Hence the asymptotic null distribution of $\textrm{BF} (\BX^n)$ is free of the nuisance parameter $\nu$ if and only if
 \begin{align}\label{eq:shouldConst}
        \frac{
            \left|I_{\xi|\nu}(\nu, \xi_0)\right|^{-\frac 1 2}\pi(\theta_0) 
@@ -508,7 +530,7 @@ In fact, Theorem \ref{prop:expansion} implies that the asymptotic null distribut
 for some constant $c$ and for any $\nu \in \tilde \Theta$.
 Unfortunately, simple examples show that \eqref{eq:shouldConst} does not hold for many popular objective priors for Bayes factor, including intrinsic priors \citep{intrisicBayesFactor}, fractional intrinsic priors \citep{santis1997Alt}, divergence-based priors \citep{Bayarri2008Gen}, expected-posterior priors \citep{Perez2002}.
 Nevertheless, \eqref{eq:shouldConst} holds for a large class of priors.
-For instance, the left hand side of \eqref{eq:shouldConst} is equal to $1$ if $\pi_0(\nu) = |I_{\nu}(\nu, \xi_0)|^{1/2}$ and $\pi(\theta) = | I (\theta)|^{1/2}$, that is, $\pi_0(\nu)$ and $\pi(\theta)$ are the Jeffreys priors under the null and the alternative hypotheses, respectively.
+For instance, the left hand side of \eqref{eq:shouldConst} is equal to one if $\pi_0(\nu) = |I_{\nu}(\nu, \xi_0)|^{1/2}$ and $\pi(\theta) = | I (\theta)|^{1/2}$, that is, $\pi_0(\nu)$ and $\pi(\theta)$ are the Jeffreys priors under the null and the alternative hypotheses, respectively.
 In general, \eqref{eq:shouldConst} is satisfied if $\pi(\theta) = \pi (\xi |\nu) \pi(\nu)$ and
 \begin{align}\label{eq:shouldConst2}
     \pi(\nu) = \pi_0 (\nu), \quad \pi(\xi_0 | \nu) = c |I_{\xi | \nu} (\nu,\xi_0)|^{1/2}.
@@ -516,7 +538,7 @@ In general, \eqref{eq:shouldConst} is satisfied if $\pi(\theta) = \pi (\xi |\nu)
 A class of priors satisfying \eqref{eq:shouldConst2} is the unit information priors proposed by \cite{Kass1995}, which is defined as
 \begin{align*}
     \pi(\nu) = \pi_0 (\nu), \quad \pi(\xi | \nu) = |\Sigma_\xi(\nu)|^{-1/2} f
-    \left((\xi - \xi_0)^\top \Sigma_\xi(\nu)^{-1} ( \xi - \xi_0)\right),
+    \left((\xi - \xi_0)^\myT \Sigma_\xi(\nu)^{-1} ( \xi - \xi_0)\right),
 \end{align*}
 where $\Sigma_{\xi}(\nu)$ satisfies
 $
@@ -525,7 +547,7 @@ $
 and $f$ is a probability density function.
 
 We have seen that with carefully chosen priors, Bayes factor has Wilks phenomenon.
-In this case, Bayes factor can be treated as a frequentist statistic and the critical value is determined by the asymptotic distribution.
+In this case, Bayes factor can be treated as a test statistic and the critical value is determined by the asymptotic distribution.
 However, this approach still has some weaknesses.
 First, the Wilks phenomenon of Bayes factor holds only for a restricted class of priors. % must satisfy \eqref{eq:shouldConst2}.
 As we have already pointed out, many popular objective priors do not satisfy \eqref{eq:shouldConst2}.
@@ -537,25 +559,32 @@ Third, the computation of Bayes factor is a difficult problem in general; see \c
 
 Now we turn to the variants of Bayes factor.
 We denote by
-$L_t(\BX^{n})=\int_{\Theta}\left[p_n(\BX^{n}|\theta)\right]^t \pi(\theta)\, \mathrm d\theta$
+\begin{align*}
+L_t(\BX^{n})=\int_{\Theta}\left[p_n(\BX^{n}|\theta)\right]^t \pi(\theta)\, \mathrm d\theta
+\end{align*}
 the power marginal likelihood with power $t>0$,
-and $\pi_t (\theta | \BX^n) = \left[p_n(\BX^{n}|\theta)\right]^t \pi(\theta)/ L_t (\BX^n)$ the power  posterior density.
+and by 
+\begin{align*}
+    \pi_t (\theta | \BX^n) = \frac{\left[p_n(\BX^{n}|\theta)\right]^t \pi(\theta)}{ L_t (\BX^n) }
+\end{align*}
+the power posterior density.
 We define $L_t^{(0)}(\BX^{n})$ and $\pi_{0, t} (\nu | \BX^n)$ in a similar way.
 For $t > 0$, let $\text{BF}_t (\BX^n) = L_t(\BX^n)/ L_t^{(0)} (\BX^n)$.
 Then $\text{BF}_1(\BX^n)$ is the usual Bayes factor.
 It can be expected that $\text{BF}_t (\BX^n)$ depends on the nuisance parameters and the priors in the same way for different values of $t>0$.
 Hence the ratio of $\text{BF}_t (\BX^n)$ for two different $t$ may cancel the dependency on the nuisance parameters and the priors.
-For $a>b>0$, let
-$
+For $a>b>0$, define
+\begin{align*}
 \Lambda_{a,b} (\BX^n) =
-    \text{BF}_a (\BX^n)/
-    \text{BF}_b (\BX^n)
-    $.
+\frac{\text{BF}_a (\BX^n)}
+{\text{BF}_b (\BX^n)}
+    .
+\end{align*}
     This class of statistics includes two important variants of Bayes factor, namely, the posterior Bayes factor proposed by~\cite{Aitkin1991Posterior} and the fractional Bayes factor proposed by~\cite{Fractional1995}.
     In fact, the posterior Bayes factor is equal to $\Lambda_{2,1}(\BX^n)$ and the fractional Bayes factor is equal to $\Lambda_{1,b}(\BX^n)$ for $b\in (0,1)$.
     For this reason we shall call $\Lambda_{a,b} (\BX^n)$ the generalized fractional Bayes factor throughout the paper.
 
-    Since we treat $\Lambda_{a,b}(\BX^n)$ as a frequentist statistic,
+    Since we treat $\Lambda_{a,b}(\BX^n)$ as a test statistic,
     the Wilks phenomenon of $\Lambda_{a,b}(\BX^n)$ should be examined.
     We shall assume $a$ is fixed as $n \to \infty$ and consider three settings for $b$: (a)
             $b$ is fixed;
@@ -580,16 +609,25 @@ In addition, further assumptions are required in the second and third settings.
 
  For two parameters $\theta_1$ and $\theta_2$, the $t$ order R\'{e}nyi divergence ($0<t <1$) between $P_{\theta_1}$ and $P_{\theta_2}$ is defined as
 $$
-D_{t}(\theta_1||\theta_2)=-\frac{1}{1-t}\log \rho_{t}(\theta_1,\theta_2),
+D_{t}(\theta_1||\theta_2)=-\frac{1}{1-t}\log 
+\int_{\mathcal{X}} p(x|\theta_1)^{t} p(x|\theta_2)^{1-t} \, \mathrm d \mu (x)
+%\rho_{t}(\theta_1,\theta_2)
+,
 $$
-where
-$
-\rho_{t}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(x|\theta_1)^{t} p(x|\theta_2)^{1-t} \, \mathrm d \mu (x)
-$ is the so-called Hellinger integral.
-Let $D_1(\theta_1 \| \theta_2) = \int_{\mathcal X} \log \left( p(x | \theta_0) / p( x | \theta) \right) p( x |\theta_0) \, \mathrm d \mu (x)$ be the Kullback-Leibler divergence between $P_{\theta_1}$ and $P_{\theta_2}$.
+%where
+%$
+%\rho_{t}(\theta_1,\theta_2)=\int_{\mathcal{X}} p(x|\theta_1)^{t} p(x|\theta_2)^{1-t} \, \mathrm d \mu (x)
+%$ is the so-called Hellinger integral.
+Let 
+\begin{align*}
+    D_1(\theta_1 \| \theta_2) = \int_{\mathcal X} p( x |\theta_0) \log \frac{p(x | \theta_0)} { p( x | \theta) } \, \mathrm d \mu (x)
+\end{align*}
+denote the Kullback-Leibler divergence between $P_{\theta_1}$ and $P_{\theta_2}$.
 It is known that $\lim_{t \uparrow 1} D_t(\theta_1 \| \theta_2) = D_1 (\theta_1 \| \theta_2)$; see, e.g., \cite{Erven2014}, Theorem $5$.
 Let 
-$V(\theta_0 \| \theta) = \int_{\mathcal X} \left( \log \left( p(x|\theta_0) / p(x | \theta) \right) - D_1 (\theta_0 \| \theta) \right)^2  p( x |\theta_0) \, \mathrm d \mu (x)$.
+\begin{align*}
+    V(\theta_0 \| \theta) = \int_{\mathcal X} \left( \log \frac{p(x|\theta_0)} { p(x | \theta) }  - D_1 (\theta_0 \| \theta) \right)^2  p( x |\theta_0) \, \mathrm d \mu (x).
+\end{align*}
 We shall make the following two assumptions in the second and third settings.
 \begin{assumption}
     For any fixed $t \in (0,1]$,
@@ -603,7 +641,7 @@ We shall make the following two assumptions in the second and third settings.
 \item
     as $\theta \to \theta_0$, 
     \begin{align*}
-        D_t(\theta_0 \| \theta) = (1+o(1))\frac{t}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0),\quad
+        D_t(\theta_0 \| \theta) = (1+o(1))\frac{t}{2} (\theta -\theta_0)^\myT I(\theta_0) (\theta - \theta_0),\quad
         V(\theta_0 \| \theta ) = O\left( \|\theta - \theta_0\|^2 \right)
         .
     \end{align*}
@@ -621,16 +659,16 @@ Hence the second condition assumes that the model is identifiable in a reasonabl
 The third condition in Assumption \ref{assumption2019} assumes that $D_t(\theta_0 \| \theta)$ has a reasonable Taylor approximation around $\theta =\theta_0$; see, e.g., \cite{Erven2014}, Section III. H.
 
 \begin{assumption}
-    There exist $t^* \in (0,1)$, $c^*, c^\dagger > 0$, $t_0^* \in (0,1)$, $c_0^*, c_0^\dagger > 0$ such that
+    There exist $t^* \in (0,1)$, $c^* > 0$ such that
     \begin{align*}
         \int_{\Theta} \exp\left\{ -c^* D_{1-t^*}(\theta_0 \| \theta) \right\} \pi (\theta) \, \mathrm d \theta < \infty,
-        \quad
-        \int_{\Theta} V(\theta_0 \|\theta) \exp\left\{ -c^\dagger D_{1}(\theta_0 \| \theta) \right\} \pi (\theta) \, \mathrm d \theta < \infty,
+        \,
+        \int_{\Theta} V(\theta_0 \|\theta) \exp\left\{ -c^* D_{1}(\theta_0 \| \theta) \right\} \pi (\theta) \, \mathrm d \theta < \infty,
     \end{align*}
     \begin{align*}
-        \int_{\tilde{\Theta}_0} \exp\left\{ -c_0^* D_{1-t_0^*}(\nu_0 \| \nu) \right\} \pi_0 (\nu) \, \mathrm d \nu < \infty,
-        \quad
-        \int_{\tilde \Theta_0} V(\nu_0 \|\nu) \exp\left\{ - c_0^\dagger D_{1}(\nu_0 \| \nu) \right\} \pi_0 (\nu) \, \mathrm d \nu < \infty.
+        \int_{\tilde{\Theta}_0} \exp\left\{ -c^* D_{1-t^*}(\nu_0, \xi_0 \| \nu, \xi_0) \right\} \pi_0 (\nu) \, \mathrm d \nu < \infty,
+        \,
+        \int_{\tilde \Theta_0} V(\nu_0, \xi_0 \|\nu, \xi_0) \exp\left\{ - c^* D_{1}(\nu_0, \xi_0 \| \nu, \xi_0) \right\} \pi_0 (\nu) \, \mathrm d \nu < \infty.
     \end{align*}
     \label{assumption:prior}
 \end{assumption}
@@ -641,23 +679,15 @@ The third condition in Assumption \ref{assumption2019} assumes that $D_t(\theta_
     To appreciate  the conditions,
     suppose $P_\theta$ is the  normal distribution $ \mathcal N( \theta, 1 )$ and $\theta_0 = 0$.
     Then the first two conditions of Assumption \ref{assumption:prior} becomes
-        %$\int_{\Theta} V(\theta_0 \|\theta) \exp\left\{ -c^\dagger D_{1}(\theta_0 \| \theta) \right\} \pi (\theta) \, \mathrm d \theta < \infty$ becomes
     \begin{align*}
-        \int_{\Theta} \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty,
+        \int_{\Theta} \exp\left\{ -c^* \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty,
         \quad
-        \int_{\Theta}  \theta^2 \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty.
+        \int_{\Theta}  \theta^2 \exp\left\{ -c^* \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty.
     \end{align*}
     The above condition is satisfied for $\pi(\theta) \equiv 1$.
     This implies that Assumption \ref{assumption:prior} is weak and it allows improper priors.
 
     We have the following theorem.
-
-
-
-
-
-
-
 
 \begin{theorem}\label{Thm:maintheorem}
     Suppose that Assumption~\ref{Assumption1} holds.
@@ -677,7 +707,7 @@ Then the following assertions hold:
         +\frac{p-p_0}{a-b}
         \log \left(\frac{a}{b}\right)
     \overset{P^n_{\theta_n}}{\rightsquigarrow} 
-    \chi^2(p-p_0,\eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta)
+    \chi^2(p-p_0,\eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta)
 .
     $$
 \item
@@ -693,7 +723,7 @@ Then
 \frac{p-p_0}{a-b}
 \log \left(\frac{a}{b}\right)
 \overset{P^n_{\theta_n}}{\rightsquigarrow}
-    \chi^2(p-p_0, \eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta)
+    \chi^2(p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta)
     .
 \end{align*}
 
@@ -708,7 +738,7 @@ as $n \to \infty$, $nb\to b^* \in (c^*, +\infty)$.
 +{(p-p_0)} \log \left( \frac{an}{2\pi} \right)
 \overset{P^n_{\theta_n}}{\rightsquigarrow}
 &
- a \chi^2 (p-p_0, \eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta )
+ a \chi^2 (p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta )
  +
 2\log\left( \frac{
         \left|I_{\xi| \nu} (\theta_0)\right|^{-\frac 1 2}
@@ -720,7 +750,7 @@ as $n \to \infty$, $nb\to b^* \in (c^*, +\infty)$.
 \frac{
     \int_{\Theta} \exp\left\{ -b^* D_1\left( \theta_0 \| \theta \right)\right\} \pi(\theta) \, \mathrm d \theta 
 }{
-\log \int_{\tilde \Theta_0} \exp\left\{ -b^* D_1\left( \theta_0 \| \nu, \xi_0 \right)\right\} \pi_0(\nu) \, \mathrm d \nu
+ \int_{\tilde \Theta_0} \exp\left\{ -b^* D_1\left( \theta_0 \| \nu, \xi_0 \right)\right\} \pi_0(\nu) \, \mathrm d \nu
 }
 \right)
 .
@@ -744,7 +774,7 @@ By Theorem~\ref{Thm:maintheorem}, the resulting test has asymptotic local power
 It is known that, under certain regular conditions,~\eqref{eq:likelihoodPower} is also the asymptotic local power of the likelihood ratio test. 
 In this view, $\Lambda_{a,b} (\BX^n)$ enjoys good frequentist properties.
 \cite{Fractional1995} argued that when robustness is no concern, it is natural to set $b$ as small as possible since it makes maximal possible use of the data for model comparison.
-However, Theorem \ref{Thm:maintheorem} implies that the frequentist test power of $\Lambda_{a,b}(\BX^n)$ is in fact independent of the choice of $b$.
+However, Theorem \ref{Thm:maintheorem} implies that the test power of $\Lambda_{a,b}(\BX^n)$ is in fact independent of the choice of $b$.
 Note that in Theorem \ref{Thm:maintheorem}, the second and the third settings require more assumptions than the first setting.
 Hence in frequentist perspective, it is preferred to use fixed $b$.
 
@@ -825,7 +855,7 @@ We shall prove the $\sqrt{n}$-consistency of $\pi_{t}(\theta | \BX^{n})$ for $0<
 Then $\pi_t(\theta | \BX^{n})$ is $\sqrt n$-consistent.
 \end{proposition}
 \begin{remark}
-    Most existing results on the consistency of posterior requires that $\phi(\theta)$ is proper.
+    Most existing results on the consistency of posterior requires that $\pi(\theta)$ is proper.
     Since improper priors are often used for Bayes factor, existing results are not suitable for our purpose.
     It can be seen that the integrability condition \eqref{condition:inte}
     is satisfied for any proper priors.
@@ -958,7 +988,7 @@ The following theorem gives the asymptotic distribution of $\Lambda_{a,b}^* (\BX
         \log \Lambda^*_{a,b} (\BX^n) 
         +\frac{p-p_0}{a-b}\log \left(\frac{a}{b}\right)
         \overset{P^n_{\theta_n}}{\rightsquigarrow}
-        \chi^2(p-p_0, \eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta ).
+        \chi^2(p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta ).
         $$
 \end{theorem}
 Theorem~\ref{theoremMain} shows that $\Lambda_{a,b}^* (\BX^n)$ has the same asymptotic distribution as $\Lambda_{a,b} (\BX^n)$.
@@ -1013,8 +1043,8 @@ In this section, we apply the generalized fractional Bayes factor to the testing
 Suppose 
 \begin{align*}
     p(x|\theta)
-    =\exp \left\{ \theta^\top  T(x)-A(\theta) \right\}
-    =\exp \left\{ \nu^\top  T_1(x) + \xi^\top T_2 (x) -A(\theta) \right\}
+    =\exp \left\{ \theta^\myT  T(x)-A(\theta) \right\}
+    =\exp \left\{ \nu^\myT  T_1(x) + \xi^\myT T_2 (x) -A(\theta) \right\}
     .
 \end{align*}
 We would like to test
@@ -1086,7 +1116,7 @@ Apply (a) of Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, w
     \end{center}
     \caption{
         %An example of unbounded likelihood.
-        Data $X_1,\ldots,X_n$ are iid from the mixture model $(1-\omega)\mathcal{N}(0,1)+\omega\mathcal{N}(\xi,\sigma^2)$ with $(\omega,\xi,\sigma^2)^\top =(1/2,1,10^{-2})$ and $n=50$.
+        Data $X_1,\ldots,X_n$ are iid from the mixture model $(1-\omega)\mathcal{N}(0,1)+\omega\mathcal{N}(\xi,\sigma^2)$ with $(\omega,\xi,\sigma^2)^\myT =(1/2,1,10^{-2})$ and $n=50$.
         We plot the likelihood function  in $-\log (\sigma^2)$ with $\omega=1/2$ and $\xi=X_1$.
         The likelihood tends to infinity as $-\log (\sigma^2)$ tends to infinity, i.e., $\sigma^2$ tends to $0$.
         In contrast, the likelihood has a local maximum around the true parameter $-\log (\sigma^{2})=-\log (10^{-2})$.
@@ -1095,7 +1125,7 @@ Apply (a) of Theorem~\ref{Thm:maintheorem} and Proposition~\ref{Theoremless1}, w
 \end{figure}
 \begin{proposition}
 For hypotheses testing problem~\eqref{mixturehy1}, 
-if $0< b < a <1$ are fixed, $\pi(\theta)$ is proper and is continuous at $\theta_0$ with $\pi(\theta_0) > 0$, $\pi_0 (\nu)$ is proper and is continuous at $\nu_0$ with $\pi_0 (\nu_0) > 0 $, $\sqrt{n}((\xi,\sigma^2)-(0,1))^\top \to (\eta_1,\eta_2)^\top  $, then
+if $0< b < a <1$ are fixed, $\pi(\theta)$ is proper and is continuous at $\theta_0$ with $\pi(\theta_0) > 0$, $\pi_0 (\nu)$ is proper and is continuous at $\nu_0$ with $\pi_0 (\nu_0) > 0 $, $\sqrt{n}((\xi,\sigma^2)-(0,1))^\myT \to (\eta_1,\eta_2)^\myT  $, then
 \begin{equation*}
     \frac{2}{a-b}\log \Lambda_{a,b} (\BX^n)
     +\frac{2}{a-b}\log \left(\frac{a}{b}\right)
@@ -1133,7 +1163,7 @@ In fact, the following proposition shows that $\Lambda_{a,b}(\BX^n)$ has the des
 
 \begin{proposition}
     Suppose $\pi(\omega,\xi)=\pi_{\omega}(\omega) \pi_{\xi}(\xi)$, $\pi_\xi(\xi)$ is proper and is continuous at $0$ with $\pi_\xi (0) > 0$,
-    $\pi_\omega(\omega)\sim \text{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
+    $\pi_\omega(\omega)\sim \rm{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
     Suppose $ 0 < b < a < 1 $ are fixed.
     Then,
     \begin{enumerate}[(i)]
@@ -1179,7 +1209,7 @@ In fact, \cite{Chernoff1995} proved that the asymptotic distribution of the LRT 
 The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phenomenon.
 \begin{proposition}
     Suppose $\pi(\omega,\xi)=\pi_{\omega}(\omega) \pi_{\xi}(\xi)$, $\pi_\xi(\xi)$ is proper and is continuous at $1/2$ with $\pi_\xi (1/2) > 0$,
-    $\pi_\omega(\omega)\sim \text{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
+    $\pi_\omega(\omega)\sim \rm{Beta}(\alpha_1,\alpha_2)$ with $\alpha_1>1$.
     Suppose $ 0 < b < a < 1 $ are fixed.
     Then,
     \begin{enumerate}[(i)]
@@ -1196,6 +1226,51 @@ The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phen
 \end{enumerate}
     \label{mixtureThm_binom}
 \end{proposition}
+
+
+\subsection{High-dimensional logistic regression}\label{sec:logistic}
+
+Suppose $\mu(\{-1\}) = \mu(\{1\}) = 1/2 $.
+Suppose $X_i \sim \mathcal N(0, \BI_p)$.
+\begin{align*}
+    p(y_i | X_i, \bbeta )  =  \frac{1}{ 1 + \exp\{- y_i X_i^\myT \bbeta \} }.
+\end{align*}
+
+\begin{align*}
+    \frac{p(y_i,  X_i | \bbeta)}{ p(y_i,  X_i | 0) }
+    =
+    \frac{p(y_i | X_i , \bbeta)}{ p(y_i|  X_i , 0) }.
+\end{align*}
+
+\begin{align*}
+    P_{\theta_0}^n
+    \int_{\Theta}
+    \left\{
+        \prod_{i=1}^n \frac{p(y_i|  X_i, \bbeta)}{ p(y_i|  X_i , 0) }
+\right\}^t
+\pi(\bbeta) \, \mathrm d \bbeta
+    =
+    \int_{\Theta}
+    \exp\left\{
+    \sum_{i=1}^n
+    \log
+\frac{
+1 + \exp\{ t X_i^\myT \bbeta \} 
+}{
+    2^{1-t}
+    \left(
+1 + \exp\{ X_i^\myT \bbeta \} 
+    \right)^t
+}
+\right\}
+\pi(\bbeta) \, \mathrm d \bbeta
+\end{align*}
+
+\begin{align*}
+    \sum_{i=1}^n \log p(y_i | X_i) 
+\end{align*}
+
+
 
 \section{Simulation studies} \label{sec:simu}
 In this section, we carry out simulations to examine the empirical size and power of the generalized FBF for the testing problems \eqref{newHy} and \eqref{Hy:binomial}.
@@ -1347,7 +1422,7 @@ In practice, if there is no practical evidence for the choice of $a$ and $b$, on
 
 \section{Conclusion} \label{sec:conclusion}
 In this paper, we investigated the Wilks phenomenon of the Bayes factor, the generalized fractional Bayes factor and more generally, the integrated likelihood ratio test.
-Using the Wilks phenomenon, these statistics can be used to construct the frequentist tests.
+Using the Wilks phenomenon, these statistics can be used to construct significance tests.
 We also apply the proposed methodology to three examples.
 These examples show that the proposed method can have good behavior even if the LRT is not defined or has poor properties.
 The integrated likelihood ratio test is easy to implement provided sampling from weight functions is convenient.
@@ -1416,7 +1491,7 @@ This work was supported by the National Natural Science Foundation of China unde
     %we have $\|\dot{\ell}_{\theta_0}(X)\|\leq m(X)$ $P_{\theta_0}$-a.s., $P_{\theta_0} \dot{\ell}_{\theta_0}(X)=0$ and for every $M>0$
     %\begin{equation*}
         %\sup_{\|h\|\leq M}\Big|
-         %\log \frac{p_n(\BX^{n}|\theta_0+n^{-1/2}h)}{p_n(\BX^{n}|\theta_0)}-h^\top  I_{\theta_0}\Delta_{n,\theta_0}+\frac{1}{2}h^\top  I_{\theta_0}h
+         %\log \frac{p_n(\BX^{n}|\theta_0+n^{-1/2}h)}{p_n(\BX^{n}|\theta_0)}-h^\myT  I_{\theta_0}\Delta_{n,\theta_0}+\frac{1}{2}h^\myT  I_{\theta_0}h
          %\Big|\xrightarrow{P^n_{\theta_0}}0.
     %\end{equation*}
     %%(See~\cite{van2000asymptotic} Theorem 5.23 or)
@@ -1474,35 +1549,35 @@ This work was supported by the National Natural Science Foundation of China unde
         Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
         Then
         \begin{align*}
-        \Delta_{n,\theta_0}^\top  I(\theta_0)\Delta_{n,\theta_0}
+        \Delta_{n,\theta_0}^\myT  I(\theta_0)\Delta_{n,\theta_0}
             -
-            \Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
+            \Delta_{n,\theta_0}^{{(0)}\myT} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
 \overset{P^n_{\theta_n}}{\rightsquigarrow}
-    \chi^2 (p-p_0, \eta^\top\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\top\eta )
+    \chi^2 (p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta )
 .
         \end{align*}
         \label{lemma:score}
     \end{lemma}
     \begin{proof}
-        It can be seen that $\Delta_{n,\theta_0}^{(0)}=(\BJ^\top  I(\theta_0)\BJ)^{-1} \BJ^\top  I(\theta_0) \Delta_{n,\theta_0}$.
+        It can be seen that $\Delta_{n,\theta_0}^{(0)}=(\BJ^\myT  I(\theta_0)\BJ)^{-1} \BJ^\myT  I(\theta_0) \Delta_{n,\theta_0}$.
 Then
 \begin{equation*}
     \begin{split}
         &
-        \Delta_{n,\theta_0}^\top  I(\theta_0) \Delta_{n,\theta_0}
+        \Delta_{n,\theta_0}^\myT  I(\theta_0) \Delta_{n,\theta_0}
     -
     \Delta_{n,\theta_0}^{{(0)}T} I_{\nu}(\theta_0) \Delta^{(0)}_{n,\theta_0}
             \\
             =&
-            \Delta_{n,\theta_0}^\top  I(\theta_0)^{1/2}\big(
+            \Delta_{n,\theta_0}^\myT  I(\theta_0)^{1/2}\big(
             \BI_p-
-            I(\theta_0)^{1/2} \BJ (\BJ^\top  I(\theta_0) \BJ)^{-1} \BJ^\top  I(\theta_0)^{1/2}
+            I(\theta_0)^{1/2} \BJ (\BJ^\myT  I(\theta_0) \BJ)^{-1} \BJ^\myT  I(\theta_0)^{1/2}
         \big)I(\theta_0)^{1/2}\Delta_{n,\theta_0},
     \end{split}
 \end{equation*}
 where $
             \BI_p-
-            I(\theta_0)^{1/2} \BJ (\BJ^\top  I(\theta_0) \BJ)^{-1} \BJ^\top  I(\theta_0)^{1/2}
+            I(\theta_0)^{1/2} \BJ (\BJ^\myT  I(\theta_0) \BJ)^{-1} \BJ^\myT  I(\theta_0)^{1/2}
 $
 is a projection matrix with rank $p-p_0$.
 It remains to derive the asymptotic distribution of $\Delta_{n,\theta_0}$.
@@ -1523,7 +1598,7 @@ Let $h_n=\sqrt{n}(\theta_n-\theta_0)$.
         %\begin{matrix}
         %\frac{1}{\sqrt{n}}\sum^n_{i=1}\dot{\ell}_{\theta_0}(X_i)
         %\\
-        %\frac{1}{\sqrt{n}}\sum^n_{i=1}h_n^\top \dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h_n^\top  I_{\theta_0}h_n
+        %\frac{1}{\sqrt{n}}\sum^n_{i=1}h_n^\myT \dot{\ell}_{\theta_0}(X_i)-\frac{1}{2}h_n^\myT  I_{\theta_0}h_n
         %\end{matrix}
     %\right)
     %+o_{P_0^n}(1)\\
@@ -1532,13 +1607,13 @@ Let $h_n=\sqrt{n}(\theta_n-\theta_0)$.
     \left(
     \begin{matrix}
         0\\
-        -\frac{1}{2}\eta^\top  I(\theta_0)\eta
+        -\frac{1}{2}\eta^\myT  I(\theta_0)\eta
     \end{matrix}
     \right),
     \left(
         \begin{matrix}
             I(\theta_0)&I(\theta_0)\eta\\
-            \eta^\top  I(\theta_0)&\eta^\top  I(\theta_0)\eta
+            \eta^\myT  I(\theta_0)&\eta^\myT  I(\theta_0)\eta
         \end{matrix}
     \right)
     \right).
@@ -1555,17 +1630,17 @@ $
 weakly converges to $\mathcal{N}(\eta, I(\theta_0)^{-1})$ in  $P^n_{\theta_n}$.
 It follows that
 \begin{equation*}
-\Delta_{n,\theta_0}^\top  I(\theta_0) \Delta_{n,\theta_0}
+\Delta_{n,\theta_0}^\myT  I(\theta_0) \Delta_{n,\theta_0}
 -
 \Delta_{n,\theta_0}^{{(0)}T} I_\nu(\theta_0) \Delta^{(0)}_{n,\theta_0}
 \overset{P_{\eta_n}^n}{\rightsquigarrow} \chi^2(p-p_0,\delta),
 \end{equation*}
 where $\delta =
-\eta^\top 
+\eta^\myT 
              \big(
              I(\theta_0)
             -
-            I(\theta_0) \BJ (\BJ^\top  I(\theta_0) \BJ)^{-1} \BJ^\top  I(\theta_0)
+            I(\theta_0) \BJ (\BJ^\myT  I(\theta_0) \BJ)^{-1} \BJ^\myT  I(\theta_0)
         \big)
 \eta$.
 Note that
@@ -1573,39 +1648,39 @@ Note that
              \big(
              I(\theta_0)
             -
-            I(\theta_0) \BJ (\BJ^\top  I(\theta_0) \BJ)^{-1} \BJ^\top  I(\theta_0)
+            I(\theta_0) \BJ (\BJ^\myT  I(\theta_0) \BJ)^{-1} \BJ^\myT  I(\theta_0)
         \big)
-        \BJ \BJ^\top = \mathbf 0_{p\times p}.
+        \BJ \BJ^\myT = \mathbf 0_{p\times p}.
 \end{align*}
 Hence
 \begin{align*}
     \delta=&
-\eta^\top 
-        \left( \BJ \BJ^\top + \tilde \BJ \tilde \BJ^\top \right)
+\eta^\myT 
+        \left( \BJ \BJ^\myT + \tilde \BJ \tilde \BJ^\myT \right)
              \big(
              I(\theta_0)
             -
-            I(\theta_0) \BJ (\BJ^\top  I(\theta_0) \BJ)^{-1} \BJ^\top  I(\theta_0)
+            I(\theta_0) \BJ (\BJ^\myT  I(\theta_0) \BJ)^{-1} \BJ^\myT  I(\theta_0)
         \big)
-        \left( \BJ \BJ^\top + \tilde \BJ \tilde \BJ^\top \right)
+        \left( \BJ \BJ^\myT + \tilde \BJ \tilde \BJ^\myT \right)
 \eta
 \\
 =&
-\eta^\top 
-         \tilde \BJ \tilde \BJ^\top 
+\eta^\myT 
+         \tilde \BJ \tilde \BJ^\myT 
              \big(
              I(\theta_0)
             -
-            I(\theta_0) \BJ (\BJ^\top  I(\theta_0) \BJ)^{-1} \BJ^\top  I(\theta_0)
+            I(\theta_0) \BJ (\BJ^\myT  I(\theta_0) \BJ)^{-1} \BJ^\myT  I(\theta_0)
         \big)
-         \tilde \BJ \tilde \BJ^\top 
+         \tilde \BJ \tilde \BJ^\myT 
 \eta
 \\
 =&
-\eta^\top 
+\eta^\myT 
          \tilde \BJ 
          I_{\xi | \nu} (\theta_0)
-         \tilde \BJ^\top 
+         \tilde \BJ^\myT 
          \eta.
 \end{align*}
 This completes the proof.
@@ -1631,7 +1706,7 @@ This completes the proof.
     |I(\theta_0)|^{-{1}/{2}} 
     \exp
     \left\{ 
-        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+        \frac{t}{2}\Delta_{n,\theta_0}^\myT  I({\theta_0})\Delta_{n,\theta_0}
 \right\}
     .
         \end{align*}
@@ -1654,12 +1729,12 @@ This completes the proof.
     (1+o_{P^n_{\theta_0}}(1))
     n^{-p/2}\pi(\theta_0)
     \exp\left\{ 
-        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+        \frac{t}{2}\Delta_{n,\theta_0}^\myT  I({\theta_0})\Delta_{n,\theta_0}
     \right\}
     \\
     &
     \cdot
-    \int_{\{h:\|h\|\leq M\}}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
+    \int_{\{h:\|h\|\leq M\}}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\myT  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
 ,
 \end{align*}
 where the first equality follows from the continuity of $\pi(\theta)$ at $\theta_0$ and the coordinate transformation $h=\sqrt{n}(\theta-\theta_0)$;
@@ -1671,11 +1746,11 @@ Therefore the above equality still holds if we replace $M$ by $M_n$.
 Since $\Delta_{n,\theta_0}$ is bounded in probability, we have
         $$
             \begin{aligned}
-                & \int_{\{h:\|h\|\leq M_n\}}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
+                & \int_{\{h:\|h\|\leq M_n\}}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\myT  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
                 \\
                 =&
                 (1+o_{P^n_{\theta_0}}(1))
-                \int_{\mathbb{R}^p}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\top  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
+                \int_{\mathbb{R}^p}\exp\left\{ -\frac{t}{2}(h-\Delta_{n,\theta_0})^\myT  I({\theta_0})(h-\Delta_{n,\theta_0})\right\} \, \mathrm dh
                 \\
                 =&
                 (1+o_{P^n_{\theta_0}}(1))
@@ -1704,7 +1779,7 @@ $$
     |I(\theta_0)|^{-{1}/{2}} 
     \exp
     \left\{ 
-        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+        \frac{t}{2}\Delta_{n,\theta_0}^\myT  I({\theta_0})\Delta_{n,\theta_0}
 \right\}
     .
 $$
@@ -1744,7 +1819,7 @@ $$
     |I(\theta_0)|^{-{1}/{2}} 
     \exp
     \left\{ 
-        \frac{1}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+        \frac{1}{2}\Delta_{n,\theta_0}^\myT  I({\theta_0})\Delta_{n,\theta_0}
 \right\}
 ,
 $$
@@ -1759,7 +1834,7 @@ and
     \left(\frac{2\pi}{ n}\right)^{{p_0}/{2}}
      |I_{\theta_0}^{(0)}|^{-{1}/{2}} 
      \exp\left\{ 
-         \frac{1}{2}\Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
+         \frac{1}{2}\Delta_{n,\theta_0}^{{(0)}\myT} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
      \right\}
      .
 \end{equation*}
@@ -1780,9 +1855,9 @@ It follows that
    {\frac{p-p_0}{2}} \log \left( \frac{2\pi}{n} \right)
 +
         \frac 1 2 \left( 
-            \Delta_{n,\theta_0}^\top  I(\theta_0)  \Delta_{n,\theta_0}
+            \Delta_{n,\theta_0}^\myT  I(\theta_0)  \Delta_{n,\theta_0}
             -
-            \Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
+            \Delta_{n,\theta_0}^{{(0)}\myT} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
         \right)
         \\
    &+
@@ -1798,9 +1873,9 @@ It follows that
    {\frac{p-p_0}{2}} \log \left( \frac{2\pi}{n} \right)
 +
         \frac 1 2 \left( 
-            \Delta_{n,\theta_0}^\top  I(\theta_0)  \Delta_{n,\theta_0}
+            \Delta_{n,\theta_0}^\myT  I(\theta_0)  \Delta_{n,\theta_0}
             -
-            \Delta_{n,\theta_0}^{{(0)}\top} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
+            \Delta_{n,\theta_0}^{{(0)}\myT} I_{\nu}(\theta_0)\Delta^{(0)}_{n,\theta_0}
         \right)
         \\
    &+
@@ -1820,7 +1895,7 @@ Combining the above equality and Lemma \ref{lemma:contiguous} and Lemma \ref{lem
 
 \begin{proposition}
     Suppose that Assumptions \ref{Assumption1}, \ref{assumption2019}, \ref{assumption:prior} hold.
-Then the following assertions hold.
+Then the following assertions hold:
 \begin{enumerate}[(a)]
         \item 
             If $t \to 0$, $tn \to \infty$, then
@@ -1859,37 +1934,53 @@ Then the following assertions hold.
     \label{lemma:2019}
 \end{lemma}
 \begin{proof}
-Assumption \ref{assumption2019} implies that
+    Fix an $\epsilon \in (0,1)$.
+    For sufficiently large $n$, we have
 \begin{align*}
     &\int_{\Theta} \exp\left\{ -tn D_{1-t^\dagger} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    \geq
+    (1-\epsilon)\pi(\theta_0)
+    \int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_{1-t^\dagger} (\theta_0 \| \theta) \right\}  \, \mathrm d \theta.
+\end{align*}
+By Assumption \ref{assumption2019}, for sufficiently large $n$,
+\begin{align*}
+    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_{1-t^\dagger} (\theta_0 \| \theta) \right\}  \, \mathrm d \theta
     \\
     \geq
-    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp\left\{ -tn D_{1-t^\dagger} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    &\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp \left\{ - (1+\epsilon) \frac{tn(1-t^\dagger)}{2} (\theta- \theta_0)^\myT I(\theta_0) (\theta- \theta_0) \right\}   \, \mathrm d \theta
     \\
     =
-    &(1+o(1))\pi(\theta_0)\int_{ \left\{ \theta: \|\theta - \theta_0\|\leq (tn)^{-1/4} \right\}} \exp \left\{ - \frac{tn(1-t^\dagger)}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta- \theta_0) \right\}   \, \mathrm d \theta
+    & (tn)^{-p/2} \int_{ \left\{ \vartheta: \|\vartheta\|\leq (tn)^{1/4} \right\}} \exp \left\{ - (1+\epsilon) \frac{1-t^\dagger}{2} \vartheta^\myT I(\theta_0) \vartheta \right\} \, \mathrm d \vartheta
     \\
     =
-    &(1+o(1))\pi(\theta_0) (tn)^{-p/2} \int_{ \left\{ \vartheta: \|\vartheta\|\leq (tn)^{1/4} \right\}} \exp \left\{ - \frac{1-t^\dagger}{2} \vartheta^\top I(\theta_0) \vartheta \right\} \, \mathrm d \vartheta
-    \\
-    =
-    &(1+o(1))\pi(\theta_0)
+    &
+    (1+o(1))
     \left( 
-        \frac{2\pi}{(1-t^\dagger) tn}
+        \frac{2\pi}{(1+\epsilon)(1-t^\dagger) tn}
     \right)^{p/2}
     |I(\theta_0)|^{-1/2}
     .
 \end{align*}
+Since $\epsilon$ can be arbitrarily small, we have
+\begin{align*}
+    &\int_{\Theta} \exp\left\{ -tn D_{1-t^\dagger} (\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+    \geq (1+o(1))
+    \pi(\theta_0)
+    \left( 
+        \frac{2\pi}{(1-t^\dagger) tn}
+    \right)^{p/2}
+    |I(\theta_0)|^{-1/2}.
+\end{align*}
 Now we prove the other direction of the inequality.
 Assumption \ref{assumption2019} allows us to choose $\epsilon \in (0,1)$ and $\delta>0$ such that  for $\|\theta- \theta_0\| \leq \delta$,
 \begin{align*}
-D_{1-t^\dagger} (\theta_0 || \theta) \geq (1-\epsilon) \frac{1-t^\dagger}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+D_{1-t^\dagger} (\theta_0 || \theta) \geq (1-\epsilon) \frac{1-t^\dagger}{2} (\theta -\theta_0)^\myT I(\theta_0) (\theta - \theta_0)
 ,
 \quad
 \pi(\theta) \leq (1+\epsilon) \pi(\theta_0) 
 .
 \end{align*}
-Also by Assumption \ref{assumption2019}, there exists a $\epsilon^* >0$ such that $D_{t^\dagger} (\theta_0 \| \theta) \geq \epsilon^*$ for $\|\theta - \theta_0\|\geq \delta$.
+Also by Assumption \ref{assumption2019}, there exists an $\epsilon^* >0$ such that $D_{1 - t^\dagger} (\theta_0 \| \theta) \geq \epsilon^*$ for $\|\theta - \theta_0\|\geq \delta$.
 Hence for sufficiently large $n$ such that $tn > c^*$, we have
 \begin{align*}
         &\int_{ \Theta } \exp\{-tn D_{1-t^\dagger}(\theta_0 \| \theta)\} \pi (\theta) \, \mathrm d \theta
@@ -1899,7 +1990,7 @@ Hence for sufficiently large $n$ such that $tn > c^*$, we have
         \int_{ \left\{ \theta: \|\theta - \theta_0\| \leq \delta \right\}}
         \exp\left\{ 
             -tn
-        (1-\epsilon) \frac{1-t^\dagger}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+        (1-\epsilon) \frac{1-t^\dagger}{2} (\theta -\theta_0)^\myT I(\theta_0) (\theta - \theta_0)
         \right\}
         \, \mathrm d \theta
         \\
@@ -1912,7 +2003,7 @@ Hence for sufficiently large $n$ such that $tn > c^*$, we have
         \int_{\Theta}
         \exp\left\{ 
             -tn
-        (1-\epsilon) \frac{1-t^\dagger}{2} (\theta -\theta_0)^\top I(\theta_0) (\theta - \theta_0)
+        (1-\epsilon) \frac{1-t^\dagger}{2} (\theta -\theta_0)^\myT I(\theta_0) (\theta - \theta_0)
         \right\}
         \, \mathrm d \theta
         \\
@@ -2052,7 +2143,7 @@ Then from \eqref{eq:leiApp}, we have the upper bound
 }.
 \label{eq:KLBound}
 \end{align}
-If $tn\to c \in (0, +\infty)$, 
+If $tn\to c \in (c^*, +\infty)$, 
 then the dominated convergence theorem implies that
 \begin{align*}
     &
@@ -2067,9 +2158,8 @@ then the dominated convergence theorem implies that
     .
 \end{align*}
 Hence the right hand side of \eqref{eq:KLBound} converges to $0$.
-
-We turn to the case $tn \to \infty$. 
-For any $t^\dagger \in (0,t^*)$,
+Now we turn to the case $tn \to \infty$. 
+For any fixed $t^\dagger \in (0,t^*)$,
 since $t < t^\dagger$ for sufficiently large $n$, we have
 \begin{align*}
     \limsup_{n \to \infty}
@@ -2126,11 +2216,11 @@ It can be seen that
            }
            .
 \end{align*}
-If $tn \to c \in (0,+\infty)$, the above expression obviously tends to $0$.
+If $tn \to c \in (c^*, +\infty)$, the above expression obviously tends to $0$.
 Now we assume $tn \to \infty$.
 Assumption \ref{assumption2019} allows us to choose $\epsilon \in (0,1)$ and $\delta>0$ such that  for $\|\theta- \theta_0\| \leq \delta$,
 \begin{align*}
-    D_1(\theta_0 \| \theta) \geq  \frac{1-\epsilon}{2} (\theta- \theta_0)^\top I(\theta_0) (\theta - \theta_0),
+    D_1(\theta_0 \| \theta) \geq  \frac{1-\epsilon}{2} (\theta- \theta_0)^\myT I(\theta_0) (\theta - \theta_0),
     \quad
     V(\theta_0 \| \theta) \leq C\|\theta - \theta_0\|^2
     ,\quad
@@ -2138,7 +2228,7 @@ Assumption \ref{assumption2019} allows us to choose $\epsilon \in (0,1)$ and $\d
     .
 \end{align*}
 Also by Assumption \ref{assumption2019}, there exists a $\epsilon^* > 0$ such that $D_1(\theta_0 \|\theta) \geq \epsilon^*$ for $\|\theta - \theta_0\| \geq \delta$.
-Then for sufficiently large $n$ such that $tn > c^\dagger$, we have
+Then for sufficiently large $n$ such that $tn > c^*$, we have
 \begin{align*}
     &
     \int_{\Theta}
@@ -2150,7 +2240,7 @@ Then for sufficiently large $n$ such that $tn > c^\dagger$, we have
     (1+\epsilon) \pi(\theta_0)
      \int_{ \left\{ \theta: \|\theta- \theta_0\| \leq \delta \right\}}
      C\|\theta - \theta_0\|^2
-     \exp\left\{ -t n (1-\epsilon) \frac{1}{2} \left( \theta - \theta_0 \right)^\top I(\theta_0) (\theta- \theta_0) \right\} 
+     \exp\left\{ -t n (1-\epsilon) \frac{1}{2} \left( \theta - \theta_0 \right)^\myT I(\theta_0) (\theta- \theta_0) \right\} 
      \, \mathrm d \theta
      \\
      &+
@@ -2162,11 +2252,11 @@ Then for sufficiently large $n$ such that $tn > c^\dagger$, we have
     (tn)^{-p/2 - 1}
      \int_{ \mathbb R^p}
      C\|\vartheta \|^2
-     \exp\left\{ - (1-\epsilon) \frac{1}{2}  \vartheta^\top I(\theta_0) \vartheta \right\} 
+     \exp\left\{ - (1-\epsilon) \frac{1}{2}  \vartheta^\myT I(\theta_0) \vartheta \right\} 
      \, \mathrm d \vartheta
      \\
      &+
-     \exp\left\{ -(tn- c^\dagger) \epsilon^* \right\} \int_{\Theta} V(\theta_0 \| \theta) \exp\left\{ - c^\dagger D_1(\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
+     \exp\left\{ -(tn- c^*) \epsilon^* \right\} \int_{\Theta} V(\theta_0 \| \theta) \exp\left\{ - c^* D_1(\theta_0 \| \theta) \right\} \pi(\theta) \, \mathrm d \theta
      \\
      =&
      O\left( (tn)^{ - p/2 - 1 }\right)
@@ -2241,7 +2331,7 @@ Then
     -\frac{p-p_0}{2}\log \left(\frac{a}{b}\right)
     +
     \frac{a-b}{2}\Big(
-        \Delta_{n,\theta_0}^\top  I(\theta_0) \Delta_{n,\theta_0}
+        \Delta_{n,\theta_0}^\myT  I(\theta_0) \Delta_{n,\theta_0}
     -
     \Delta_{n,\theta_0}^{{(0)}T} I_{\nu}(\theta_0) \Delta^{(0)}_{n,\theta_0}
     \Big)
@@ -2402,7 +2492,7 @@ This completes the proof.
     |I(\theta_0)|^{-{1}/{2}} 
     \exp
     \left\{ 
-        \frac{t}{2}\Delta_{n,\theta_0}^\top  I({\theta_0})\Delta_{n,\theta_0}
+        \frac{t}{2}\Delta_{n,\theta_0}^\myT  I({\theta_0})\Delta_{n,\theta_0}
 \right\}
     .
         \end{aligned}
@@ -2488,13 +2578,13 @@ Then the $\sqrt{n}$-consistency of $\pi_t(\theta;\BX^{n})$ follows from \eqref{d
     \exp\left\{ - (a-b) R_n ( \theta_0 \| \theta_0 + n^{-1/2} h ) \right\}
     \pi_b (h;\BX^{n}) \, \mathrm dh\\
     =&
-    ( 1 + o_{P^n_{\theta_0}}(1) )\int_{\|h\|\leq M} \exp\left\{ (a-b) h^\top  I(\theta_0)\Delta_{n,\theta_0}- \frac{a-b}{2}h^\top  I(\theta_0) h \right\}\pi_b (h;\BX^{n}) \, \mathrm dh
+    ( 1 + o_{P^n_{\theta_0}}(1) )\int_{\|h\|\leq M} \exp\left\{ (a-b) h^\myT  I(\theta_0)\Delta_{n,\theta_0}- \frac{a-b}{2}h^\myT  I(\theta_0) h \right\}\pi_b (h;\BX^{n}) \, \mathrm dh
     \\
-    =&\int_{\|h\|\leq M} \exp \left\{ (a-b) h^\top  I(\theta_0)\Delta_{n,\theta_0}-\frac{a-b}{2}h^\top  I(\theta_0) h \right\} \phi(h;\Delta_{n,\theta_0}, b^{-1} I(\theta_0)^{-1})\, \mathrm dh
+    =&\int_{\|h\|\leq M} \exp \left\{ (a-b) h^\myT  I(\theta_0)\Delta_{n,\theta_0}-\frac{a-b}{2}h^\myT  I(\theta_0) h \right\} \phi(h;\Delta_{n,\theta_0}, b^{-1} I(\theta_0)^{-1})\, \mathrm dh
     +o_{P^n_{\theta_0}}(1),
 \end{split}
 \end{equation}
-    %So we only need to consider $\int_{\|h\|\leq M} \exp\big[h^\top  I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^\top  I_{\theta_0}h\big]\pi_n (h;\BX^{n}) \, dh$.
+    %So we only need to consider $\int_{\|h\|\leq M} \exp\big[h^\myT  I_{\theta_0}\Delta_{n,\theta_0}-\frac{1}{2}h^\myT  I_{\theta_0}h\big]\pi_n (h;\BX^{n}) \, dh$.
     %By central limit theorem, $\Delta_{n,\theta_0}$ weakly converges to a normal distribution.
 where the first equality follows from Assumption~\ref{Assumption1} and the second equality follows from \eqref{vonMisesResults}.
 This is true for every $M>0$ and hence by Lemma \ref{lemma:MN} it is also true for some $M_n\to \infty$.
@@ -2551,7 +2641,7 @@ Combining~\eqref{eq:8} and~\eqref{eq:4} yields
 \exp\left\{ - (a-b) R_n \left( \theta_0 \| \theta_0 + n^{-1/2} h \right) \right\}
     \pi_b (h;\BX^{n})  \, \mathrm dh
     \\
-    =&\left(\frac{a}{b}\right)^{-p/2} \exp\left\{\frac{a-b}{2}\Delta_{n,\theta_0}^\top  I(\theta_0)\Delta_{n,\theta_0}\right\}+o_{P_{\theta_0}^n}(1).
+    =&\left(\frac{a}{b}\right)^{-p/2} \exp\left\{\frac{a-b}{2}\Delta_{n,\theta_0}^\myT  I(\theta_0)\Delta_{n,\theta_0}\right\}+o_{P_{\theta_0}^n}(1).
     \end{split}
 \end{equation*}
 Similarly, we have
@@ -2561,7 +2651,7 @@ Similarly, we have
 \exp\left\{ - (a-b) R_n \left( \theta_0 \| \nu_0 + n^{-1/2} h^{(0)}, \xi_0 \right) \right\}
     \pi_b (h^{(0)};\BX^{n})  \, \mathrm dh^{(0)}
     \\
-    =&\left(\frac{a}{b}\right)^{-p_0/2} \exp\left\{\frac{a-b}{2}\Delta_{n,\theta_0}^{(0)\top} I_\nu(\theta_0)\Delta^{(0)}_{n,\theta_0}\right\}+o_{P_{\theta_0}^n}(1).
+    =&\left(\frac{a}{b}\right)^{-p_0/2} \exp\left\{\frac{a-b}{2}\Delta_{n,\theta_0}^{(0)\myT} I_\nu(\theta_0)\Delta^{(0)}_{n,\theta_0}\right\}+o_{P_{\theta_0}^n}(1).
     \end{split}
 \end{equation*}
 Hence
@@ -2570,8 +2660,8 @@ Hence
         2\log \Lambda_{a,b}^* (\BX^n)
         =&
         -{(p-p_0)}\log \left(\frac{a}{b}\right)+{(a-b)}\left(
-            \Delta_{n,\theta_0}^\top  I(\theta_0) \Delta_{n,\theta_0}
-        -\Delta_{n,\theta_0}^{(0)\top} I_\nu(\theta_0)\Delta^{(0)}_{n,\theta_0}\right)
+            \Delta_{n,\theta_0}^\myT  I(\theta_0) \Delta_{n,\theta_0}
+        -\Delta_{n,\theta_0}^{(0)\myT} I_\nu(\theta_0)\Delta^{(0)}_{n,\theta_0}\right)
         +o_{P^n_{\theta_0}}(1).
     \end{aligned}
 \end{equation*}
@@ -2581,7 +2671,7 @@ Then the conclusion follows from Lemma \ref{lemma:contiguous} and Lemma \ref{lem
 \section{Proofs in Section 3}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{exponentialCon}}]
-    For exponential family, we have $\dot{\ell}_{\theta_0} (X) = T(X) - ( \partial / \partial \theta ) A(\theta_0)$ and $I(\theta_0) = (\partial^2 /\partial \theta \partial \theta^\top ) A(\theta_0)$.
+    For exponential family, we have $\dot{\ell}_{\theta_0} (X) = T(X) - ( \partial / \partial \theta ) A(\theta_0)$ and $I(\theta_0) = (\partial^2 /\partial \theta \partial \theta^\myT ) A(\theta_0)$.
     Thus,
     $$
     I(\theta_0)\Delta_{n,\theta_0}=n^{-1/2}\sum_{i=1}^n T(X_i)-\sqrt{n}\frac{\partial}{\partial \theta} A(\theta_0)
@@ -2589,12 +2679,12 @@ Then the conclusion follows from Lemma \ref{lemma:contiguous} and Lemma \ref{lem
     and
     $$
     R_n ( \theta_0 \| \theta_0 + n^{-1/2}h  )
-    =-h^\top  I(\theta_0) \Delta_{n,\theta_0}+\frac{1}{2} h^\top  I(\theta_0) h +
+    =-h^\myT  I(\theta_0) \Delta_{n,\theta_0}+\frac{1}{2} h^\myT  I(\theta_0) h +
     g_n(h),
     $$
     where
     $$
-    g_n(h)=n\Big(A(\theta_0+n^{-1/2}h)-A(\theta_0)-n^{-1/2}h \frac{\partial}{\partial \theta}A(\theta_0)-\frac{1}{2n}h^\top  I(\theta_0) h\Big).
+    g_n(h)=n\Big(A(\theta_0+n^{-1/2}h)-A(\theta_0)-n^{-1/2}h \frac{\partial}{\partial \theta}A(\theta_0)-\frac{1}{2n}h^\myT  I(\theta_0) h\Big).
     $$
     %Without loss of generality, we assume $M_n\to \infty$ and $M_n^3/\sqrt{n}\to 0$.
     From Taylor's theorem and the continuity of the third derivative of $A(\theta)$, 
@@ -2624,7 +2714,7 @@ Then the conclusion follows from Lemma \ref{lemma:contiguous} and Lemma \ref{lem
     (1+o_{P^n_{\theta_0}}(1))
         \pi(\theta_0)
     \left(\frac{2\pi}{t n}\right)^{p/2} |I(\theta_0)|^{-1/2}
-    \exp\left\{ \frac{t}{2}\Delta_{n,\theta_0}^\top  I(\theta_0)\Delta_{n,\theta_0} \right\}
+    \exp\left\{ \frac{t}{2}\Delta_{n,\theta_0}^\myT  I(\theta_0)\Delta_{n,\theta_0} \right\}
     .
     \end{split}
 \end{equation}
@@ -2773,19 +2863,19 @@ This completes the proof.
 We shall verify Assumption~\ref{Assumption1} and Assumption~\ref{Assumption4}.
 We use the parameterization
 $
-\theta=(\xi,\tau)^\top  =(\xi,\sigma^{-2})^\top $.
+\theta=(\xi,\tau)^\myT  =(\xi,\sigma^{-2})^\myT $.
 Then
 \begin{equation*}
     p(X|\theta)=\frac{1}{2}\phi(X)+\frac{1}{2}\sqrt{\tau} \phi(\sqrt{\tau}(X-\xi)).
 \end{equation*}
 By direct calculation, we have 
 \begin{equation*}
-    \dot{\ell}_{\theta_0}(X)=\left(\frac{1}{2}X,\frac{1}{4}(1-X^2)\right)^\top .
+    \dot{\ell}_{\theta_0}(X)=\left(\frac{1}{2}X,\frac{1}{4}(1-X^2)\right)^\myT .
 \end{equation*}
 Hence $P_{\theta_0}\dot{\ell}_{\theta_0}=\mathbf{0}_2$ and
 $I(\theta_0) = \mydiag (1/4, 1/8)$.
 
-Let $M>0$ be a fixed constant.  For $h=(h_1,h_2)^\top \in \mathbb{R}^2$ such that $\|h\|\leq M$ and $i=1,\ldots, n$, we have
+Let $M>0$ be a fixed constant.  For $h=(h_1,h_2)^\myT \in \mathbb{R}^2$ such that $\|h\|\leq M$ and $i=1,\ldots, n$, we have
 \begin{equation*}
     \begin{split}
     \frac{p(X_i|\theta_0+n^{-1/2}h)}{p(X_i|\theta_0)}
@@ -2944,7 +3034,7 @@ On the one hand,
     \geq
     |\sin \xi |\exp(-1/(2\tau)).
 \end{equation*}
-Hence if $(\xi, \tau)^\top $ is close enough to $(0,1)^\top $, then
+Hence if $(\xi, \tau)^\myT $ is close enough to $(0,1)^\myT $, then
 \begin{equation*}
     \int \left|\sqrt{\tau}\phi(\sqrt{\tau}(x-\xi))-\phi(x)\right| \, \mathrm d\mu(x)
     \gtrsim |\xi|.
@@ -2957,7 +3047,7 @@ it is not hard to see that
     \left|\exp(-1/(2\tau))-\exp(-1/2)\right|
     .
 \end{equation*}
-Hence if $(\xi, \tau)^\top $ close enough to $(0,1)^\top $, then
+Hence if $(\xi, \tau)^\myT $ close enough to $(0,1)^\myT $, then
 \begin{equation*}
     \begin{split}
         &\int \left|\sqrt{\tau}\phi(\sqrt{\tau}(x-\xi))-\phi(x)\right| \, \mathrm d\mu(x)
@@ -3013,7 +3103,7 @@ then
 Thus, $D_{1/2}(\theta_0 \| \theta)$ has a positive lower bound for $\sqrt{\xi^2+(\tau-1)^2}\geq\delta$.
 This verifies Assumption~\ref{Assumption4}.
 
-If $\sqrt{n}((\xi,\sigma^2)-(0,1))^\top \to (\eta_1,\eta_2)^\top  $, then $\sqrt{n}((\xi,\tau)-(0,1))^\top \to (\eta_1,-\eta_2)^\top  $ and the conclusion follows from (a) of Theorem~\ref{Thm:maintheorem}.
+If $\sqrt{n}((\xi,\sigma^2)-(0,1))^\myT \to (\eta_1,\eta_2)^\myT  $, then $\sqrt{n}((\xi,\tau)-(0,1))^\myT \to (\eta_1,-\eta_2)^\myT  $ and the conclusion follows from (a) of Theorem~\ref{Thm:maintheorem}.
 \end{proof}
 
 
@@ -3333,7 +3423,7 @@ As a result,
 \end{equation*}
 Note that~\eqref{eq:mixtureaiya1} implies that
 \begin{equation*}
-    \left(\frac{1}{\sqrt n}\sum_{i=1}^n X_i,\log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\top 
+    \left(\frac{1}{\sqrt n}\sum_{i=1}^n X_i,\log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\myT 
         \overset{P^n_{\theta_0}}{\rightsquigarrow}
         \mathcal{N}_2\left(
     \begin{pmatrix}
@@ -3638,7 +3728,7 @@ As a result,
 \end{align*}
 Note that~\eqref{eq:2020binom} implies that
 \begin{equation*}
-    \left(\frac{1}{\sqrt{kn}}\sum_{i=1}^n (2X_i-k), \log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\top 
+    \left(\frac{1}{\sqrt{kn}}\sum_{i=1}^n (2X_i-k), \log \frac{p_n(\BX^{n}|\theta)}{p_n(\BX^{n}|\theta_0)}\right)^\myT 
         \overset{P^n_{\theta_0}}{\rightsquigarrow}
         \mathcal{N}_2\left(
     \begin{pmatrix}
@@ -3661,6 +3751,213 @@ This proves the conclusion (ii).
 
 
 \end{proof}
+
+
+\section{Asymptotic distribution of the intrinsic Bayes factor}
+In Bayesian literature, several variants of Bayes factor have been proposed to ease the problem of the extreme sensitivity of the Bayes factor to the priors, including the posterior Bayes factor \cite{Aitkin1991Posterior}, the fractional Bayes factor \citep{Fractional1995} and the intrinsic Bayes factor \cite{intrinsicBayesFactor}.
+In Section \ref{sec:wilks}, we have investigate the asymptotic distribution of the posterior Bayes factor and the fractional Bayes factor.
+For completeness, we investigate the asymptotic distribution of the intrinsic Bayes factor in this appendix.
+
+We consider the same problem setting as in Section \ref{sec:wilks}.
+For a subset $\mathcal L $ of $\{1, 2, \dots, n\}$, let $\BX^{\mathcal L}$ denote the observations $\{X_i: i \in \mathcal L\}$.
+As in \cite{intrinsicBayesFactor}, $\BX^{\mathcal L}$ is called proper if 
+\begin{align*}
+    0< \int_{\Theta} \prod_{i \in \mathcal L} p (X_i | \theta) \pi(\theta) \, \mathrm d \theta  < \infty,
+    \quad
+    0< \int_{\tilde \Theta_0} \prod_{i \in \mathcal L} p (X_i | \nu, \xi_0) \pi_0(\nu) \, \mathrm d \nu  < \infty.
+\end{align*}
+If $\BX^{\mathcal L}$ is proper and has no proper subset, then it is called minimal.
+Define 
+\begin{align*}
+\mathscr L = \{ \mathcal L \subset \{1,\dots, n\} : \BX^{\mathcal L} \text{ is minimal}\}.
+\end{align*}
+\cite{intrinsicBayesFactor} considered the arithmetic intrinsic Bayes factor (AIBF) and the geometric intrinsic Bayes factor (GIBF), defined by
+\begin{align*}
+    \text{AIBF}(\BX^n) = 
+    \text{BF}(\BX^n) \cdot
+    \frac{1}{\text{Card}(\mathscr L)} \sum_{\mathcal L \in \mathscr L} \frac{1}{ \text{BF}(\BX^{\mathcal L}) }
+\end{align*}
+and
+\begin{align*}
+    \text{GIBF}(\BX^n) = 
+    \text{BF}(\BX^n) \cdot
+    \left(\prod_{\mathcal L \in \mathscr L} \frac{1}{ \text{BF}(\BX^{\mathcal L}) } \right)^{1/\text{Card}(\mathscr L)},
+\end{align*}
+where 
+\begin{align*}
+\text{BF}(\BX^{\mathcal L})
+=
+\frac{\int_{\Theta} \prod_{i \in \mathcal L} p(X_i|\theta)\pi(\theta)\, \mathrm d\theta}
+{\int_{\tilde{\Theta}_0} \prod_{ i \in \mathcal L } p(X_i|\nu,\xi_0)\pi_0(\nu)\, \mathrm d\nu}
+\end{align*}
+is the Bayes factor using data $\BX^{\mathcal L}$.
+
+We make the following assumption.
+\begin{assumption}\label{Assumption:IBF}
+    There is a positive integer $k$, such that
+\begin{align*}
+&P_{\theta_0}^n 
+\left\{
+0< \int_{\Theta} \prod_{i=1}^k p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  < \infty
+,\,
+    0< \int_{\tilde \Theta_0} \prod_{i=1}^k p (X_i| \nu, \xi_0) \pi_0(\nu) \, \mathrm d \nu  < \infty
+\right\} = 1,
+\\
+&
+P_{\theta_0}^n 
+\left\{
+    \int_{\Theta} \prod_{i=1}^{k-1} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  < \infty
+,\,
+    \int_{\tilde \Theta_0} \prod_{i=1}^{k-1} p (X_i| \nu, \xi_0) \pi_0(\nu) \, \mathrm d \nu  < \infty
+\right\} = 0.
+\end{align*}
+\end{assumption}     
+Assumption \ref{Assumption:IBF} implies that $\BX^{\mathcal L}$ is minimal if and only if $\text{Card}(\mathcal L) = k$, see the proof of Theorem \ref{prop:IBF}.
+This assumption is satisfied by all the examples in \cite{intrinsicBayesFactor}.
+%The following lemma shows that under Assumption \ref{Assumption:IBF}, 
+ %$\BX^{\mathcal L}$ is minimal if and only if $\text{Card}(\mathcal L) = k$.
+%\begin{lemma}
+%    Under Assumption \ref{Assumption:IBF}, with $P_{\theta_0}^n$ probability $1$, we have
+%    \begin{align*}
+%        \mathscr L = \{\mathcal L \subset \{1,\dots,n\}: \text{Card}(\mathcal L) = k \}.
+%    \end{align*}
+%    \label{lemma:IBF_iff_k}
+%\end{lemma}
+The following theorem gives the asymptotic distribution of the intrinsic Bayes factors.
+\begin{theorem}
+        Suppose that Assumptions~\ref{Assumption1}, \ref{Assumption:IBF} hold, $\pi(\theta)$ is continuous at $\theta_0$ with $\pi(\theta_0)>0$, $\pi_0(\nu)$ is continuous at $\nu_0$ with $\pi_0(\nu_0)>0$, $\pi(\theta |\BX^{n})$, $\pi_0(\nu|\BX^{n})$ are $\sqrt{n}$-consistent.
+Suppose $\{\theta_n\}$ satisfies $\sqrt{n}(\theta_n-\theta_0)\to \eta$.
+Then the following assertions hold:
+\begin{enumerate}[(a)]
+    \item 
+        If $P_{\theta_0}^n ( 1 / \rm{BF}(\BX^{\{1,\dots,k\}}) ) < \infty$, then
+        \begin{align*}
+            2 \log \rm{AIBF} (\BX^n) 
+    +(p-p_0) \log \left( \frac{n}{2\pi} \right)
+\overset{P^n_{\theta_n}}{\rightsquigarrow}
+    &
+    \chi^2 (p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta )
+    \\
+    &
+    +
+   2 \log
+       \frac{
+           \left|I_{\xi|\nu}(\theta_0)\right|^{-\frac 1 2}\pi(\theta_0) 
+   }{
+    \pi_0(\nu_0)
+}
++ 2\log P_{\theta_0}^n (1/\rm{BF}(\BX^{\{1,\dots,k\}})).
+        \end{align*}
+    \item
+        If $P_{\theta_0}^n |\log \rm{BF}(\BX^{\{1,\dots,k\}})|  < \infty$, then
+        \begin{align*}
+            2 \log \rm{GIBF} (\BX^n) 
+    +(p-p_0) \log \left( \frac{n}{2\pi} \right)
+\overset{P^n_{\theta_n}}{\rightsquigarrow}
+    &
+    \chi^2 (p-p_0, \eta^\myT\tilde \BJ I_{\xi|\nu}(\theta_0) \tilde\BJ^\myT\eta )
+    \\
+    &
+    +
+   2 \log
+       \frac{
+           \left|I_{\xi|\nu}(\theta_0)\right|^{-\frac 1 2}\pi(\theta_0) 
+   }{
+    \pi_0(\nu_0)
+}
+- 2 P_{\theta_0}^n \log(\rm{BF}(\BX^{\{1,\dots,k\}})).
+        \end{align*}
+\end{enumerate}
+
+\label{prop:IBF}
+\end{theorem}
+Theorem \ref{prop:IBF} implies that the intrinsic Bayes factor does not have Wilks phenomenon in general.
+
+\begin{proof} [\textbf{Proof of Theorem \ref{prop:IBF}}]
+    First, we show that with $P_{\theta_0}^n$ probability $1$,
+    \begin{align}\label{proof_ibf_u_index}
+        \mathscr L = \{\mathcal L \subset \{1,\dots,n\}: \text{Card}(\mathcal L) = k \}.
+    \end{align}
+    Note that Assumption \ref{Assumption:IBF} implies that with $P_{\theta_0}^n$ probability $1$, for all $\mathcal L$ with $\text{Card}(\mathcal L) = k$, $\mathcal L$ is proper.
+    Now consider the case that $\text{Card} (\mathcal L ) = k^* < k$.
+    Without loss of generality, assume $\mathcal L = \{1, \dots, k^*\}$.
+    Note that
+    \begin{align*}
+        \int_{\mathcal X}
+        \cdots
+        \int_{\mathcal X}
+        \left(
+    \int_{\Theta} \prod_{i=1}^{k-1} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  
+        \right)
+        \, \mathrm d \mu (X_{{k^* + 1}})
+        \ldots \mathrm d \mu (X_{{k- 1}})
+=
+    \int_{\Theta} \prod_{i=1}^{k^*} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  
+    \end{align*}
+    Hence if $
+    \int_{\Theta} \prod_{i=1}^{k^*} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  
+    < \infty
+    $, then
+    $
+    \int_{\Theta} \prod_{i=1}^{k-1} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  
+    < \infty
+    $
+    with $P_{\theta_0}^n$ probability $1$.
+    Then by Assumption \ref{Assumption:IBF}, we have
+\begin{align*}
+&
+P_{\theta_0}^n 
+\left\{
+    \int_{\Theta} \prod_{i=1}^{k^*} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  < \infty
+,\,
+    \int_{\tilde \Theta_0} \prod_{i=1}^{k^*} p (X_i| \nu, \xi_0) \pi_0(\nu) \, \mathrm d \nu  < \infty
+\right\} 
+\\
+\leq
+&
+P_{\theta_0}^n 
+\left\{
+    \int_{\Theta} \prod_{i=1}^{k-1} p (X_i| \theta) \pi(\theta) \, \mathrm d \theta  < \infty
+,\,
+    \int_{\tilde \Theta_0} \prod_{i=1}^{k-1} p (X_i| \nu, \xi_0) \pi_0(\nu) \, \mathrm d \nu  < \infty
+\right\} = 0.
+\end{align*}
+This implies that with $P_{\theta_0}^n$ probability $1$, $\mathcal L$ is not proper if $\text{Card}(\mathcal L) < k$.
+Hence \eqref{proof_ibf_u_index} holds.
+
+    Note that \eqref{proof_ibf_u_index} implies that
+    \begin{align*}
+    \frac{1}{\text{Card}(\mathscr L)} \sum_{\mathcal L \in \mathscr L} \frac{1}{ \text{BF}(\BX^{\mathcal L}) }
+    \end{align*}
+    is a $U$-statistic.
+    If $P_{\theta_0}^n ( 1 / \rm{BF}(\BX^{\{1,\dots,k\}}) ) < \infty$, then the law of large numbers of $U$-statistics (see, e.g., \cite{Serfling1980App}, Section 5.4, Theorem A) implies that
+    \begin{align*}
+    \frac{1}{\text{Card}(\mathscr L)} \sum_{\mathcal L \in \mathscr L} \frac{1}{ \text{BF}(\BX^{\mathcal L}) }
+    \to 
+    P_{\theta_0}^n ( 1 / \rm{BF}(\BX^{\{1,\dots,k\}}) ) 
+    \end{align*}
+    in $P_{\theta_0}^n$ probability.
+    From Lemma \ref{lemma:contiguous}, the above convergence also holds in $P_{\theta_n}^n$ probability.
+    Combining the above equality and Theorem \ref{prop:expansion} leads to the conclusion of (a).
+
+    The proof of (b) is similar by noting that
+    \begin{align*}
+        \left(\prod_{\mathcal L \in \mathscr L} \frac{1}{ \text{BF}(\BX^{\mathcal L}) } \right)^{1/\text{Card}(\mathscr L)}
+        =
+        \exp\left\{
+            -
+            \frac{1}{\text{Card}(\mathscr L)}
+            \sum_{\mathcal L \in \mathscr L} \log \text{BF}(\BX^{\mathcal L})
+        \right\}
+        .
+    \end{align*}
+    
+\end{proof}
+
+
+
+
+
 
 
 \end{appendices}

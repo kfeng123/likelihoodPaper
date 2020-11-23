@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  24 OCT 2020 07:53
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  13 NOV 2020 21:51
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -560,43 +560,54 @@ Missing character: There is no ‚ in font cmbx10!
 Missing character: There is no Ä in font cmbx10!
 Missing character: There is no ù in font cmbx10!
  [7]
+
+Package natbib Warning: Citation `Farrell1968Towards' on page 8 undefined on in
+put line 516.
+
+[8]
+
+Package natbib Warning: Citation `berger2001Obj' on page 9 undefined on input l
+ine 555.
+
 Missing character: There is no ‚ in font cmbx10!
 Missing character: There is no à in font cmbx10!
 Missing character: There is no í in font cmbx10!
- [8] [9]
-LaTeX Font Info:    Try loading font information for OMS+cmr on input line 604.
+[9] [10]
+LaTeX Font Info:    Try loading font information for OMS+cmr on input line 665.
 
-
-(/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
+ (/usr/share/texlive/texmf-dist/tex/latex/base/omscmr.fd
 File: omscmr.fd 2014/09/29 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10.95> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 604.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 665.
  (./main.bbl
 Missing character: There is no „ in font cmr10!
- [10]
+
+[11]
 Missing character: There is no √ in font cmr10!
 Missing character: There is no ≥ in font cmr10!
+)
 
-[11])
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 623.
- [12]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 623.
+Package natbib Warning: There were undefined citations.
+
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 684.
+[12]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 684.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 623.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 623.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 684.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 684.
 Package rerunfilecheck Info: File `main.out' has not changed.
 (rerunfilecheck)             Checksum: A46897799F1264C4ABCD418987CA0CDF;223.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 623.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 684.
  ) 
 Here is how much of TeX's memory you used:
- 8897 strings out of 493029
- 125105 string characters out of 6136234
+ 8899 strings out of 493029
+ 125140 string characters out of 6136234
  238539 words of memory out of 5000000
- 12246 multiletter control sequences out of 15000+600000
+ 12248 multiletter control sequences out of 15000+600000
  15432 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,10n,35p,1009b,462s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,10n,35p,1009b,440s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
 e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texl
@@ -611,7 +622,7 @@ s/cm/cmr6.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/s
 hare/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/share/te
 xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb>
-Output written on main.pdf (12 pages, 233991 bytes).
+Output written on main.pdf (12 pages, 240037 bytes).
 PDF statistics:
  249 PDF objects out of 1000 (max. 8388607)
  217 compressed objects within 3 object streams

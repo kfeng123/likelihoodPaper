@@ -3,9 +3,13 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apa.bst
 Database file #1: mybibfile.bib
+Warning--I didn't find a database entry for "Candes2020The_phase"
+Warning--I didn't find a database entry for "berger2001Obj"
+Warning--I didn't find a database entry for "intrinsicBayesFactor"
+Warning--I didn't find a database entry for "Serfling1980App"
 You've used 55 entries,
             1940 wiz_defined-function locations,
-            863 strings with 12165 characters,
+            871 strings with 12299 characters,
 and the built_in function-call counts, 22095 in all, are:
 = -- 2212
 > -- 736
@@ -44,3 +48,4 @@ warning$ -- 0
 while$ -- 195
 width$ -- 0
 write$ -- 724
+(There were 4 warnings)

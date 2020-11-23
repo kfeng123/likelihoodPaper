@@ -118,7 +118,7 @@ Below we respond to the AE and each reviewer in turn.
 }
 
 \textbf{Answers:}
-We thank the AE for informing the literatures on the Gibbs posterior.
+We thank the AE for informing the literature on the Gibbs posterior.
 The fact that the fractional posterior is a special case of a Gibbs posterior is interesting, and we mention this connection in the revised paper.
 I found that the results of \cite{Chernozhukov2003} require certain conditions on the likelihood and only bounded likelihood can satisfy their conditions.
 Since we would like to include the unbounded likelihood case, we can not use the $\sqrt{n}$ consistency result in their paper.
@@ -132,7 +132,7 @@ The integrability condition in Proposition 2 is
 Note that if $\pi(\theta)$ is proper, then
 \begin{align*}
     \int_{\Theta} \exp\{ - c^* D_{1-t}(\theta_0 \| \theta )\} \pi(\theta) \, \mathrm d \theta <
-    \int_{\Theta} \pi(\theta) \, \mathrm d \theta < \infty.
+    \int_{\Theta} \pi(\theta) \, \mathrm d \theta = 1 < \infty.
 \end{align*}
 Hence the integrability condition is satisfied for any proper priors.
 Furthermore, it also allows improper priors provided the tail probability of the prior density is not too thick.
@@ -145,7 +145,7 @@ In the revised paper, we add a remark on this condition.
 }
 
 \textbf{Answers:}
-We thank the AE for informing us these references, which help us to improve the literature review of the paper.
+We thank the AE for informing us these references, which are reviewered in the revised paper.
 
 \section{Response to reviewer 1}
 
@@ -166,10 +166,9 @@ In fact, this methodology dates back at least to \cite{Good1967}, and has been c
 researchers since then.
 \cite{Good1992} gave a review for some early literature using this idea.                                  
 See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea. 
-However, to the best of our knowledge, the idea has been mostly used for specific models and has not been 
-systematically studied with full mathematical rigour for general models.                                  
-One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor        
-depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
+However, the idea has been mostly used for specific models and has not been 
+systematically and rigorously studied for general models.                                  
+One reason for this fact may be due to the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
 }
 \end{adjustwidth}
 
@@ -183,7 +182,7 @@ Following the reviewer's suggestion, we also comment on the literature of large 
         \cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
         \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
         In this work, in order to use the Bayes factor to construct frequentist tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
-        Thess results fill a theoretical gap in the literature and are interesting in their own right.
+        Thess results are interesting in their own right.
 }
 \end{adjustwidth}
 
@@ -214,7 +213,7 @@ We add a remark below Theorem $1$ which gives a comparison of Theorem $1$ and th
 \textbf{Answers:}
 We follow the reviewer's suggestion.
 In the revised paper, we add simulations to examine the performance of the proposed method and compare it with the LRT.
-The simulation examples include two hard problem, that is, normal mixture model and binomial mixture model.
+The simulation examples include two difficult problems, that is, normal mixture model and binomial mixture model.
 For these models, researchers have proved that the LRT has irregular behavior.
 The testing problem for binomial mixture model has applications in genetics.
 Numerical results show that the proposed method outperforms the LRT in terms of both test level and test power.
@@ -313,7 +312,7 @@ If this is the case, the subsequence discussion needs to be modified.
 
 \textbf{Answers:}
 This problem is a little bit brain twisting.
-But I think our original statement is correct.
+But we think our original statement is correct.
 In the paper, under the null hypothesis, we assume the true parameter is $\theta_0 = (\nu_0^\top, \xi_0^\top)^\top$.
 Here $\xi_0$ is specified by the null hypothesis ($H: \xi = \xi_0$).
 But $\nu_0$ is an unknown nuisance parameter.
@@ -491,13 +490,75 @@ Following another reviewer's suggestion, we also comment on the literature of la
 }
 
 \textbf{Answers:}
-A direct method to compute the Bayes factor is to sample parameters from the prior and then use the sampled parameters to calculate the average of the likelihood.
-If the priors are improper, then one can not sample from the prior and the direct method can not be used.
-In this case, the Bayes factor may be computed by some other indirect methods (although it may be a difficult problem).
-See, \cite{Friel2012} for a review of the computation of the Bayes factor.
-In fact, it is a common practice to use improper prior for certain parameters.
-For example, for Bayes factor of linear model, popular choice of the prior for the variance parameter is improper; see, e.g., \cite{Liang2008Mixtures}.
-Therefore, although the computation of the Bayes factor is difficult, we think that it is not exact to say ``we cannot calculate the Bayes factor''.
+We are not pretty sure if the statement ``\emph{If they are improper, we cannot calculate the Bayes factor}'' means that the Bayes factor is not well-defined or the Bayes factor is hard to compute.
+Below we discuss these two points separately.
+
+Indeed, if the prior $\pi(\theta)$ is improper, then the marginal density $\int_{\Theta} p_n (\bX^n | \theta) \pi(\theta) \, \mathrm d \theta$ may be infinite for certain models, especially for small sample size $n$.
+That is, the Bayes factors with improper priors are not universally well-defined.
+In fact, for some irregular models, the improper priors can not be used for any $n$.
+For example, consider the normal mixture model $p(x| \mu ) = 0.5 \phi(x) + 0.5 \phi(x-\mu)$.
+Then if the prior $\pi(\mu)$ is improper, then for any $n$,
+\begin{align*}
+    \int_{-\infty}^{+\infty}
+    \prod_{i=1}^n p(x_i | \mu) \pi(\mu) \, \mathrm d \mu
+    \geq
+    \int_{-\infty}^{+\infty}
+    \prod_{i=1}^n (0.5\phi(x_i)) \pi(\mu) \, \mathrm d \mu
+    =
+\prod_{i=1}^n (0.5\phi(x_i))
+    \int_{-\infty}^{+\infty}
+     \pi(\mu) \, \mathrm d \mu
+     =+\infty.
+\end{align*}
+In this sence, the reviewer's comment is correct.
+However, we think that including the case for improper priors is important for at least two reasons.
+First, in the context of statistical decision theory, Bayes rules with improper priors are important.
+In particular, \cite{Farrell1968Towards} Theorem 5.1 implies that, under very weak conditions, if $\int_{\tilde \Theta_0} \pi_0(\nu) \, \mathrm d \nu = 1$, $\int_\Theta \pi(\theta) \, \mathrm d \theta = +\infty$, then the test based on Bayes factor is \emph{admissible}.
+Second, in Bayesian literature, many, if not most, popular priors for Bayes factors are improper.
+Take the linear model for example, improper priors are often adopted for the variance parameter; see, e.g., \cite{Liang2008Mixtures}.
+Hence we think that it is worthwhile to include the case of improper priors in our main theoretical results.
+In contrast, most existing results on the frequentist properties of Bayes methods assume proper priors.
+
+Now we turn to the computation issue.
+If the priors are proper, a brute force method to compute the marginal likelihood is to sample the parameter from the prior $\pi(\theta)$ and then use the sampled parameters $\theta_1^*, \dots, \theta_B^*$ to calculate the average of the likelihood 
+\begin{align*}
+\int_{\Theta} p(\bX^n | \theta) \pi(\theta)\, \mathrm d \theta
+\approx
+\frac{1}{B} 
+\sum_{i=1}^n
+p(\bX^n | \theta_i^*)
+.
+\end{align*}
+If the priors are improper, then one can not sample from the prior and the above method can not be directly applied.
+In this sence, the reviewer's comment is correct.
+Nevertheless, one can use the importance sampling method to remedy this problem.
+Note that
+\begin{align*}
+\int_{\Theta} p(\bX^n | \theta) \pi(\theta)\, \mathrm d \theta
+=
+\int_{\Theta} p(\bX^n | \theta) \frac{\pi(\theta)}{\tilde \pi(\theta)}  \tilde \pi(\theta)  \, \mathrm d \theta
+\end{align*}
+where $\tilde \pi(\theta)$ is an appropriate proper prior.
+Then one can sample from $\tilde \pi(\theta)$ and then compute the average of $p(\bX^n | \theta) {\pi(\theta)}/{\tilde \pi(\theta)}$.
+Hence one can compute the Bayes factor even if the prior is improper.
+The computation of the Bayes factor has been actively studied, see \cite{Friel2012} for a review.
+
+We add the following comment in the revised paper:
+
+\begin{adjustwidth}{1.5em}{1.5em}
+    \emph{
+In Bayesian literature, conventional Bayes factors often use improper priors for certain parameters, and
+consequently, $\pi(\theta)$ and $\pi_0 (\nu)$ may be improper, that is, $\int_{\Theta} \pi(\theta) \,
+\mathrm d \theta = + \infty$, $\int_{\tilde \Theta_0} \pi_0 (\nu) \, \mathrm d \nu  = + \infty$; see, e.
+g., \cite{berger2001Obj}, Section 2.1.
+To accomodate these cases, throughout the paper, $\pi(\theta)$ and $\pi_0(\nu)$ are allowed to be improper unless otherwise stated.
+}
+\end{adjustwidth}
+
+%Indeed, for immproper priors, some Bayesian computation method can not be directly applied, for example ABC.
+%In fact, it is a common practice to use improper prior for certain parameters.
+%For example, for Bayes factor of linear model, popular choice of the prior for the variance parameter is improper; see, e.g., \cite{Liang2008Mixtures}.
+%Therefore, although the computation of the Bayes factor is difficult, we think that it is not exact to say ``we cannot calculate the Bayes factor''.
 
 \textbf{
     3. On line 31 on page 6, what is $f$?

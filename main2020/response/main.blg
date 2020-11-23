@@ -3,9 +3,11 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
 Database file #1: mybibfile.bib
+Warning--I didn't find a database entry for "Farrell1968Towards"
+Warning--I didn't find a database entry for "berger2001Obj"
 You've used 21 entries,
             1935 wiz_defined-function locations,
-            637 strings with 7348 characters,
+            641 strings with 7410 characters,
 and the built_in function-call counts, 8635 in all, are:
 = -- 871
 > -- 299
@@ -44,3 +46,4 @@ warning$ -- 0
 while$ -- 77
 width$ -- 0
 write$ -- 278
+(There were 2 warnings)
