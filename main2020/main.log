@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  29 NOV 2020 10:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2019.1.21)  29 NOV 2020 19:08
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -572,7 +572,7 @@ Overfull \hbox (35.05923pt too wide) in paragraph at lines 672--672
  []
 
 [9] [10] [11] [12] [13] [14] [15]
-<figure/newnewPP.png, id=450, 569.7285pt x 346.896pt>
+<figure/newnewPP.png, id=462, 569.7285pt x 346.896pt>
 File: figure/newnewPP.png Graphic file (type png)
 
 <use figure/newnewPP.png>
@@ -587,20 +587,15 @@ Package amsmath Warning: Foreign command \atopwithdelims;
 [18]
 
 Package natbib Warning: Citation `Fahrmeir_1985' on page 19 undefined on input 
-line 1253.
+line 1258.
 
+[19] [20] [21]
 
-Overfull \hbox (19.11317pt too wide) in paragraph at lines 1308--1308
-[] 
- []
+Package natbib Warning: Citation `Raic2019A' on page 22 undefined on input line
+ 1607.
 
-[19] [20]
-
-Package natbib Warning: Citation `Raic2019A' on page 21 undefined on input line
- 1425.
-
-[21] [22] [23] [24] [25] [26]
-Overfull \hbox (7.71977pt too wide) detected at line 2222
+[22] [23] [24] [25] [26]
+Overfull \hbox (7.71977pt too wide) detected at line 2375
 [][] [] [] \OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10.95 (\OML/cmm/m/it/10.95 ^^W
 \OT1/cmr/m/n/10.95 ) d\OML/cmm/m/it/10.95 ^^W \OT1/cmr/m/n/10.95 = (1 + \OML/cm
 m/m/it/10.95 o[]\OT1/cmr/m/n/10.95 (1))\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10
@@ -608,8 +603,8 @@ m/m/it/10.95 o[]\OT1/cmr/m/n/10.95 (1))\OML/cmm/m/it/10.95 ^^Y[]\OT1/cmr/m/n/10
 ML/cmm/m/it/10.95 I[]\OMS/cmsy/m/n/10.95 j[] [] [] \OML/cmm/m/it/10.95 :
  []
 
-[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38]
-Overfull \hbox (20.4654pt too wide) in paragraph at lines 3497--3502
+[27] [28] [29] [30] [31] [32] [33] [34] [35] [36] [37] [38] [39]
+Overfull \hbox (20.4654pt too wide) in paragraph at lines 3652--3657
 []  \OT1/cmr/bx/n/10.95 Propo-si-tion 9. []\OT1/cmr/m/it/10.95 Sup-pose the con
 -di-tions of Propo-si-tion []5[] hold. Let $\OML/cmm/m/it/10.95 A\OT1/cmr/m/n/1
 0.95 (\OML/cmm/m/it/10.95 M[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m/n/10.95 f\OT1/c
@@ -619,69 +614,67 @@ mr/m/n/10.95 (\OML/cmm/m/it/10.95 !; ^^X\OT1/cmr/m/n/10.95 ) : \OML/cmm/m/it/10
  ^^@
  []
 
-[39] [40] [41] [42] [43] [44] [45]
-
-Package natbib Warning: Citation `intrinsicBayesFactor' on page 46 undefined on
- input line 4140.
-
-[46]
+[40] [41] [42] [43] [44] [45] [46]
 
 Package natbib Warning: Citation `intrinsicBayesFactor' on page 47 undefined on
- input line 4146.
-
-
-Package natbib Warning: Citation `intrinsicBayesFactor' on page 47 undefined on
- input line 4157.
-
-
-Package natbib Warning: Citation `intrinsicBayesFactor' on page 47 undefined on
- input line 4199.
+ input line 4296.
 
 [47]
 
-Package natbib Warning: Citation `Serfling1980App' on page 48 undefined on inpu
-t line 4316.
+Package natbib Warning: Citation `intrinsicBayesFactor' on page 48 undefined on
+ input line 4302.
 
-[48] (./main.bbl
+
+Package natbib Warning: Citation `intrinsicBayesFactor' on page 48 undefined on
+ input line 4313.
+
+
+Package natbib Warning: Citation `intrinsicBayesFactor' on page 48 undefined on
+ input line 4355.
+
+[48]
+
+Package natbib Warning: Citation `Serfling1980App' on page 49 undefined on inpu
+t line 4472.
+
+[49] (./main.bbl
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ­ in font cmr10!
- [49] [50]
+ [50] [51]
 Missing character: There is no Ã in font cmr10!
 Missing character: There is no ³ in font cmr10!
- [51])
+ [52])
 
 Package natbib Warning: There were undefined citations.
 
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4352.
-[52]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 4352.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 4508.
+[53]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 4508.
  (./main.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4352.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4352.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 4508.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 4508.
 
 Package rerunfilecheck Info: File `main.out' has not changed.
-(rerunfilecheck)             Checksum: 25A19D9358ADEAD566C3B0D5FF2B657B;918.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4352.
+(rerunfilecheck)             Checksum: 83DA2EFC3217F4A8E37DFC6AA05A6368;1200.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 4508.
  ) 
 Here is how much of TeX's memory you used:
- 9200 strings out of 493029
- 129405 string characters out of 6136234
- 255059 words of memory out of 5000000
- 12380 multiletter control sequences out of 15000+600000
- 20615 words of font info for 80 fonts, out of 8000000 for 9000
+ 9202 strings out of 493029
+ 129499 string characters out of 6136234
+ 255309 words of memory out of 5000000
+ 12381 multiletter control sequences out of 15000+600000
+ 18774 words of font info for 74 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 35i,22n,35p,1008b,551s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 35i,22n,35p,1008b,552s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb></us
 r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb></usr/shar
-e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/te
-xlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/
-texmf-dist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/te
-xmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-di
-st/fonts/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/font
-s/type1/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1
-/public/amsfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/publ
-ic/amsfonts/cmextra/cmmib6.pfb></usr/share/texlive/texmf-dist/fonts/type1/publi
-c/amsfonts/cmextra/cmmib8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
+e/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx8.pfb></usr/share/texli
+ve/texmf-dist/fonts/type1/public/amsfonts/cm/cmbxti10.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-d
+ist/fonts/type1/public/amsfonts/cmextra/cmex8.pfb></usr/share/texlive/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/font
+s/type1/public/amsfonts/cm/cmmi6.pfb></usr/share/texlive/texmf-dist/fonts/type1
+/public/amsfonts/cm/cmmi8.pfb></usr/share/texlive/texmf-dist/fonts/type1/public
 /amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmr12.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mr17.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb
@@ -695,10 +688,10 @@ s/type1/public/amsfonts/cm/cmti10.pfb></usr/share/texlive/texmf-dist/fonts/type
 /public/amsfonts/symbols/msam7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
 ublic/amsfonts/symbols/msbm10.pfb></usr/share/texlive/texmf-dist/fonts/type1/pu
 blic/rsfs/rsfs10.pfb>
-Output written on main.pdf (52 pages, 536100 bytes).
+Output written on main.pdf (53 pages, 527413 bytes).
 PDF statistics:
- 955 PDF objects out of 1000 (max. 8388607)
- 865 compressed objects within 9 object streams
- 202 named destinations out of 1000 (max. 500000)
- 118 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 975 PDF objects out of 1000 (max. 8388607)
+ 886 compressed objects within 9 object streams
+ 209 named destinations out of 1000 (max. 500000)
+ 142 words of extra memory for PDF output out of 10000 (max. 10000000)
 

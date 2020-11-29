@@ -1037,7 +1037,7 @@ Hence the mean and covariance parameters of $\pi_b^{\dagger}(h;\BX^{n})$ are bou
 
     \section{Examples} \label{sec:examples}
 
-\subsection{Full-rank exponential family}
+    \subsection{Full-rank exponential family}\label{sec:exponentialFamily}
 Exponential family possesses many desirable properties and includes many regular models.
 In this section, we apply the generalized fractional Bayes factor to the testing problem in the full-rank exponential family.
 Suppose 
@@ -1232,17 +1232,22 @@ The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phen
 Let $S(x) = 1/(1+\exp(-x))$ denote the sigmoid function.
 The fixed design.
 Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\}$ and have density function
-    $p(y_i | \bbeta) = S(y_i X_i^\myT \bbeta)$
-    with respect to the dominating measure $\mu(\{-1\}) = \mu(\{1\}) = 1/2$, where $X_i \in \mathbb R^p$ are the regressors and $\bbeta \in \mathbb R^p$ is the unknown parameter.
+    $p(y_i | \theta) = S(y_i X_i^\myT \theta)$
+    with respect to the dominating measure $\mu(\{-1\}) = \mu(\{1\}) = 1/2$, where $X_i \in \mathbb R^p$ are the regressors and $\theta \in \mathbb R^p$ is the unknown parameter.
     We consider the model conditional on $X_1,\dots,X_n$, that is, $X_1, \dots, X_n$ are assumed to be non-random.
 
+    Suppose $X_i^\myT \theta = X_{i1}^\myT \nu + X_{i2}^\myT \xi$, where $X_{i1}$ and $X_{i2}$ are the first $p_0$ and the last $p-p_0$ elements of $X_i$, respectively.
+    We would like to test 
+\begin{align*}
+    H:\xi= \xi_0 \quad v.s.\quad K: \xi\neq \xi_0. 
+\end{align*}
 
 \begin{lemma}
     \label{lemma:invariance}
-    Suppose $\{Z_n\}$ is a sequence of $p$-dimensional random variables and $Z_n \rightsquigarrow \mathcal N (0, \BI_p)$.
-    Then for any sequence $\{\BP_n\}$ of non-random projection matrix with rank $1\leq k \leq p$,
+    Suppose $\{Z_n\}$ is a sequence of $p$-dimensional random variables and $Z_n \rightsquigarrow \mathcal N (\eta, \BI_p)$, and $\{\BP_n\}$ is a sequence of non-random projection matrix with rank $1\leq k \leq p$.
+    Suppose $\eta^\myT \BP_n \eta \to \gamma$.
     \begin{align*}
-    Z_n^\myT \BP_n Z_n \rightsquigarrow \chi^2(k).
+        Z_n^\myT \BP_n Z_n \rightsquigarrow \chi^2(k, \gamma).
     \end{align*}
 \end{lemma}
 \begin{proof}
@@ -1250,241 +1255,389 @@ Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\
     Then $\tilde \BP_n$ is the projection matrix onto the complement space of $\BP_n$.
     We can write $\BP_n = \BV_n \BV_n^\myT$ and $\tilde \BP_n = \tilde \BV_n \tilde \BV_n^\myT$ where $\BV_n$ and $\tilde \BV_n$ are $p\times k$ and $p\times (p-k)$ column orthogonal matrices, respectively.
     Then $(\BV_n , \tilde \BV_n)$ is an orthogonal matrix.
-By the uniform convergence of the characteristic function of $Z_n$ on compact sets, it can be shown that $(\BV_n, \tilde \BV_n)^\myT Z_n \rightsquigarrow \mathcal N (0, \BI_p)$ (see, e.g., (3.4) in \cite{Fahrmeir_1985}).
+    By the uniform convergence of the characteristic function of $Z_n-\eta$ on compact sets, it can be shown that $(\BV_n, \tilde \BV_n)^\myT (Z_n -\eta) \rightsquigarrow \mathcal N (0, \BI_p)$ (see, e.g., (3.4) in \cite{Fahrmeir_1985}).
 Therefore, $
-    Z_n^\myT \BP_n Z_n
-    =
-    \|\BV_n^\myT Z_n\|^2
-    \rightsquigarrow \chi^2(k)
+    \BV_n^\myT (Z_n-\eta)
+    \rightsquigarrow 
+    \mathcal N(0, \BI_{k})
     $.
+
+    Let $\BO_n$ be an $k \times k$ orthogonal matrix such that $ \BO_n \BV_n^\myT \eta = \|\BV_n^\myT \eta\| (1, 0,\dots, 0)^\myT $.
+    Then as above, it can be shown that
+$
+    \BO_n \BV_n^\myT (Z_n-\eta)
+    \rightsquigarrow 
+    \mathcal N(0, \BI_{k})
+    $.
+    Note that
+    \begin{align*}
+        Z_n^\myT \BP_n Z_n 
+        =
+ \| \BO_n \BV_n^\myT (Z_n - \eta)\|^2
+ +2   (\BO_n \BV_n^\myT \eta )^\myT  \BO_n \BV_n^\myT (Z_n -\eta)
++\|\BO_n \BV_n^\myT \eta\|^2
+    \end{align*}
+    and
+    $
+    \BO_n \BV_n^\myT \eta \to \sqrt \gamma (1,0,\dots, 0)^\myT
+    $.
+    Then the conclusion follows from Slutsky's theorem.
 \end{proof}
 
 
 \begin{proposition}
     \label{prop:logistic}
-
     Define $
- A_n = 
+ \BA_n = 
     \sum_{i=1}^n 
-    S( X_i^\myT \bbeta_0)
-    S(- X_i^\myT \bbeta_0)
+    S( X_i^\myT \theta_0)
+    S(- X_i^\myT \theta_0)
     X_i
     X_i^\myT $.
 
+    Define $
+    \BA_{n, 0} = 
+    \BJ^\myT \BA_n \BJ
+    $.
+Suppose $\lambda_{\min}(\BJ^\myT \BA_n \BJ) \to \infty$.
     Assume 
 $
      \max_{i\in \{1,\dots,n\}}
- \|A_n^{-1/2}
+ \|\BA_n^{-1/2}
  X_i\| \to 0.
 $
-Suppose $\lambda_{\min}(A_n) \to \infty$.
-Assume the prior density $\pi(\bbeta)$ is bounded and is continuous at $\bbeta_0$ with $\pi(\bbeta_0)> 0$.
+Assume the prior density $\pi(\theta)$ is bounded and is continuous at $\theta_0$ with $\pi(\theta_0)> 0$.
+Assume the prior density $\pi_0(\nu)$ is bounded and is continuous at $\nu_0$ with $\pi_0(\nu_0)> 0$.
+
+Suppose $\{\theta_n\}$ satisfies $\BA_n^{1/2} (\theta_n - \theta_0) \to \eta$ and $
+    \eta^\myT 
+    (
+        \BI_p-
+    \BA_n^{1/2} \BJ ( \BJ^\myT \BA_n \BJ )^{-1} \BJ^\myT \BA_n^{1/2}  
+)
+\eta
+\to \gamma
+$.
+
+\begin{align*}
+    \frac{2}{a-b}\log \Lambda_{a, b} (\BX^n)
+    +
+    \frac{p-p_0}{a-b} \log \left(\frac{a}{b}\right)
+    \overset{P_{\theta_0}^n}{\rightsquigarrow}
+    \chi^2 (p-p_0, \gamma)
+.
+\end{align*}
 \end{proposition}
 
 \begin{proof}[\textbf{Proof of Proposition \ref{prop:logistic}}]
-
+We note that the condition $\lambda_{\min}(\BJ^\myT \BA_n \BJ) \to \infty$ implies $\lambda_{\min}(\BA_n) \to \infty$.
 Let $M>0$ be an arbitrary fixed number.
-If $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M$, then for $i = 1, \dots, n$,
+If $\|\BA_n^{1/2}(\theta - \theta_0)\| \leq M$, then for $i = 1, \dots, n$,
 \begin{align*}
-|X_i^\myT (\bbeta - \bbeta_0)| 
-\leq& \|X_i^\myT  A_n^{-1/2} \|  \| A_n^{1/2} (\bbeta - \bbeta_0) \|
+|X_i^\myT (\theta - \theta_0)| 
+\leq& \|X_i^\myT  \BA_n^{-1/2} \|  \| \BA_n^{1/2} (\theta - \theta_0) \|
 \leq 
 M
-\max_{i\in \{1,\dots, n\}}\| A_n^{-1/2} X_i \|
+\max_{i\in \{1,\dots, n\}}\| \BA_n^{-1/2} X_i \|
 \to 0
 .
 \end{align*}
-Then from Taylor's theorem, uniformly for $i=1,\dots,n$ and $\|h_n\| \leq M$,
+Then from Taylor's theorem, uniformly for $i=1,\dots,n$ and $ \|\BA_n^{1/2}(\theta - \theta_0)\| \leq M$,
 \begin{align*}
-    \log \frac{S(y_i X_i^\myT \bbeta)}{S(y_i X_i^\myT \bbeta_0)}
-    = S(-y_i X_i^\myT \bbeta_0)  y_i X_i^\myT (\bbeta - \bbeta_0)
-    -\frac{1 + o_{P_{\bbeta_0}^n}(1)}{2} 
-    S( X_i^\myT \bbeta_0)
-    S(- X_i^\myT \bbeta_0)
-(\bbeta - \bbeta_0)
+    \log \frac{S(y_i X_i^\myT \theta)}{S(y_i X_i^\myT \theta_0)}
+    = S(-y_i X_i^\myT \theta_0)  y_i X_i^\myT (\theta - \theta_0)
+    -\frac{1 + o(1)}{2} 
+    S( X_i^\myT \theta_0)
+    S(- X_i^\myT \theta_0)
+(\theta - \theta_0)
 X_i
-X_i^\myT (\bbeta - \bbeta_0)
+X_i^\myT (\theta - \theta_0)
 .
 \end{align*}
-Hence uniformly for $\|h_n\| \leq M$,
+Hence uniformly for $\|\BA_n^{1/2}(\theta - \theta_0)\| \leq M$,
 \begin{align}\label{logistic:expansion}
-    R_n(\bbeta_0 \| \bbeta)
+    R_n(\theta_0 \| \theta)
 =&
--Z_n^{\myT} h_n
+-Z_n^{\myT} \BA_n^{1/2}(\theta - \theta_0)
     +\frac{1 }{2} 
-    \|h_n \|^2
-    +o_{P_{\bbeta_0}^n}(1)
+    \|
+(\theta - \theta_0)^\myT
+\BA_n (\theta - \theta_0)
+    \|^2
+    +o_{P_{\theta_0}^n}(1)
 .
 \end{align}
 where
-\begin{align*}
+$
  Z_n = 
     \sum_{i=1}^n 
- S(-y_i X_i^\myT \bbeta_0) 
+ S(-y_i X_i^\myT \theta_0) 
   y_i
- A_n^{-1/2}
+ \BA_n^{-1/2}
  X_i
- ,\quad
- h_n =
- A_n^{1/2} (\bbeta - \bbeta_0)
+ $
  .
-\end{align*}
-From Lemma \ref{lemma:MN}, there exists some $M_n \to \infty$ such that \eqref{logistic:expansion} holds uniformly for $\|h_n\| \leq M_n$.
-Without loss of generality, we can assume that $M_n / \sqrt{\lambda_{\min}(A_n)} \to 0$.
-Hence if $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M_n$, then $\|\bbeta - \bbeta_0\| \leq M_n / \sqrt{\lambda_{\min}(A_n)} \to 0$.
-We have
-\begin{align*}
-    &
-    \int_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M_n \}} 
-    \exp\{-t R_n (\bbeta_0 \| \bbeta)\} \pi(\bbeta) \, \mathrm d \bbeta
-    \\
-    =&
-(1+o_{P_{\bbeta_0}^n})\pi(\bbeta_0)
-    \int_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M_n \}} 
-    \exp\left\{t Z_n^\myT A_n^{1/2} (\bbeta - \bbeta_0) - \frac{t}{2}(\bbeta - \bbeta_0)^\myT A_n (\bbeta - \bbeta_0)  \right\}  \, \mathrm d \bbeta
-    \\
-    =&
-(1+o_{P_{\bbeta_0}^n})\pi(\bbeta_0)
-\left( \frac {2\pi}{t} \right)^{p/2} |A_n|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT Z_n \right\}.
-\end{align*}
-
-
-
 Note that $\myE (Z_n) = \mathbf 0_p$, $\myVar (Z_n) = \BI_p$.
 Hence $Z_n$ is bounded in probability.
+From Lemma \ref{lemma:MN}, there exists some $M_n \to \infty$ such that \eqref{logistic:expansion} holds uniformly for $\|\BA_n^{1/2}(\theta - \theta_0)\| \leq M_n$.
+Without loss of generality, we can assume that $M_n / \sqrt{\lambda_{\min}(\BA_n)} \to 0$.
+Hence if $\|\BA_n^{1/2}(\theta - \theta_0)\| \leq M_n$, then $\|\theta - \theta_0\| \leq M_n / \sqrt{\lambda_{\min}(\BA_n)} \to 0$.
+
+For any fixed $t> 0$, we have
+\begin{equation}\label{logistic:part1}
+    \begin{split}
+    &
+    \int_{\{\theta : \|\BA_n^{1/2}(\theta - \theta_0)\| \leq M_n \}} 
+    \exp\{-t R_n (\theta_0 \| \theta)\} \pi(\theta) \, \mathrm d \theta
+    \\
+    =&
+(1+o_{P_{\theta_0}^n})\pi(\theta_0)
+    \int_{\{\theta : \|\BA_n^{1/2}(\theta - \theta_0)\| \leq M_n \}} 
+    \exp\left\{t Z_n^\myT \BA_n^{1/2} (\theta - \theta_0) - \frac{t}{2}(\theta - \theta_0)^\myT \BA_n (\theta - \theta_0)  \right\}  \, \mathrm d \theta
+    \\
+    =&
+(1+o_{P_{\theta_0}^n})\pi(\theta_0)
+\left( \frac {2\pi}{t} \right)^{p/2} |\BA_n|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT Z_n \right\}.
+    \end{split}
+\end{equation}
+
+Now we consider the integral on $\{\theta : \|\BA_n^{1/2}(\theta - \theta_0)\| > M_n \}$.
 We have
 \begin{align*}
-    \min_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| = M_n\}} 
-R_n (\bbeta_0 \| \bbeta )
-\geq 
--\|Z_n\| \|h_n\|
-+ \frac{1} {2} \|h_n\|^2 + o_{P_{\bbeta_0}^n}(1)
-\geq 
- \frac{1} {2} M_n^2 + o_{P_{\bbeta_0}^n}(M_n)
+    \min_{\{\theta : \|\BA_n^{1/2}(\theta - \theta_0)\| = M_n\}} 
+R_n (\theta_0 \| \theta )
+\geq &
+-\|Z_n\| \|\BA_n^{1/2} (\theta - \theta_0)\|
++ \frac{1} {2} 
+(\theta - \theta_0)^\myT
+\BA_n (\theta - \theta_0)
++ o_{P_{\theta_0}^n}(1)
+\\
+\geq &
+ \frac{1} {2} M_n^2 + O_{P_{\theta_0}^n}(M_n)
 .
 \end{align*}
 Hence with probability tending to $1$,
 \begin{align*}
-    \min_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| = M_n\}} 
-R_n (\bbeta_0 \| \bbeta )
+    \min_{\{\theta : \|\BA_n^{1/2}(\theta - \theta_0)\| = M_n\}} 
+R_n (\theta_0 \| \theta )
 \geq 
  \frac{1} {4} M_n^2
 .
 \end{align*}
-
-Note that $R_n(\bbeta_0 \| \bbeta)$ is convex in $\bbeta$ and $R_n (\bbeta_0 \| \bbeta_0) = 0$.
-Hence Jensen's inequality implies that for $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \geq M_n$, 
+Note that $R_n(\theta_0 \| \theta)$ is convex in $\theta$ and $R_n (\theta_0 \| \theta_0) = 0$.
+Hence Jensen's inequality implies that for $\|\BA_n^{1/2}(\theta - \theta_0)\| \geq M_n$, 
 \begin{align*}
-    \frac{M_n}{\|A_n^{1/2}(\bbeta - \bbeta_0)\|} R_n (\bbeta_0 \| \bbeta )
-    \geq R_n \left( \bbeta_0 \| \bbeta_0 + \frac{M_n}{\|A_n^{1/2}(\bbeta - \bbeta_0)\|} (\bbeta - \bbeta_0)\right).
+    \frac{M_n}{\|\BA_n^{1/2}(\theta - \theta_0)\|} R_n (\theta_0 \| \theta )
+    \geq R_n \left( \theta_0 \Big\| \theta_0 + \frac{M_n}{\|\BA_n^{1/2}(\theta - \theta_0)\|} (\theta - \theta_0)\right).
 \end{align*}
-Hence with probability tending to $1$, for all $\bbeta$ such that $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \geq M_n$,
+Hence with probability tending to $1$, for all $\theta$ such that $\|\BA_n^{1/2}(\theta - \theta_0)\| \geq M_n$,
 \begin{align*}
-     R_n (\bbeta_0 \| \bbeta )
+     R_n (\theta_0 \| \theta )
     \geq
     \frac 1 4 M_n
-{\|A_n^{1/2}(\bbeta - \bbeta_0)\|}
+{\|\BA_n^{1/2}(\theta - \theta_0)\|}
     .
 \end{align*}
-
-We have assumed that $\pi(\bbeta)$ is bounded, say ,by $C$.
-With probability tending to $1$, we have
-\begin{align*}
+We have assumed that $\pi(\theta)$ is bounded, say, by $C$.
+Then with probability tending to $1$, we have
+\begin{equation}\label{logistic:part2}
+    \begin{split}
     &
-    \int_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| > M_n \}} 
-    \exp\{-t R_n (\bbeta_0 \| \bbeta)\} \pi(\bbeta) \, \mathrm d \bbeta
+    \int_{\{\theta : \|\BA_n^{1/2}(\theta - \theta_0)\| > M_n \}} 
+    \exp\{-t R_n (\theta_0 \| \theta)\} \pi(\theta) \, \mathrm d \theta
     \\
     \leq&
     C
-    \int_{\{\bbeta :  \|A_n^{1/2}(\bbeta - \bbeta_0)\| > M_n \}} 
-    \exp \left\{-\frac{t}{4} M_n \|A_n^{1/2}(\bbeta - \bbeta_0)\| \right\}  \, \mathrm d \bbeta
+    \int_{\{\theta :  \|\BA_n^{1/2}(\theta - \theta_0)\| > M_n \}} 
+    \exp \left\{-\frac{t}{4} M_n \|\BA_n^{1/2}(\theta - \theta_0)\| \right\}  \, \mathrm d \theta
     \\
     =&
     C
-    |A_n|^{-1/2}
+    |\BA_n|^{-1/2}
     \int_{\{u : \|u\| > M_n \}} 
     \exp \left\{-\frac{t}{4} M_n \| u \| \right\}  \, \mathrm d u
     \\
     =&
     o(
-    |A_n|^{-1/2}
+    |\BA_n|^{-1/2}
 ).
-\end{align*}
-Thus, we have
+    \end{split}
+\end{equation}
+
+Combining \eqref{logistic:part1} and \eqref{logistic:part2} yields
 \begin{align*}
     &
     \int_{\mathbb R^p} 
-    \exp\{-t R_n (\bbeta_0 \| \bbeta)\} \pi(\bbeta) \, \mathrm d \bbeta
+    \exp\{-t R_n (\theta_0 \| \theta)\} \pi(\theta) \, \mathrm d \theta
     =
-(1+o_{P_{\bbeta_0}^n})\pi(\bbeta_0)
-\left( \frac {2\pi}{t} \right)^{p/2} |A_n|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT Z_n \right\}.
+    (1+o_{P_{\theta_0}^n}(1))\pi(\theta_0)
+\left( \frac {2\pi}{t} \right)^{p/2} |\BA_n|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT Z_n \right\}.
 \end{align*}
 
+For the integrals under the null hypothesis, note that
+\begin{align*}
+     \max_{i\in \{1,\dots,n\}}
+     \|(\BJ^\myT \BA_n \BJ)^{-1/2}
+ \BJ^\myT X_i\| 
+ =&
+     \max_{i\in \{1,\dots,n\}}
+     \left(
+ X_i^\myT
+\BA_n^{-1/2}
+\BA_n^{1/2}
+ \BJ
+     (\BJ^\myT \BA_n \BJ)^{-1}
+ \BJ^\myT 
+\BA_n^{1/2}
+\BA_n^{-1/2}
+ X_i
+\right)^{1/2}
+\\
+\leq &
+     \max_{i\in \{1,\dots,n\}}
+     \left(
+ X_i^\myT
+\BA_n^{-1}
+ X_i
+\right)^{1/2}
+,
+\end{align*}
+where the last inequality holds since the matrix
+$
+\BA_n^{1/2}
+ \BJ
+     (\BJ^\myT \BA_n \BJ)^{-1}
+ \BJ^\myT 
+\BA_n^{1/2}
+$
+is a projection matrix.
+Hence the condition 
+$
+     \max_{i\in \{1,\dots,n\}}
+ \|\BA_n^{-1/2}
+ X_i\| \to 0
+$
+implies
+$
+     \max_{i\in \{1,\dots,n\}}
+     \|(\BJ^\myT \BA_n \BJ)^{-1/2}
+ \BJ^\myT X_i\| 
+ \to 0
+ $.
+ Thus, by similar derivation as above, one can show that
+\begin{align*}
+    &
+    \int_{\mathbb R^{p_0}} 
+    \exp\{-t R_n (\theta_0 \| \nu, \xi_0)\} \pi_0(\nu) \, \mathrm d \nu
+    \\
+    =&
+    (1+o_{P_{\theta_0}^n}(1))\pi_0(\nu_0)
+\left( \frac {2\pi}{t} \right)^{p_0 /2} |\BJ^\myT \BA_n \BJ|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT \BA_n^{1/2} \BJ ( \BJ^\myT \BA_n \BJ )^{-1} \BJ^\myT \BA_n^{1/2}  Z_n \right\}.
+\end{align*}
+Therefore,
+\begin{align}\label{logistic:contiguous}
+    \frac{2}{a-b}\log \Lambda_{a, b} (\BX^n)
+    +
+    \frac{p-p_0}{a-b} \log \left(\frac{a}{b}\right)
+    = 
+    Z_n^\myT
+    (
+        \BI_p-
+    \BA_n^{1/2} \BJ ( \BJ^\myT \BA_n \BJ )^{-1} \BJ^\myT \BA_n^{1/2}  
+)
+Z_n
++
+o_{P_{\theta_0}^n}(1)
+.
+\end{align}
 
-
-To illustrate the asymptotic normality of $Z_n$, we apply \cite{Raic2019A}, Theorem 1.1.
+Now we prove the asymptotic normality of $Z_n$
 %the multivariate Berry-Esseen bound 
 Note that
 \begin{align*}
     &
     \sum_{i=1}^n
-    P_{\bbeta_0}^n
+    P_{\theta_0}^n
  \left\|
- S(-y_i X_i^\myT \bbeta_0)  
+ S(-y_i X_i^\myT \theta_0)  
  y_i
- A_n^{-1/2}
+ \BA_n^{-1/2}
  X_i
  \right\|^3
  \\
 =&
     \sum_{i=1}^n
  \left\|
- A_n^{-1/2}
+ \BA_n^{-1/2}
  X_i
  \right\|^3
- S(- X_i^\myT \bbeta_0)
- S(X_i^\myT \bbeta_0)
+ S(- X_i^\myT \theta_0)
+ S(X_i^\myT \theta_0)
  \left(
- S(- X_i^\myT \bbeta_0)^2
+ S(- X_i^\myT \theta_0)^2
  +
- S(X_i^\myT \bbeta_0)^2
+ S(X_i^\myT \theta_0)^2
 \right)
- \\
- \leq&
-    \sum_{i=1}^n
- \left\|
- A_n^{-1/2}
- X_i
- \right\|^3
- S(- X_i^\myT \bbeta_0)
- S(X_i^\myT \bbeta_0)
  \\
  \leq&
  \left(
      \max_{i\in \{1,\dots,n\}}
- \|A_n^{-1/2}
+ \|\BA_n^{-1/2}
  X_i\|
  \right)
     \sum_{i=1}^n
  \left\|
- A_n^{-1/2}
+ \BA_n^{-1/2}
  X_i
  \right\|^2
- S(- X_i^\myT \bbeta_0)
- S(X_i^\myT \bbeta_0)
+ S(- X_i^\myT \theta_0)
+ S(X_i^\myT \theta_0)
  \\
  =&
  p
      \max_{i\in \{1,\dots,n\}}
- \|A_n^{-1/2}
+ \|\BA_n^{-1/2}
  X_i\|
  \\
  \to & 0
  .
 \end{align*}
-It follows that $A_n^{1/2}z_n \overset{P^n_{\theta_0}}{\rightsquigarrow} \mathcal N (0, \BI_p) $.
-
-
+Then
+\cite{Raic2019A}, Theorem 1.1 implies that
+$Z_n \overset{P^n_{\theta_0}}{\rightsquigarrow} \mathcal N (0, \BI_p) $.
+From the asymptotic normality of $Z_n$ and the expansion \eqref{logistic:expansion}, we have
+\begin{align*}
+    \left(
+    \begin{matrix}
+        \displaystyle
+        Z_n
+        \\
+        \displaystyle
+        \log \frac{p_n(\BX^{n}|\theta_n)}{p_n(\BX^{n}|\theta_0)}
+    \end{matrix}
+    \right)
+    &\overset{P_0^n}{\rightsquigarrow}
+    \mathcal{N}\left(
+    \left(
+    \begin{matrix}
+        0\\
+        -\frac{1}{2}\|\eta\|^2
+    \end{matrix}
+    \right),
+    \left(
+        \begin{matrix}
+            \BI_p & \eta\\
+            \eta^\myT  & \|\eta\|^2
+        \end{matrix}
+    \right)
+    \right).
+\end{align*}
+Then
+$P^n_{\theta_n}$ and $P^n_{\theta_0}$ are mutually contiguous, and Le Cam's third lemma~\citep[Example 6.7]{van2000asymptotic} implies that
+$Z_n\overset{P^n_{\theta_n}}{\rightsquigarrow} \mathcal{N}(\eta , \BI_p)$.
+Then the equality \eqref{logistic:contiguous} holds under $P_{\theta_n}^n$.
+The conclusion follows from Lemma \ref{lemma:invariance}.
 \end{proof}
 
 
@@ -3052,6 +3205,7 @@ Then the conclusion follows from Lemma \ref{lemma:contiguous} and Lemma \ref{lem
 
 \section{Proofs of the results in Section \ref{sec:examples}}
 
+\subsection{Proofs of the results in Subsection \ref{sec:exponentialFamily}}
 \begin{proof}[\textbf{Proof of Proposition~\ref{exponentialCon}}]
     For exponential family, we have $\dot{\ell}_{\theta_0} (X) = T(X) - ( \partial / \partial \theta ) A(\theta_0)$ and $I(\theta_0) = (\partial^2 /\partial \theta \partial \theta^\myT ) A(\theta_0)$.
     Thus,
@@ -3241,6 +3395,7 @@ This completes the proof.
 \end{proof}
 
 
+\subsection{Proofs of the results in Subsection \ref{sec:mixture}}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{propositionTT}}]
 We shall verify Assumption~\ref{Assumption1} and Assumption~\ref{Assumption4}.
@@ -3830,6 +3985,7 @@ This proves the conclusion of (ii).
 %Now suppose
 \end{proof}
 
+\subsection{Proofs of the results in Subsection \ref{sec:binomial_mixture}}
 
 \begin{proof}[\textbf{Proof of Proposition \ref{mixtureThm_binom}}]
 
