@@ -620,7 +620,7 @@ $$
 %$ is the so-called Hellinger integral.
 Let 
 \begin{align*}
-    D_1(\theta_1 \| \theta_2) = \int_{\mathcal X} p( x |\theta_0) \log \frac{p(x | \theta_0)} { p( x | \theta) } \, \mathrm d \mu (x)
+    D_1(\theta_1 \| \theta_2) = \int_{\mathcal X} p( x |\theta_1) \log \frac{p(x | \theta_1)} { p( x | \theta_2) } \, \mathrm d \mu (x)
 \end{align*}
 denote the Kullback-Leibler divergence between $P_{\theta_1}$ and $P_{\theta_2}$.
 It is known that $\lim_{t \uparrow 1} D_t(\theta_1 \| \theta_2) = D_1 (\theta_1 \| \theta_2)$; see, e.g., \cite{Erven2014}, Theorem $5$.
@@ -1227,48 +1227,430 @@ The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phen
     \label{mixtureThm_binom}
 \end{proposition}
 
+\subsection{Logistic regression model}\label{sec:logistic}
 
-\subsection{High-dimensional logistic regression}\label{sec:logistic}
+Let $S(x) = 1/(1+\exp(-x))$ denote the sigmoid function.
+The fixed design.
+Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\}$ and have density function
+    $p(y_i | \bbeta) = S(y_i X_i^\myT \bbeta)$
+    with respect to the dominating measure $\mu(\{-1\}) = \mu(\{1\}) = 1/2$, where $X_i \in \mathbb R^p$ are the regressors and $\bbeta \in \mathbb R^p$ is the unknown parameter.
+    We consider the model conditional on $X_1,\dots,X_n$, that is, $X_1, \dots, X_n$ are assumed to be non-random.
 
-Suppose $\mu(\{-1\}) = \mu(\{1\}) = 1/2 $.
-Suppose $X_i \sim \mathcal N(0, \BI_p)$.
+
+\begin{lemma}
+    \label{lemma:invariance}
+    Suppose $\{Z_n\}$ is a sequence of $p$-dimensional random variables and $Z_n \rightsquigarrow \mathcal N (0, \BI_p)$.
+    Then for any sequence $\{\BP_n\}$ of non-random projection matrix with rank $1\leq k \leq p$,
+    \begin{align*}
+    Z_n^\myT \BP_n Z_n \rightsquigarrow \chi^2(k).
+    \end{align*}
+\end{lemma}
+\begin{proof}
+    Let $\tilde \BP_n = \BI_p - \BP_n$.
+    Then $\tilde \BP_n$ is the projection matrix onto the complement space of $\BP_n$.
+    We can write $\BP_n = \BV_n \BV_n^\myT$ and $\tilde \BP_n = \tilde \BV_n \tilde \BV_n^\myT$ where $\BV_n$ and $\tilde \BV_n$ are $p\times k$ and $p\times (p-k)$ column orthogonal matrices, respectively.
+    Then $(\BV_n , \tilde \BV_n)$ is an orthogonal matrix.
+By the uniform convergence of the characteristic function of $Z_n$ on compact sets, it can be shown that $(\BV_n, \tilde \BV_n)^\myT Z_n \rightsquigarrow \mathcal N (0, \BI_p)$ (see, e.g., (3.4) in \cite{Fahrmeir_1985}).
+Therefore, $
+    Z_n^\myT \BP_n Z_n
+    =
+    \|\BV_n^\myT Z_n\|^2
+    \rightsquigarrow \chi^2(k)
+    $.
+\end{proof}
+
+
+\begin{proposition}
+    \label{prop:logistic}
+
+    Define $
+ A_n = 
+    \sum_{i=1}^n 
+    S( X_i^\myT \bbeta_0)
+    S(- X_i^\myT \bbeta_0)
+    X_i
+    X_i^\myT $.
+
+    Assume 
+$
+     \max_{i\in \{1,\dots,n\}}
+ \|A_n^{-1/2}
+ X_i\| \to 0.
+$
+Suppose $\lambda_{\min}(A_n) \to \infty$.
+Assume the prior density $\pi(\bbeta)$ is bounded and is continuous at $\bbeta_0$ with $\pi(\bbeta_0)> 0$.
+\end{proposition}
+
+\begin{proof}[\textbf{Proof of Proposition \ref{prop:logistic}}]
+
+Let $M>0$ be an arbitrary fixed number.
+If $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M$, then for $i = 1, \dots, n$,
 \begin{align*}
-    p(y_i | X_i, \bbeta )  =  \frac{1}{ 1 + \exp\{- y_i X_i^\myT \bbeta \} }.
+|X_i^\myT (\bbeta - \bbeta_0)| 
+\leq& \|X_i^\myT  A_n^{-1/2} \|  \| A_n^{1/2} (\bbeta - \bbeta_0) \|
+\leq 
+M
+\max_{i\in \{1,\dots, n\}}\| A_n^{-1/2} X_i \|
+\to 0
+.
+\end{align*}
+Then from Taylor's theorem, uniformly for $i=1,\dots,n$ and $\|h_n\| \leq M$,
+\begin{align*}
+    \log \frac{S(y_i X_i^\myT \bbeta)}{S(y_i X_i^\myT \bbeta_0)}
+    = S(-y_i X_i^\myT \bbeta_0)  y_i X_i^\myT (\bbeta - \bbeta_0)
+    -\frac{1 + o_{P_{\bbeta_0}^n}(1)}{2} 
+    S( X_i^\myT \bbeta_0)
+    S(- X_i^\myT \bbeta_0)
+(\bbeta - \bbeta_0)
+X_i
+X_i^\myT (\bbeta - \bbeta_0)
+.
+\end{align*}
+Hence uniformly for $\|h_n\| \leq M$,
+\begin{align}\label{logistic:expansion}
+    R_n(\bbeta_0 \| \bbeta)
+=&
+-Z_n^{\myT} h_n
+    +\frac{1 }{2} 
+    \|h_n \|^2
+    +o_{P_{\bbeta_0}^n}(1)
+.
+\end{align}
+where
+\begin{align*}
+ Z_n = 
+    \sum_{i=1}^n 
+ S(-y_i X_i^\myT \bbeta_0) 
+  y_i
+ A_n^{-1/2}
+ X_i
+ ,\quad
+ h_n =
+ A_n^{1/2} (\bbeta - \bbeta_0)
+ .
+\end{align*}
+From Lemma \ref{lemma:MN}, there exists some $M_n \to \infty$ such that \eqref{logistic:expansion} holds uniformly for $\|h_n\| \leq M_n$.
+Without loss of generality, we can assume that $M_n / \sqrt{\lambda_{\min}(A_n)} \to 0$.
+Hence if $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M_n$, then $\|\bbeta - \bbeta_0\| \leq M_n / \sqrt{\lambda_{\min}(A_n)} \to 0$.
+We have
+\begin{align*}
+    &
+    \int_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M_n \}} 
+    \exp\{-t R_n (\bbeta_0 \| \bbeta)\} \pi(\bbeta) \, \mathrm d \bbeta
+    \\
+    =&
+(1+o_{P_{\bbeta_0}^n})\pi(\bbeta_0)
+    \int_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| \leq M_n \}} 
+    \exp\left\{t Z_n^\myT A_n^{1/2} (\bbeta - \bbeta_0) - \frac{t}{2}(\bbeta - \bbeta_0)^\myT A_n (\bbeta - \bbeta_0)  \right\}  \, \mathrm d \bbeta
+    \\
+    =&
+(1+o_{P_{\bbeta_0}^n})\pi(\bbeta_0)
+\left( \frac {2\pi}{t} \right)^{p/2} |A_n|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT Z_n \right\}.
 \end{align*}
 
+
+
+Note that $\myE (Z_n) = \mathbf 0_p$, $\myVar (Z_n) = \BI_p$.
+Hence $Z_n$ is bounded in probability.
+We have
 \begin{align*}
-    \frac{p(y_i,  X_i | \bbeta)}{ p(y_i,  X_i | 0) }
-    =
-    \frac{p(y_i | X_i , \bbeta)}{ p(y_i|  X_i , 0) }.
+    \min_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| = M_n\}} 
+R_n (\bbeta_0 \| \bbeta )
+\geq 
+-\|Z_n\| \|h_n\|
++ \frac{1} {2} \|h_n\|^2 + o_{P_{\bbeta_0}^n}(1)
+\geq 
+ \frac{1} {2} M_n^2 + o_{P_{\bbeta_0}^n}(M_n)
+.
+\end{align*}
+Hence with probability tending to $1$,
+\begin{align*}
+    \min_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| = M_n\}} 
+R_n (\bbeta_0 \| \bbeta )
+\geq 
+ \frac{1} {4} M_n^2
+.
 \end{align*}
 
+Note that $R_n(\bbeta_0 \| \bbeta)$ is convex in $\bbeta$ and $R_n (\bbeta_0 \| \bbeta_0) = 0$.
+Hence Jensen's inequality implies that for $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \geq M_n$, 
 \begin{align*}
-    P_{\theta_0}^n
-    \int_{\Theta}
-    \left\{
-        \prod_{i=1}^n \frac{p(y_i|  X_i, \bbeta)}{ p(y_i|  X_i , 0) }
-\right\}^t
-\pi(\bbeta) \, \mathrm d \bbeta
+    \frac{M_n}{\|A_n^{1/2}(\bbeta - \bbeta_0)\|} R_n (\bbeta_0 \| \bbeta )
+    \geq R_n \left( \bbeta_0 \| \bbeta_0 + \frac{M_n}{\|A_n^{1/2}(\bbeta - \bbeta_0)\|} (\bbeta - \bbeta_0)\right).
+\end{align*}
+Hence with probability tending to $1$, for all $\bbeta$ such that $\|A_n^{1/2}(\bbeta - \bbeta_0)\| \geq M_n$,
+\begin{align*}
+     R_n (\bbeta_0 \| \bbeta )
+    \geq
+    \frac 1 4 M_n
+{\|A_n^{1/2}(\bbeta - \bbeta_0)\|}
+    .
+\end{align*}
+
+We have assumed that $\pi(\bbeta)$ is bounded, say ,by $C$.
+With probability tending to $1$, we have
+\begin{align*}
+    &
+    \int_{\{\bbeta : \|A_n^{1/2}(\bbeta - \bbeta_0)\| > M_n \}} 
+    \exp\{-t R_n (\bbeta_0 \| \bbeta)\} \pi(\bbeta) \, \mathrm d \bbeta
+    \\
+    \leq&
+    C
+    \int_{\{\bbeta :  \|A_n^{1/2}(\bbeta - \bbeta_0)\| > M_n \}} 
+    \exp \left\{-\frac{t}{4} M_n \|A_n^{1/2}(\bbeta - \bbeta_0)\| \right\}  \, \mathrm d \bbeta
+    \\
+    =&
+    C
+    |A_n|^{-1/2}
+    \int_{\{u : \|u\| > M_n \}} 
+    \exp \left\{-\frac{t}{4} M_n \| u \| \right\}  \, \mathrm d u
+    \\
+    =&
+    o(
+    |A_n|^{-1/2}
+).
+\end{align*}
+Thus, we have
+\begin{align*}
+    &
+    \int_{\mathbb R^p} 
+    \exp\{-t R_n (\bbeta_0 \| \bbeta)\} \pi(\bbeta) \, \mathrm d \bbeta
     =
-    \int_{\Theta}
-    \exp\left\{
+(1+o_{P_{\bbeta_0}^n})\pi(\bbeta_0)
+\left( \frac {2\pi}{t} \right)^{p/2} |A_n|^{-1/2} \exp \left\{\frac{t}{2} Z_n^\myT Z_n \right\}.
+\end{align*}
+
+
+
+To illustrate the asymptotic normality of $Z_n$, we apply \cite{Raic2019A}, Theorem 1.1.
+%the multivariate Berry-Esseen bound 
+Note that
+\begin{align*}
+    &
     \sum_{i=1}^n
-    \log
-\frac{
-1 + \exp\{ t X_i^\myT \bbeta \} 
-}{
-    2^{1-t}
-    \left(
-1 + \exp\{ X_i^\myT \bbeta \} 
-    \right)^t
-}
-\right\}
-\pi(\bbeta) \, \mathrm d \bbeta
+    P_{\bbeta_0}^n
+ \left\|
+ S(-y_i X_i^\myT \bbeta_0)  
+ y_i
+ A_n^{-1/2}
+ X_i
+ \right\|^3
+ \\
+=&
+    \sum_{i=1}^n
+ \left\|
+ A_n^{-1/2}
+ X_i
+ \right\|^3
+ S(- X_i^\myT \bbeta_0)
+ S(X_i^\myT \bbeta_0)
+ \left(
+ S(- X_i^\myT \bbeta_0)^2
+ +
+ S(X_i^\myT \bbeta_0)^2
+\right)
+ \\
+ \leq&
+    \sum_{i=1}^n
+ \left\|
+ A_n^{-1/2}
+ X_i
+ \right\|^3
+ S(- X_i^\myT \bbeta_0)
+ S(X_i^\myT \bbeta_0)
+ \\
+ \leq&
+ \left(
+     \max_{i\in \{1,\dots,n\}}
+ \|A_n^{-1/2}
+ X_i\|
+ \right)
+    \sum_{i=1}^n
+ \left\|
+ A_n^{-1/2}
+ X_i
+ \right\|^2
+ S(- X_i^\myT \bbeta_0)
+ S(X_i^\myT \bbeta_0)
+ \\
+ =&
+ p
+     \max_{i\in \{1,\dots,n\}}
+ \|A_n^{-1/2}
+ X_i\|
+ \\
+ \to & 0
+ .
 \end{align*}
+It follows that $A_n^{1/2}z_n \overset{P^n_{\theta_0}}{\rightsquigarrow} \mathcal N (0, \BI_p) $.
 
-\begin{align*}
-    \sum_{i=1}^n \log p(y_i | X_i) 
-\end{align*}
+
+\end{proof}
+
+
+
+
+
+
+
+
+%\subsection{Three-parameter lognormal model}\label{sec:lognormal}
+%
+%Threshold parameter $\gamma$.
+%
+%If $\gamma$ is known, then the model reduces to the two-parameter lognormal model, and the statistical inference methods are well understood.
+%See, e.g., \cite{Lawless2003Statistical}.
+%
+%Suppose $X_1, \dots, X_n$ are iid random variables from a three-parameter lognormal distribution
+%\begin{align*}
+%p(x | \gamma, \mu, \sigma^2) = 
+%\frac{1}{(x-\gamma)\sqrt{2\pi \sigma^2 }}
+%\exp\left(
+%    - \frac{(\log(x-\gamma)-\mu)^2}{2\sigma^2}
+%\right)
+%\mathrm 1_{(x > \gamma)}.
+%\end{align*}
+%The parameter space is
+%$\Theta = \{\theta = (\gamma, \mu, \sigma)^\myT | \gamma, \mu \in \mathbb R, \, \sigma \in \mathbb R^+ \} $.
+%
+%Then the likelihood function is
+%\begin{align*}
+%p_n(\BX^n | \gamma, \mu, \sigma^2) = 
+%\frac{1}{\prod_{i=1}^n (X_i-\gamma) {(2\pi \sigma^2)^{n/2}}}
+%\exp\left(
+%    - \frac{\sum_{i=1}^n (\log(X_i-\gamma)-\mu)^2}{2\sigma^2}
+%\right)
+%\mathrm 1_{(X_{(1)} > \gamma)},
+%\end{align*}
+%where $X_{(1)} \leq \dots \leq X_{(n)}$ are the order statistics of $X_1, \dots, X_n$.
+%
+%We consider the noninformative prior distribution $\pi(\gamma, \mu, \sigma^2) = \frac{1}{\sigma^2}$.
+%
+%By direct calculation, we have
+%%For $\gamma < X_{(1)}$, we have
+%\begin{align*}
+%    &
+%    \int_0^{+\infty} \int_{-\infty}^{+\infty}
+%p_n(\BX^n | \gamma, \mu, \sigma^2) 
+%\pi(\gamma, \mu, \sigma^2)
+%\,
+%\mathrm d \mu \mathrm d \sigma^2
+%\\
+%= &
+%\frac{1}{ \sqrt { n}{\pi^{(n-1)/2}} \prod_{i=1}^n (X_i-\gamma)  }
+%\frac{\Gamma(\frac{n-1}{2})}{\left({\sum_{i=1}^n (\log(X_i-\gamma)- n^{-1} \sum_{j=1}^n \log(X_j - \gamma) )^2}\right)^{(n-1)/2}}
+%\mathrm 1_{(X_{(1)} > \gamma)}.
+%\end{align*}
+%
+%Suppose $X_i = \exp\{\mu_0 + \sigma_0 Z_i\} + \gamma_0$.
+%Note that
+%\begin{align*}
+%     \prod_{i=1}^n (X_i-\gamma)
+%     =&
+%     \exp\{\sum_{i=1}^n \log (X_i - \gamma_0 + \gamma_0 -\gamma)\}
+%     \\
+%     =&
+%     \exp\{
+%         \sum_{i=1}^n \log (X_i - \gamma_0) + 
+%     \sum_{i=1}^n \log (1+ \frac{\gamma_0 -\gamma}{X_i - \gamma_0 })\}
+%     \\
+%     =&
+%     \exp\{
+%         n\mu_0 + \sigma_0 \sum_{i=1}^n \log Z_i  + 
+%     \sum_{i=1}^n \log (1+ \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} })\}
+%     \}
+%\end{align*}
+%
+%Let $R_n = \max_{1\leq i \leq n} |Z_i|$.
+%Then $R_n \xrightarrow{P^n_{\theta_0}}\sqrt{2\log n}$.
+%
+%Thus, 
+%\begin{align*}
+%\left|
+%\frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} }
+%\right|
+%\leq
+%\frac{
+%\left|
+%\gamma -\gamma_0
+%\right|
+%}{\exp\{\mu_0 - \sigma_0 R_n \} }.
+%\end{align*}
+%Hence if $|\gamma - \gamma_0 | = O(\exp\{ - (1+\epsilon) \sigma_0  \sqrt{2\log n}\})$, then
+%\begin{align*}
+%\frac{
+%\left|
+%\gamma -\gamma_0
+%\right|
+%}{\exp\{\mu_0 - \sigma_0 R_n \} }
+%=
+%o_{P_{\theta_0}^n }(1).
+%\end{align*}
+%Thus,
+%\begin{align*}
+%     \prod_{i=1}^n (X_i-\gamma)
+%     =&
+%     \exp\{
+%         n\mu_0 + \sigma_0 \sum_{i=1}^n Z_i  + 
+%     \sum_{i=1}^n \log (1+ \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} })\}
+%     \\
+%     =&
+%     \exp\{
+%         n\mu_0 + \sigma_0 \sum_{i=1}^n Z_i  + 
+%     \sum_{i=1}^n  \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} }
+%     -
+%    (1 + o_{P_{\theta_0}^n }(1))
+%     \frac 1 2 \sum_{i=1}^n  \frac{(\gamma_0 -\gamma)^2}{\exp\{2\mu_0 + 2\sigma_0 Z_i \} }
+%     \}
+%\end{align*}
+%
+%On the other hand,
+%\begin{align*}
+%    &
+%{\sum_{i=1}^n \left(\log(X_i-\gamma)- n^{-1} \sum_{j=1}^n \log(X_j - \gamma) \right)^2}
+%\\
+%=&
+%{\sum_{i=1}^n \left( \sigma_0 Z_i  -\sigma_0 \bar Z 
+%+
+%\log(1 +\frac{\gamma_0 - \gamma} {\exp(\mu_0 + \sigma_0 Z_i)})
+%- n^{-1} \sum_{j=1}^n \log(1 +\frac{\gamma_0 - \gamma} {\exp(\mu_0 + \sigma_0 Z_j)}) \right)^2}
+%= (1+o_{P_{\theta_0}^n}(1))n\sigma_0^2.
+%\end{align*}
+%
+%%We have
+%%\begin{align*}
+%%\log (1+ \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} })
+%%=
+%%      \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} }
+%%     -
+%%    (1 + o_{P_{\theta_0}^n }(1))
+%%     \frac 1 2   \frac{(\gamma_0 -\gamma)^2}{\exp\{2\mu_0 + 2\sigma_0 Z_i \} }
+%%\end{align*}
+%
+%%\begin{align*}
+%%    &
+%%{\sum_{i=1}^n \left(\log(X_i-\gamma)- n^{-1} \sum_{j=1}^n \log(X_j - \gamma) \right)^2}
+%%\\
+%%=&
+%%{\sum_{i=1}^n \left( \sigma_0 Z_i  -\sigma_0 \bar Z 
+%%+
+%%      \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_i \} }
+%%- n^{-1} \sum_{j=1}^n 
+%%      \frac{\gamma_0 -\gamma}{\exp\{\mu_0 + \sigma_0 Z_j \} }
+%%     -
+%%    (1 + o_{P_{\theta_0}^n }(1))
+%%     \frac 1 2   \frac{(\gamma_0 -\gamma)^2}{\exp\{2\mu_0 + 2\sigma_0 Z_i \} }
+%%+ n^{-1} \sum_{j=1}^n 
+%%    (1 + o_{P_{\theta_0}^n }(1))
+%%     \frac 1 2   \frac{(\gamma_0 -\gamma)^2}{\exp\{2\mu_0 + 2\sigma_0 Z_j \} }
+%%\right)^2}
+%%\end{align*}
+
+
+
+
+
+
 
 
 
@@ -1803,7 +2185,7 @@ $$
 Then the conclusion follows from Lemma \ref{prop:lowerBoud}.
 \end{proof}
 
-\section{Proofs in Section 2}
+\section{Proofs of the results in Sections \ref{sec:wilks} and \ref{sec:ilrt}}
 
 
     \begin{proof}[\textbf{Proof of Theorem \ref{prop:expansion}}]
@@ -2668,7 +3050,7 @@ Hence
 Then the conclusion follows from Lemma \ref{lemma:contiguous} and Lemma \ref{lemma:score}.
 \end{proof}
 
-\section{Proofs in Section 3}
+\section{Proofs of the results in Section \ref{sec:examples}}
 
 \begin{proof}[\textbf{Proof of Proposition~\ref{exponentialCon}}]
     For exponential family, we have $\dot{\ell}_{\theta_0} (X) = T(X) - ( \partial / \partial \theta ) A(\theta_0)$ and $I(\theta_0) = (\partial^2 /\partial \theta \partial \theta^\myT ) A(\theta_0)$.
@@ -2776,7 +3158,8 @@ $ for $\|\theta-\theta_0\|\geq M_n/\sqrt{n}$.
         M_n.
     \end{aligned}
     $$
-    Fix an $\epsilon>0$ such that $\sup_{\|\theta-\theta_0\|< \epsilon}\pi(\theta) < +\infty $. For sufficiently large $n$, with probability tending to $1$, we have
+    Fix an $\epsilon>0$ such that $\sup_{\|\theta-\theta_0\|< \epsilon}\pi(\theta) < +\infty $. 
+    With probability tending to $1$, we have
 $$
     \begin{aligned}
         &
