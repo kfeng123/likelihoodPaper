@@ -5,13 +5,17 @@ The style file: apa.bst
 Database file #1: mybibfile.bib
 Warning--I didn't find a database entry for "Candes2020The_phase"
 Warning--I didn't find a database entry for "berger2001Obj"
+Warning--I didn't find a database entry for "Albert1984On"
+Warning--I didn't find a database entry for "Lesaffre1989Partial"
+Warning--I didn't find a database entry for "Sur2019The"
+Warning--I didn't find a database entry for "seabold2010statsmodels"
 Warning--I didn't find a database entry for "Fahrmeir_1985"
 Warning--I didn't find a database entry for "Raic2019A"
 Warning--I didn't find a database entry for "intrinsicBayesFactor"
 Warning--I didn't find a database entry for "Serfling1980App"
 You've used 55 entries,
             1940 wiz_defined-function locations,
-            875 strings with 12343 characters,
+            882 strings with 12447 characters,
 and the built_in function-call counts, 22095 in all, are:
 = -- 2212
 > -- 736
@@ -50,4 +54,4 @@ warning$ -- 0
 while$ -- 195
 width$ -- 0
 write$ -- 724
-(There were 6 warnings)
+(There were 10 warnings)

@@ -1074,7 +1074,7 @@ we need to verify Assumption \ref{Assumption1} and the $\sqrt n$-consistency of 
 From Proposition \ref{exponentialCon}, $\Lambda_{a,b}(\BX^n)$ has the asymptotic distribution as stated in (a) of Theorem \ref{Thm:maintheorem}.
 Hence a test can be constructed which has the same asymptotic local power as the LRT.
 We note that for some models in exponential family, the MLE does not always exist; see, e.g., \cite{Rinaldo2013}.
-Hence, the LRT is not always well defined.
+If the MLE does not exist, the LRT is not desirable.
 In contrast, $\Lambda_{a,b}(\BX^n)$ is always well defined provided the priors are proper.
 
 %Proposition~\ref{exponentialCon} establishes the $\sqrt{n}$-consistent of $L_t(\cdot;\BX^{n})$ for all $t>0$ under full-rank exponential family models.
@@ -1082,21 +1082,42 @@ In contrast, $\Lambda_{a,b}(\BX^n)$ is always well defined provided the priors a
 %We would like to consider more general models.
 
 \subsection{Logistic regression model}\label{sec:logistic}
-
-Let $S(x) = 1/(1+\exp(-x))$ denote the sigmoid function.
-The fixed design.
+Logistic regression is a popular model to study the relationship between the predictors and the binary response.
+In this section, we consider the problem of testing the coefficients of the logistic regression model.
+%Suppose $X_1, \dots, X_n \in \mathbb R^p$ are non-random predictors.
+%Let $S(x) = 1/(1+\exp(-x))$ denote the sigmoid function.
 Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\}$ and have density function
     $p(y_i | \theta) = S(y_i X_i^\myT \theta)$
-    with respect to the dominating measure $\mu(\{-1\}) = \mu(\{1\}) = 1/2$, where $X_i \in \mathbb R^p$ are the regressors and $\theta \in \mathbb R^p$ is the unknown parameter.
-    We consider the model conditional on $X_1,\dots,X_n$, that is, $X_1, \dots, X_n$ are assumed to be non-random.
+    with respect to the dominating measure $\mu(\{-1\}) = \mu(\{1\}) = 1$, where
+    $S(x) = 1/(1+\exp(-x))$ is the sigmoid function,
+    $X_1, \dots, X_n \in \mathbb R^p$ are the non-random predictors and $\theta \in \mathbb R^p$ is the unknown parameter.
+    A notable phenomenon for the logistic regression model is that the MLE does not exist when the data points are completely separated or quasi-completely separated; see, e.g., \cite{Albert1984On,Candes2020The_phase}.
+    If the MLE does not exist, the numerical optimization procedure may fail to converge.
+    Detection of complete separation was studied in \cite{Lesaffre1989Partial}.
+    %This phenomenon rise to additional difficulty numerical optimization.
+    %If the MLE does not exist, the LRT is and may have undesirable behavior.
 
     Suppose $X_i^\myT \theta = X_{i1}^\myT \nu + X_{i2}^\myT \xi$, where $X_{i1}$ and $X_{i2}$ are the first $p_0$ and the last $p-p_0$ elements of $X_i$, respectively.
     We would like to test 
 \begin{align*}
     H:\xi= \xi_0 \quad v.s.\quad K: \xi\neq \xi_0. 
 \end{align*}
+The commonly used test procedure for this problem is the LRT.
+%, it also has some weaknesses.
+%Although the LRT is commonly used for this problem, it also has some weaknesses.
+%For example, if the data points are completely separated under the null hypothesis, then \cite{Albert1984On}, Theorem 1 implies that the LRT is equal to $1$ and the null hypothesis can not be rejected.
+We note that the supremum of the likelihood function is bounded by $1$.
+Hence although the MLE may not exist, the LRT is always well defined.
+%It is noted by \cite{Candes2020The_phase} that in the present setting, quasi-complete separation occurs with probability $0$.
+%On the other hand, if completely separation occurs, the maximum likelihood is equal to $1$ although the MLE does not exist; see \cite{Albert1984On}, Theorem 1.
+%Hence the LRT is indeed well defined in the present setting.
+However, the LRT is not perfect.
+\cite{Sur2019The} proved that the LRT has inflated test level if $p$ grows proportionally with $n$.
+Our simulation results in Section \ref{sec:simu} show that this phenomenon can also occur in the low-dimensional setting if the nuisance parameter $\nu$ is deviated from $0$.
 
-
+We consider the generalized FBF for the problem.
+Note that the implementation of the generalized FBF does not require an estimator of the parameter and is not affected by the unstable behavior of the MLE.
+The following proposition gives the asymptotic behavior of the generalized FBF.
 \begin{proposition}
     \label{prop:logistic}
     Define $
@@ -1106,21 +1127,19 @@ Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\
     S(- X_i^\myT \theta_0)
     X_i
     X_i^\myT $.
-
-    Define $
-    \BA_{n, 0} = 
-    \BJ^\myT \BA_n \BJ
-    $.
-Suppose $\lambda_{\min}(\BJ^\myT \BA_n \BJ) \to \infty$.
-    Assume 
-$
+    %Define $
+    %\BA_{n, 0} = 
+    %\BJ^\myT \BA_n \BJ
+    %$.
+    Suppose
+    \begin{align*}
      \max_{i\in \{1,\dots,n\}}
  \|\BA_n^{-1/2}
- X_i\| \to 0.
-$
-Assume the prior density $\pi(\theta)$ is bounded and is continuous at $\theta_0$ with $\pi(\theta_0)> 0$.
-Assume the prior density $\pi_0(\nu)$ is bounded and is continuous at $\nu_0$ with $\pi_0(\nu_0)> 0$.
-
+ X_i\| \to 0
+ ,\quad
+ \lambda_{\min}(\BJ^\myT \BA_n \BJ) \to \infty.
+    \end{align*}
+    Suppose the prior density $\pi(\theta)$ is bounded and is continuous at $\theta_0$ with $\pi(\theta_0)> 0$, and the prior density $\pi_0(\nu)$ is bounded and is continuous at $\nu_0$ with $\pi_0(\nu_0)> 0$.
 Suppose $\{\theta_n\}$ satisfies $\BA_n^{1/2} (\theta_n - \theta_0) \to \eta$ and $
     \eta^\myT 
     (
@@ -1130,9 +1149,9 @@ Suppose $\{\theta_n\}$ satisfies $\BA_n^{1/2} (\theta_n - \theta_0) \to \eta$ an
 \eta
 \to \gamma
 $.
-
+Then
 \begin{align*}
-    \frac{2}{a-b}\log \Lambda_{a, b} (\BX^n)
+    \frac{2}{a-b}\log \Lambda_{a, b} (y_1, \dots, y_n)
     +
     \frac{p-p_0}{a-b} \log \left(\frac{a}{b}\right)
     \overset{P_{\theta_0}^n}{\rightsquigarrow}
@@ -1140,6 +1159,30 @@ $.
 .
 \end{align*}
 \end{proposition}
+\begin{remark}
+    Note that the data $y_1, \dots, y_n$ is not iid.
+    Hence Theorem \ref{Thm:maintheorem}, (a) can not be directly applied to obtain Proposition \ref{prop:logistic}.
+    Nevertheless, Proposition \ref{prop:logistic} can be proved by similar strategy as Theorem \ref{Thm:maintheorem}, (a).
+\end{remark}
+Proposition \ref{prop:logistic} shows that the generalized FBF can preserve the test level asymptotically.
+Our simulation results in Section \ref{sec:simu} shows that the empirical level of the generalized FBF is reasonable while the LRT exhibits severe level inflation when the nuisance parameter $\nu$ is deviated from $0$.
+
+%If the MLE does not exist, the LRT can still be defined since the numerator and the denominator of \eqref{logistic:lrt} are both bounded by $1$.
+%\begin{align}\label{logistic:lrt}
+%    \Lambda_{\text{LRT}} (y_1, \dots, y_n) = 
+%    \frac{
+%        \sup_{\theta \in \mathbb R^p} \prod_{i=1}^n p (y_i | \theta)
+%    }{
+%        \sup_{\nu \in \mathbb R^{p_0}} \prod_{i=1}^n p (y_i | \nu, \xi_0)
+%    }.
+%\end{align}
+%It is known that the MLE for the logistic regression model does not exist when the data points are completely separated or quasi-completely separated; see, e.g., \cite{Albert1984On,Candes2020The_phase}.
+%If the MLE does not exist, the LRT can still be defined since the numerator and the denominator of \eqref{logistic:lrt} are both bounded by $1$.
+%In this case, however, the property of the LRT may not be desirable.
+%In fact, if the data points are completely separated under the null hypothesis, then \cite{Albert1984On}, Theorem 1 implies $
+%\Lambda_{\text{LRT}} (y_1, \dots, y_n) = 1$.
+
+    %We consider the model conditioning on $X_1,\dots,X_n$, that is, $X_1, \dots, X_n$ are assumed to be non-random.
 
 
 
@@ -1450,22 +1493,49 @@ The following proposition shows that $\Lambda_{a,b}(\BX^n)$ still has Wilks phen
 %%\right)^2}
 %%\end{align*}
 
-
-
-
-
-
-
-
-
 \section{Simulation studies} \label{sec:simu}
-In this section, we carry out simulations to examine the empirical size and power of the generalized FBF for the testing problems \eqref{newHy} and \eqref{Hy:binomial}.
+In this section, we carry out simulations to examine the empirical size and power of the generalized FBF for the testing problems in Sections \ref{sec:logistic}, \ref{sec:mixture}, \ref{sec:binomial_mixture}.
 For comparison, we also carry out simulations for the LRT.
 In all simulations, the nominal significant level is $\alpha = 0.05$ and results are obtained from $10000$ independent replications.
 
+First we consider the testing problem for logistic regression.
+In the simulations, we take $n = 50$, $p = 3$, $p_0 = 2$ and the predictors $X_1, \dots, X_n$ are independently generated from $\mathcal N (0, \BI_p)$.
+The hypothesis of interest is $H:\xi=0$ v.s. $K: \xi \neq 0$, that is, we test if a single coefficient is equal to $0$.
+For the generalized FBF, we take $a = 2/3$, $b = 1/3$,  $\pi(\bbeta)\sim \mathcal N (0, \BI_p)$, $\pi(\bbeta) \sim \mathcal N (0, \BI_{p_0})$.
+The LRT is implemented via Python module \emph{statsmodels} \cite{seabold2010statsmodels}, version 0.12.0.
+The simulation results are listed in Table \ref{logistic_table1}.
+It can be seen that when the nuisance parameter $\nu$ is deviated from $(0,0)^\myT$, the LRT has inflated empirical level.
+In fact, if $\nu$ is deviated from $(0,0)^\myT$, then $y_i$ can be well predicted by $X_i$, and consequently the complete separation phenomenon is more likely to occur and the LRT has undesirable behavior.
+%In comparison, the generalized FBF can reasonably preserve the test level although the test level is a little inflated in some cases.
+In comparison, for the generalized FBF, the empirical level can be reasonably preserved although it is a little inflated in some cases.
+\begin{table*}[ht]
+    \caption{Empirical size and power of the LRT and the generalized FBF for logistic regression model.}
+    \label{logistic_table1}
+    \centering
+    \begin{tabular}{ccccccccc}
+        \toprule
+          & \multicolumn{4}{c}{generalized FBF} &\multicolumn{4}{c}{LRT}\\
+        \cmidrule(r){2-5}\cmidrule(r){6-9}
+        $\nu$ 
+        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+        \\ 
+        \midrule
+        $(0,0)$ &0.0706&0.8992& 0.9995&1.0000&0.0560&0.8804& 0.9995& 1.0000   \\
+        $(1,1)$ &0.0699&0.8175&0.9984& 1.0000  &0.0611&0.7984&0.9981& 1.0000   \\
+        $(2,2)$ &0.0532&0.6132&0.9843& 0.9999&0.0644&0.6500&0.9881&0.9999 \\
+        $(3,3)$ &0.0492&0.4102&0.9136& 0.9953 & 0.0808 &0.5287& 0.9552& 0.9974  \\
+        $(4,4)$ &0.0548&0.2787 & 0.7759 & 0.9759& 0.0922  & 0.4503 & 0.9042& 0.9916   \\
+        $(5,5)$ &0.0611&0.2174& 0.6228& 0.9102& 0.1077 & 0.4056&  0.8436& 0.9763 \\
+        \bottomrule
+    \end{tabular}
+\end{table*}
+
+%Note that the MLE does not exist when the data points are completely separated or quasi-completely separated.
+
 %Now we examine the performance of the generalized FBF by simulations.
 %For comparison, we also carry out simulations for the LRT.
-First we consider the testing problem \eqref{newHy} for normal mixture model.
+Now we consider the testing problem \eqref{newHy} for normal mixture model.
 For the generalized FBF, we take $a = 2/3$, $b = 1/3$,  $\pi_\omega(\omega)\sim \text{Beta}(2, 2)$, $\pi_\xi(\xi) = 1_{(0,1)}(\xi)$.
 The critical value of the generalized FBF is determined by its Wilks phenomenon as described in Proposition \ref{mixtureThm_binom}.
 For the LRT, \cite{LIU200461} proved that, under the null hypothesis,
