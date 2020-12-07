@@ -25,6 +25,8 @@
 \usepackage{datetime}
 \newdate{date}{7}{15}{2020}
 
+\usepackage{listings}
+
 %%%%%%%%%%%%%%  Notations %%%%%%%%%%
 \DeclareMathOperator{\mytr}{tr}
 \DeclareMathOperator{\mydiag}{diag}
@@ -89,14 +91,19 @@
 
 
 
-\author[1]{Rui Wang}
-\author[1,2]{Xingzhong Xu}
+\author[1,2]{Rui Wang}
+\author[2,3]{Xingzhong Xu}
 \affil[1]{
+    School of Statistics, Renmin University of China, Beijing
+    100872, China
+}
+
+\affil[2]{
 School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
     100081,China
 }
 
-\affil[2]{
+\affil[3]{
 Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
 }
 
@@ -135,7 +142,7 @@ Note that if $\pi(\theta)$ is proper, then
     \int_{\Theta} \pi(\theta) \, \mathrm d \theta = 1 < \infty.
 \end{align*}
 Hence the integrability condition is satisfied for any proper priors.
-Furthermore, it also allows improper priors provided the tail probability of the prior density is not too thick.
+Furthermore, it also allows improper priors provided the tail of the prior density is not too thick.
 Hence our integrability condition is very weak.
 In the revised paper, we add a remark on this condition.
 
@@ -145,7 +152,13 @@ In the revised paper, we add a remark on this condition.
 }
 
 \textbf{Answers:}
-We thank the AE for informing us these references, which are reviewered in the revised paper.
+We thank the AE for informing us these references.
+%, which are reviewed in the revised paper.
+In the revised paper, we have improved the literature review on the LRT.
+Although the LRT is a very classical idea, we found that the LRT is an active research topic very recently, with important advances both in theory \cite{Sur2019The,Anastasiou2020Bounds} and methodology \cite{Wasserman2020}.
+Compared with the LRT, the test method of \cite{Wasserman2020} is very general, and can be used in complex models, such as mixture models.
+As \cite{Wasserman2020} noted, the generality of their method comes at the price of relatively low power.
+Theses points are discussed in the revised paper.
 
 \section{Response to reviewer 1}
 
@@ -166,9 +179,8 @@ In fact, this methodology dates back at least to \cite{Good1967}, and has been c
 researchers since then.
 \cite{Good1992} gave a review for some early literature using this idea.                                  
 See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea. 
-However, the idea has been mostly used for specific models and has not been 
-systematically and rigorously studied for general models.                                  
-One reason for this fact may be due to the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
+However, the idea has been mostly used for specific models and has not been systematically and rigorously studied for general models.                                  
+One reason for this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
 }
 \end{adjustwidth}
 
@@ -177,7 +189,7 @@ Following the reviewer's suggestion, we also comment on the literature of large 
     \emph{
         In this work, we treat the Bayes factor and its variants as frequentist test statistics.
         Hence a closely related area of research is the frequentist properties of the Bayes factor.
-        Most existing results in this area focus on the consistency of the Bayes factor; see \cite{berger2003approximations}, \cite{moreno2010},      \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
+        Most existing results in this area focus on the consistency of the Bayes factor, that is, as the sample size $n$  goes to infinity, the Bayes factor converges to $0$ under the null hypothesis, and converges to $+\infty$ under the alternative hypothesis; see \cite{berger2003approximations}, \cite{moreno2010},      \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
         There are still relatively few researches on the asymptotic distribution of the Bayes factor.
         \cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
         \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
@@ -213,10 +225,10 @@ We add a remark below Theorem $1$ which gives a comparison of Theorem $1$ and th
 \textbf{Answers:}
 We follow the reviewer's suggestion.
 In the revised paper, we add simulations to examine the performance of the proposed method and compare it with the LRT.
-The simulation examples include two difficult problems, that is, normal mixture model and binomial mixture model.
-For these models, researchers have proved that the LRT has irregular behavior.
-The testing problem for binomial mixture model has applications in genetics.
-Numerical results show that the proposed method outperforms the LRT in terms of both test level and test power.
+The simulation examples include the logistic regression model which is an example with wide applications, and the normal mixture model and the binomial mixture model which are examples that the LRT has irregular behavior.
+%For these models, researchers have proved that the LRT has irregular behavior.
+%The testing problem for binomial mixture model has applications in genetics.
+Numerical results show that the proposed method has good performance in terms of both test level and test power.
 
 In the revised paper, we also discussed that the users needs to be careful about the degree of freedom when they deal with irregular models, as follows:
 
@@ -251,11 +263,15 @@ In practice, if there is no practical evidence for the choice of $a$ and $b$, on
 }
 
 \textbf{Answers:}
-The asymptotic behavior of the intrinsic Bayes factor is relatively simple.
-In the asymptotic sense, the intrinsic Bayes factor is equivalent to the Bayes factor with intrinsic priors; see, e.g., \cite{intrisicBayesFactor} and \cite{Moreno1998An}.
-Simple examples show that the Bayes factor with intrinsic  priors does not have Wilks phenomenon.
+%The asymptotic behavior of the intrinsic Bayes factor is relatively simple.
+%In the asymptotic sense, the intrinsic Bayes factor is equivalent to the Bayes factor with intrinsic priors; see, e.g., \cite{intrisicBayesFactor} and \cite{Moreno1998An}.
+%Simple examples show that the Bayes factor with intrinsic  priors does not have Wilks phenomenon.
+We follow the reviewer's suggestion.
+In Appendix D of the revised paper, we rigorously derive the asymptotic distribution of the intrinsic Bayes factor.
+This theoretical result is obtained by applying the law of large numbers of $U$-statistics. 
+Unfortunately, it turns out that the intrinsic Bayes factor does not have Wilks phenomenon in general.
 Hence intrinsic Bayes factor can not be directly used as a frequentist test statistic.
-This point is made clear in our paper.
+This point is made clear in our revised paper.
 
 \textbf{
     5. The paper gives one example (mixtures of normals) for which the LRT fails. One example for the argument for the Bayes factor as the test statistic is weak. Please give more examples and numerical examples.
@@ -263,12 +279,21 @@ This point is made clear in our paper.
 
 \textbf{Answers:}
 We follow the reviewer's suggestion.
-In the revised paper, we add an example of binomial mixture model.
-This model is useful in genetics.
+In the revised paper, we add two examples, the logistic regression model and the binomial mixture model.
+The logistic regression model is widely used in applications.
+%Although this is a sufficiently regular model, the .
+%the LRT still has undesired properties.
+We note that when using R language to fit a logistic regression, the $p$-value reported by the method ``\texttt{summary.glm}'' is based on the Wald test.
+It is known that for logistic regression, the MLE does not exist when the data points are completely separated or quasi-completely separated; see, e.g., \cite{Albert1984On,Candes2020The_phase}.
+As a consequence of this phenomenon, the Wald test has undesirable behavior.
+In contrast, the generalized FBF does not rely on the estimation of the parameter, it turns out that it works well for this model.
+%We proved that the proposed method has Wilks phenomenon in this problem.
+%We also conduct simulations to examine the performance of the proposed method.
+The binomial mixture model is useful in genetics.
 It is known that the LRT for this model has complicated behavior.
-We proved that the proposed method has Wilks phenomenon in this problem.
-We also conduct simulations to examine the performance of the proposed method.
-It turns out that the proposed method outperforms the LRT in terms of both test level and test power.
+For these two models, we proved that the proposed method has Wilks phenomenon.
+We also conduct simulations to examine the good performance of the proposed method.
+%It turns out that the proposed method has good performance in terms of both test level and test power.
 
 \textbf{Minor comments:}
 
@@ -311,8 +336,8 @@ If this is the case, the subsequence discussion needs to be modified.
 }
 
 \textbf{Answers:}
-This problem is a little bit brain twisting.
-But we think our original statement is correct.
+%This problem is a little bit brain twisting.
+We think our original statement is correct although our original expression is not good.
 In the paper, under the null hypothesis, we assume the true parameter is $\theta_0 = (\nu_0^\top, \xi_0^\top)^\top$.
 Here $\xi_0$ is specified by the null hypothesis ($H: \xi = \xi_0$).
 But $\nu_0$ is an unknown nuisance parameter.
@@ -326,8 +351,7 @@ But the above statement is equivalent to say that
      \frac{\left| I_{\xi | \nu} (\nu, \xi_0) \right|^{-1/2} \pi(\theta_0) }{\pi_0(\nu)} \equiv c
 \end{align*}
 for any nuisance parameter $\nu$.
-
-
+In the revised paper, we improve the expression to make it easier to read.
 
 \textbf{
 5.
@@ -362,9 +386,9 @@ We add the following comment bellow Assumption 3:
             suppose $P_\theta$ is the  normal distribution $ \mathcal N( \theta, 1  )$ and $\theta_0 = 0$.
             Then the first two conditions of Assumption 3 becomes
             \begin{align*}
-                    \int_{\Theta} \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty,
+                    \int_{\Theta} \exp\left\{ -c^* \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty,
                     \quad
-                    \int_{\Theta}  \theta^2 \exp\left\{ -c^\dagger \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty.
+                    \int_{\Theta}  \theta^2 \exp\left\{ -c^* \theta^2 /2 \right\} \pi (\theta) \, \mathrm d \theta < \infty.
             \end{align*}
             The above condition is satisfied for $\pi(\theta) \equiv 1$.
             This implies that Assumption 3 is weak and it allows improper priors.
@@ -460,10 +484,8 @@ In fact, this methodology dates back at least to \cite{Good1967}, and has been c
 researchers since then.
 \cite{Good1992} gave a review for some early literature using this idea.                                  
 See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea. 
-However, to the best of our knowledge, the idea has been mostly used for specific models and has not been 
-systematically studied with full mathematical rigour for general models.                                  
-One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor        
-depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
+However, the idea has been mostly used for specific models and has not been systematically and rigorously studied for general models.                                  
+One reason for this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}. \ldots
 }
 \end{adjustwidth}
 Following another reviewer's suggestion, we also comment on the literature of large sample properties of Bayes factor, as follow:
@@ -471,12 +493,12 @@ Following another reviewer's suggestion, we also comment on the literature of la
     \emph{
         In this work, we treat the Bayes factor and its variants as frequentist test statistics.
         Hence a closely related area of research is the frequentist properties of the Bayes factor.
-        Most existing results in this area focus on the consistency of the Bayes factor; see \cite{berger2003approximations}, \cite{moreno2010},      \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
+        Most existing results in this area focus on the consistency of the Bayes factor,  that is, as the sample size $n$  goes to infinity, the Bayes factor converges to $0$ under the null hypothesis, and converges to $+\infty$ under the alternative hypothesis; see \cite{berger2003approximations}, \cite{moreno2010},      \cite{WangMin2016}, \cite{Chatterjee2017} and the references therein.
         There are still relatively few researches on the asymptotic distribution of the Bayes factor.
         \cite{clarke1990information} derived the asymptotic distribution of the ratio of the marginal likelihood to the likelihood at the true parameter, which can be regarded as the Bayes factor for a point null hypothesis.
         \cite{Gelfand1994} derived formal approximations to the Bayas factor and some of its variants.
         In this work, in order to use the Bayes factor to construct frequentist tests, we give a thorough study of the asymptotic distribution of the Bayes factor and its variants for general models.
-        Thess results fill a theoretical gap in the literature and are interesting in their own right.
+        Thess results are interesting in their own right.
 }
 \end{adjustwidth}
 
@@ -591,21 +613,54 @@ Following the reviewer's suggestion, we the following comment to the revised pap
 
 
 \textbf{
-    5. This theoretical work is investigated under assumed that the posterior achieves $\sqrt n$-consistency (or the posterior contraction rate is n −1/2 ).
+    5. This theoretical work is investigated under assumed that the posterior achieves $\sqrt n$-consistency (or the posterior contraction rate is $n^{−1/2}$ ).
     In many practical statistical models, the optimal posterior contraction rate would be slower than $n^{-1/2}$.
     These examples include high-dimensional sparse problem like $(\log p /n)^{1/2}$ or nonparametric function estimation $n^{-\beta / (2\beta + p)}$, where $\beta$ is a smoothing factor for the true function.
     Under these interesting models, can you extend this result to more general models?
 }
 
 \textbf{Answers:}
-In this paper, we systematically investigate the low-dimensional parametric models.
-It is possible to investigate the case for certain high-diensional problem, as we have done in \cite{Wang2020}.
-It is also possible to investigate specific irregular models as we have done in the mixture examples.
-%In the mixture examples, we only use the fact that the posterior contraction rate can achieve $ (\log n)^\alpha /\sqrt n$ for some $\alpha > 0$.
-We believe the methodology can also be applied to nonparametric problem with a suitable modification.
-However, it is hard to provide a general theory for these problems.
-The application of the proposed method to challenging models is an interesting problem, but it is definitely beyond the scope of the current paper.
-We would like to report further applications in the future.
+
+As the reviewer noted, our general theoretical results are obtained with the assumption that the posterior contraction rate of the parameter is $n^{1/2}$.
+The reviewer also noted that for many models, the optimal posteior contraction rate is slower than $n^{1/2}$.
+We note that this is indeed the case for some of our examples, i.e. normal mixture models and binomial mixture models, where the null model suffers from loss of identifiability and consequently, the posterior does not contract to a single parameter value.
+%The reviewer asked
+
+In our paper, the general results are for the low-dimensional parametric models.
+We note that for exponential family (Section 4.1) and logistic model (Section 4.2), it is straightforward to extend our proof to the case that $p$ slowly increases as $n \to \infty$.
+However, our proof can not be extended to the real interesting setting that $p\asymp n$.
+In fact, in the setting of $p \asymp n$, even the asymptotic distribution of the classical LRT was not well understood until recently \cite{Sur2019A,Sur2019The}.
+The application of the Bayes factors to the high-dimensional hypothesis testing problems is very interesting, 
+and we have made some simple exploration in this direction for linear model \cite{Wang2020}.
+%This problem is very challenging.
+%We leave it for possible future research.
+
+The reviewer mentioned the high-dimensional sparse problem and nonparametric problem, and asked if our results can be extended to include such models.
+%At first, we thought it was an impossible task.
+Recently, we found that the work of \cite{Gao2020A} provided a general framework which can be used to derive optimal posterior contraction rate of both Bayes high-dimensional statistics and Bayes nonparametrics.
+It is very interesting to study the asymptotic distributin of the Bayes factor in such general framework.
+However, it may be very challenging going from posterior contraction result to the asymptotic distribution of the Bayes factor.
+%use Bayes factor in such a general framework.
+In fact, in frequentist literatures, the LASSO estimator is desparsified to do hypothesis testing; see, e.g., \cite{ZC2017} and the references therein.
+Perhaps Bayes factors also need to be ``desparsified'' to obtain a tractable distribution.
+We have to admit that currently we can not extend our results to such framework.
+The main reason is, of course, the limitation of our current ability.
+We would like to leave this interesting problem for future research.
+
+
+%There are many interesting problems in modern statistics: high dimension, sparse problem, nonparametric problem, etc.
+
+%It is possible to investigate the case for certain high-diensional problem, as we have done in \cite{Wang2020}.
+%It is also possible to investigate specific irregular models as we have done in the mixture examples.
+%%In the mixture examples, we only use the fact that the posterior contraction rate can achieve $ (\log n)^\alpha /\sqrt n$ for some $\alpha > 0$.
+%We believe the methodology can also be applied to nonparametric problem with a suitable modification.
+%However, it is hard to provide a general theory for these problems.
+%
+%We note that it is also hard to provide a general theory for
+%%In fact, the behavior of the LRT.
+%
+%The application of the proposed method to challenging models is an interesting problem, but it is definitely beyond the scope of the current paper.
+%We would like to report further applications in the future.
 
 \textbf{
     6. You proposed theoretical results on asymptotic null distribution of Bayes factor which is a linear transformation of a chi-square distribution.
@@ -618,16 +673,64 @@ We would like to report further applications in the future.
 \textbf{Answers:}
 We follow the reviewer's suggestion.
 In the revised paper, we conduct simulations to examine the finite sample performance of the proposed method.
-The simulation results show that the empirical size of the proposed method is very close to the nominal test level.
-This indicates that our asymptotic results are useful.
+The simulation results verify our asymptotic theory.
+%The simulation results show that the empirical size of the proposed method is close to the nominal test level.
+%This indicates that our asymptotic results are useful.
 
-In the revised paper, we consider four examples, including exponential family models, two normal mixture models and a newly added example of the binomial mixture model which arises in genetics.
-It is known that the LRT for these problems has nonstandard behavior for these models.
-For these models, we prove that the generalized FBF has Wilks phenomenon.
-We also conduct simulation studies which show that the proposed method outperforms the LRT in terms of both test level and test power.
+In the original paper, the examples include the exponential family models and two submodels of the normal mixture model.
+%a newly added logistic regression model,
+% and a newly added binomial mixture model
+The reviwer noted that our original examples are far from a practical point of view.
+In the revised paper, to make the examples more practical, we add the logistic regression model which is widely used in practice, and the binomial mixture model which arises in genetics.
+For these two commonly used models, the commonly used tests still have undesired properties.
+We prove that the generalized FBF has Wilks phenomenon in these models.
+We also use simulation studies to verify our theory.
 
-It is relatively simple to apply the proposed method to the examples.
-However, we would like to point out that the normal mixture models and the binomial mixture model are irregular models and the LRT for these models are not very simple to use.
+Here we would like to elaborate some problems associated with the logistic regression from a practical point of view.
+A notable phenomenon for the logistic regression model is that the MLE does not exist when the data points are completely separated or quasi-completely separated; see, e.g., \cite{Albert1984On,Candes2020The_phase}.
+We would like to examine the behavior of software when data are completely separated.
+For R language \citep{R2020}, when fitting the logistic regression with ``\texttt{glm}'', it can successfully fit a model although there are two warnings indicating that the algorithm did not converge and the fitted probabilities numerically $0$ or $1$ occurred; see Figure \ref{figure1}.
+In comparison, for Python module \emph{statsmodels} \cite{seabold-proc-scipy-2010}, version 0.12.0, it throws an error  ``\texttt{Perfect separation detected, results not available}'', and does not provide a fitted model.
+Although R language can provide a fitted model, the $p$-value provided by ``\texttt{summary.glm}'' is close to $1$; see Figure \ref{figure2}.
+Since the true parameter is largely deviated from $0$, this phenomenon is unreasonable.
+%but as \cite{Sur2019The} noted, such $p$-value may be used hundreds of times every day for inference purposes.
+We note that the $p$-value returned by ``\texttt{summary.glm}'' is based on the Wald test rather than the LRT. 
+Since the Wald test relies on the MLE,  when the MLE does not exist, it is not surprising that the Wald test has bad numerical behavior.
+Note that although the MLE does not exist, the likelihood is bounded by $1$.
+Hence the LRT always exists.
+Our simulation results show that the LRT performs better than the Wald test.
+On the other hand, the generalized FBF does not rely on the estimation of the parameter, and is always well defined.
+Our theoretical and simulation results show that the generalized FBF has similar performance as the LRT.
+When $\xi$ is largely deviated from $0$, the empirical power of the LRT exhibits slight instability which is due to the instability of the numerical optimization.
+In comparison, the computation of the generalized FBF does not involve numerical optimization,  and its  empirical power of is exact $1$ for large $\xi$. 
+%(\cite{Sur2019The} may make a mistake in this regard.)
+%They considered the LRT, the R code given in their introduction produce the $p$-value from the Wald test rather than the LRT.
+\begin{figure}
+        \begin{center}
+            \includegraphics[width=0.7\textwidth]{1} 
+        \end{center}
+        \caption{R code for using ``\texttt{glm}'' to fit a logistic regression model with completely separated data.}   
+    \label{figure1}
+\end{figure}
+
+\begin{figure}
+        \begin{center}
+            \includegraphics[width=0.5\textwidth]{2} 
+        \end{center}
+        \caption{R code for using ``\texttt{summary.glm}'' to obtain the $p$-value of the coefficients.}   
+    \label{figure2}
+\end{figure}
+
+
+%We also conduct simulation studies which show that the proposed method outperforms the LRT in terms of both test level and test power.
+%It is known that the LRT for these problems has nonstandard behavior.
+%For these models, we prove that the generalized FBF has Wilks phenomenon.
+%We also conduct simulation studies which show that the proposed method outperforms the LRT in terms of both test level and test power.
+
+The reviwer noted that our original examples are too simple.
+Indeed, the original normal mixture models have simple forms.
+For these models, the proposed method is simple to compute and has regular behavior.
+However, we would like to point out that the two normal mixture models and the binomial mixture model are irregular models and the LRT for these models are not very simple to use.
 Take the second normal mixture model in the paper as an example.
 For this model, the asymptotic distribution of the LRT is a difficult problem.
 \cite{bickel1993} studied this problem, but they did not fully solve it.
@@ -635,11 +738,11 @@ For this model, the asymptotic distribution of the LRT is a difficult problem.
 \cite{HALL2005158} derived the asymptotic power of the LRT.
 According to the result of \cite{HALL2005158}, the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis.
 For this irregualar model, the generalized FBF still has Wilks phenomenon and has better performance than the LRT.
-We think these examples illustrate the wide application scope of the proposed method.
+We think these examples can illustrate the advantages of the proposed method over the LRT.
 
-It is interesing to use the proposed method to solve more complex problems.
-But it is difficult to seriously investigate more problems within limited space.
-Hence we would like to leave it for future work.
+It is interesing to use the proposed method to solve more complex and practical problems.
+%But it is difficult to seriously investigate more problems within limited space.
+We would like to leave it for future work.
 
 \textbf{
     7. This paper is lack of tuning parameter selection which will be critical in the hypothesis testing result.
@@ -647,7 +750,7 @@ Hence we would like to leave it for future work.
 }
 
 \textbf{Answers:}
-This question is asked by both reviewers.
+This question was raised by both reviewers.
 Our Answer is as follow:
 
 Our results imply that the choice of $a$ and $b$ does not affect the Wilks phenomenon and asymptotic power provided $a$ and $b$ are fixed and $0<b<a<1$.
@@ -657,22 +760,25 @@ It turns out that the proposed methdod is not sensitive to the choice $a$ and $b
 In practice, if there is no practical evidence for the choice of $a$ and $b$, one can simply choose $a = 2/3$ and $b = 1/3$.
 
 
-
-
 \section{List of major changes}
 \begin{itemize}
     \item 
-We add an example of binomial mixture model.
-It is known that the LRT for this model has complicated behavior.
-We proved that the proposed method has Wilks phenomenon in this problem.
+    We add an example of logistic regression model.
+%We proved that the proposed method has Wilks phenomenon in this problem.
+    \item 
+    We add an example of binomial mixture model.
+%It is known that the LRT for this model has complicated behavior.
+%We proved that the proposed method has Wilks phenomenon in this problem.
     \item
-        We add simulations studies for the normal mixture model and the binomial mixture model.
+        We add simulations studies for the logistic regression model, normal mixture model and the binomial mixture model.
     \item
-        The literature review is much improved.
+        We add the asymptotic distribution of the intrinsic Bayes factor.
+    \item
+        The literature review is improved.
     \item
         We add many remarks to explain our results and assumptions.
     \item
-        We modify and simplify some of the theoretical proofs.
+        We simplify some of the theoretical proofs.
 \end{itemize}
 
 

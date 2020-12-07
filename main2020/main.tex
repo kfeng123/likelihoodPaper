@@ -5,8 +5,9 @@
 
 \usepackage{lineno,hyperref}
 
-\usepackage[margin=1 in]{geometry}
+\usepackage[margin=0.9 in]{geometry}
 \renewcommand{\baselinestretch}{1.25}
+%\usepackage{fullpage}
 
 
 %\usepackage{refcheck}
@@ -85,14 +86,18 @@
 
 \begin{document}
 \title{On the Wilks phenomenon of Bayes factors and the integrated likelihood ratio test}
-\author[1]{Rui Wang}
-\author[1,2]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
+\author[1,2]{Rui Wang}
+\author[2,3]{Xingzhong Xu\thanks{Corresponding author\\Email address: xuxz@bit.edu.cn}}
 \affil[1]{
-School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
-    100081,China
+    School of Statistics, Renmin University of China, Beijing 
+    100872, China
 }
 \affil[2]{
-Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081,China
+School of Mathematics and Statistics, Beijing Institute of Technology, Beijing 
+    100081, China
+}
+\affil[3]{
+Beijing Key Laboratory on MCAACI, Beijing Institute of Technology, Beijing 100081, China
 }
 
 \maketitle
@@ -117,7 +122,7 @@ However, %our theoretical results do not require the existence of the maximum li
 the proposed methodology has a wider application scope than the likelihood ratio test.
 In particular, our methodology can be applied even if the likelihood function is unbounded.
 %Hence the proposed methodology has a wider application scope than the likelihood ratio test.
-We use four examples to illustrate the proposed methodology.
+We use multiple examples to illustrate the proposed methodology.
 In these examples, the likelihood ratio test may not be well defined or have undesirable behavior while the proposed tests have good performance.
 \end{abstract}
 
@@ -180,11 +185,10 @@ The Likelihood ratio test plays a dominant role in parametric hypotheses testing
 The fundamental lemma of Neyman and Pearson tells us that the likelihood ratio test (LRT) is the most powerful test if the null and the alternative hypotheses are both simple.
 For composite hypotheses, the unknown parameters in the likelihood ratio test statistic (LRTS) are estimated by the maximum likelihood estimate (MLE).
 In a celebrated paper, \citep{Wilks1938The} proved that the asymptotic null distribution of the LRTS is free of nuisance parameters for regular models.
-Since then, this property has been studied extensively; see, e.g., \cite{Hogg1956On}, \cite{Fan2000}, \cite{Fan2001}.
+Since then, this property has been studied extensively; see, e.g., \cite{Hogg1956On}, \cite{Self1987Asymptotic} \cite{portnoy1988asymptotic}, \cite{Fan2000}, \cite{Fan2001}, \cite{Drton2009Likelihood}, \cite{Sur2019The} and \cite{Anastasiou2020Bounds}.
 With this important property, one can determine the critical value of the LRTS using its asymptotic null distribution.
 In this paper, we say a test statistic has Wilks phenomenon if its asymptotic null distribution does not depend on the nuisance parameters.
-Although the LRT is very successful in many specific problems,
-it also has some weakness.
+Although the LRT is very successful in many specific problems, it also has some weaknesses.
 First, except for a rather restricted class of models, the explicit form of the LRTS is not available and numerical optimization method must be used to obtain the LRTS.
 Unfortunately, if the likelihood function is not concave and has multiple local maxima,
 the numerical optimization procedure may be highly nontrivial and there is no universally applicable optimization method.
@@ -192,8 +196,15 @@ Second, even for some fairly regular models,
 the MLE does not exist with a positive probability; see, e.g, \cite{Fienberg2012}, \cite{Rinaldo2013} and \cite{Candes2020The_phase}.
 Hence the LRT is not always well defined.
 %This may cause difficulty for practitioners.
-Worse still, in some problems the likelihood functions are unbounded with probability $1$ and hence the LRT is not defined; see, e.g.,~\cite{Cam1990Maximum}.
+Worse still, in some problems the likelihood functions are unbounded with probability $1$ and hence the LRT is not defined; see, e.g.,~\cite{Wim1981A}, \cite{Cam1990Maximum} and \cite{Liu2015Understanding}.
 In fact, the unbounded likelihood occurs not only in artificial models, but also in some widely used models, such as the mixture models with unknown component location and scale parameters~\citep{chenjiahua2017}.
+Extensive efforts have been devoted to the study of specific testing problems when the LRT does not work well.
+%Many work has been done on specific testing problems when the LRT does not work well.
+%Many work has been done on the testing problems when the LRT does not work well; see, e.g., \cite{chen2009}.
+%However, most existing work only concerns specefic models.
+Recently, \cite{Wasserman2020} proposed a general method called the split likelihood ratio test.
+Their method works for any parametric model provided the computation of the MLE is feasible under the null hypothesis.
+As a cost, the power of their test method is often relatively low.
 
 On the Bayesian side, the conventional tool for hypothesis testing is Bayes factor \citep{scientificInference}.
 Bayes factor has been widely used by practitioners; see~\cite{Robert1995Bayes} for a review.
@@ -205,8 +216,9 @@ In fact, this methodology dates back at least to \cite{Good1967}, and has been c
 \cite{Good1992} gave a review for some early literature using this idea.
 See \cite{Aerts2004}, \cite{zhou2018On} and \cite{Wang2020} for some recent applications of the idea.
 %Bayes factor consistency.
-However, to the best of our knowledge, the idea has been mostly used for specific models and has not been systematically studied with full mathematical rigour for general models.
-One cause of this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}.
+However, %to the best of our knowledge,
+the idea has been mostly used for specific models and has not been systematically and rigorously studied for general models.
+One reason for this fact may be the Lindley's paradox, that is, the distribution of the Bayes factor depends heavily on the prior density; see, e.g., \cite{Shafer1982}.
 In fact, our Theorem \ref{prop:expansion} implies that the dependence of the distribution of the Bayes factor on the prior density does not vanish even if the sample size tends to infinity.
 As a result, the Bayes factor does not have Wilks phenomenon in general, which hinders its application in significance testing.
 %k, and can not be directly used to construct significance test.
@@ -275,7 +287,7 @@ the generalized fractional Bayes factor is the ratio of the expectations of the 
 Hence the generalized fractional Bayes factor can be regarded as an integrated likelihood ratio test.
 For some complex models, the power posterior is intractable.
 In this case, 
-a feasible strategy is to approximate the posterior distribution by simple form distributions using variational inference; see~\cite{blei2017} and the references therein.
+a feasible strategy is to approximate the posterior distribution by simple form distributions using variational inference; see~\cite{Blei2017} and the references therein.
 Motivated by variational inference, we consider the general integrated likelihood ratio test statistic which uses the expectations of the power likelihood with respect to general weight functions.
 We prove that if the behavior of the weight functions is close to the power posterior, then the general integrated likelihood ratio test also has Wilks phenomenon.
 In particular, we show that the weight functions obtained by a variational method satisfy our requirements for the weight functions.
@@ -284,18 +296,22 @@ In particular, we show that the weight functions obtained by a variational metho
 %For some irregular problems, the behavior of likelihood is complicated.
 %Since the integral of the likelihood can smooth the irregular behavior of the likelihood, it can be expected that ILRT may have better behavior than the LRT.
 %To illustrate this point,
-We use four examples to illustrate the good properties of the proposed methodology.
+We use multiple examples to illustrate the good properties of the proposed methodology.
 The first example is the full-rank exponential family.
 We show that the conditions of our general theory is satisfied by the full-rank exponential family.
-Hence the proposed methodology can be used in common regular models.
-In the second and the third examples, we consider testing the homogeneity in two submodels of the normal mixture model.
+The second example is the logistic regression model which is widely used in practice.
+In this example, the observations are independent but not identically distributed, hence our general theory can not be directly applied.
+Nevertheless, we prove that the generalized fractional Bayes factor still has the Wilks phenomenon.
+%It is known that the MLE does not exist.
+These two examples show that the proposed methodology can be used in common regular models.
+In the third and fourth examples, we consider testing the homogeneity in two submodels of the normal mixture model.
 The LRT has bad behavior in these two examples.
 In fact, for the first submodel, the likelihood is unbounded and thus the LRT is not defined.
 For the second submodel, %the power behavior of the LRT is unsatisfactory.
 ~\cite{HALL2005158} showed that the LRT has trivial power under $n^{-1/2}$ local alternative hypothesis. 
 %We apply the proposed method to testing the homogeneity in a two-component normal mixture model.
 We prove that the proposed methodology has good asymptotic power behavior for both submodels.
-In the fourth example, we consider a testing problem for the binomial mixture model.
+In the fifth example, we consider a testing problem for the binomial mixture model.
 This problem arises in genetics.
 For this problem, the LRT has a nonstandard behavior, while the proposed methodology still has Wilks phenomenon.
 
@@ -314,7 +330,7 @@ Thess results are interesting in their own right.
 The paper is organized as follow.
 In Section \ref{sec:wilks}, we investigate the Wilks phenomenon of the Bayes factor and the generalized Bayes factor and use the Wilks phenomenon to construct frequentist tests.
 In Section \ref{sec:ilrt}, the methodology is extended to the integrated likelihood ratio test with general weight functions.
-Section \ref{sec:examples} stuidies four testing problems to illustrate the behavior of the proposed methodology.
+Section \ref{sec:examples} stuidies several testing problems to illustrate the behavior of the proposed methodology.
 Section \ref{sec:simu} reports simulation results to illustrate the finite sample behavior of the proposed method.
 Section \ref{sec:conclusion} concludes the paper.
 All technical proofs are in Appendix.
@@ -557,7 +573,13 @@ Hence it may not be easy to construct priors satisfying \eqref{eq:shouldConst2},
 %In this case, priors satisfying \eqref{eq:shouldConst2} may be hard to construct.
 Third, the computation of Bayes factor is a difficult problem in general; see \cite{Friel2012} for a review on the computation of the Bayes factor.
 
-Now we turn to the variants of Bayes factor.
+%Now we turn to the variants of the Bayes factor.
+In Bayesian literature, several variants of Bayes factor have been proposed to ease the problem of the sensitivity of the Bayes factor to the priors, including the posterior Bayes factor \cite{Aitkin1991Posterior}, the fractional Bayes factor \citep{Fractional1995} and the intrinsic Bayes factor \cite{intrinsicBayesFactor}.
+In Appendix \ref{app:intrinsic}, we investigate the asymptotic distribution of the intrinsic Bayes factor.
+It shows that the intrinsic Bayes factor does not have Wilks phenomenon in general.
+Hence the intrinsic Bayes factor can not directly used as a test statistic.
+%To investigate the other two variants of the Bayes factor,
+Now we consider a general class of statistics which includes the other two variants of the Bayes factor as special cases.
 We denote by
 \begin{align*}
 L_t(\BX^{n})=\int_{\Theta}\left[p_n(\BX^{n}|\theta)\right]^t \pi(\theta)\, \mathrm d\theta
@@ -580,7 +602,8 @@ For $a>b>0$, define
 {\text{BF}_b (\BX^n)}
     .
 \end{align*}
-    This class of statistics includes two important variants of Bayes factor, namely, the posterior Bayes factor proposed by~\cite{Aitkin1991Posterior} and the fractional Bayes factor proposed by~\cite{Fractional1995}.
+    %This class of statistics includes two important variants of Bayes factor, namely, the posterior Bayes factor proposed by~\cite{Aitkin1991Posterior} and the fractional Bayes factor proposed by~\cite{Fractional1995}.
+    This class of statistics includes the posterior Bayes factor and the fractional Bayes factor as special cases.
     In fact, the posterior Bayes factor is equal to $\Lambda_{2,1}(\BX^n)$ and the fractional Bayes factor is equal to $\Lambda_{1,b}(\BX^n)$ for $b\in (0,1)$.
     For this reason we shall call $\Lambda_{a,b} (\BX^n)$ the generalized fractional Bayes factor throughout the paper.
 
@@ -686,7 +709,6 @@ The third condition in Assumption \ref{assumption2019} assumes that $D_t(\theta_
     \end{align*}
     The above condition is satisfied for $\pi(\theta) \equiv 1$.
     This implies that Assumption \ref{assumption:prior} is weak and it allows improper priors.
-
     We have the following theorem.
 
 \begin{theorem}\label{Thm:maintheorem}
@@ -805,9 +827,11 @@ For example, Theorem 3.1 of \cite{Kleijn2012The} assumes that for every $\epsilo
 \begin{equation}\label{eq:testSeq}
     P_{\theta_0}^n\phi_n\to 0,\quad \sup_{\|\theta-\theta_0\|\geq \epsilon} P_\theta^n(1-\phi_n)\to 0.
 \end{equation}
-This condition is satisfied when the parameter space is compact and the model is suitably continuous; see Theorem 3.2 of~\cite{Kleijn2012The}.
-However, if the parameter space is not compact, one may have to manually construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
-Also, if the prior distribution is not proper, existing results can not be directly applied.
+This condition is satisfied when the model is identifiable, the parameter space is compact and the model is suitably continuous; see Theorem 3.2 of~\cite{Kleijn2012The}.
+However, if the model suffers from loss of identifiability, such as the mixture models considered in Sections \ref{sec:mixture} and \ref{sec:binomial_mixture}, there may be no test satisfying \eqref{eq:testSeq}.
+Also, if the parameter space is not compact, one may have to manually construct a test sequence satisfying the condition~\eqref{eq:testSeq}.
+Moreover, most existing consistency results can not be applied if the prior distribution is improper.
+%, and if the prior is not proper, which is often the case for Bayes factor, existing results can not be directly applied.
 
 %\begin{proposition}[\cite{Kleijn2012The}, Theorem 3.1]
     %Suppose $\theta_0$ is an interior of $\Theta$, $\pi(\theta)$ is continuous at $\theta_0$ and $\pi(\theta_0)>0$.
@@ -859,7 +883,7 @@ Then $\pi_t(\theta | \BX^{n})$ is $\sqrt n$-consistent.
     Since improper priors are often used for Bayes factor, existing results are not suitable for our purpose.
     It can be seen that the integrability condition \eqref{condition:inte}
     is satisfied for any proper priors.
-    Furthermore, it also allows improper priors provided the tail probability of the prior density is not too thick. 
+    Furthermore, it also allows improper priors provided the tail of the prior density is not too thick. 
 \end{remark}
 Note that Proposition \ref{Theoremless1} assumes Assumption~\ref{Assumption4} which is weaker than Assumption \ref{assumption2019}.
 In fact, Assumption~\ref{assumption2019} requires the exact form of the local expansion of $D_t(\theta_0 \| \theta)$ 
@@ -893,11 +917,11 @@ Usually, sampling from the power posterior can be implemented by a Markov chain 
 %For some moderately complex models, the fractional posterior~\eqref{firstWeight} may be complicated, and it is not easy to sample from it.
 %In this case, one may use some simple form weight function to approximate the fractional posterior~\eqref{firstWeight}.
 %A popular method for approximating~\eqref{firstWeight} is variational inference;
-%see, e.g.,~\cite{blei2017}.
+%see, e.g.,~\cite{Blei2017}.
 %In this case, the weight functions in the integrated likelihood ratio test statistic are the variational approximations of the fractional posteriors~\eqref{firstWeight}.
-%Recently, an alternative strategy to MCMC sampling named variational inference has drawn much attention; see, e.g.,~\cite{blei2017}.
+%Recently, an alternative strategy to MCMC sampling named variational inference has drawn much attention; see, e.g.,~\cite{Blei2017}.
 %Compared with MCMC, variational inference tends to be faster and is suitable for complex models.
-Alternatively, when models are complex or datasets are large, a popular strategy named variational inference is preferred; see, e.g.,~\cite{blei2017}.
+Alternatively, when models are complex or datasets are large, a popular strategy named variational inference is preferred; see, e.g.,~\cite{Blei2017}.
 However, variational inference can not produce the exact posterior but only an approximation of it.
 This motivates us to consider
 \begin{equation}
@@ -1092,7 +1116,7 @@ Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\
     $S(x) = 1/(1+\exp(-x))$ is the sigmoid function,
     $X_1, \dots, X_n \in \mathbb R^p$ are the non-random predictors and $\theta \in \mathbb R^p$ is the unknown parameter.
     A notable phenomenon for the logistic regression model is that the MLE does not exist when the data points are completely separated or quasi-completely separated; see, e.g., \cite{Albert1984On,Candes2020The_phase}.
-    If the MLE does not exist, the numerical optimization procedure may fail to converge.
+    If the MLE does not exist, the numerical optimization procedure may fail to converge and the resulting estimators of the parameters are, of course, unreliable.
     Detection of complete separation was studied in \cite{Lesaffre1989Partial}.
     %This phenomenon rise to additional difficulty numerical optimization.
     %If the MLE does not exist, the LRT is and may have undesirable behavior.
@@ -1102,21 +1126,32 @@ Suppose $y_1, \dots, y_n$ are independent observations taking values on $\{-1,1\
 \begin{align*}
     H:\xi= \xi_0 \quad v.s.\quad K: \xi\neq \xi_0. 
 \end{align*}
-The commonly used test procedure for this problem is the LRT.
+An important special case of this problem is testing individual coefficient, that is $p-p_0 = 1$.
+For this case, the Wald test is commonly used in practice.
+In fact, the $p$-value reported by the R language \citep{R2020} method ``\texttt{summary.glm}'' is based on the Wald test.
+However, the Wald test may have undesirable behavior since it relies on the MLE.
+In fact, one may expect a reasonable test to have good power when $\xi$ is largely deviated from $\xi_0$.
+But if $\xi$ is largely deviated from $\xi_0$, then the complete separation phenomenon may occur and consequently, the Wald test may be undefined.
+%which may not exist when $\xi$ is largely deviated from $\xi_0$.
+%The fact that the MLE may not exist may lead to the abnormal behavior of the Wald test.
+%However, if the MLE.
+%The commonly used test procedure for this problem is the LRT.
 %, it also has some weaknesses.
 %Although the LRT is commonly used for this problem, it also has some weaknesses.
 %For example, if the data points are completely separated under the null hypothesis, then \cite{Albert1984On}, Theorem 1 implies that the LRT is equal to $1$ and the null hypothesis can not be rejected.
-We note that the supremum of the likelihood function is bounded by $1$.
+We note that the LRT does not suffer from this problem.
+In fact, the supremum of the likelihood function is bounded by $1$.
 Hence although the MLE may not exist, the LRT is always well defined.
 %It is noted by \cite{Candes2020The_phase} that in the present setting, quasi-complete separation occurs with probability $0$.
 %On the other hand, if completely separation occurs, the maximum likelihood is equal to $1$ although the MLE does not exist; see \cite{Albert1984On}, Theorem 1.
 %Hence the LRT is indeed well defined in the present setting.
-However, the LRT is not perfect.
-\cite{Sur2019The} proved that the LRT has inflated test level if $p$ grows proportionally with $n$.
-Our simulation results in Section \ref{sec:simu} show that this phenomenon can also occur in the low-dimensional setting if the nuisance parameter $\nu$ is deviated from $0$.
+%However, the LRT is not perfect.
+%\cite{Sur2019The} proved that the LRT has inflated test level if $p$ grows proportionally with $n$.
+%Our simulation results in Section \ref{sec:simu} show that this phenomenon can also occur in the low-dimensional setting if the nuisance parameter $\nu$ is deviated from $0$.
 
-We consider the generalized FBF for the problem.
-Note that the implementation of the generalized FBF does not require an estimator of the parameter and is not affected by the unstable behavior of the MLE.
+Now we consider the generalized FBF for the problem.
+%Note that the generalized FBF does not require an estimator of the parameter and is always well defined provided the the prior is proper.
+Note that the implementation of the generalized FBF does not require an estimator of the parameter and hence is not affected by the nonexistence of the MLE.
 The following proposition gives the asymptotic behavior of the generalized FBF.
 \begin{proposition}
     \label{prop:logistic}
@@ -1139,7 +1174,7 @@ The following proposition gives the asymptotic behavior of the generalized FBF.
  ,\quad
  \lambda_{\min}(\BJ^\myT \BA_n \BJ) \to \infty.
     \end{align*}
-    Suppose the prior density $\pi(\theta)$ is bounded and is continuous at $\theta_0$ with $\pi(\theta_0)> 0$, and the prior density $\pi_0(\nu)$ is bounded and is continuous at $\nu_0$ with $\pi_0(\nu_0)> 0$.
+    Suppose the prior density $\pi(\theta)$ is proper, bounded and is continuous at $\theta_0$ with $\pi(\theta_0)> 0$, and the prior density $\pi_0(\nu)$ is proper, bounded and is continuous at $\nu_0$ with $\pi_0(\nu_0)> 0$.
 Suppose $\{\theta_n\}$ satisfies $\BA_n^{1/2} (\theta_n - \theta_0) \to \eta$ and $
     \eta^\myT 
     (
@@ -1164,8 +1199,11 @@ Then
     Hence Theorem \ref{Thm:maintheorem}, (a) can not be directly applied to obtain Proposition \ref{prop:logistic}.
     Nevertheless, Proposition \ref{prop:logistic} can be proved by similar strategy as Theorem \ref{Thm:maintheorem}, (a).
 \end{remark}
-Proposition \ref{prop:logistic} shows that the generalized FBF can preserve the test level asymptotically.
-Our simulation results in Section \ref{sec:simu} shows that the empirical level of the generalized FBF is reasonable while the LRT exhibits severe level inflation when the nuisance parameter $\nu$ is deviated from $0$.
+Proposition \ref{prop:logistic} shows that the generalized FBF can preserve the test level asymptotically and has the same asymptotic power as the LRT.
+Our simulations in Section \ref{sec:simu} verify the results of \ref{prop:logistic},
+and show that the generalized FBF and the LRT have better power performance than the Wald test, especially when $\xi$ is largely deviated from $\xi_0$.
+%Our simulations also show that the generalized FBF and the LRT outperform
+%that when the nuisance parameter $\nu$ is deviated from $0$, the LRT suffers from severe level inflation, while the generalized FBF has relatively reasonable empirical size.
 
 %If the MLE does not exist, the LRT can still be defined since the numerator and the denominator of \eqref{logistic:lrt} are both bounded by $1$.
 %\begin{align}\label{logistic:lrt}
@@ -1183,10 +1221,6 @@ Our simulation results in Section \ref{sec:simu} shows that the empirical level 
 %\Lambda_{\text{LRT}} (y_1, \dots, y_n) = 1$.
 
     %We consider the model conditioning on $X_1,\dots,X_n$, that is, $X_1, \dots, X_n$ are assumed to be non-random.
-
-
-
-
 
 \subsection{Normal mixture model}\label{sec:mixture}
 In this section, we apply the generalized fractional Bayes factor to testing the component number of normal mixture model.
@@ -1499,37 +1533,262 @@ For comparison, we also carry out simulations for the LRT.
 In all simulations, the nominal significant level is $\alpha = 0.05$ and results are obtained from $10000$ independent replications.
 
 First we consider the testing problem for logistic regression.
-In the simulations, we take $n = 50$, $p = 3$, $p_0 = 2$ and the predictors $X_1, \dots, X_n$ are independently generated from $\mathcal N (0, \BI_p)$.
+In the simulations, we take $p = 3$, $p_0 = 2$ and the predictors $X_1, \dots, X_n$ are independently generated from $\mathcal N (0, \BI_p)$.
+%Here we take the variance of each variable to be $0.25$ since.
 The hypothesis of interest is $H:\xi=0$ v.s. $K: \xi \neq 0$, that is, we test if a single coefficient is equal to $0$.
-For the generalized FBF, we take $a = 2/3$, $b = 1/3$,  $\pi(\bbeta)\sim \mathcal N (0, \BI_p)$, $\pi(\bbeta) \sim \mathcal N (0, \BI_{p_0})$.
-The LRT is implemented via Python module \emph{statsmodels} \cite{seabold2010statsmodels}, version 0.12.0.
+Besides the generalized FBF and the LRT, we also conduct the simulations for the Wald test.
+For the generalized FBF, we take $a = 2/3$, $b = 1/3$.
+Under both null and full models, we use the default prior in \cite{Gelman2008} which assigns independent Cauchy prior distributions with center $0$ and scale $2.5$ to each of the coefficients.
+%$\pi(\bbeta)\sim \mathcal N (0, \BI_p)$, $\pi_0(\bbeta) \sim \mathcal N (0, \BI_{p_0})$.
+%The LRT is implemented via Python module \emph{statsmodels} \cite{seabold-proc-scipy-2010}, version 0.12.0.
 The simulation results are listed in Table \ref{logistic_table1}.
-It can be seen that when the nuisance parameter $\nu$ is deviated from $(0,0)^\myT$, the LRT has inflated empirical level.
-In fact, if $\nu$ is deviated from $(0,0)^\myT$, then $y_i$ can be well predicted by $X_i$, and consequently the complete separation phenomenon is more likely to occur and the LRT has undesirable behavior.
+It can be seen that the generalized FBF and the LRT have similar performance.
+Although the empirical levels of the two tests are a little inflated for $n=50$, they are very close to $0.05$ for $n=100$.
+When $\xi$ is largely deviated from $0$, the empirical power of the LRT exhibits slight instability.
+In fact, for large $\xi$, the data points may be nearly separated and the numerical optimization procedure may be unstable.
+In comparison, the computation of the generalized FBF does not involve numerical optimization,  and its empirical power of is exact $1$ for large $\xi$.
+%If the MLE does not exist, the numerical optimization procedure may fail to converge and the resulting estimators of the parameters are, of course, unreliable.
+%We note that when $\xi$ is largely deviated from $0$, the empirical power of the generalized FBF is precisely $0$ while the LRT is a little unstable.
+%In fact, the implementation of the LRT relies on the numerical optimization.
+The Wald test has reasonable performance when $\xi$ is close to $0$.
+However, when $\xi$ is largely deviated from $0$, the Wald test has unreasonable low power.
+This verifies our argument in Section \ref{sec:logistic}.
+%In fact, when $\xi$ is largely deviated from $0$, then the and the.
+%It can be seen that the LRT has inflated empirical level, especially when the nuisance parameter $\nu$ is deviated from $(0,0)^\myT$.
+%In fact, if $\nu$ is deviated from $(0,0)^\myT$, then $y_i$ can be well predicted by $X_i$, and consequently the complete separation phenomenon is more likely to occur and the LRT has undesirable behavior.
 %In comparison, the generalized FBF can reasonably preserve the test level although the test level is a little inflated in some cases.
-In comparison, for the generalized FBF, the empirical level can be reasonably preserved although it is a little inflated in some cases.
+%In comparison, the empirical level for the generalized FBF is more reasonable although it is also inflated.
+%Also, it can be seen that when the generalized FBF and the LRT have similar empirical level, they also have similar empirical power.
 \begin{table*}[ht]
-    \caption{Empirical size and power of the LRT and the generalized FBF for logistic regression model.}
+    \caption{Empirical size and power of the generalized FBF (GFBF), the Wald test (WT) and the LRT for logistic regression model.}
     \label{logistic_table1}
     \centering
-    \begin{tabular}{ccccccccc}
+    % \small
+    %\footnotesize
+    \begin{tabular}{llccccccccc}
         \toprule
-          & \multicolumn{4}{c}{generalized FBF} &\multicolumn{4}{c}{LRT}\\
-        \cmidrule(r){2-5}\cmidrule(r){6-9}
-        $\nu$ 
-        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
-        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+        && \multicolumn{3}{c}{$\nu = (0,0)^\myT$} &\multicolumn{3}{c}{$\nu = (1,0)^\myT$} &\multicolumn{3}{c}{$\nu = (1,1)^\myT$}\\
+        \cmidrule(r){3-5}\cmidrule(r){6-8}\cmidrule(r){9-11}
+        $n$ &$\xi$ 
+        &  GFBF & WT &  LRT
+        &  GFBF & WT &  LRT
+        &  GFBF & WT &  LRT
         \\ 
         \midrule
-        $(0,0)$ &0.0706&0.8992& 0.9995&1.0000&0.0560&0.8804& 0.9995& 1.0000   \\
-        $(1,1)$ &0.0699&0.8175&0.9984& 1.0000  &0.0611&0.7984&0.9981& 1.0000   \\
-        $(2,2)$ &0.0532&0.6132&0.9843& 0.9999&0.0644&0.6500&0.9881&0.9999 \\
-        $(3,3)$ &0.0492&0.4102&0.9136& 0.9953 & 0.0808 &0.5287& 0.9552& 0.9974  \\
-        $(4,4)$ &0.0548&0.2787 & 0.7759 & 0.9759& 0.0922  & 0.4503 & 0.9042& 0.9916   \\
-        $(5,5)$ &0.0611&0.2174& 0.6228& 0.9102& 0.1077 & 0.4056&  0.8436& 0.9763 \\
+        $50$ 
+        &$0$ (size) &
+        0.0574 & 0.0435 & 0.0570 &
+        0.0632 & 0.0386 & 0.0609&
+        0.0641 & 0.0423 & 0.0603 
+        \\
+        &$0.5$ &
+        0.4082 & 0.3629 & 0.4063 &
+        0.3509 & 0.3016 & 0.3564 &
+        0.3364 & 0.2675 & 0.3226
+        \\
+        &$1$ &
+        0.8863 & 0.8544 & 0.8858 &
+        0.8461 & 0.7975 & 0.8383 &
+        0.8059 & 0.7525 & 0.7981
+        \\
+        &$2$ &
+        0.9997 & 0.9994 & 0.9995 &
+        0.9994 & 0.9969 & 0.9989 &
+        0.9984 & 0.9948 & 0.9981
+        \\
+        &$5$ &
+        1.0000 & 0.9117 & 1.0000 &
+        1.0000 & 0.9047 & 1.0000 &
+        1.0000 & 0.8983 & 0.9999
+        \\
+        &$10$  &
+        1.0000  & 0.4907 & 0.9998 & %0.9980  & 
+        1.0000  & 0.4970 & 0.9998 & %0.9985  &
+        1.0000  & 0.4802 & 0.9997  %0.9982 
+        \\
+        &$20$  &
+        1.0000  & 0.1044 & 0.9996  & 
+        1.0000  & 0.1002 & 0.9996  &
+        1.0000  & 0.0976 & 0.9993 
+        \\
+        \midrule
+        $100$ 
+        &$0$ (size)  &
+        0.0519 & 0.0456 & 0.0508 &
+        0.0540 & 0.0449 & 0.0548 &
+        0.0566 & 0.0458 & 0.0536
+        \\
+        &$0.5$ &
+        0.6661 & 0.6426 & 0.6754 &
+        0.6110 & 0.5806 & 0.5947 &
+        0.5549 & 0.5228 & 0.5514
+        \\
+        &$1$  &
+        0.9940 & 0.9933 & 0.9963 &
+        0.9875 & 0.9838 & 0.9864 &
+        0.9798 & 0.9731 & 0.9783
+        \\
+        &$2$ &
+        1.0000 & 1.0000 & 1.0000 &
+        1.0000 & 1.0000 & 1.0000 &
+        1.0000 & 1.0000 & 1.0000
+        \\
+        &$5$ &
+        1.0000 & 0.9992 & 1.0000 &
+        1.0000 & 0.9997 & 1.0000 &
+        1.0000 & 0.9986 & 1.0000
+        \\
+        &$10$  &
+        1.0000 & 0.9219 & 1.0000 & %0.9998  &
+        1.0000 & 0.9254 & 1.0000 & %0.9997  &
+        1.0000 & 0.9185 & 1.0000  %0.9998  
+        \\
+        &$20$  &
+        1.0000  & 0.5069 & 0.9999  & 
+        1.0000  & 0.5084 & 1.0000  &
+        1.0000  & 0.4974 & 1.0000 
+        \\
         \bottomrule
     \end{tabular}
 \end{table*}
+%\begin{table*}[ht]
+%    \caption{Empirical size and power of the generalized FBF (GFBF), the Wald test (WT) and the LRT for logistic regression model.}
+%    \label{logistic_table1}
+%    \centering
+%    % \small
+%    %\footnotesize
+%    \begin{tabular}{llccccccccc}
+%        \toprule
+%        && \multicolumn{3}{c}{$\nu = (0,0)^\myT$} &\multicolumn{3}{c}{$\nu = (1,0)^\myT$} &\multicolumn{3}{c}{$\nu = (1,1)^\myT$}\\
+%        \cmidrule(r){3-5}\cmidrule(r){6-8}\cmidrule(r){9-11}
+%        $n$ &$\xi$ 
+%        &  GFBF & WT &  LRT
+%        &  GFBF & WT &  LRT
+%        &  GFBF & WT &  LRT
+%        \\ 
+%        \midrule
+%        $50$ 
+%        &$0$ (size) &
+%        0.0574 & 0.0435 & 0.0573 &
+%        0.0632 & 0.0386 & 0.0620&
+%        0.0641 & 0.0423 & 0.0603 
+%        \\
+%        &$0.5$ &
+%        0.4082 & 0.3629 & 0.4094 &
+%        0.3509 & 0.3016 & 0.3462 &
+%        0.3364 & 0.2675 & 0.3288
+%        \\
+%        &$1$ &
+%        0.8863 & 0.8544 & 0.8859 &
+%        0.8461 & 0.7975 & 0.8416 &
+%        0.8059 & 0.7525 & 0.7991
+%        \\
+%        &$2$ &
+%        0.9997 & 0.9994 & 0.9996 &
+%        0.9994 & 0.9969 & 0.9993 &
+%        0.9984 & 0.9948 & 0.9983
+%        \\
+%        &$5$ &
+%        1.0000 & 0.9117 & 1.0000 &
+%        1.0000 & 0.9047 & 1.0000 &
+%        1.0000 & 0.8983 & 1.0000
+%        \\
+%        &$10$  &
+%        1.0000  & 0.4907 & 1.0000 & %0.9980  & 
+%        1.0000  & 0.4970 & 1.0000 & %0.9985  &
+%        1.0000  & 0.4802 & 1.0000  %0.9982 
+%        \\
+%        &$20$  &
+%        1.0000  & 0.1044 & 1.0000  & 
+%        1.0000  & 0.1002 & 1.0000  &
+%        1.0000  & 0.0976 & 1.0000 
+%        \\
+%        \midrule
+%        $100$ 
+%        &$0$ (size)  &
+%        0.0519 & 0.0456 & 0.0536 &
+%        0.0540 & 0.0449 & 0.0547 &
+%        0.0566 & 0.0458 & 0.0563
+%        \\
+%        &$0.5$ &
+%        0.6661 & 0.6426 & 0.6739 &
+%        0.6110 & 0.5806 & 0.6118 &
+%        0.5549 & 0.5228 & 0.5529
+%        \\
+%        &$1$  &
+%        0.9940 & 0.9933 & 0.9946 &
+%        0.9875 & 0.9838 & 0.9874 &
+%        0.9798 & 0.9731 & 0.9791
+%        \\
+%        &$2$ &
+%        1.0000 & 1.0000 & 1.0000 &
+%        1.0000 & 1.0000 & 1.0000 &
+%        1.0000 & 1.0000 & 1.0000
+%        \\
+%        &$5$ &
+%        1.0000 & 0.9992 & 1.0000 &
+%        1.0000 & 0.9997 & 1.0000 &
+%        1.0000 & 0.9986 & 1.0000
+%        \\
+%        &$10$  &
+%        1.0000 & 0.9219 & 1.0000 & %0.9998  &
+%        1.0000 & 0.9254 & 1.0000 & %0.9997  &
+%        1.0000 & 0.9185 & 1.0000  %0.9998  
+%        \\
+%        &$20$  &
+%        1.0000  & 0.5069 & 1.0000  & 
+%        1.0000  & 0.5084 & 1.0000  &
+%        1.0000  & 0.4974 & 1.0000 
+%        \\
+%        \bottomrule
+%    \end{tabular}
+%\end{table*}
+
+%\begin{table*}[ht]
+%    \caption{Empirical size and power of the LRT and the generalized FBF for logistic regression model. $n = 50$.}
+%    \label{logistic_table1}
+%    \centering
+%    \begin{tabular}{ccccccccc}
+%        \toprule
+%          & \multicolumn{4}{c}{generalized FBF} &\multicolumn{4}{c}{LRT}\\
+%        \cmidrule(r){2-5}\cmidrule(r){6-9}
+%        $\nu^\myT$ 
+%        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+%        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+%        \\ 
+%        \midrule
+%        $(0,0)$ &0.0568&0.8826&1.0000&1.0000&0.0559&0.8819&1.0000&1.0000    \\
+%        $(1,1)$ &0.0615&0.8012& & &0.0583&0.7958& &    \\
+%        $(2,2)$ &0.0707&0.6607& & &0.0662&0.6455& &  \\
+%        $(3,3)$ &0.0765&0.5423& & &0.0780&0.5275& &   \\
+%        $(4,4)$ &0.0759&0.4627& & &0.0941&0.4541& &  \\
+%        $(5,5)$ &0.0797&0.3912& & &0.1134&0.4036& &  \\
+%        \bottomrule
+%    \end{tabular}
+%\end{table*}
+%
+%\begin{table*}[ht]
+%    \caption{Empirical size and power of the LRT and the generalized FBF for logistic regression model. $n=100$.}
+%    \label{logistic_table2}
+%    \centering
+%    \begin{tabular}{ccccccccc}
+%        \toprule
+%          & \multicolumn{4}{c}{generalized FBF} &\multicolumn{4}{c}{LRT}\\
+%        \cmidrule(r){2-5}\cmidrule(r){6-9}
+%        $\nu^\myT$ 
+%        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+%        &$\xi= 0$ (size) & $\xi= 1$& $\xi= 2$ & $\xi= 3$ 
+%        \\ 
+%        \midrule
+%        $(0,0)$ & 0.0556 &  & 1.0000 & 1.0000 & 0.0568 &  & 1.0000 & 1.0000 \\
+%        $(1,1)$ & 0.0533 &  & 1.0000 & 1.0000 & 0.0531 &  & 1.0000 & 1.0000 \\ 
+%        $(2,2)$ & 0.0637 &  & 1.0000 & 1.0000 & 0.0578 &  & 1.0000 & 1.0000 \\
+%        $(3,3)$ & 0.0647 &  &        & 1.0000 & 0.0579 &  &  & 1.0000\\
+%        $(4,4)$ & 0.0686 &  &        &        & 0.0613 &  &        &        \\
+%        $(5,5)$ & 0.0760 & & & &0.0683\\
+%        \bottomrule
+%    \end{tabular}
+%\end{table*}
 
 %Note that the MLE does not exist when the data points are completely separated or quasi-completely separated.
 
@@ -1547,7 +1806,8 @@ Hence in simulations, the critical value of the LRT is determined by $2\lambda_n
 The simulation results are listed in Table \ref{normal_table1}.
 It can be seen that the empirical size of the generalized FBF is close to the nominal significant level, although it is a little conservative.
 In comparison, the LRT is too conservative.
-Also, the generalized FBF has consistently better power performance that the LRT.
+Also, the generalized FBF has good power performance.
+%Also, the generalized FBF has consistently better power performance that the LRT.
 \begin{table*}[ht]
     \caption{Empirical size and power of the LRT and the generalized FBF for normal mixture model.}
     \label{normal_table1}
@@ -1582,7 +1842,8 @@ The critical value of the LRT is determined by simulating a Gaussian process as 
 The simulation results are listed in Tables \ref{binomial_table1}-\ref{binomial_table2}.
 It can be seen that the empirical power of the generalized FBF increases as $n$, $k$ or $\omega |\xi - 1/2|$ increases.
 This coincides with the result (ii) of Proposition \ref{mixtureThm_binom}.
-While the generelized FBF has a reasonable performance in terms of the empirical size, its empirical power is consistently higher than the LRT.
+It shows that the generelized FBF has a reasonable performance in terms of both the empirical size and the empirical power.
+%its empirical power is consistently higher than the LRT.
 \begin{table*}[ht]
     \caption{Empirical size and power of the LRT and the generalized FBF for binomial mixture model. $n=50$.}
     \label{binomial_table1}
@@ -1691,7 +1952,6 @@ Thus, the proposed methodology can be recommended when the classical LRT is not 
 
 %It is interesting to apply the proposed methodology to specific complex testing problems.
 %We leave it for future research.
-
 
 %Our work is not purely of theoretical interest.
 %It also has implication on the choice of prior and Bayesian methods.
@@ -3383,7 +3643,7 @@ o_{P_{\theta_0}^n}(1)
 .
 \end{align}
 
-Now we prove the asymptotic normality of $Z_n$
+Now we prove the asymptotic normality of $Z_n$.
 %the multivariate Berry-Esseen bound 
 Note that
 \begin{align*}
@@ -4371,8 +4631,7 @@ This proves the conclusion (ii).
 \end{proof}
 
 
-\section{Asymptotic distribution of the intrinsic Bayes factor}
-In Bayesian literature, several variants of Bayes factor have been proposed to ease the problem of the extreme sensitivity of the Bayes factor to the priors, including the posterior Bayes factor \cite{Aitkin1991Posterior}, the fractional Bayes factor \citep{Fractional1995} and the intrinsic Bayes factor \cite{intrinsicBayesFactor}.
+\section{Asymptotic distribution of the intrinsic Bayes factor}\label{app:intrinsic}
 In Section \ref{sec:wilks}, we have investigate the asymptotic distribution of the posterior Bayes factor and the fractional Bayes factor.
 For completeness, we investigate the asymptotic distribution of the intrinsic Bayes factor in this appendix.
 

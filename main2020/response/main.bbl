@@ -6,17 +6,29 @@ Aerts, M., Claeskens, G., and Hart, J.~D. (2004).
   frequentist properties.
 \newblock {\em The Annals of Statistics}, 32(6):2580--2615.
 
+\bibitem[Albert and Anderson, 1984]{Albert1984On}
+Albert, A. and Anderson, J.~A. (1984).
+\newblock On the existence of maximum likelihood estimates in logistic
+  regression models.
+\newblock {\em Biometrika}, 71(1):1--10.
+
+\bibitem[Anastasiou and Reinert, 2020]{Anastasiou2020Bounds}
+Anastasiou, A. and Reinert, G. (2020).
+\newblock Bounds for the asymptotic distribution of the likelihood ratio.
+\newblock {\em The Annals of Applied Probability}, 30(2):608--643.
+
 \bibitem[{Berger} et~al., 2003]{berger2003approximations}
 {Berger}, J.~O., {Ghosh}, J.~K., and {Mukhopadhyay}, N. (2003).
 \newblock Approximations and consistency of bayes factors as model dimension
   grows.
 \newblock {\em Journal of Statistical Planning and Inference}, 112:241--258.
 
-\bibitem[Berger and Pericchi, 1996]{intrisicBayesFactor}
-Berger, J.~O. and Pericchi, L.~R. (1996).
-\newblock The intrinsic bayes factor for model selection and prediction.
-\newblock {\em Journal of the American Statistical Association},
-  91(433):109--122.
+\bibitem[Berger and Pericchi, 2001]{berger2001Obj}
+Berger, J.~O. and Pericchi, L.~R. (2001).
+\newblock {\em Objective {B}ayesian Methods for Model Selection: Introduction
+  and Comparison}, volume Volume 38 of {\em Lecture Notes--Monograph Series},
+  pages 135--207.
+\newblock Institute of Mathematical Statistics, Beachwood, OH.
 
 \bibitem[Bickel and Chernoff, 1993]{bickel1993}
 Bickel, P.~J. and Chernoff, „. (1993).
@@ -24,6 +36,12 @@ Bickel, P.~J. and Chernoff, „. (1993).
   prototypical non regular problem.
 \newblock In Ghosh, e.~a., editor, {\em Statistics and Probability: A Raghu Raj
   Bahadur Festschcrift}, pages 83--96. Eastern Limited.
+
+\bibitem[Cand{\`{e}}s and Sur, 2020]{Candes2020The_phase}
+Cand{\`{e}}s, E.~J. and Sur, P. (2020).
+\newblock The phase transition for the existence of the maximum likelihood
+  estimate in high-dimensional logistic regression.
+\newblock {\em The Annals of Statistics}, 48(1):27--42.
 
 \bibitem[Chatterjee et~al., 2018]{Chatterjee2017}
 Chatterjee, D., Maitra, T., and Bhattacharya, S. (2018).
@@ -42,10 +60,20 @@ Chernozhukov, V. and Hong, H. (2003).
 \newblock Information-theoretic asymptotics of bayes methods.
 \newblock {\em IEEE Transactions on Information Theory}, 36(3):453--471.
 
+\bibitem[Farrell, 1968]{Farrell1968Towards}
+Farrell, R.~H. (1968).
+\newblock Towards a theory of generalized {B}ayes tests.
+\newblock {\em Annals of Mathematical Statistics}, 39:1--22.
+
 \bibitem[Friel and Wyse, 2012]{Friel2012}
 Friel, N. and Wyse, J. (2012).
 \newblock Estimating the evidence - a review.
 \newblock {\em Statistica Neerlandica}, 66(3):288--308.
+
+\bibitem[Gao et~al., 2020]{Gao2020A}
+Gao, C., van~der Vaart, A.~W., and Zhou, H.~H. (2020).
+\newblock A general framework for bayes structured linear models.
+\newblock {\em Annals of Statistics}, 48(5):2848--2878.
 
 \bibitem[Gelfand and Dey, 1994]{Gelfand1994}
 Gelfand, A.~E. and Dey, D.~K. (1994).
@@ -85,17 +113,22 @@ Liu, X. and Shao, Y. (2004).
   mixture model.
 \newblock {\em Journal of Statistical Planning and Inference}, 123(1):61 -- 81.
 
-\bibitem[Moreno et~al., 1998]{Moreno1998An}
-Moreno, E., Bertolino, F., and Racugno, W. (1998).
-\newblock An intrinsic limiting procedure for model selection and hypotheses
-  testing.
-\newblock {\em Journal of the American Statistical Association},
-  93(444):1451--1460.
-
 \bibitem[Moreno et~al., 2010]{moreno2010}
 Moreno, E., Gir√≥n, F.~J., and Casella, G. (2010).
 \newblock Consistency of objective bayes factors as the model dimension grows.
 \newblock {\em The Annals of Statistics}, 38(4):1937--1952.
+
+\bibitem[{R Core Team}, 2020]{R2020}
+{R Core Team} (2020).
+\newblock {\em R: A Language and Environment for Statistical Computing}.
+\newblock R Foundation for Statistical Computing, Vienna, Austria.
+
+\bibitem[Seabold and Perktold, 2010]{seabold-proc-scipy-2010}
+Seabold, S. and Perktold, J. (2010).
+\newblock {S}tatsmodels: {E}conometric and {S}tatistical {M}odeling with
+  {P}ython.
+\newblock In {S}t\'efan van~der {W}alt and {J}arrod {M}illman, editors, {\em
+  {P}roceedings of the 9th {P}ython in {S}cience {C}onference}, pages 92 -- 96.
 
 \bibitem[Shafer, 1982]{Shafer1982}
 Shafer, G. (1982).
@@ -103,6 +136,19 @@ Shafer, G. (1982).
 \newblock {\em Journal of the American Statistical Association},
   77(378):325--351.
 \newblock With discussion and with a reply by the author.
+
+\bibitem[Sur and Cand{\`{e}}s, 2019]{Sur2019A}
+Sur, P. and Cand{\`{e}}s, E.~J. (2019).
+\newblock A modern maximum-likelihood theory for high-dimensional logistic
+  regression.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  116(29):14516--14525.
+
+\bibitem[Sur et~al., 2019]{Sur2019The}
+Sur, P., Chen, Y., and Cand{\`{e}}s, E.~J. (2019).
+\newblock The likelihood ratio test in high-dimensional logistic regression is
+  asymptotically a rescaled chi-square.
+\newblock {\em Probability Theory and Related Fields}, 175(1-2):487--558.
 
 \bibitem[van Erven and Harremoes, 2014]{Erven2014}
 van Erven, T. and Harremoes, P. (2014).
@@ -120,6 +166,18 @@ Wang, R. and Xu, X. (2020).
 \newblock A bayesian-motivated test for high-dimensional linear regression
   models with fixed design matrix.
 \newblock {\em Statistical Papers}.
+
+\bibitem[Wasserman et~al., 2020]{Wasserman2020}
+Wasserman, L., Ramdas, A., and Balakrishnan, S. (2020).
+\newblock Universal inference.
+\newblock {\em Proceedings of the National Academy of Sciences},
+  117(29):16880--16890.
+
+\bibitem[Zhang and Cheng, 2017]{ZC2017}
+Zhang, X. and Cheng, G. (2017).
+\newblock Simultaneous inference for high-dimensional linear models.
+\newblock {\em Journal of the American Statistical Association},
+  112(518):757--768.
 
 \bibitem[Zhou and Guan, 2018]{zhou2018On}
 Zhou, Q. and Guan, Y. (2018).
