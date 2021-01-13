@@ -3,47 +3,44 @@ Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
 The top-level auxiliary file: main.aux
 The style file: apalike.bst
 Database file #1: mybibfile.bib
-Warning--I didn't find a database entry for "Farrell1968Towards"
-Warning--I didn't find a database entry for "berger2001Obj"
-You've used 21 entries,
+You've used 31 entries,
             1935 wiz_defined-function locations,
-            641 strings with 7410 characters,
-and the built_in function-call counts, 8635 in all, are:
-= -- 871
-> -- 299
-< -- 16
-+ -- 109
-- -- 95
-* -- 766
-:= -- 1472
-add.period$ -- 66
-call.type$ -- 21
-change.case$ -- 152
-chr.to.int$ -- 21
-cite$ -- 21
-duplicate$ -- 303
-empty$ -- 635
-format.name$ -- 140
-if$ -- 1690
+            709 strings with 9144 characters,
+and the built_in function-call counts, 12844 in all, are:
+= -- 1305
+> -- 435
+< -- 27
++ -- 155
+- -- 137
+* -- 1125
+:= -- 2167
+add.period$ -- 96
+call.type$ -- 31
+change.case$ -- 220
+chr.to.int$ -- 31
+cite$ -- 31
+duplicate$ -- 466
+empty$ -- 947
+format.name$ -- 204
+if$ -- 2531
 int.to.chr$ -- 1
 int.to.str$ -- 0
-missing$ -- 21
-newline$ -- 110
-num.names$ -- 65
-pop$ -- 102
+missing$ -- 31
+newline$ -- 160
+num.names$ -- 97
+pop$ -- 157
 preamble$ -- 1
-purify$ -- 152
+purify$ -- 222
 quote$ -- 0
-skip$ -- 234
+skip$ -- 362
 stack$ -- 0
-substring$ -- 762
-swap$ -- 28
-text.length$ -- 1
+substring$ -- 1129
+swap$ -- 59
+text.length$ -- 4
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 126
+type$ -- 184
 warning$ -- 0
-while$ -- 77
+while$ -- 119
 width$ -- 0
-write$ -- 278
-(There were 2 warnings)
+write$ -- 410
